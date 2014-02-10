@@ -1,0 +1,29 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+.wrapper {
+	position:relative;
+	top:100px;
+	width:100%;
+	background-color:#CCC;
+}
+
+#heading {
+	font-size:36px;
+	text-align:center;
+
+}
+
+.Label {
+	position:relative;
+	width:250px;
+	padding:5px 30px 5px 20px;
+}
+
+
+
+#colon {
+	padding-right:10px;
+}
+
