@@ -12,7 +12,7 @@
      
 </head>
 
-<body>
+<body  style="background-color:#09F">
 <form method="post">
 
 
@@ -85,8 +85,17 @@
                             <td ><input type="text" name="c_state" placeholder="Mandatory" /></td>
                             <td class="Label" >PIN Code</td>
                             <td id="colon">:</td>
-                            <td ><input type="tel" name="c_pin" placeholder="Mandatory" /></td>                            
+                            <td ><input type="tel" name="c_pin" placeholder="Mandatory" /></td> 
                         </tr>
+                        <tr>  
+                            <td class="Label" >Phone(Landline)</td>
+                            <td id="colon">:</td>
+                            <td ><input type="tel" name="c_landline" placeholder="DON'T  ADD  011" /></td>
+                            <td class="Label" >Phone(mobile)</td>
+                            <td id="colon">:</td>
+                            <td ><input type="tel" name="c_mobile" /></td>                                                     
+                        </tr>
+                        
                    		<th style="font-size:13px"> a) Permanent Address </th>
                     	<tr>
                     		<td class="Label" >Address </td>
@@ -102,12 +111,24 @@
                             <td ><input type="text" name="p_state" placeholder="Mandatory" /></td>
                             <td class="Label" >PIN Code</td>
                             <td id="colon">:</td>
-                            <td ><input type="tel" name="p_pin" placeholder="Mandatory" /></td>                            
+                            <td ><input type="tel" name="p_pin" placeholder="Mandatory" /></td>
                         </tr>
-                        
+                        <tr>
+                        	<td class="Label" >Phone(Landline)</td>
+                            <td id="colon">:</td>
+                            <td ><input type="tel" name="p_landline" placeholder="DON'T ADD 011" /></td>
+                            <td class="Label" >Phone(mobile)</td>
+                            <td id="colon">:</td>
+                            <td ><input type="tel" name="p_mobile" /></td>
+                        </tr>
+              		</table>          
                 	
     			</div>
         </div>
+        <div class="panel panel-default">
+  			<div class="panel-heading">Complete Academic Record</div>
+  				<div class="panel-body">
+                	<table>
                 </section>
             
 
