@@ -5,11 +5,13 @@
 
 
 <title>Untitled Document</title>
-
+	<!-- CSS Links -->
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.css" media="screen" />
     <link rel="stylesheet" type="text/css" href="css/application.css" media="screen" />
     
-     
+    
+    <!--Javascript Links-->
+    <script type="text/javascript" src="js/smoothscroll.js"></script><!--Smooth Scroll Animation Javascript-->
 </head>
 
 <body  style="background-color:#09F">
@@ -21,9 +23,9 @@
 
 
 <section>
-	<div class="container">
-    	<div class="panel panel-default">
-  			<div class="panel-heading">Peronal Details(as per matriculation certificate)</div>
+		<div class="container">
+    		<div class="panel panel-default">
+  				<div class="panel-heading">Peronal Details(as per matriculation certificate)</div>
   				<div class="panel-body">
     				<table>
     					<input type="hidden" name="hide" value="<?php if(isset($fetchedit)){echo $fetchedit[0];}?>">
@@ -59,15 +61,12 @@
                             <td id="colon">:</td>
                             <td ><div class="btn-group"><button type="button" name="male_candidate" class="btn btn-default">Male</button></div>
                             <div class="btn-group"><button type="button" name="female_Candidate" class="btn btn-default">Female</button></div></td>
-                            
-                            
-                            
-                        </tr>
+                         </tr>
                     </table>
 				</div>
-		</div>
-        <div class="panel panel-default">
-  			<div class="panel-heading">Mailing Address</div>
+			</div>
+        	<div class="panel panel-default">
+  				<div class="panel-heading">Mailing Address</div>
   				<div class="panel-body">
                 	<table>
                    		<th style="font-size:13px"> a) Correspondence Address </th>
@@ -124,12 +123,76 @@
               		</table>          
                 	
     			</div>
-        </div>
-        <div class="panel panel-default">
-  			<div class="panel-heading">Complete Academic Record</div>
+        	</div>
+        	<div class="panel panel-default">
+  				<div class="panel-heading">Education Qualification</div>
   				<div class="panel-body">
                 	<table>
-                </section>
+                    	<tr>
+                        	<td>Degree</td>
+                            <td>Specialization</td>
+                            <td>Board/University</td>
+                            <td>Year Of Completion</td>
+                            <td>Marks in %</td>
+                        </tr>
+                        <tr>
+                        <!-- ADD AJAX CODED ROWS-->
+                        </tr>
+                     </table>
+        	    </div>
+        	</div>
+            <div class="panel panel-default">
+            	<div class="panel-heading">Previous Employment Experience</div>
+                <div class="panel-body">
+                	<table width="100">
+                    	<tr>
+                        	<td colspan="2"> Period From - To</td>
+                            <td> Organisation</td>
+                            <td> Designation</td>
+                            <td colspan="2"> Nature of Responsibility</td>
+                            <td> Salary p.m</td>
+                         </tr>
+                         <tr>
+                         <!--ADD AJAX CODED ROWS-->
+                         </tr>
+                    </table>
+               </div>
+           </div>
+                       <div class="panel panel-default">
+            	<div class="panel-heading">Upload Photos & Signatures</div>
+                <div class="panel-body">
+
+               </div>
+           </div>
+
+           <div class="panel panel-default">
+           <div class="panel-body">
+           		<div class="panel-heading">Declaration : <font size="+1" >I hereby declare that :- </font> </div>
+                <table>
+                <tr>
+                	<td>(1)</td>
+                    <td width="95%"><p align="justify">
+                	All statements made in this application form are true, complete and correct to the best of my knowledge and belief. In the event of any information being found false or incorrect, or ineligibility being detected before or after the interview/appointment/selection, my candidature may be cancelled and action can be taken against me.
+                    </p></td>
+                </tr>
+                <tr>
+                	<td>(2)</td>
+                    <td width="95%"><p align="justify">
+                     I have read the provisions/instructions in advertisement of the Commission carefully and I hereby undertake to abide by them. I fulfill all the conditions of eligiblity regarding age limits, educational qualifications etc, prescribed in the advertisement and other relevant rules and instructions.
+                     </p></td>
+                </tr>
+                <tr>
+                	<td colspan="2">
+                    	<!-- Agree button-->
+                    </td>
+                	
+                            
+
+
+
+
+
+</section>
             
 
 </body>
