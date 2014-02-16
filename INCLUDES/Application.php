@@ -1,8 +1,3 @@
-<?php 
-	include 'variables.php';
-
-?>
-
 
 
 
@@ -14,19 +9,25 @@
 
 <title>Application Form</title>
 	<!-- CSS Links -->
-	<link rel="stylesheet" type="text/css" href="../css/bootstrap.css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="../css/application.css" media="screen" />
+	<link rel="stylesheet" type="text/css" href="../CSS/bootstrap.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="../CSS/application.css" media="screen" />
     
     
     <!--Javascript Links-->
-    <script type="text/javascript" src="../js/smoothscroll.js"></script><!--Smooth Scroll Animation Javascript-->
+    <script type="text/javascript" src="../js/smoothscroll.js"></script><!--Smooth Scroll Animation -->
+    <script type="text/javascript" src="../js/add-del-row.js"></script><!--Add Deleting New Rows -->
 </head>
 
 
 
+<?php 
+	include 'variables.php';
+?>
+
+
 
 <body  style="background-color:#09F">
-<form method="post">
+<form method="POST">
 
 
     
@@ -84,7 +85,7 @@
                     	<tr>
                     		<td class="Label" >Address </td>
                             <td id="colon">:</td>
-                            <td ><input type="text" name="c_address" placeholder="Mandatory" /></td>
+                            <td colspan="4" ><input type="text" name="c_address" placeholder="Mandatory" style="width:100%"/></td>
                         </tr>
                         <tr>
                         	<td class="Label" >City/District </td>
@@ -110,7 +111,7 @@
                     	<tr>
                     		<td class="Label" >Address </td>
                             <td id="colon">:</td>
-                            <td ><input type="text" name="p_address" placeholder="Mandatory" /></td>
+                            <td colspan="4" ><input type="text" name="p_address" placeholder="Mandatory" style="width:100%" /></td>
                         </tr>
                         <tr>
                         	<td class="Label" >City/District </td>
@@ -138,16 +139,29 @@
         	<div class="panel panel-default">
   				<div class="panel-heading">Education Qualification</div>
   				<div class="panel-body">
+                 		<p>
+                        	<td><input type="button" value="Add Row" onclick="addrow('EQ_table')" /></td>
+                            <td><input type="button" value="Delete Last Row" onclick="delrow('EQ_table')" /></td>
+                        </p>
                 	<table>
                     	<tr>
-                        	<td>Degree</td>
-                            <td>Specialization</td>
-                            <td>Board/University</td>
-                            <td>Year Of Completion</td>
-                            <td>Marks in %</td>
+                        	<td width="20%">Degree</td>
+                            <td width="25%">Specialization</td>
+                            <td width="30%">Board/University</td>
+                            <td width="15%">Year Of Completion</td>
+                            <td width="10%">Marks in %</td>
                         </tr>
+                    </table>
+                    <table id="EQ_table">
+                    	<tbody
                         <tr>
-                        <!-- ADD AJAX CODED ROWS-->
+                        <p>
+                        	<td width="20%"><input class="input-group-lg" type="text" name="c_degree[]" style="width:90%"/></td>
+                            <td width="25%"><input class="input-group-lg" type="text" name="c_specialization[]" style="width:90%" /></td>
+							<td width="30%"><input class="input-group-lg" type="text" name="c_university[]" style="width:90%" /></td>
+                            <td width="15%"><input class="input-group-lg" type="number" name="c_year[]" min="1990" max="2015" /></td>
+                            <td width="10%"><input class="input-group-lg" type="number" name="c_marks[]" min="1" max="100" /></td>
+                         </p>
                         </tr>
                      </table>
         	    </div>
@@ -155,15 +169,29 @@
             <div class="panel panel-default">
             	<div class="panel-heading">Previous Employment Experience</div>
                 <div class="panel-body">
+                	<p>
+                    	<td><input type="button" value="Add Row" onclick="addrow('PEE_table')" /></td>
+                    	<td><input type="button" value="Delete Last Row" onclick="delrow('PEE_table')" /></td>
+                    </p>
                 	<table width="100">
                     	<tr>
-                        	<td colspan="2"> Period From - To</td>
-                            <td> Organisation</td>
-                            <td> Designation</td>
-                            <td colspan="2"> Nature of Responsibility</td>
-                            <td> Salary p.m</td>
+                        	<td width=20%> Period From - To</td>
+                            <td width="25%"> Organisation</td>
+                            <td width="20%"> Designation</td>
+                            <td width="25%"> Nature of Responsibility</td>
+                            <td width="10%"> Salary p.m</td>
                          </tr>
+                     </table>
+                     <table id="PEE_table">
+                     <tbody>
                          <tr>
+                         <p>
+                         	<td width="10%"><input class="input-group-lg" type="datetime" name="c_from[]" style="width:90%" /></td>
+                            <td width="10%"><input class="input-group-lg" type="datetime" name="c_to[]" style="width:90%" /></td>
+                            <td width="25%"><input class="input-group-lg" type="text" name="c_desg[]" style="width:90%" />
+                            <td width="20%"><input class="input-group-lg" type="text" name="c_org[]" style="width:90%" /></td>
+                            <td width="25%"><input class="input-group-lg" type="text" name="c_resp[]" style="width:90%" /></td>
+                            <td width="10%"><input class="input-group-lg" type="number" name="c_salary[]" style="width:90%" /></td>
                          <!--ADD AJAX CODED ROWS-->
                          </tr>
                     </table>
