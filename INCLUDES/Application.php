@@ -197,9 +197,38 @@
                     </table>
                </div>
            </div>
-                       <div class="panel panel-default">
+           <div class="panel panel-default">
             	<div class="panel-heading">Upload Photos & Signatures</div>
                 <div class="panel-body">
+                	<form method="post" enctype="multipart/form-data">
+                    	<table>
+                        	<tr>
+                        		<td width="15%">Upload Photo: </td>
+                            	<td width="10%"><input type="file" name="c_photo" id="file"></td>
+                                <td width="80%"></td>
+                            </tr>
+                            <tr>
+                            	<td width="15%">Upload Signature: </td>
+                                <td width="10%"><input type="file" name="c_signature" id="sig" /></td>
+                                <td width="80%"></td>
+                            </tr>
+                            <tr>
+                            	<td width="15%"></td>
+                                <td width="10%"></td>
+                            	<td width="80%"id="rules_upload">* Note: </font></td>
+                            </tr>
+                            <tr>
+                            	<td width="15%"></td>
+                                <td width="10%"></td>
+                                <td width="80%" id="rules_upload">1. If the Upload Photo / Signature is not loaded in appropriate place, your application is liable to get rejected</td>
+                            </tr>
+                            <tr>
+                            	<td width="15%"></td>
+                                <td width="10%"></td>
+                                <td width="80%" id="rules_upload">2. Allowed Photo / Signature Size - 20KB to 100 KB File Type : *.jpeg, *.gif, *.png</td>
+                            </tr>
+                        </table>
+                    </form>
 
                </div>
            </div>

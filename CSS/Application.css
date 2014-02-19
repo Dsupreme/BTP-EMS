@@ -35,3 +35,14 @@ td {
 	text-align:center;
 }
 
+#file {
+	position:relative;
+	float:left;
+}
+
+#rules_upload {
+	text-align:left;
+	color:#F00;
+}
+
+
