@@ -14,6 +14,8 @@
     
     
     <!--Javascript Links-->
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.1.min.js"></script><!--JQuery Online link -->
+    <script type="text/javascript" src="../js/bootstrap.js"></script><!--Bootstrap Javascript -->
     <script type="text/javascript" src="../js/smoothscroll.js"></script><!--Smooth Scroll Animation -->
     <script type="text/javascript" src="../js/add-del-row.js"></script><!--Add Deleting New Rows -->
 </head>
@@ -22,17 +24,13 @@
 
 <?php 
 	include 'variables.php';
+	include 'file-uploader.php';
 ?>
 
 
 
 <body  style="background-color:#09F">
 <form method="POST">
-
-
-    
-
-
 
 <section>
 		<div class="container">
@@ -64,15 +62,18 @@
 					       	<td class="Label">Date of Birth </td>
                             <td id="colon">:</td>
 				    	    <td ><input type="date" name="dob_candidate" placeholder="Mandatory" /></td>
-				        </tr>
-                        <tr>
+				      
                         	<td class="Label">Nationality </td>
                             <td id="colon">:</td>
                             <td ><input type="text" name="nationality_candidate" placeholder="Mandatory" /></td>
                             <td class="Label">Sex</td>
                             <td id="colon">:</td>
-                            <td ><div class="btn-group"><button type="button" name="male_candidate" class="btn btn-default">Male</button></div>
-                            <div class="btn-group"><button type="button" name="female_Candidate" class="btn btn-default">Female</button></div></td>
+                            <td><input type="radio" name="sex"class="radio" value="Male" />
+                                <span style="position:relative;top:-15px; padding-left:5px; padding-right:5px;">Male</span>
+                                <input type="radio" name="sex" class="radio" value="Female" />
+                                <span style="position:relative;top:-15px; padding-left:5px;"> Female</span>
+                            </td>
+                           
                          </tr>
                     </table>
 				</div>
@@ -107,7 +108,7 @@
                             <td ><input type="tel" name="c_mobile" /></td>                                                     
                         </tr>
                         
-                   		<th style="font-size:13px"> a) Permanent Address </th>
+                   		<th style="font-size:13px"> b) Permanent Address </th>
                     	<tr>
                     		<td class="Label" >Address </td>
                             <td id="colon">:</td>
@@ -170,7 +171,7 @@
             	<div class="panel-heading">Previous Employment Experience</div>
                 <div class="panel-body">
                 	<p>
-                    	<td><input type="button" value="Add Row" onclick="addrow('PEE_table')" /></td>
+                    	<td><input type="button" name="b1"  value="Add Row" onclick="addrow('PEE_table')" /></td>
                     	<td><input type="button" value="Delete Last Row" onclick="delrow('PEE_table')" /></td>
                     </p>
                 	<table width="100">
@@ -200,16 +201,16 @@
            <div class="panel panel-default">
             	<div class="panel-heading">Upload Photos & Signatures</div>
                 <div class="panel-body">
-                	<form method="post" enctype="multipart/form-data">
+                	<form method="post" action="file-uploader.php" enctype="multipart/form-data">
                     	<table>
                         	<tr>
                         		<td width="15%">Upload Photo: </td>
-                            	<td width="10%"><input type="file" name="c_photo" id="file"></td>
+                            	<td width="10%"><input type="file" name="c_photo" ></td>
                                 <td width="80%"></td>
                             </tr>
                             <tr>
                             	<td width="15%">Upload Signature: </td>
-                                <td width="10%"><input type="file" name="c_signature" id="sig" /></td>
+                                <td width="10%"><input type="file" name="c_signature" /></td>
                                 <td width="80%"></td>
                             </tr>
                             <tr>
@@ -225,14 +226,13 @@
                             <tr>
                             	<td width="15%"></td>
                                 <td width="10%"></td>
-                                <td width="80%" id="rules_upload">2. Allowed Photo / Signature Size - 20KB to 100 KB File Type : *.jpeg, *.gif, *.png</td>
+                                <td width="80%" id="rules_upload">2. Allowed Photo / Signature Size - 20KB to 100 KB File Type : *.jpeg, *.gif, *.jpg,  *.png</td>
                             </tr>
                         </table>
                     </form>
 
                </div>
            </div>
-
            <div class="panel panel-default">
            <div class="panel-body">
            		<div class="panel-heading">Declaration : <font size="+1" >I hereby declare that :- </font> </div>
@@ -261,7 +261,7 @@
 
 
 </section>
-            
+    </form>        
 
 </body>
 </html>
