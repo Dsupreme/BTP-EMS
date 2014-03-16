@@ -1,0 +1,515 @@
+html{
+font: 62.5% 'CartoGothicStdBook',Arial,sans-serif;}
+
+body{
+	margin: 0;
+	padding: 0;
+	color: rgb(221, 221, 221);
+	text-align: left;
+	font-size: 1.9em;
+	line-height: 1.65em;
+}
+
+#header{
+	margin: 0px;
+	padding: 0px;
+	clear: both;
+	height: 90px;
+	border-bottom: 5px solid black;
+	position: fixed;
+	width: 100%;
+	z-index: 10010;
+	margin-bottom: 150px;
+	top: 0px;
+	background-color:#FFF;
+}
+
+#main_logo{
+	/*background-image: url("pics/logo.png");*/
+	margin:15px;
+	height:20px;
+	width:20px;
+	float:left;
+	display:block;
+	text-indent: 0px;
+	position:absolute;
+}
+
+#HeaderContent_area{
+	/*background-color: red*/
+	padding: 0;
+	/*height: 50px;
+	margin: 10px 0px 0px 0px;*/
+}
+
+#menu{
+	
+	list-style-type:none;
+	margin:0;
+	padding:0;
+	width: 450px;
+	float: right;
+	margin-top: 30px;
+	font-size:18px;
+}
+
+
+.item{
+	margin:0;
+	/*padding:3px 15px;*/
+	padding: 0px 15px 23px;
+	/*background-color:383838;*/
+	/*float:left;*/
+	line-height: 1.65em;
+	font-size: 1.0em;
+	display:inline;
+	color:black;
+	position: relative;
+	text-align: left;
+}
+
+
+/*.item:hover
+{
+color: DDDDDD;
+}
+
+.item:hover .submenu{
+	background-color: FF9C7A;
+	display: block;
+}
+
+.submenu{
+	margin:0;
+	padding:2px;
+	position: absolute;
+	margin-top:2px;
+	margin-left: -15px;
+	list-style-type: none;
+	display:none;
+}
+		
+.submenu-item{
+	margin: 0;
+	padding: 2px;
+}
+.submenu-item:hover{
+	background-color: white
+	
+}
+*/
+#login-wrapper{
+	margin: 0px auto;
+	margin-top: 90px;
+	}
+#signup-wrapper{
+	margin: 0px auto;}
+	
+#login-cover, #signup-cover{
+	background: linear-gradient(  #000000, #B28F00);
+	width:100%;
+	height:300px;
+	border-bottom: solid black;
+	border-bottom-width: 5px;
+	height: 450px;
+	
+}
+
+#login-text, #signup-text{
+	float: left;
+	text-align:left;
+	color: #EDF50F;
+	padding: 20px;
+	width:480px;
+	height:20px;
+	font-family: 'Revalia', cursive;
+}
+
+
+#signup-space{
+	border-bottom: 5px solid black;
+	height: 120px;	
+}
+#login-space{
+	border-bottom: 5px solid black;
+	height: 120px;
+}
+
+/*#login-box{
+	
+	margin: 50px auto;
+	width: 360px;
+	height: 220px;
+	border: 5px solid black;
+	position: relative;
+	bottom: 236px;
+	right: -326px;
+	background-color: white;
+}
+/*
+#login{
+	position:relative;
+	margin: 0 auto;
+	padding: 20px 20px 2px;
+	width: 310px:
+}
+
+#login p.submit{
+	text-align:left;
+}
+
+#login h1{
+	margin: -20px -20px 21px;
+	line-height: 40px;
+	font-size: 18px;
+	font-weight: bold;
+	color: #555;
+	text-align: center;
+	text-shadow: 0 1px white;
+	background: #cde5ef;
+	border-bottom: 1px solid #cfcfcf;
+	/*box-shadow: 0 1px whitesmoke*/
+	/*
+	background-image: linear-gradient(to bottom, whiteffd, #eef2f5);
+}
+#login p{
+	margin: 18px 0 0;
+}
+
+#login p:first-child {
+	margin-top:
+}
+
+input {
+	font-family: "Lucida Grande", Tahoma, Verdana,sans-serif;
+	font-size: 14px;
+}
+#login input[type=email], #login input[type=word] {
+	
+	width: 278px;
+	height: 30px;	
+}
+
+input[type=email], input[type=password] {
+	margin: 5px;
+	padding: 6px;
+	color: #404040;
+	background: white;
+	border: 1px solid;
+	border-color: #c4c4c4 #d1d1d1 #d4d4d4;
+	border-radius: 2px;
+	outline: 5px solid #cde5ef;
+	box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
+}
+
+input[type=email]:focus, input[type=password]:focus{
+	border-color: #7dc9e2;
+	outline-color: #dceefc;
+	outline-offset: 0;
+}
+
+input[type=submit]{
+	padding:0 18px;
+	height: 29px;
+	font-size: 12px;
+	font-weight: bold;
+	color: #527881;
+	
+	background: #cde5ef;
+	border: 1px solid;
+	/*border-radius: 16px;*/
+	/*outline: 0;
+	background-image: linear-gradient(to bottom, #edf5f8, #cde5ef);
+	/*text-shadow: 01px #e3f1f1;
+	box-shadow: inset 0 1px white, 0 1px 2px rgba(0, 0, 0, 0.15);
+}
+*/
+
+.login-form, .signup-form {
+	width: 300px;
+	margin: 0 auto;
+	position: relative;
+
+	background: #f3f3f3;
+	border: 1px solid #fff;
+	border-radius: 5px;
+	
+	box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+	-moz-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+	-webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+
+	bottom: 400px;
+	right: -350px;
+	/*background-color: white;*/
+}
+ .signup-form{
+ bottom: 450px;
+ }
+/*******************
+HEADER
+*******************/
+
+.login-form .login-head , .signup-form .signup-head{
+	padding: 0px 30px 25px 30px;
+}
+
+.login-form .login-head h1, .signup-form .signup-head h1 {
+	font-family: 'Bree Serif', serif;
+	font-weight: 300;
+	font-size: 28px;
+	line-height:34px;
+	color: #414848;
+	text-shadow: 1px 1px 0 rgba(256,256,256,1.0);
+	margin-bottom: 10px;
+}
+
+.login-form .login-head span, .signup-form .signup-head span{
+	font-size: 11px;
+	line-height: 16px;
+	color: #678889;
+	text-shadow: 1px 1px 0 rgba(256,256,256,1.0);
+}
+
+/*******************
+CONTENT
+*******************/
+
+.login-form .login-content, .signup-form .signup-content{
+	padding: 0 30px 25px 30px;
+}
+
+/* Input field */
+.login-form .login-content .input, .signup-form .signup-content .input{
+	margin-top: 5px;
+	width: 215px;
+	padding: 15px 25px;
+	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+	font-weight: 400;
+	font-size: 14px;
+	color: #9d9e9e;
+	text-shadow: 1px 1px 0 rgba(256,256,256,1.0);
+	
+	background: #fff;
+	border: 1px solid #fff;
+	border-radius: 5px;
+	
+	box-shadow: inset 0 1px 3px rgba(0,0,0,0.50);
+	-moz-box-shadow: inset 0 1px 3px rgba(0,0,0,0.50);
+	-webkit-box-shadow: inset 0 1px 3px rgba(0,0,0,0.50);
+}
+
+/* Second input field */
+/*.login-form .login-content .password, .login-form .login-content .pass-icon, .signup-form .signup-content .password, .signup-form .signup-content .pass-icon{
+	margin-top: 25px;
+}*/
+
+.login-form .login-content .input:hover, .signup-form .signup-content .input:hover {
+	background: #dfe9ec;
+	color: #414848;
+}
+
+.login-form .login-content .input:focus, .signup-form .signup-content .input:focus {
+	background: #dfe9ec;
+	color: #414848;
+	
+	box-shadow: inset 0 1px 2px rgba(0,0,0,0.25);
+	-moz-box-shadow: inset 0 1px 2px rgba(0,0,0,0.25);
+	-webkit-box-shadow: inset 0 1px 2px rgba(0,0,0,0.25);
+}
+
+.user-icon, .pass-icon {
+	width: 46px;
+	height: 47px;
+	display: block;
+	position: absolute;
+	left: 0px;
+	padding-right: 2px;
+	z-index: -1;
+	
+	-moz-border-radius-topleft: 5px;
+	-moz-border-radius-bottomleft: 5px;
+	-webkit-border-top-left-radius: 5px;
+	-webkit-border-bottom-left-radius: 5px;
+}
+
+.user-icon {
+	top:153px; /* Positioning fix for slide-in, got lazy to think up of simpler method. */
+	background: rgba(65,72,72,0.75) url(http://www.demo.amitjakhu.com/login-form/images/user-icon.png) no-repeat center;	
+}
+
+.pass-icon {
+	top:201px;
+	background: rgba(65,72,72,0.75) url(http://www.demo.amitjakhu.com/login-form/images/pass-icon.png) no-repeat center;
+}
+
+.login-content input:focus + div{
+	left: -46px;
+}
+
+/* Animation */
+.input, .user-icon, .pass-icon, .button, .register {
+	transition: all 0.5s ease;
+	-moz-transition: all 0.5s ease;
+	-webkit-transition: all 0.5s ease;
+	-o-transition: all 0.5s ease;
+	-ms-transition: all 0.5s ease;
+}
+
+/*******************
+LOGIN/SIGNUP FOOTER
+*******************/
+
+.login-form .login-footer, .signup-form .signup-footer {
+	padding: 15px 30px 20px 30px;
+	overflow: auto;
+	
+	background: #d4dedf;
+	border-top: 1px solid #fff;
+	
+	box-shadow: inset 0 1px 0 rgba(0,0,0,0.15);
+	-moz-box-shadow: inset 0 1px 0 rgba(0,0,0,0.15);
+	-webkit-box-shadow: inset 0 1px 0 rgba(0,0,0,0.15);
+}
+
+/* Login button */
+.login-form .login-footer .button, .signup-form .signup-footer .button{
+	float:right;
+	padding: 11px 25px;
+	
+	font-family: 'Bree Serif', serif;
+	font-weight: 300;
+	font-size: 18px;
+	color: #fff;
+	text-shadow: 0px 1px 0 rgba(0,0,0,0.25);
+	
+	background: #56c2e1;
+	border: 1px solid #46b3d3;
+	border-radius: 5px;
+	cursor: pointer;
+	
+	box-shadow: inset 0 0 2px rgba(256,256,256,0.75);
+	-moz-box-shadow: inset 0 0 2px rgba(256,256,256,0.75);
+	-webkit-box-shadow: inset 0 0 2px rgba(256,256,256,0.75);
+}
+
+.login-form .login-footer .button:hover, .signup-form .signup-footer .button:hover{
+	background: #3f9db8;
+	border: 1px solid rgba(256,256,256,0.75);
+	
+	box-shadow: inset 0 1px 3px rgba(0,0,0,0.5);
+	-moz-box-shadow: inset 0 1px 3px rgba(0,0,0,0.5);
+	-webkit-box-shadow: inset 0 1px 3px rgba(0,0,0,0.5);
+}
+
+.login-form .login-footer .button:focus, .signup-form .signup-footer .button:focus{
+	position: relative;
+	bottom: -1px;
+	
+	background: #56c2e1;
+	
+	box-shadow: inset 0 1px 6px rgba(256,256,256,0.75);
+	-moz-box-shadow: inset 0 1px 6px rgba(256,256,256,0.75);
+	-webkit-box-shadow: inset 0 1px 6px rgba(256,256,256,0.75);
+}
+
+/* Register button */
+.login-form .login-footer .register, .signup-form .signup-footer .register{
+	display: block;
+	float: right;
+	padding: 10px;
+	margin-right: 20px;
+	
+	background: none;
+	border: none;
+	cursor: pointer;
+	
+	font-family: 'Bree Serif', serif;
+	font-weight: 300;
+	font-size: 18px;
+	color: #414848;
+	text-shadow: 0px 1px 0 rgba(256,256,256,0.5);
+}
+
+.login-form .login-footer .register:hover, .signup-form .signup-footer .register:hover{
+	color: #3f9db8;
+}
+
+.login-form .login-footer .register:focus, .signup-form .signup-footer .register:focus{
+	position: relative;
+	bottom: -1px;
+}
+/* **************************************
+MY DESIGN
+
+******************************************* */
+
+button{
+	padding:0 18px;
+	height: 29px;
+	font-size: 12px;
+	font-weight: bold;
+	color: #527881;
+	
+	background: #cde5ef;
+	border: 1px solid;
+	/*border-radius: 16px;*/
+	outline: 0;
+	background-image: linear-gradient(to bottom, #edf5f8, #cde5ef);
+	/*text-shadow: 01px #e3f1f1;
+	box-shadow: inset 0 1px white, 0 1px 2px rgba(0, 0, 0, 0.15);*/
+}
+
+button.centered{
+	text-align: center;
+	margin: 0 auto;
+}
+#footer_container{
+	position: absolute;
+	clear:both;
+	left:0px;
+	right:0;
+	bottom:0;
+
+}
+
+#connect{
+
+}
+
+.SocialLinks{
+	
+}
+
+/*******************
+FOOTER
+*******************/
+
+#footer{
+	text-align : center;
+	/*background-color: #D9D9DC;*/
+	background-color: #666666;
+	padding: 5px;
+	bottom:0px;
+}
+
+.navigation{
+	margin: 15px;
+	padding: 10px;
+}
+
+.buttons{
+	margin: 10px;
+	padding: 10px;
+	font-family: Levenim MT;
+	text-decoration: none;
+	color: #FFFFFF;
+}
+
+.buttons:hover{
+color: yellow;
+}
+
+#copyright_line{
+	font-family: Levenim MT;
+	color: #D9D9DC;
+}

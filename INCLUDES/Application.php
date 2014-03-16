@@ -35,7 +35,7 @@
 <section>
 		<div class="container">
     		<div class="panel panel-default">
-  				<div class="panel-heading">Peronal Details(as per matriculation certificate)</div>
+  				<div class="panel-heading">Personal Details(as per matriculation certificate)</div>
   				<div class="panel-body">
     				<table>
     					<input type="hidden" name="hide" value="<?php if(isset($fetchedit)){echo $fetchedit[0];}?>">
@@ -249,15 +249,32 @@
                      I have read the provisions/instructions in advertisement of the Commission carefully and I hereby undertake to abide by them. I fulfill all the conditions of eligiblity regarding age limits, educational qualifications etc, prescribed in the advertisement and other relevant rules and instructions.
                      </p></td>
                 </tr>
+				
                 <tr>
+					<td><div>
+						
+  <p>
+    <img id="siimage" style="border: 1px solid #000; margin-right: 15px" src="./securimage_show.php?sid=<?php echo md5(uniqid()) ?>" alt="CAPTCHA Image" align="left">
+    <object type="application/x-shockwave-flash" data="./securimage_play.swf?bgcol=#ffffff&amp;icon_file=./images/audio_icon.png&amp;audio_file=./securimage_play.php" height="32" width="32">
+    <param name="movie" value="./securimage_play.swf?bgcol=#ffffff&amp;icon_file=./images/audio_icon.png&amp;audio_file=./securimage_play.php" />
+    </object>
+    &nbsp;
+    <a tabindex="-1" style="border-style: none;" href="#" title="Refresh Image" onclick="document.getElementById('siimage').src = './securimage_show.php?sid=' + Math.random(); this.blur(); return false"><img src="./images/refresh.png" alt="Reload Image" onclick="this.blur()" align="bottom" border="0"></a><br />
+    <strong>Enter Code*:</strong><br />
+    <input type="text" name="ct_captcha" size="12" maxlength="16" />
+  </p>
+  
+
+  
+</div> </td>
+
                 	<td colspan="2">
-                    	<!-- Agree button-->
-                    </td>
-                	
+                    <!--	<img id="submit_button" style="margin:10px; height:30px; width:80px;" src="./images/submit.png" alt="submit button" align="left">
+                    -->
+					<input type="image" name="btn_opentextbox" style="margin:10px; height:30px; width:80px;" src="./images/submit.png" value="Submit" />
+					</td>
+                </tr>	
                             
-
-
-
 
 
 </section>

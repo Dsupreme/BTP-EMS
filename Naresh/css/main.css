@@ -1,0 +1,31 @@
+html, body{
+margin: 0;
+padding: 0;
+}
+#footer{
+	text-align : center;
+	background-color: #666666;
+	padding: 5px;
+}
+
+.navigation{
+	margin: 15px;
+	padding: 10px;
+}
+
+.buttons{
+	margin: 10px;
+	padding: 10px;
+	font-family: Levenim MT;
+	text-decoration: none;
+	color: #FFFFFF;
+}
+
+.buttons:hover{
+color: yellow;
+}
+
+#copyright_line{
+	font-family: Levenim MT;
+	color: #D9D9DC;
+}
