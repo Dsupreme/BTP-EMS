@@ -2,14 +2,14 @@
 
 <html lang="en">
 	<head>
-		<title>THOTDOWN-Welcome Page</title>
+		<title>EMS-Welcome Page</title>
 		<meta charset="UTF-8"/>
-		<meta name="author" content="The Smarter Techies"/>
-		<meta name="keywords" content="design for the new blogging platform"/>
-		<script type="text/javascript" src="js/jquery.js"></script>
-		<script type="text/javascript" src="js/main.js"></script>
+		<meta name="author" content="Naresh and Manmeet"/>
+		<meta name="keywords" content="A new job portal for IIIT-Delhi"/>
+		<script type="text/javascript" src="JS/jquery.js"></script>
+		<script type="text/javascript" src="JS/main.js"></script>
 		<link href='http://fonts.googleapis.com/css?family=Revalia' rel='stylesheet' type='text/css'>
-		<link rel="stylesheet" href="css/main1.css"/>
+		<link rel="stylesheet" href="CSS/main1.css"/>
 		<meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
         <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
@@ -17,12 +17,13 @@
         <meta name="keywords" content="slider, animations, parallax, delayed, easing, jquery, css3, kendo UI" />
         <meta name="author" content="Codrops" />
         <link rel="shortcut icon" href="../favicon.ico"> 
-        <link rel="stylesheet" type="text/css" href="css/demo.css" />
-        <link rel="stylesheet" type="text/css" href="css/style.css" />
-		<script type="text/javascript" src="js/modernizr.custom.28468.js"></script>
+        <link rel="stylesheet" type="text/css" href="CSS/demo.css" />
+<link rel="stylesheet" type="text/css" href="CSS/main1.css" />
+        <link rel="stylesheet" type="text/css" href="CSS/style.css" />
+		<script type="text/javascript" src="JS/modernizr.custom.28468.js"></script>
 		<link href='http://fonts.googleapis.com/css?family=Economica:700,400italic' rel='stylesheet' type='text/css'>
 		<noscript>
-			<link rel="stylesheet" type="text/css" href="css/nojs.css" />
+			<link rel="stylesheet" type="text/css" href="CSS/nojs.css" />
 		</noscript>
 	</head>
 	<body>
@@ -30,7 +31,7 @@
 			<div id="header">
 				<!-- Head section. Can contain the toolbar or the nav bar if needed or can be merged with the main content area-->
 				<div id="main_logo">
-					<img src="pics/logo.png"/>
+					<img src="pics/logo.png" style="width:160px; height:80px;" />
 				</div>
 				<div id="HeaderContent_area">
 					<ul id="menu">
@@ -43,9 +44,9 @@
 			</div>
 			<div id="da-slider" class="da-slider">
 						<div class="da-slide">
-							<h2>THOT-DOWN</h2>
-							<h1>whatever comes to your mind , just Jot Down</h1>
-							<p>This is a blogging platform where you can work more interactively.</p>
+							<h2>EMS </h2>
+							<h1> Job Portal and Employee Management System</h1>
+							<p>This is a portal where you can find different job opportunities in one of the best institutes in India , IIIT-Delhi.</p>
 							<a href="#" class="da-link">More Info</a>
 							<div class="da-img"><img src="1.jpg" style="height:200px; width:300px;" alt="images/1.png"/></div>
 						</div>
@@ -73,7 +74,7 @@
 						</nav>
 					</div>
 			<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-			<script type="text/javascript" src="js/jquery.cslider.js"></script>
+			<script type="text/javascript" src="JS/jquery.cslider.js"></script>
 			<script type="text/javascript">
 				$(function() {
 			
@@ -91,7 +92,7 @@
 				
 				<div id="login-cover">
 					<div id="login-text">
-						<h1> "Got Some Idea, Why Don't You Note It Down."</h1>
+						<h1> "Got some interest in working @ IIIT-Delhi? why don't you apply for a job :D"</h1>
 					</div>
 				</div>
 				
@@ -102,7 +103,7 @@
 					<div id="login-box">
 						<div class="login-head">
 							<h1>Login Form</h1>
-							<span>Fill out the form below to login to my super awesome imaginary control panel.</span>
+							<span>Fill out the form below to login to my super awesome imaginary EMS.</span>
 						</div>
 	
 						<div class="login-content">
@@ -133,7 +134,7 @@
 				
 				<div id="signup-cover">
 					<div id="signup-text">
-						<h1> "Got Some Idea, Why Don't You Note It Down."</h1>
+						<h1> "Got some interest in working @ IIIT-Delhi? why don't you apply for a job :D"</h1>
 					</div>
 				</div>
 				
@@ -143,7 +144,7 @@
 					<div id="signup-box">
 						<div class="signup-head">
 							<h1>Signup Form</h1>
-							<span>Fill out the form below to get your own space to jot your thoughts down</span>
+							<span>Fill out the form below to en-roll yourself for a job !</span>
 						</div>
 	
 						<div class="signup-content">
@@ -160,7 +161,7 @@
 						</div>
 
 					<div class="signup-footer">
-						<input type="submit" name="submit" value="Create My Blog" class="button" />
+						<input type="button" name="submit" value="Apply for Job" class="button" onclick="location.href='./INCLUDES/application.php'"/>
 					</div>
 	
 				</form>
@@ -180,7 +181,7 @@
 						<a class="buttons" href="#" >Licence</a>
 						<a class="buttons" href="#" >Contact</a>
 					</div>
-					<div id = "copyright_line"> Copyright &copy; 2014 The Smarter Techies </div>
+					<div id = "copyright_line"> Copyright &copy; 2014 Employee Management System-IIITD</div>
 				</div>
 			</div>
 		</div>
