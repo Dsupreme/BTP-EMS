@@ -783,7 +783,6 @@ pre code {
 
 .container {
   position:relative;
-  top:80px;
   padding-right: 15px;
   padding-left: 15px;
   margin-right: auto;
@@ -4469,6 +4468,7 @@ textarea.input-group-sm > .input-group-btn > .btn {
   right: 0;
   left: 0;
   z-index: 1030;
+  background-color:#333333;
 }
 
 @media (min-width: 768px) {

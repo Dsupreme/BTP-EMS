@@ -5,6 +5,10 @@
 <title>Untitled Document</title>
 </head>
 <?php
+		if ( ! isset($_FILES["c_photo"])) {
+    		//die('VendorLogo is not set...');
+		}
+		else {
 		$temp = explode(".", $_FILES["c_photo"]["name"]);
 		$extension = end($temp);
 		if ((($_FILES["c_photo"]["type"] == "image/gif") 
@@ -18,11 +22,11 @@
 		  }					
 		}
 		else {
-			echo '<script type="text/javascript">';
+			//echo '<script type="text/javascript">';
 			echo 'alert(" Invalid File")';
-			echo '</script>';
+			//echo '</script>';
 		}
-	
+		}
 ?>
 <body>
 </body>

@@ -15,42 +15,15 @@
 	
 //////////Variable Declaration//////////
 
-	if(isset($_REQUEST['branch_name']))
-	{
-		$branch_name=$_REQUEST['branch_name'];	
-	}
-	if(isset($_REQUEST['branch_address']))
-	{
-		$branch_address=$_REQUEST['branch_address'];	
-	}
-	if(isset($_REQUEST['branch_location']))
-	{
-		$branch_location=$_REQUEST['branch_location'];	
-	}
-	if(isset($_REQUEST['branch_country']))
-	{
-		$branch_country=$_REQUEST['branch_country'];	
-	}	
-	if(isset($_REQUEST['branch_phone_1']))
-	{
-		$branch_phone1=$_REQUEST['branch_phone_1'];	
-	}
-	if(isset($_REQUEST['branch_phone_2']))
-	{
-		$branch_phone2=$_REQUEST['branch_phone_2'];
-	}
-	if(isset($_REQUEST['branch_fax']))
-	{
-		$branch_fax=$_REQUEST['branch_fax'];
-	}
-	if(isset($_REQUEST['branch_email_1']))
-	{
-		$branch_email1=$_REQUEST['branch_email_1'];
-	}
-	if(isset($_REQUEST['branch_email_2']))
-	{
-		$branch_email2=$_REQUEST['branch_email_2'];
-	}
+	if(isset($_REQUEST['branch_name'])) 	{ $branch_name=$_REQUEST['branch_name'];}
+	if(isset($_REQUEST['branch_address']))  { $branch_address=$_REQUEST['branch_address'];}
+	if(isset($_REQUEST['branch_location'])) { $branch_location=$_REQUEST['branch_location'];}
+	if(isset($_REQUEST['branch_country']))	{ $branch_country=$_REQUEST['branch_country'];}	
+	if(isset($_REQUEST['branch_phone_1']))	{ $branch_phone1=$_REQUEST['branch_phone_1'];}
+	if(isset($_REQUEST['branch_phone_2']))	{ $branch_phone2=$_REQUEST['branch_phone_2'];}
+	if(isset($_REQUEST['branch_fax']))		{ $branch_fax=$_REQUEST['branch_fax'];}
+	if(isset($_REQUEST['branch_email_1']))	{ $branch_email1=$_REQUEST['branch_email_1'];}
+	if(isset($_REQUEST['branch_email_2']))	{ $branch_email2=$_REQUEST['branch_email_2'];}
 	
 //////////Page Functionality/////////
 	

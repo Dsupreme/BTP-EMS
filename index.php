@@ -1,36 +1,93 @@
-<?php /* Sample page */ ?>
-
-<html lang="en">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
 	<head>
 		<title>EMS-Welcome Page</title>
-		<meta charset="UTF-8"/>
-		<meta name="author" content="Naresh and Manmeet"/>
-		<meta name="keywords" content="A new job portal for IIIT-Delhi"/>
-		<script type="text/javascript" src="JS/jquery.js"></script>
-		<script type="text/javascript" src="JS/main.js"></script>
-		<link href='http://fonts.googleapis.com/css?family=Revalia' rel='stylesheet' type='text/css'>
-		<link rel="stylesheet" href="CSS/main1.css"/>
-		<meta charset="UTF-8" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
         <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+
+		<meta name="author" content="Naresh and Manmeet"/>
+		<meta name="keywords" content="A new job portal for IIIT-Delhi"/>
+
+
+
         <meta name="description" content="Parallax Content Slider with CSS3 and jQuery" />
         <meta name="keywords" content="slider, animations, parallax, delayed, easing, jquery, css3, kendo UI" />
         <meta name="author" content="Codrops" />
-        <link rel="shortcut icon" href="../favicon.ico"> 
-        <link rel="stylesheet" type="text/css" href="CSS/demo.css" />
-<link rel="stylesheet" type="text/css" href="CSS/main1.css" />
-        <link rel="stylesheet" type="text/css" href="CSS/style.css" />
-		<script type="text/javascript" src="JS/modernizr.custom.28468.js"></script>
+        
+
+
+		<link href='http://fonts.googleapis.com/css?family=Revalia' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="CSS/main1.css"/>
+
+		<link rel="shortcut icon" href="../favicon.ico"> 
+		
+        <!--Javascript Links-->
+        <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.1.min.js"></script><!--JQuery Online link -->
+        <script type="text/javascript" src="JS/modernizr.custom.28468.js"></script>
+        
+       	<!-- CSS Links -->
+		<link rel="stylesheet" type="text/css" href="CSS/bootstrap.css" media="screen" />
+	    <link rel="stylesheet" type="text/css" href="CSS/style.css" />
+        
+        <!--<link rel="stylesheet" type="text/css" href="CSS/demo.css" />-->
+        
+		<link rel="stylesheet" type="text/css" href="CSS/main1.css" />
+        
+		
 		<link href='http://fonts.googleapis.com/css?family=Economica:700,400italic' rel='stylesheet' type='text/css'>
 		<noscript>
 			<link rel="stylesheet" type="text/css" href="CSS/nojs.css" />
 		</noscript>
+        
+        
 	</head>
-	<body>
+    
+	<body data-spy="scroll" data-target=".navbar navbar-fixed-top">
+	    <!--Navigation Bar-->
+		<nav class="navbar navbar-fixed-top" role="navigation">
+			<div class="navbar-inner">
+			<!--<li class="logo"><a><img src="Images/LogoVictor.png" /></a></li>-->
+            	<div class="container">
+            		<div class="navbar-header">
+	            		<!-- Brand and toggle get grouped for better mobile display -->
+                		<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+      						<span class="sr-only">Toggle navigation</span>
+					   	 	<span class="icon-bar"></span>
+					    	<span class="icon-bar"></span>
+			      			<span class="icon-bar"></span>
+		    			</button>
+                		<ul class="nav navbar-nav">
+                		<!-- Header & Brand/Company Name-->
+                			<li class="active"><a class="navbar-brand" href="index.php"><font size="+2"> Employee Management System</font></a></li>
+                		</ul>
+            		</div>
+            		<div class="navbar-collapse collapse">
+          				<ul class="nav navbar-nav navbar-right">
+                    <li><a href="">About Us</a></li>
+                    <li><a href="#">Portfolio</a></li>
+                    <li><a href="Contact.html">Contact Us</a></li>
+                   
+                 	<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Services<b class="caret"></b></a>  
+    					<ul class="dropdown-menu">
+						    <li><a href="#">Web Design</a></li>
+							<li><a href="#">Web development</a></li>
+                            <li class="divider"></li>
+							<li><a href="#">Theme development</a></li>  
+					    </ul>
+                    </li>
+               </ul>
+           </div>
+        </div>     
+	</div>
+</nav>
+
+
 		<div id="container">
-			<div id="header">
+<!--			<div id="header">
 				<!-- Head section. Can contain the toolbar or the nav bar if needed or can be merged with the main content area-->
-				<div id="main_logo">
+				<!--<div id="main_logo">
 					<img src="pics/logo.png" style="width:160px; height:80px;" />
 				</div>
 				<div id="HeaderContent_area">
@@ -40,13 +97,12 @@
 						<li class="item"><span>Events</span></li>
 						<li class="item"><span>Contact Us</span></li>
 					</ul>
-				</div>
+				</div>-->
 			</div>
 			<div id="da-slider" class="da-slider">
 						<div class="da-slide">
-							<h2>EMS </h2>
-							<h1> Job Portal and Employee Management System</h1>
-							<p>This is a portal where you can find different job opportunities in one of the best institutes in India , IIIT-Delhi.</p>
+							<h2> Job Portal & <br />Employee Management System</h2>
+							<!--<p>This is a portal where you can find different job opportunities in one of the best institutes in India , IIIT-Delhi.</p>-->
 							<a href="#" class="da-link">More Info</a>
 							<div class="da-img"><img src="1.jpg" style="height:200px; width:300px;" alt="images/1.png"/></div>
 						</div>
@@ -127,7 +183,7 @@
 			</div>
 			
 			
-			
+<?php /* Sample page */ ?>			
 			<div id="signup-wrapper">
 				<!-- 	wrapper will contain the main article section plus the side bar.
 						So, this in effect wraps the content box and the sidebar. -->
@@ -161,7 +217,7 @@
 						</div>
 
 					<div class="signup-footer">
-						<input type="button" name="submit" value="Apply for Job" class="button" onclick="location.href='./INCLUDES/application.php'"/>
+						<input type="button" name="submit" value="Apply for Job" class="button" onClick="location.href='./INCLUDES/application.php'"/>
 					</div>
 	
 				</form>

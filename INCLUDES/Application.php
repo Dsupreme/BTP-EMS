@@ -1,13 +1,11 @@
-
-
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
+
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
 
-<title>Application Form</title>
+	<title>Application Form</title>
 	<!-- CSS Links -->
 	<link rel="stylesheet" type="text/css" href="../CSS/bootstrap.css" media="screen" />
     <link rel="stylesheet" type="text/css" href="../CSS/application.css" media="screen" />
@@ -25,13 +23,11 @@
 <?php 
 	include 'variables.php';
 	include 'file-uploader.php';
+	require_once('../LIBRARIES/recaptchalib.php');
 ?>
-
-
 
 <body  style="background-color:#09F">
 <form method="POST">
-
 <section>
 		<div class="container">
     		<div class="panel panel-default">
@@ -238,40 +234,38 @@
            		<div class="panel-heading">Declaration : <font size="+1" >I hereby declare that :- </font> </div>
                 <table>
                 <tr>
-                	<td>(1)</td>
-                    <td width="95%"><p align="justify">
-                	All statements made in this application form are true, complete and correct to the best of my knowledge and belief. In the event of any information being found false or incorrect, or ineligibility being detected before or after the interview/appointment/selection, my candidature may be cancelled and action can be taken against me.
+                	<td width="5%">(1)</td>
+                    <td width="95%" colspan="2"><p align="justify">
+                	All statements made in this application form are true, complete and correct to the best of my knowledge and belief. In the event of any information being found false <br />
+                    or incorrect, or ineligibility being detected before or after the interview/appointment/selection, my candidature may be cancelled and action can be taken against me.
                     </p></td>
                 </tr>
                 <tr>
-                	<td>(2)</td>
-                    <td width="95%"><p align="justify">
-                     I have read the provisions/instructions in advertisement of the Commission carefully and I hereby undertake to abide by them. I fulfill all the conditions of eligiblity regarding age limits, educational qualifications etc, prescribed in the advertisement and other relevant rules and instructions.
+                	<td width="5%">(2)</td>
+                    <td width="95%" colspan="2"><p align="justify">
+                     I have read the provisions/instructions in advertisement of the Commission carefully and I hereby undertake to abide by them. I fulfill all the conditions of eligiblity<br />
+ regarding age limits, educational qualifications etc, prescribed in the advertisement and other relevant rules and instructions.
                      </p></td>
                 </tr>
 				
                 <tr>
-					<td><div>
-						
-  <p>
-    <img id="siimage" style="border: 1px solid #000; margin-right: 15px" src="./securimage_show.php?sid=<?php echo md5(uniqid()) ?>" alt="CAPTCHA Image" align="left">
-    <object type="application/x-shockwave-flash" data="./securimage_play.swf?bgcol=#ffffff&amp;icon_file=./images/audio_icon.png&amp;audio_file=./securimage_play.php" height="32" width="32">
-    <param name="movie" value="./securimage_play.swf?bgcol=#ffffff&amp;icon_file=./images/audio_icon.png&amp;audio_file=./securimage_play.php" />
-    </object>
-    &nbsp;
-    <a tabindex="-1" style="border-style: none;" href="#" title="Refresh Image" onclick="document.getElementById('siimage').src = './securimage_show.php?sid=' + Math.random(); this.blur(); return false"><img src="./images/refresh.png" alt="Reload Image" onclick="this.blur()" align="bottom" border="0"></a><br />
-    <strong>Enter Code*:</strong><br />
-    <input type="text" name="ct_captcha" size="12" maxlength="16" />
-  </p>
-  
-
-  
-</div> </td>
+					<td></td>
+                    <td>
+                    	<div>
+                        <form method="POST" action="recaptcha-verify.php">
+						<?php
+							
+							$publickey = "6LdLKvASAAAAAH8kNO-2m5zbkvJNviMjhPP_1Whn"; // you got this from the signup page
+							echo recaptcha_get_html($publickey);
+						?>
+                        </form>
+                        </div>
+                    </td>
 
                 	<td colspan="2">
                     <!--	<img id="submit_button" style="margin:10px; height:30px; width:80px;" src="./images/submit.png" alt="submit button" align="left">
                     -->
-					<input type="image" name="btn_opentextbox" style="margin:10px; height:30px; width:80px;" src="./images/submit.png" value="Submit" />
+					<input type="image" name="btn_opentextbox" style="margin:10px; height:30px; width:80px;" src="../IMAGES/submit.png" value="Submit" />
 					</td>
                 </tr>	
                             
