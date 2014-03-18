@@ -8,35 +8,43 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
 
 		<meta name="author" content="Naresh and Manmeet"/>
-		<meta name="keywords" content="A new job portal for IIIT-Delhi"/>
-
-
-
+		<meta name="description" content="A new Job Portal and Employee Management System for IIIT-Delhi"/>
+        
         <meta name="description" content="Parallax Content Slider with CSS3 and jQuery" />
         <meta name="keywords" content="slider, animations, parallax, delayed, easing, jquery, css3, kendo UI" />
         <meta name="author" content="Codrops" />
+
+		<!--Favicons-->
+		<link rel="shortcut icon" href="images/favicon.png">
+		<link rel="apple-touch-icon" href="">
+		<link rel="apple-touch-icon" sizes="72x72" href="">
+		<link rel="apple-touch-icon" sizes="114x114" href="">
+
+        
         
 
-
+		<!--Fonts-->
+   		<link href='http://fonts.googleapis.com/css?family=Economica:700,400italic' rel='stylesheet' type='text/css'>
 		<link href='http://fonts.googleapis.com/css?family=Revalia' rel='stylesheet' type='text/css'>
-		<link rel="stylesheet" href="CSS/main1.css"/>
-
-		<link rel="shortcut icon" href="../favicon.ico"> 
 		
         <!--Javascript Links-->
         <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.1.min.js"></script><!--JQuery Online link -->
+        <script type="text/javascript" src="JS/jquery.cslider.js"></script><!--Javascript Slider-->
+       	<script type="text/javascript" src="JS/bootstrap.js"></script><!--Bootstrap Javascript-->
+		<script type="text/javascript">$(function() {$('#da-slider').cslider({autoplay	: true,bgincrement	: 450});});</script>
+
         <script type="text/javascript" src="JS/modernizr.custom.28468.js"></script>
         
        	<!-- CSS Links -->
 		<link rel="stylesheet" type="text/css" href="CSS/bootstrap.css" media="screen" />
-	    <link rel="stylesheet" type="text/css" href="CSS/style.css" />
+	    <link rel="stylesheet" type="text/css" href="CSS/index.css" />
+        <link rel="stylesheet" href="CSS/main1.css"/>
         
         <!--<link rel="stylesheet" type="text/css" href="CSS/demo.css" />-->
         
 		<link rel="stylesheet" type="text/css" href="CSS/main1.css" />
         
 		
-		<link href='http://fonts.googleapis.com/css?family=Economica:700,400italic' rel='stylesheet' type='text/css'>
 		<noscript>
 			<link rel="stylesheet" type="text/css" href="CSS/nojs.css" />
 		</noscript>
@@ -45,6 +53,7 @@
 	</head>
     
 	<body data-spy="scroll" data-target=".navbar navbar-fixed-top">
+    <section id="Navigation">
 	    <!--Navigation Bar-->
 		<nav class="navbar navbar-fixed-top" role="navigation">
 			<div class="navbar-inner">
@@ -60,88 +69,62 @@
 		    			</button>
                 		<ul class="nav navbar-nav">
                 		<!-- Header & Brand/Company Name-->
-                			<li class="active"><a class="navbar-brand" href="index.php"><font size="+2"> Employee Management System</font></a></li>
+                			<li class="active"><a class="navbar-brand" href="index.php"><font size="+3" > Employee Management System</font></a></li>
                 		</ul>
             		</div>
             		<div class="navbar-collapse collapse">
           				<ul class="nav navbar-nav navbar-right">
-                    <li><a href="">About Us</a></li>
-                    <li><a href="#">Portfolio</a></li>
-                    <li><a href="Contact.html">Contact Us</a></li>
-                   
-                 	<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Services<b class="caret"></b></a>  
-    					<ul class="dropdown-menu">
-						    <li><a href="#">Web Design</a></li>
-							<li><a href="#">Web development</a></li>
-                            <li class="divider"></li>
-							<li><a href="#">Theme development</a></li>  
-					    </ul>
-                    </li>
-               </ul>
-           </div>
-        </div>     
-	</div>
-</nav>
-
-
-		<div id="container">
-<!--			<div id="header">
-				<!-- Head section. Can contain the toolbar or the nav bar if needed or can be merged with the main content area-->
-				<!--<div id="main_logo">
-					<img src="pics/logo.png" style="width:160px; height:80px;" />
-				</div>
-				<div id="HeaderContent_area">
-					<ul id="menu">
-						<li class="item"><span>Home</span></li>
-						<li class="item"><span>About Us</span></li>
-						<li class="item"><span>Events</span></li>
-						<li class="item"><span>Contact Us</span></li>
-					</ul>
-				</div>-->
+                    		<li><a href="INCLUDES/Application.php"><font size="+1">APPLY NOW</font></a></li>
+                    		<li><a href="#">About Us</font></a></li>
+                  			<li><a href="Contact.html">Contact Us</a></li>
+                   			<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Services<b class="caret"></b></a>  
+    							<ul class="dropdown-menu">
+						    		<li><a href="#">Web Design</a></li>
+									<li><a href="#">Web development</a></li>
+                            		<li class="divider"></li>
+									<li><a href="#">Theme development</a></li>  
+					    		</ul>
+                    		</li>
+               			</ul>
+           			</div>
+        		</div>     
 			</div>
-			<div id="da-slider" class="da-slider">
-						<div class="da-slide">
-							<h2> Job Portal & <br />Employee Management System</h2>
-							<!--<p>This is a portal where you can find different job opportunities in one of the best institutes in India , IIIT-Delhi.</p>-->
-							<a href="#" class="da-link">More Info</a>
-							<div class="da-img"><img src="1.jpg" style="height:200px; width:300px;" alt="images/1.png"/></div>
-						</div>
-						<div class="da-slide">
-							<h2>Easy management</h2>
-							<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
-							<a href="#" class="da-link">Read more</a>
-							<div class="da-img"><img src="images/2.png" alt="image01" /></div>
-						</div>
-						<div class="da-slide">
-							<h2>Revolution</h2>
-							<p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
-							<a href="#" class="da-link">Read more</a>
-							<div class="da-img"><img src="images/3.png" alt="image01" /></div>
-						</div>
-						<div class="da-slide">
-							<h2>Quality Control</h2>
-							<p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.</p>
-							<a href="#" class="da-link">Read more</a>
-							<div class="da-img"><img src="images/4.png" alt="image01" /></div>
-						</div>
-						<nav class="da-arrows">
-							<span class="da-arrows-prev"></span>
-							<span class="da-arrows-next"></span>
-						</nav>
-					</div>
-			<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-			<script type="text/javascript" src="JS/jquery.cslider.js"></script>
-			<script type="text/javascript">
-				$(function() {
-			
-				$('#da-slider').cslider({
-					autoplay	: true,
-					bgincrement	: 450
-				});
-			
-			});
-			</script>
-			
+		</nav>
+	</section>
+    <section id="Javascript-Slider">
+    	<div id="da-slider" class="da-slider">
+        	<div class="da-slide">
+				<h2> Job Portal & <br />Employee Management System</h2>
+				<p> A portal where you can find different job opportunities in one of the best institutes in India , IIIT-Delhi.</p>
+				<a href="#" class="da-link">More Info</a>
+				<div class="da-img"><img src="1.jpg" style="height:200px; width:300px;" alt="images/1.png"/></div>
+			</div>
+			<div class="da-slide">
+				<h2>Easy management</h2>
+				<p>Too much paperwork, too messy ??? <br /><br />A easy-to-use interface to handle applications.</p>
+				<a href="#" class="da-link">Read more</a>
+				<div class="da-img"><img src="images/2.png" alt="image01" /></div>
+			</div>
+			<div class="da-slide">
+				<h2>Revolution</h2>
+				<p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
+				<a href="#" class="da-link">Read more</a>
+				<div class="da-img"><img src="images/3.png" alt="image01" /></div>
+			</div>
+			<div class="da-slide">
+				<h2>Quality Control</h2>
+				<p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.</p>
+				<a href="#" class="da-link">Read more</a>
+				<div class="da-img"><img src="images/4.png" alt="image01" /></div>
+			</div>
+			<nav class="da-arrows">
+				<span class="da-arrows-prev"></span>
+				<span class="da-arrows-next"></span>
+			</nav>
+		</div>
+	</section>
+
+						
 			<div id="login-wrapper">
 				<!-- 	wrapper will contain the main article section plus the side bar.
 						So, this in effect wraps the content box and the sidebar. -->

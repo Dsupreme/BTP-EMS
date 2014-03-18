@@ -1,45 +1,5 @@
-html{
-font: 62.5% 'CartoGothicStdBook',Arial,sans-serif;}
-
-body{
-	margin: 0;
-	padding: 0;
-	color: rgb(221, 221, 221);
-	text-align: left;
-	font-size: 1.9em;
-	line-height: 1.65em;
-}
-
-#header{
-	margin: 0px;
-	padding: 0px;
-	clear: both;
-	height: 90px;
-	border-bottom: 5px solid black;
-	position: fixed;
-	width: 100%;
-	z-index: 10010;
-	margin-bottom: 150px;
-	top: 0px;
-	background-color:#FFF;
-}
-
-#main_logo{
-	/*background-image: url("pics/logo.png");*/
-	margin:15px;
-	height:20px;
-	width:20px;
-	float:left;
-	display:block;
-	text-indent: 0px;
-	position:absolute;
-}
-
-#HeaderContent_area{
-	/*background-color: red*/
-	padding: 0;
-	/*height: 50px;
-	margin: 10px 0px 0px 0px;*/
+html {
+font: 62.5% 'CartoGothicStdBook',Arial,sans-serif;
 }
 
 #menu{
