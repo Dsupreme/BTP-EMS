@@ -326,7 +326,7 @@ a {
 
 a:hover,
 a:focus {
-  color: #808080;
+  color: #FFF;
   text-decoration: underline;
 }
 
@@ -4127,7 +4127,6 @@ textarea.input-group-sm > .input-group-btn > .btn {
 .nav .open > a,
 .nav .open > a:hover,
 .nav .open > a:focus {
-  background-color: #eeeeee;
   border-color: #428bca;
 }
 
@@ -5102,10 +5101,10 @@ textarea.input-group-sm > .input-group-btn > .btn {
 .label {
   display: inline;
   padding: .2em .6em .3em;
-  font-size: 75%;
+  font-size: 85%;
   font-weight: bold;
   line-height: 1;
-  color: #ffffff;
+  color: #3fada8;
   text-align: center;
   white-space: nowrap;
   vertical-align: baseline;

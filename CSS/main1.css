@@ -58,12 +58,19 @@ color: DDDDDD;
 	
 }
 */
+#login-signup {
+		position:relative;
+		top:150px;
+}
 #login-wrapper{
+	width: 80%;
+	right: 0px;
 	margin: 0px auto;
-	margin-top: 90px;
+	position: relative;
 	}
 #signup-wrapper{
-	margin: 0px auto;}
+	margin: 0px auto;
+}
 	
 #login-cover, #signup-cover{
 	background: linear-gradient(  #000000, #B28F00);
@@ -186,7 +193,7 @@ input[type=submit]{
 */
 
 .login-form, .signup-form {
-	width: 300px;
+	width: 400px;
 	margin: 0 auto;
 	position: relative;
 
@@ -197,9 +204,8 @@ input[type=submit]{
 	box-shadow: 0 1px 3px rgba(0,0,0,0.5);
 	-moz-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
 	-webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
-
-	bottom: 400px;
-	right: -350px;
+	bottom:100px;
+ 	
 	/*background-color: white;*/
 }
  .signup-form{
@@ -238,7 +244,7 @@ CONTENT
 	padding: 0 30px 25px 30px;
 }
 
-/* Input field */
+/* Input field 
 .login-form .login-content .input, .signup-form .signup-content .input{
 	margin-top: 5px;
 	width: 215px;

@@ -26,7 +26,7 @@
 	require_once('../LIBRARIES/recaptchalib.php');
 ?>
 
-<body  style="background-color:#09F">
+<body  style="background-color:#808080">
 <!--Navigation Bar-->
 		<nav class="navbar navbar-fixed-top" role="navigation">
 			<div class="navbar-inner">

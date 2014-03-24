@@ -39,6 +39,7 @@
 		<link rel="stylesheet" type="text/css" href="CSS/bootstrap.css" media="screen" />
 	    <link rel="stylesheet" type="text/css" href="CSS/index.css" />
         <link rel="stylesheet" href="CSS/main1.css"/>
+        <link rel="stylesheet" href="CSS/animate-custom.css" />
         
         <!--<link rel="stylesheet" type="text/css" href="CSS/demo.css" />-->
         
@@ -123,22 +124,54 @@
 			</nav>
 		</div>
 	</section>
-
-						
-			<div id="login-wrapper">
-				<!-- 	wrapper will contain the main article section plus the side bar.
-						So, this in effect wraps the content box and the sidebar. -->
+    <section id="login-signup">
+		<div id="login-wrapper">
+			<div id="" class="animate form">
+            	<form  class="login-form" action="" autocomplete="on">
+                	<div class="login-head">
+						<h1>Login Form</h1>
+						<span>Fill out the form below to login to EMS.</span>
+					</div>
+                    <table>
+                    	<tr>
+                        	<td><label class="label" data-icon="u" > Your email or username </label></td>
+                            <td><input class="input" name="username" required type="text" placeholder="myusername or mymail@mail.com"/></td>
+                         </tr>
+                        <tr>
+                        	<td><label class="label" data-icon="p"> Your password </label></td>
+                            <td><input class="input" name="password" required type="password" placeholder="eg. X8df!90EO" /></td>
+                        </tr>
+                    </table>
+                    <p class="keeplogin"> 
+									<input type="checkbox" name="loginkeeping" id="loginkeeping" value="loginkeeping" /> 
+									<label for="loginkeeping">Keep me logged in</label>
+								</p>
+                                <p class="login button"> 
+                                    <input type="submit" value="Login" /> 
+								</p>
+                                <p class="change_link">
+									Not a member yet ?
+									<a href="#toregister" class="to_register">Join us</a>
+								</p>
+                            </form>
+               </div>
+            	
+            	
+            		<!--	
+                 	wrapper will contain the main article section plus the side bar.
+						So, this in effect wraps the content box and the sidebar. 
 				
 				<div id="login-cover">
 					<div id="login-text">
 						<h1> "Got some interest in working @ IIIT-Delhi? why don't you apply for a job :D"</h1>
 					</div>
-				</div>
+				</div>-->
+		</div>	
+                
 				
-				
-				<div id="login-space">
+				<!--<div id="login-space">
 				<!-- the sign in box -->
-				<form name ="login-form" class="login-form" action="" method="post">
+				<!--<form name ="login-form" class="login-form" action="" method="post">
 					<div id="login-box">
 						<div class="login-head">
 							<h1>Login Form</h1>
@@ -148,9 +181,9 @@
 						<div class="login-content">
 							<input name="username" type="text" class="input username" placeholder="Username" />
 							<!-- <div class="user-icon"></div> -->
-							<input name="password" type="password" class="input password" placeholder="Password" />
+					<!--		<input name="password" type="password" class="input password" placeholder="Password" />
 							<!-- <div class="pass-icon"></div> -->		
-						</div>
+						<!--</div>
 
 					<div class="login-footer">
 						<input type="submit" name="submit" value="Login" class="button" />
@@ -163,7 +196,7 @@
 
 					</div>
 				
-			</div>
+			</div>-->
 			
 			
 <?php /* Sample page */ ?>			
