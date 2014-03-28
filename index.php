@@ -39,7 +39,7 @@
 		<link rel="stylesheet" type="text/css" href="CSS/bootstrap.css" media="screen" />
 	    <link rel="stylesheet" type="text/css" href="CSS/index.css" />
         <link rel="stylesheet" href="CSS/main1.css"/>
-        <link rel="stylesheet" href="CSS/animate-custom.css" />
+        <!--<link rel="stylesheet" href="CSS/animate-custom.css" />
         
         <!--<link rel="stylesheet" type="text/css" href="CSS/demo.css" />-->
         
@@ -126,29 +126,39 @@
 	</section>
     <section id="login-signup">
 		<div id="login-wrapper">
-			<div id="" class="animate form">
+			<div >
             	<form  class="login-form" action="" autocomplete="on">
                 	<div class="login-head">
 						<h1>Login Form</h1>
 						<span>Fill out the form below to login to EMS.</span>
 					</div>
-                    <table>
+                    <table width="100%">
                     	<tr>
-                        	<td><label class="label" data-icon="u" > Your email or username </label></td>
-                            <td><input class="input" name="username" required type="text" placeholder="myusername or mymail@mail.com"/></td>
+                        	<td width="30%"><label class="label" data-icon="u" > Your email or username </label></td>
+                            <td width="70%"><input type="text" class="input" name="username" style="width:95%" placeholder="myusername or mymail@mail.com"/></td>
                          </tr>
                         <tr>
                         	<td><label class="label" data-icon="p"> Your password </label></td>
-                            <td><input class="input" name="password" required type="password" placeholder="eg. X8df!90EO" /></td>
+                            <td><input type="password" class="input" name="password" style="width:95%" placeholder="eg. X8df!90EO" /></td>
+                        </tr>
+                        <tr>
+                        	<td><label class="label">Keep me logged in</label></td>
+                            <td><input type="checkbox" class="input" name="keeploggedin" /> </td>
+                        </tr>
+                        <tr>
+                        	<td><input type="submit" value="Login" /></td>
                         </tr>
                     </table>
-                    <p class="keeplogin"> 
-									<input type="checkbox" name="loginkeeping" id="loginkeeping" value="loginkeeping" /> 
-									<label for="loginkeeping">Keep me logged in</label>
-								</p>
-                                <p class="login button"> 
-                                    <input type="submit" value="Login" /> 
-								</p>
+               </form>
+        	</div>
+     	</div>
+     </section>
+
+						
+					</p>
+                    <p class="login button"> 
+                        
+					</p>
                                 <p class="change_link">
 									Not a member yet ?
 									<a href="#toregister" class="to_register">Join us</a>

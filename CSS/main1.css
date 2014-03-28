@@ -60,10 +60,10 @@ color: DDDDDD;
 */
 #login-signup {
 		position:relative;
-		top:150px;
+		top:50px;
+		margin-bottom:100px;
 }
 #login-wrapper{
-	width: 80%;
 	right: 0px;
 	margin: 0px auto;
 	position: relative;
@@ -204,7 +204,6 @@ input[type=submit]{
 	box-shadow: 0 1px 3px rgba(0,0,0,0.5);
 	-moz-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
 	-webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
-	bottom:100px;
  	
 	/*background-color: white;*/
 }
