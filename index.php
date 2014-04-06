@@ -29,27 +29,19 @@
 		
         <!--Javascript Links-->
         <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.1.min.js"></script><!--JQuery Online link -->
-        <script type="text/javascript" src="JS/jquery.cslider.js"></script><!--Javascript Slider-->
+<!--        <script type="text/javascript" src="JS/jquery.cslider.js"></script><!--Javascript Slider-->
        	<script type="text/javascript" src="JS/bootstrap.js"></script><!--Bootstrap Javascript-->
-		<script type="text/javascript">$(function() {$('#da-slider').cslider({autoplay	: true,bgincrement	: 450});});</script>
-
-        <script type="text/javascript" src="JS/modernizr.custom.28468.js"></script>
-        
-       	<!-- CSS Links -->
+		<script type="text/javascript" src="JS/MetroJs.js"></script>
+       	
+        <!-- CSS Links -->
 		<link rel="stylesheet" type="text/css" href="CSS/bootstrap.css" media="screen" />
-	    <link rel="stylesheet" type="text/css" href="CSS/index.css" />
-        <link rel="stylesheet" href="CSS/main1.css"/>
-        <!--<link rel="stylesheet" href="CSS/animate-custom.css" />
+        <link rel="stylesheet" type="text/css" href="CSS/MetroJs.css" media="screen" />
+        <link rel="stylesheet" type="text/css" href="CSS/index.css" media="screen" />
+        <link rel="stylesheet" type="text/css" href="CSS/animate-custom.css" media="screen" />
         
-        <!--<link rel="stylesheet" type="text/css" href="CSS/demo.css" />-->
         
-		<link rel="stylesheet" type="text/css" href="CSS/main1.css" />
-        
-		
-		<noscript>
-			<link rel="stylesheet" type="text/css" href="CSS/nojs.css" />
-		</noscript>
-        
+
+
         
 	</head>
     
@@ -70,7 +62,7 @@
 		    			</button>
                 		<ul class="nav navbar-nav">
                 		<!-- Header & Brand/Company Name-->
-                			<li class="active"><a class="navbar-brand" href="index.php"><font size="+3" > Employee Management System</font></a></li>
+                			<li class="active"><a class="navbar-brand" href="index.php"><font size="+3"> Employee Management System</font></a></li>
                 		</ul>
             		</div>
             		<div class="navbar-collapse collapse">
@@ -92,180 +84,78 @@
 			</div>
 		</nav>
 	</section>
-    <section id="Javascript-Slider">
-    	<div id="da-slider" class="da-slider">
-        	<div class="da-slide">
-				<h2> Job Portal & <br />Employee Management System</h2>
-				<p> A portal where you can find different job opportunities in one of the best institutes in India , IIIT-Delhi.</p>
-				<a href="#" class="da-link">More Info</a>
-				<div class="da-img"><img src="1.jpg" style="height:200px; width:300px;" alt="images/1.png"/></div>
-			</div>
-			<div class="da-slide">
-				<h2>Easy management</h2>
-				<p>Too much paperwork, too messy ??? <br /><br />A easy-to-use interface to handle applications.</p>
-				<a href="#" class="da-link">Read more</a>
-				<div class="da-img"><img src="images/2.png" alt="image01" /></div>
-			</div>
-			<div class="da-slide">
-				<h2>Revolution</h2>
-				<p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
-				<a href="#" class="da-link">Read more</a>
-				<div class="da-img"><img src="images/3.png" alt="image01" /></div>
-			</div>
-			<div class="da-slide">
-				<h2>Quality Control</h2>
-				<p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.</p>
-				<a href="#" class="da-link">Read more</a>
-				<div class="da-img"><img src="images/4.png" alt="image01" /></div>
-			</div>
-			<nav class="da-arrows">
-				<span class="da-arrows-prev"></span>
-				<span class="da-arrows-next"></span>
-			</nav>
-		</div>
-	</section>
-    <section id="login-signup">
-		<div id="login-wrapper">
-			<div >
-            	<form  class="login-form" action="" autocomplete="on">
-                	<div class="login-head">
-						<h1>Login Form</h1>
-						<span>Fill out the form below to login to EMS.</span>
-					</div>
-                    <table width="100%">
-                    	<tr>
-                        	<td width="30%"><label class="label" data-icon="u" > Your email or username </label></td>
-                            <td width="70%"><input type="text" class="input" name="username" style="width:95%" placeholder="myusername or mymail@mail.com"/></td>
-                         </tr>
-                        <tr>
-                        	<td><label class="label" data-icon="p"> Your password </label></td>
-                            <td><input type="password" class="input" name="password" style="width:95%" placeholder="eg. X8df!90EO" /></td>
-                        </tr>
-                        <tr>
-                        	<td><label class="label">Keep me logged in</label></td>
-                            <td><input type="checkbox" class="input" name="keeploggedin" /> </td>
-                        </tr>
-                        <tr>
-                        	<td><input type="submit" value="Login" /></td>
-                        </tr>
-                    </table>
-               </form>
-        	</div>
-     	</div>
-     </section>
-
-						
-					</p>
-                    <p class="login button"> 
-                        
-					</p>
+    
+	<div class="live-tile">
+    <div>front</div>
+    <div>back</div>
+</div>
+<!--<script type="text/javascript">
+    $(document).ready(function(){
+        $(".live-tile").liveTile();
+    });
+</script>-->    
+	<section>				
+    	<div id="container_demo" >
+        <!-- hidden anchor to stop jump http://www.css3create.com/Astuce-Empecher-le-scroll-avec-l-utilisation-de-target#wrap4  -->
+        <a class="hiddenanchor" id="toregister"></a>
+        <a class="hiddenanchor" id="tologin"></a>
+        <div id="wrapper">
+        	<div id="login" class="animate form">
+                            <form  action="" autocomplete="on"> 
+                                <h1>LOGIN</h1> 
+                                <p> 
+                                    <label for="username" class="uname" > Email or Username </label>
+                                    <input id="username" name="username" type="text" placeholder="myusername or mymail@mail.com"/>
+                                </p>
+                                <p> 
+                                    <label for="password" class="youpasswd"> Enter password </label>
+                                    <input id="password" name="password" required type="password" placeholder="eg. X8df!90EO" /> 
+                                </p>
+                                <p class="keeplogin"> 
+									<input type="checkbox" name="loginkeeping" id="loginkeeping" value="loginkeeping" /> 
+									<label for="loginkeeping">Keep me logged in</label>
+								</p>
+                                <p class="login button"> 
+                                    <input type="submit" value="Login" /> 
+								</p>
                                 <p class="change_link">
 									Not a member yet ?
 									<a href="#toregister" class="to_register">Join us</a>
 								</p>
                             </form>
-               </div>
-            	
-            	
-            		<!--	
-                 	wrapper will contain the main article section plus the side bar.
-						So, this in effect wraps the content box and the sidebar. 
-				
-				<div id="login-cover">
-					<div id="login-text">
-						<h1> "Got some interest in working @ IIIT-Delhi? why don't you apply for a job :D"</h1>
-					</div>
-				</div>-->
-		</div>	
-                
-				
-				<!--<div id="login-space">
-				<!-- the sign in box -->
-				<!--<form name ="login-form" class="login-form" action="" method="post">
-					<div id="login-box">
-						<div class="login-head">
-							<h1>Login Form</h1>
-							<span>Fill out the form below to login to my super awesome imaginary EMS.</span>
-						</div>
-	
-						<div class="login-content">
-							<input name="username" type="text" class="input username" placeholder="Username" />
-							<!-- <div class="user-icon"></div> -->
-					<!--		<input name="password" type="password" class="input password" placeholder="Password" />
-							<!-- <div class="pass-icon"></div> -->		
-						<!--</div>
+                        </div>
 
-					<div class="login-footer">
-						<input type="submit" name="submit" value="Login" class="button" />
-						<input type="submit" name="submit" value="Register" class="register" />
-					</div>
-				</form>
-
-				</div>
-				<div class="gradient"></div>
-
-					</div>
-				
-			</div>-->
-			
-			
-<?php /* Sample page */ ?>			
-			<div id="signup-wrapper">
-				<!-- 	wrapper will contain the main article section plus the side bar.
-						So, this in effect wraps the content box and the sidebar. -->
-				
-				<div id="signup-cover">
-					<div id="signup-text">
-						<h1> "Got some interest in working @ IIIT-Delhi? why don't you apply for a job :D"</h1>
-					</div>
-				</div>
-				
-				<div id="signup-space">
-				<!-- the sign in box -->
-				<form name ="signup-form" class="signup-form" action="" method="post">
-					<div id="signup-box">
-						<div class="signup-head">
-							<h1>Signup Form</h1>
-							<span>Fill out the form below to en-roll yourself for a job !</span>
-						</div>
-	
-						<div class="signup-content">
-							<input name="firstname" type="text" class="input firstname" placeholder="FirstName" />
-							<!-- <div class="user-icon"></div> -->
-							<input name="lastname" type="text" class="input lastname" placeholder="LastName" />
-							<input name="email id" type="email" class="input email" placeholder="Email ID" />
-							<input name="username" type="text" class="input username" placeholder="UserName" />
-							<input name="password" type="password" class="input password" placeholder="Password" />
-							<input name="confirm-password" type="password" class="input password" placeholder="Confirm Password" />
-							<!-- <div class="pass-icon"></div> -->
-							
-
-						</div>
-
-					<div class="signup-footer">
-						<input type="button" name="submit" value="Apply for Job" class="button" onClick="location.href='./INCLUDES/application.php'"/>
-					</div>
-	
-				</form>
-
-				</div>
-				<div class="gradient"></div>
-
-					</div>
-				
-			</div>
-			<div id="footer">
-				<div class="container" >
-					<div class="navigation">
-						<a class="buttons" href="#">Help</a>
-						<a class="buttons" href="#" >Terms</a>
-						<a class="buttons" href="#" >About Us</a>
-						<a class="buttons" href="#" >Licence</a>
-						<a class="buttons" href="#" >Contact</a>
-					</div>
-					<div id = "copyright_line"> Copyright &copy; 2014 Employee Management System-IIITD</div>
-				</div>
-			</div>
-		</div>
+                        <div id="register" class="animate form">
+                            <form  action="" autocomplete="on"> 
+                                <h1>SIGNUP</h1> 
+                                <p> 
+                                    <label for="usernamesignup" class="uname">Your username</label>
+                                    <input id="usernamesignup" name="usernamesignup" type="text" placeholder="mysuperusername690" />
+                                </p>
+                                <p> 
+                                    <label for="emailsignup" class="youmail"> Your email</label>
+                                    <input id="emailsignup" name="emailsignup" required type="email" placeholder="mysupermail@mail.com"/> 
+                                </p>
+                                <p> 
+                                    <label for="passwordsignup" class="youpasswd">Your password </label>
+                                    <input id="passwordsignup" name="passwordsignup" required type="password" placeholder="eg. X8df!90EO"/>
+                                </p>
+                                <p> 
+                                    <label for="passwordsignup_confirm" class="youpasswd">Please confirm your password </label>
+                                    <input id="passwordsignup_confirm" name="passwordsignup_confirm" required type="password" placeholder="eg. X8df!90EO"/>
+                                </p>
+                                <p class="signin button"> 
+									<input type="submit" value="Sign up"/> 
+								</p>
+                                <p class="change_link">  
+									Already a member ?
+									<a href="#tologin" class="to_register"> Go and log in </a>
+								</p>
+                            </form>
+                        </div>
+						
+                    </div>
+                </div>  
+            </section>
 	</body>
 </html>
