@@ -352,3 +352,26 @@ p.change_link{
 	height: 90px;
 	background: transparent;
 }
+
+#MetroSlider1 {
+	position:relative;
+	top:50px;
+}
+
+#MetroSlider2 {
+	position:relative;
+	top:50px;
+	left:350px;
+}
+#MetroSlider3 {
+	position:relative;
+	top:50px;
+}
+#MetroSlider4 {
+	position:relative;
+	top:50px;
+}
+#MetroSlider5 {
+	position:relative;
+	top:50px;
+}	

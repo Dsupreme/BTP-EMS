@@ -3,14 +3,14 @@
 .list-tile,
 .copy-tile,
 .tile-strip .flip-list > li {
-  height: 150px;
-  margin: 5px;
+  height: 130px;
+  margin: 0px;
   outline: 1px solid transparent;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   padding: 0px;
-  width: 150px;
+  width: 130px;
 }
 .live-tile.half-tile,
 .list-tile.half-tile,
@@ -987,7 +987,7 @@ a.live-tile .metroExtraSmall:link {
 .blue .live-tile > .slide-front,
 .blue .list-tile > div,
 .blue .flip-list > li > div {
-  background-color: #1ba1e2;
+  background-color: #808080;
 }
 .blue .accentColor,
 .blue .accentHover:hover,
@@ -998,22 +998,22 @@ a.live-tile .metroExtraSmall:link {
 .blue a.accentLink,
 .blue a.accentLink:hover,
 .blue a.accentLink:visited {
-  color: #1ba1e2;
+  color: #808080;
 }
 .blue .accentBorder {
-  border-color: #1ba1e2;
+  border-color: #808080;
 }
 .blue .accentBorderBottom {
-  border-bottom-color: #1ba1e2;
+  border-bottom-color: #808080;
 }
 .blue .accentBorderLeft {
-  border-left-color: #1ba1e2;
+  border-left-color: #808080;
 }
 .blue .accentBorderRight {
-  border-right-color: #1ba1e2;
+  border-right-color: #808080;
 }
 .blue .accentBorderTop {
-  border-top-color: #1ba1e2;
+  border-top-color: #808080;
 }
 .brown .accent,
 .brown .accentBg,
@@ -2122,7 +2122,7 @@ html body .blue.slide-front.accent,
 html body .blue.slide-back.accent,
 html body .blue.flip-front.accent,
 html body .blue.flip-back.accent {
-  background-color: #1ba1e2;
+  background-color: #808080;
 }
 html body .blue.accentColor,
 html body .blue.accentHover:hover,
@@ -2133,22 +2133,22 @@ html body .blue.accentLink a:visited,
 a.accentLinkhtml body .blue,
 a.accentLinkhtml body .blue:hover,
 a.accentLinkhtml body .blue:visited {
-  color: #1ba1e2;
+  color: #808080;
 }
 html body .blue.accentBorder {
-  border-color: #1ba1e2;
+  border-color: #808080;
 }
 html body .blue.accentBorderBottom {
-  border-bottom-color: #1ba1e2;
+  border-bottom-color: #808080;
 }
 html body .blue.accentBorderLeft {
-  border-left-color: #1ba1e2;
+  border-left-color: #808080;
 }
 html body .blue.accentBorderRight {
-  border-right-color: #1ba1e2;
+  border-right-color: #808080;
 }
 html body .blue.accentBorderTop {
-  border-top-color: #1ba1e2;
+  border-top-color: #808080;
 }
 html body .brown.accent,
 html body .brown.live-tile > .accent,
