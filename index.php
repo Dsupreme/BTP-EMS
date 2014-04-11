@@ -85,145 +85,282 @@
 		</nav>
 	</section>
     
+    <!-- SECTION 1 SLIDER -->
     <section id="MetroSlider1">
-    	<div class="tiles blue tile-group ten-wide">
-    	<!-- Sliding Tile that shows 100% of the back tile every 3 seconds -->
+    	<div class="tiles blue tile-group nine-wide">
+    		<div class="live-tile" data-speed="750" data-delay="5000">
+        		<div><img class="full" src="IMAGES/iiitd/image1.png" alt="1" /></div>
+    		</div>
+    		<div class="blue live-tile" data-mode="flip" data-delay="5000">            
+        		<div><img class="full" src="IMAGES/iiitd/image5.png" alt="3" /></div>
+        		<div></div>
+    		</div>
+    		<div class="list-tile mango">
+        		<ul class="flip-list fourTiles" data-mode="flip-list" data-delay="3000">
+            		<li data-direction="horizontal">
+                		<div><img class="full" src="IMAGES/iiitd/image9_1.png" alt="1" /></div>
+               			<div><img class="full" src="IMAGES/iiitd/image9_1.png" alt="1" /></div>
+            		</li>
+            		<li>
+                		<div><img class="full" src="IMAGES/iiitd/image9_2.png" alt="2" /></div>
+                		<div><img class="full" src="IMAGES/iiitd/image9_2.png" alt="2" /></div>
+            		</li>
+            		<li>
+                		<div><img class="full" src="IMAGES/iiitd/image9_3.png" alt="3" /></div>
+                		<div><img class="full" src="IMAGES/iiitd/image9_3.png" alt="3" /></div>
+            		</li>
+            		<li data-direction="horizontal">
+                		<div><img class="full" src="IMAGES/iiitd/image9_4.png" alt="4" /></div>
+                		<div><img class="full" src="IMAGES/iiitd/image9_4.png" alt="4" /></div>
+            		</li>
+        		</ul>
+    		</div>
+            <div class="live-tile accent green exclude">
+        		<p><img class="full" src="IMAGES/iiitd/image13.png" alt="1" /></p>
+    		</div>
+            <div class="live-tile accent green exclude">
+        		<p><img class="full" src="IMAGES/iiitd/image17.png" alt="1" /></p>
+    		</div>
+    		<div class="live-tile green" data-mode="carousel" data-direction="horizontal" data-delay="5000">
+        		<div><img class="full" src="IMAGES/iiitd/image21.png" alt="1" /></div>
+        		<div></div>
+	        	<div><img class="full" src="IMAGES/iiitd/image21.png" alt="3" /></div>
+        		<div></div>
+    		</div>
+       		<div class="live-tile" data-mode="carousel" data-direction="horizontal" data-delay="5000">
+        		<div></div>
+        		<div><img class="full" src="IMAGES/iiitd/image25.png" alt="1" /></div>
+        		<div></div>
+	        	<div><img class="full" src="IMAGES/iiitd/image25.png" alt="3" /></div>
+    		</div>
+    		<div class="live-tile accent green exclude">
+        		<p><img class="full" src="IMAGES/iiitd/image29.png" alt="1" /></p>
+    		</div>
+            <div class="live-tile accent green exclude">
+        		<p><img class="full" src="IMAGES/iiitd/image33.png" alt="1" /></p>
+    		</div>
+      	</div>
+	</section>
+	<!-- SECTION 2 SLIDER -->
+ 	<section id="MetroSlider1">
+    	<div class="tiles blue tile-group nine-wide">
+    		<div class="green live-tile" data-mode="flip" data-delay="6000">
+            	<div><img class="full" /></div> 
+        		<div><img class="full" src="IMAGES/iiitd/image2.png" alt="3" /></div>
+    		</div>
+            <div class="live-tile accent green exclude">
+        		<p><img class="full" src="IMAGES/iiitd/image6.png" alt="3" /></p>
+   			 </div>
+            <div class="live-tile accent green exclude">
+        		<p><img class="full" src="IMAGES/iiitd/image10.png" alt="3" /></p>
+    		</div>
+            <div class="live-tile" data-mode="carousel" data-direction="horizontal" data-delay="3500">
+            	<div><img class="full" src="IMAGES/iiitd/image14.png" alt="1" /></div>
+        		<div><img class="full" src="IMAGES/iiitd/image14.png" alt="2" /></div>
+	        	<div><img class="full" src="IMAGES/iiitd/image14.png" alt="3" /></div>
+        		<div><img class="full" src="IMAGES/iiitd/image14.png" alt="4" /></div>
+    		</div>
+            <div class="live-tile" data-speed="750" data-delay="4000">
+        		<div><img class="full" src="IMAGES/iiitd/image18.png" alt="1" /></div>
+        		<div></div>
+    		</div>
+    		<div class="red live-tile" data-mode="flip" data-delay="4000">            
+        		<div><img class="full" src="IMAGES/iiitd/image22.png" alt="3" /></div>
+        		<div><img class="full" src="IMAGES/iiitd/image22.png" alt="4" /></div>
+    		</div>
+    		<div class="live-tile" data-mode="flip" data-delay="4000"> 
+        		<div><img class="full" src="IMAGES/iiitd/image26.png" alt="3" /></div>
+        		<div><img class="full" src="IMAGES/iiitd/image26.png" alt="4" /></div>
+    		</div>
+            <div class="live-tile accent green exclude">
+        		<p><img class="full" src="IMAGES/iiitd/image30.png" alt="1" /></p>
+    		</div>
+    		<div class="live-tile" data-speed="750" data-delay="4500">
+        		<div><img class="full" src="IMAGES/iiitd/image34.png" alt="1" /></div>
+        		<div><img class="full" src="IMAGES/iiitd/image34.png" alt="2" /></div>
+    		</div>
+
+		</div>
+	</section>
+    <!-- SECTION 3 SLIDER -->
+    <section id="MetroSlider1">
+    	<div class="tiles blue tile-group nine-wide">
     		<div class="live-tile" data-speed="750" data-delay="4000">
-        		<span class="tile-title">slide tile</span>
-        		<div><img class="full" src="Magnus.jpg" alt="1" /></div>
-        		<div><img class="full" src="spirits.jpg" alt="2" /></div>
+        		<div><img class="full" src="IMAGES/iiitd/image3.png" alt="1" /></div>
+        		<div><img class="full" src="IMAGES/iiitd/image3.png" alt="2" /></div>
     		</div>
-    		<!-- Red Flip Tile that flips every 4 seconds -->
+    		<div class="live-tile" data-mode="carousel" data-direction="horizontal" data-delay="3500">	
+        		<div><img class="full" src="IMAGES/iiitd/image7.png" alt="1" /></div>
+        		<div><img class="full" src="IMAGES/iiitd/image7.png" alt="2" /></div>
+	        	<div><img class="full" src="IMAGES/iiitd/image7.png" alt="3" /></div>
+        		<div><img class="full" src="IMAGES/iiitd/image7.png" alt="4" /></div>
+    		</div>
+    		<div class="red live-tile" data-mode="flip" data-delay="6000">          
+        		<div><img class="full" src="IMAGES/iiitd/image11.png" alt="3" /></div>
+        		<div><img class="full" src="IMAGES/iiitd/image11.png" alt="4" /></div>
+    		</div>
+    		<div class="list-tile mango">
+        		<ul class="flip-list fourTiles" data-mode="flip-list" data-delay="3000">
+            		<li data-direction="horizontal">
+                		<div><img class="full" src="IMAGES/iiitd/image15_1.png" alt="1" /></div>
+                		<div><img class="full" src="IMAGES/iiitd/image15_1.png" alt="1" /></div>
+            		</li>
+            		<li>
+                		<div><img class="full" src="IMAGES/iiitd/image15_2.png" alt="2" /></div>
+                		<div><img class="full" src="IMAGES/iiitd/image15_2.png" alt="2" /></div>
+            		</li>
+            		<li data-direction="horizontal">
+                		<div><img class="full" src="IMAGES/iiitd/image15_3.png" alt="3" /></div>
+                		<div><img class="full" src="IMAGES/iiitd/image15_3.png" alt="3" /></div>
+            		</li>
+            		<li>
+                		<div><img class="full" src="IMAGES/iiitd/image15_4.png" alt="4" /></div>
+                		<div><img class="full" src="IMAGES/iiitd/image15_4.png" alt="4" /></div>
+            		</li>
+        		</ul>
+   			</div>
+    		<div class="live-tile accent green exclude">
+		        <p><img class="full" src="IMAGES/iiitd/image19.png" alt="1" /></p>
+    		</div>
+    		<div class="list-tile mango">
+        		<ul class="flip-list fourTiles" data-mode="flip-list" data-delay="2000">
+           			<li>
+                		<div><img class="full" src="IMAGES/iiitd/image23_1.png" alt="1" /></div>
+                		<div><img class="full" src="IMAGES/iiitd/image23_1.png" alt="1" /></div>
+            		</li>
+            		<li>
+                		<div><img class="full" src="IMAGES/iiitd/image23_2.png" alt="2" /></div>
+                		<div><img class="full" src="IMAGES/iiitd/image23_2.png" alt="2" /></div>
+            		</li>
+            		<li>
+                		<div><img class="full" src="IMAGES/iiitd/image23_3.png" alt="3" /></div>
+                		<div><img class="full" src="IMAGES/iiitd/image23_3.png" alt="3" /></div>
+            		</li>
+            		<li data-direction="horizontal">
+                		<div><img class="full" src="IMAGES/iiitd/image23_4.png" alt="4" /></div>
+                		<div><img class="full" src="IMAGES/iiitd/image23_4.png" alt="4" /></div>
+            		</li>
+        		</ul>
+    		</div>
+    		<div class="live-tile" data-speed="750" data-delay="7000">
+        		<div><img class="full" src="IMAGES/iiitd/image27.png" alt="1" /></div>
+        		<div><img class="full" src="IMAGES/iiitd/image27.png" alt="2" /></div>
+    		</div>
+   			<div class="live-tile accent green exclude">
+        		<p><img class="full" src="IMAGES/iiitd/image31.png" alt="1" /></p>
+    		</div>
+    		<div class="live-tile green" data-mode="carousel" data-direction="horizontal" data-delay="5500">
+        		<div></div>
+        		<div><img class="full" src="IMAGES/iiitd/image35.png" alt="1" /></div>
+	        	<div></div>
+        		<div><img class="full" src="IMAGES/iiitd/image35.png" alt="2" /></div>
+    		</div>	
+		</div>
+	</section>
+    <!-- SECTION 4 SLIDER--> 
+ 	<section id="MetroSlider1">
+    	<div class="tiles blue tile-group nine-wide">
+        	<div class="live-tile accent green exclude">
+        		<p><img class="full" src="IMAGES/iiitd/image4.png" alt="1" /></p>
+    		</div>
+    		<div class="live-tile" data-speed="750" data-delay="4000">
+        		<div><img class="full" src="IMAGES/iiitd/image8.png" alt="1" /></div>
+        		<div></div>
+    		</div>
+            <div class="live-tile accent green exclude">
+        		<p><img class="full" src="IMAGES/iiitd/image12.png" alt="1" /></p>
+    		</div>
+    		<div class="live-tile" data-speed="750" data-delay="4000">
+        		<div></div>
+        		<div><img class="full" src="IMAGES/iiitd/image16.png" alt="2" /></div>
+    		</div>
+    		<div class="live-tile" data-speed="750" data-delay="4000">
+        		<div></div>
+        		<div><img class="full" src="IMAGES/iiitd/image20.png" alt="2" /></div>
+    		</div>
     		<div class="red live-tile" data-mode="flip" data-delay="4000"> 
-            	<span class="tile-title">flip tile front</span>           
-        		<div><img class="full" src="/images/sample/3tw.gif" alt="3" /></div>
-                <span class="tile-title">flip tile back</span>
-        		<div><img class="full" src="/images/sample/4tw.gif" alt="4" /></div>
+        		<div><img class="full" src="IMAGES/iiitd/image24.png" alt="3" /></div>
+        		<div><img class="full" src="IMAGES/iiitd/image24.png" alt="4" /></div>
     		</div>
-    		<!-- Carousel Tile that slides 4 tile faces every 2.5 seconds -->
-    		<div class="live-tile" data-mode="carousel" data-direction="horizontal" data-delay="2500">
-            	<span class="tile-title">carousel slide 1</span>
-        		<div><img class="full" src="/images/sample/1tw.gif" alt="1" /></div>
-        	<div>
-            <img class="full" src="/images/sample/2t.gif" alt="2" />
-            <span class="tile-title accent">carousel slide 2</span>
-        </div>
-        <div>
-            <img class="full" src="/images/sample/3tw.gif" alt="3" />
-            <span class="tile-title">carousel slide 3</span>
-        </div>
-        <div>
-            <img class="full" src="/images/sample/4t.gif" alt="4" />
-            <span class="tile-title accent">carousel slide 4</span>
-        </div>
-    </div>
-    <!-- Mango Flip List that triggers every 3 seconds -->
-    <div class="list-tile mango">
-        <span class="tile-title">flip list</span>
-        <ul class="flip-list fourTiles" data-mode="flip-list" data-delay="2000">
-            <li>
-                <div><img class="full" src="/images/sample/1t.gif" alt="1" /></div>
-                <div><img class="full" src="/images/sample/1tw.gif" alt="1" /></div>
-            </li>
-            <li>
-                <div><img class="full" src="/images/sample/2t.gif" alt="2" /></div>
-                <div><img class="full" src="/images/sample/2tw.gif" alt="2" /></div>
-            </li>
-            <li>
-                <div><img class="full" src="/images/sample/3t.gif" alt="3" /></div>
-                <div><img class="full" src="/images/sample/3tw.gif" alt="3" /></div>
-            </li>
-            <li data-direction="horizontal">
-                <div><img class="full" src="/images/sample/4t.gif" alt="4" /></div>
-                <div><img class="full" src="/images/sample/4tw.gif" alt="4" /></div>
-            </li>
-        </ul>
-    </div>
-    <!-- Green Static Tile -->
-    <div class="live-tile accent green exclude">
-        <span class="tile-title">static tile</span>
-        <p>Static tiles can take advantage of theming too!</p>
-    </div>
-</div>
-
-
-<div class="tiles">
-	<div class="live-tile">
-    	<div style="background-color:Red;">test 1</div>
-		<div style="background-color:Orange;">test back</div>
-
-    </div>
-</div>
-<!-- Activate live tiles -->
+            <div class="live-tile accent green exclude">
+        		<p><img class="full" src="IMAGES/iiitd/image28.png" alt="3" /></p>
+   			</div>    
+    		<div class="green live-tile" data-mode="flip" data-delay="8000"> 
+        		<div><img class="full" src="IMAGES/iiitd/image32.png" alt="1" /></div>
+        		<div></div>
+    		</div>
+			<div class="live-tile accent green exclude">
+		        <p><img class="full" src="IMAGES/iiitd/image36.png" alt="2" /></p>
+   			</div>
+       </div>
+	</section>
+   
+    
 <script type="text/javascript">
     // apply regular slide universally unless .exclude class is applied 
     // NOTE: The default options for each liveTile are being pulled from the 'data-' attributes
     $(".live-tile, .flip-list").not(".exclude").liveTile();
 </script>
-    </section>
     
 	<section>				
     	<div id="container_demo" >
-        <!-- hidden anchor to stop jump http://www.css3create.com/Astuce-Empecher-le-scroll-avec-l-utilisation-de-target#wrap4  -->
         <a class="hiddenanchor" id="toregister"></a>
         <a class="hiddenanchor" id="tologin"></a>
         <div id="wrapper">
         	<div id="login" class="animate form">
-                            <form  action="" autocomplete="on"> 
-                                <h1>LOGIN</h1> 
-                                <p> 
-                                    <label for="username" class="uname" > Email or Username </label>
-                                    <input id="username" name="username" type="text" placeholder="myusername or mymail@mail.com"/>
-                                </p>
-                                <p> 
-                                    <label for="password" class="youpasswd"> Enter password </label>
-                                    <input id="password" name="password" required type="password" placeholder="eg. X8df!90EO" /> 
-                                </p>
-                                <p class="keeplogin"> 
-									<input type="checkbox" name="loginkeeping" id="loginkeeping" value="loginkeeping" /> 
-									<label for="loginkeeping">Keep me logged in</label>
-								</p>
-                                <p class="login button"> 
-                                    <input type="submit" value="Login" /> 
-								</p>
-                                <p class="change_link">
-									Not a member yet ?
-									<a href="#toregister" class="to_register">Join us</a>
-								</p>
-                            </form>
-                        </div>
-
-                        <div id="register" class="animate form">
-                            <form  action="" autocomplete="on"> 
-                                <h1>SIGNUP</h1> 
-                                <p> 
-                                    <label for="usernamesignup" class="uname">Your username</label>
-                                    <input id="usernamesignup" name="usernamesignup" type="text" placeholder="mysuperusername690" />
-                                </p>
-                                <p> 
-                                    <label for="emailsignup" class="youmail"> Your email</label>
-                                    <input id="emailsignup" name="emailsignup" required type="email" placeholder="mysupermail@mail.com"/> 
-                                </p>
-                                <p> 
-                                    <label for="passwordsignup" class="youpasswd">Your password </label>
-                                    <input id="passwordsignup" name="passwordsignup" required type="password" placeholder="eg. X8df!90EO"/>
-                                </p>
-                                <p> 
-                                    <label for="passwordsignup_confirm" class="youpasswd">Please confirm your password </label>
-                                    <input id="passwordsignup_confirm" name="passwordsignup_confirm" required type="password" placeholder="eg. X8df!90EO"/>
-                                </p>
-                                <p class="signin button"> 
-									<input type="submit" value="Sign up"/> 
-								</p>
-                                <p class="change_link">  
-									Already a member ?
-									<a href="#tologin" class="to_register"> Go and log in </a>
-								</p>
-                            </form>
-                        </div>
-						
-                    </div>
-                </div>  
-            </section>
+            	<form  action="" autocomplete="on"> 
+                	<h1>LOGIN</h1> 
+                    <p> 
+                    	<label for="username" class="uname" > Email or Username </label>
+                        <input id="username" name="username" type="text" placeholder="myusername or mymail@mail.com"/>
+                    </p>
+                    <p> 
+                        <label for="password" class="youpasswd"> Enter password </label>
+                    	<input id="password" name="password" required type="password" placeholder="eg. X8df!90EO" /> 
+                    </p>
+                    <p class="keeplogin"> 
+						<input type="checkbox" name="loginkeeping" id="loginkeeping" value="loginkeeping" /> 
+						<label for="loginkeeping">Keep me logged in</label>
+					</p>
+                    <p class="login button"> 
+                        <input type="submit" value="Login" /> 
+					</p>
+                    <p class="change_link">
+						Not a member yet ?
+						<a href="#toregister" class="to_register">Join us</a>
+					</p>
+                </form>
+            </div>
+            <div id="register" class="animate form">
+            	<form  action="" autocomplete="on"> 
+                	<h1>SIGNUP</h1> 
+                    <p> 
+                    	<label for="usernamesignup" class="uname">Your username</label>
+                        <input id="usernamesignup" name="usernamesignup" type="text" placeholder="mysuperusername690" />
+                    </p>
+                    <p> 
+                    	<label for="emailsignup" class="youmail"> Your email</label>
+                        <input id="emailsignup" name="emailsignup" required type="email" placeholder="mysupermail@mail.com"/> 
+                    </p>
+                    <p> 
+                        <label for="passwordsignup" class="youpasswd">Your password </label>
+                        <input id="passwordsignup" name="passwordsignup" required type="password" placeholder="eg. X8df!90EO"/>
+                    </p>
+                    <p> 
+                        <label for="passwordsignup_confirm" class="youpasswd">Please confirm your password </label>
+                        <input id="passwordsignup_confirm" name="passwordsignup_confirm" required type="password" placeholder="eg. X8df!90EO"/>
+                    </p>
+                    <p class="signin button"> 
+						<input type="submit" value="Sign up"/> 
+					</p>
+                    <p class="change_link">  
+						Already a member ?
+						<a href="#tologin" class="to_register"> Go and log in </a>
+					</p>
+                </form>
+            </div>
+		</div> 
+        </div>
+    </section>
 	</body>
 </html>

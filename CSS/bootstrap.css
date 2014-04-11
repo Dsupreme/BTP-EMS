@@ -45,6 +45,7 @@ html {
 
 body {
   margin: 0;
+  background-color:#808080;
 }
 
 a {
@@ -307,7 +308,7 @@ body {
   font-size: 14px;
   line-height: 1.628571429;
   color: #333333;
-  background-color: #ffffff;
+  background-color: #808080;
 }
 
 input,

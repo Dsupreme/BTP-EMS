@@ -3,14 +3,14 @@
 .list-tile,
 .copy-tile,
 .tile-strip .flip-list > li {
-  height: 130px;
+  height: 150px;
   margin: 0px;
   outline: 1px solid transparent;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   padding: 0px;
-  width: 130px;
+  width: 150px;
 }
 .live-tile.half-tile,
 .list-tile.half-tile,
@@ -71,7 +71,7 @@
 .list-tile.nine-wide,
 .copy-tile.nine-wide,
 .tile-strip .flip-list > li.nine-wide {
-  width: 1430px;
+  width: 1370px;
 }
 .live-tile.ten-wide,
 .list-tile.ten-wide,
@@ -147,10 +147,10 @@
   width: 100%;
 }
 .flip-list > li {
-  height: 50px;
+  height: 75px;
   margin: 0px;
   padding: 0px;
-  width: 50px;
+  width: 75px;
 }
 .flip-list.fourTiles > li {
   border: none;
@@ -274,7 +274,7 @@
 .tile-group,
 .tile-strip {
   display: block;
-  overflow: hidden;
+  overflow:hidden;
   position: relative;
   z-index: 20;
   -webkit-perspective: 800px;
@@ -325,7 +325,7 @@
 }
 .tile-group.nine-wide,
 .tile-strip.nine-wide {
-  width: 1440px;
+  width: 100%;
 }
 .tile-group.ten-wide,
 .tile-strip.ten-wide {
@@ -411,7 +411,7 @@
 .live-tile p,
 .list-tile p,
 .copy-tile p {
-  padding: 10px;
+  padding: 0px;
 }
 .live-tile.half-tile p,
 .list-tile.half-tile p,
@@ -1245,7 +1245,7 @@ a.live-tile .metroExtraSmall:link {
 .green .live-tile > .slide-front,
 .green .list-tile > div,
 .green .flip-list > li > div {
-  background-color: #339933;
+  background-color: #3FADA8;
 }
 .green .accentColor,
 .green .accentHover:hover,
@@ -1256,22 +1256,22 @@ a.live-tile .metroExtraSmall:link {
 .green a.accentLink,
 .green a.accentLink:hover,
 .green a.accentLink:visited {
-  color: #339933;
+  color: #3FADA8;
 }
 .green .accentBorder {
-  border-color: #339933;
+  border-color: #3FADA8;
 }
 .green .accentBorderBottom {
-  border-bottom-color: #339933;
+  border-bottom-color: #3FADA8;
 }
 .green .accentBorderLeft {
-  border-left-color: #339933;
+  border-left-color: #3FADA8;
 }
 .green .accentBorderRight {
-  border-right-color: #339933;
+  border-right-color: #3FADA8;
 }
 .green .accentBorderTop {
-  border-top-color: #339933;
+  border-top-color: #3FADA8;
 }
 .indigo .accent,
 .indigo .accentBg,
@@ -2428,7 +2428,7 @@ html body .green.slide-front.accent,
 html body .green.slide-back.accent,
 html body .green.flip-front.accent,
 html body .green.flip-back.accent {
-  background-color: #339933;
+  background-color: #3FADA8;
 }
 html body .green.accentColor,
 html body .green.accentHover:hover,
@@ -2439,22 +2439,22 @@ html body .green.accentLink a:visited,
 a.accentLinkhtml body .green,
 a.accentLinkhtml body .green:hover,
 a.accentLinkhtml body .green:visited {
-  color: #339933;
+  color: #3FADA8;
 }
 html body .green.accentBorder {
-  border-color: #339933;
+  border-color: #3FADA8;
 }
 html body .green.accentBorderBottom {
-  border-bottom-color: #339933;
+  border-bottom-color: #3FADA8;
 }
 html body .green.accentBorderLeft {
-  border-left-color: #339933;
+  border-left-color: #3FADA8;
 }
 html body .green.accentBorderRight {
-  border-right-color: #339933;
+  border-right-color: #3FADA8;
 }
 html body .green.accentBorderTop {
-  border-top-color: #339933;
+  border-top-color: #3FADA8;
 }
 html body .indigo.accent,
 html body .indigo.live-tile > .accent,
