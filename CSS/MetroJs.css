@@ -147,10 +147,10 @@
   width: 100%;
 }
 .flip-list > li {
-  height: 75px;
+  height: 50px;
   margin: 0px;
   padding: 0px;
-  width: 75px;
+  width: 50px;
 }
 .flip-list.fourTiles > li {
   border: none;
@@ -274,7 +274,7 @@
 .tile-group,
 .tile-strip {
   display: block;
-  overflow:hidden;
+  overflow: hidden;
   position: relative;
   z-index: 20;
   -webkit-perspective: 800px;
@@ -325,7 +325,7 @@
 }
 .tile-group.nine-wide,
 .tile-strip.nine-wide {
-  width: 100%;
+  width: 1351px;
 }
 .tile-group.ten-wide,
 .tile-strip.ten-wide {
@@ -3976,4 +3976,5 @@ html body .black.accentBorderTop {
     width: 30%;
   }
 }
+
 
