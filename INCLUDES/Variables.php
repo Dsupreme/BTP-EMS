@@ -8,7 +8,7 @@
 	
 	////Peronal Details////
 	if(isset($_POST['candidate_fname'])) {	$candidate_fname=$_POST['candidate_fname'];}	
-	if(isset($_POST['candidate_mname'])) {	$candiddate_mname=$_POST['candidate_mname'];}	
+	if(isset($_POST['candidate_mname'])) {	$candidate_mname=$_POST['candidate_mname'];}	
 	if(isset($_POST['candidate_lname'])) {	$candidate_lname=$_POST['candidate_lname'];}	
 	if(isset($_POST['f_candidate']))	{	$f_candidate=$_POST['f_candidate'];}	
 	if(isset($_POST['m_candidate']))	{	$m_candidate=$_POST['m_candidate'];}	

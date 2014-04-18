@@ -29,27 +29,9 @@
 <?php
 	if(isset($_POST['submitbtn'])){ 
 
-	mysql_query("insert into pdetails (	candidate_fname,
-										candidate_mname,
-										candidate_lname,
-										f_candidate,
-										m_candidate,
-										dob_candidate,
-										nationality_candidate,
-										gender,
-										c_address,
-										c_city,
-										c_state,
-										c_pin,
-										c_landline,
-										c_mobile,
-										p_address,
-										p_city,
-										p_state,
-										p_pin,
-										p_landline,
-										p_mobile
-										)") or die(mysql_error());
+	mysql_query("INSERT INTO pdetails ('firstname', 'middlename', 'lastname', 'fathername', 'mothername', 'DOB', 'nationality', 'sex', 'c_addr', 'c_city', 'c_state', 'c_pin', 'c_phone', 'c_mobile', 'p_addr', 'p_city', 'p_state', 'p_pin', 'p_phone', 'p_mobile') values(
+$candidate_fname, $candidate_mname, $candidate_lname, $f_candidate, $m_candidate, $dob_candidate, $nationality_candidate, $gender, $c_address, $c_city , $c_state, $c_pin, $c_landline, $c_mobile, $p_address, $p_city , $p_state, $p_pin, $p_landline, $p_mobile
+)") or die(mysql_error());
 	
 }
 ?>
@@ -106,7 +88,7 @@
                         	<td ><input type="text" name="candidate_fname" placeholder="Mandatory"/></td>
                         	<td class="Label" >Middle Name</td>
                             <td id="colon">:</td>
-                        	<td ><input type="text" name="candidate_mname" value="<?php if(isset($_POST['candidate_fname'])){ echo $dob_candidate; }?>" /></td>
+                        	<td ><input type="text" name="candidate_mname"  /></td>
                         	<td class="Label" >Last Name </td>
                             <td id="colon">:</td>
                         	<td ><input type="text" name="candidate_lname" placeholder="Mandatory" /></td>
