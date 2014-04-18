@@ -14,9 +14,8 @@
 	if(isset($_POST['m_candidate']))	{	$m_candidate=$_POST['m_candidate'];}	
 	if(isset($_POST['dob_candidate'])) {	$dob_candidate=$_POST['dob_candidate'];}
 	if(isset($_POST['nationality_candidate'])){ $nationality_candidate=$_POST['nationality_candidate'];}
-	if(isset($_POST['']))
-	{
-	}
+	if(isset($_POST['sex'])) {	$gender = $_POST['sex'];}
+	
 	
 	////Correspondence Address////	
 	if(isset($_POST['c_address'])) {	$c_address=$_POST['c_address'];}
@@ -37,11 +36,10 @@
 	if(isset($_POST[''])){}
 	if(isset($_POST[''])){}
 	if(isset($_POST[''])){}
-		
 	
 	
 	
-
+	
 ?>
 <body>
 </body>

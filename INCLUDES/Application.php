@@ -21,11 +21,38 @@
 
 
 <?php 
-	include 'variables.php';
+	include 'Variables.php';
 	include 'file-uploader.php';
+	include 'database.php';
 	require_once('../LIBRARIES/recaptchalib.php');
 ?>
+<?php
+	if(isset($_POST['submitbtn'])){ 
 
+	mysql_query("insert into pdetails (	candidate_fname,
+										candidate_mname,
+										candidate_lname,
+										f_candidate,
+										m_candidate,
+										dob_candidate,
+										nationality_candidate,
+										gender,
+										c_address,
+										c_city,
+										c_state,
+										c_pin,
+										c_landline,
+										c_mobile,
+										p_address,
+										p_city,
+										p_state,
+										p_pin,
+										p_landline,
+										p_mobile
+										)") or die(mysql_error());
+	
+}
+?>
 <body  style="background-color:#808080">
 <!--Navigation Bar-->
 		<nav class="navbar navbar-fixed-top" role="navigation">
@@ -65,7 +92,7 @@
 	</div>
 </nav>
 
-<form method="POST">
+<form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
 <section>
 		<div class="container" style="top:80px;">
     		<div class="panel panel-default">
@@ -76,10 +103,10 @@
                         <tr>
                         	<td class="Label" >First Name </td>
                             <td id="colon">:</td>
-                        	<td ><input type="text" name="candidate_fname" placeholder="Mandatory" /></td>
+                        	<td ><input type="text" name="candidate_fname" placeholder="Mandatory"/></td>
                         	<td class="Label" >Middle Name</td>
                             <td id="colon">:</td>
-                        	<td ><input type="text" name="candidate_mname" /></td>
+                        	<td ><input type="text" name="candidate_mname" value="<?php if(isset($_POST['candidate_fname'])){ echo $dob_candidate; }?>" /></td>
                         	<td class="Label" >Last Name </td>
                             <td id="colon">:</td>
                         	<td ><input type="text" name="candidate_lname" placeholder="Mandatory" /></td>
@@ -95,7 +122,7 @@
                         <tr>
 					       	<td class="Label">Date of Birth </td>
                             <td id="colon">:</td>
-				    	    <td ><input type="date" name="dob_candidate" placeholder="Mandatory" /></td>
+				    	    <td ><input type="date" title="yyyy-mm-dd" name="dob_candidate" placeholder="Mandatory" /></td>
 				      
                         	<td class="Label">Nationality </td>
                             <td id="colon">:</td>
@@ -303,7 +330,7 @@
                 	<td colspan="2">
                     <!--	<img id="submit_button" style="margin:10px; height:30px; width:80px;" src="./images/submit.png" alt="submit button" align="left">
                     -->
-					<input type="image" name="btn_opentextbox" style="margin:10px; height:30px; width:80px;" src="../IMAGES/submit.png" value="Submit" />
+					<input class="btn btn-primary" name="submitbtn" type="submit" value="Submit" />
 					</td>
                 </tr>	
                             

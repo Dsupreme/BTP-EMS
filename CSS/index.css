@@ -153,10 +153,8 @@ input {
 
 /*styling both submit buttons */
 #wrapper p.button input{
-	width: 30%;
 	cursor: pointer;	
 	background: rgb(61, 157, 179);
-	padding: 8px 5px;
 	font-family: 'BebasNeueRegular','Arial Narrow',Arial,sans-serif;
 	color: #fff;
 	font-size: 24px;	
