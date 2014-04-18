@@ -3,9 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 17, 2014 at 06:08 PM
--- Server version: 5.6.11
--- PHP Version: 5.5.1
+-- Generation Time: Apr 18, 2014 at 07:14 PM
+-- Server version: 5.5.32
+-- PHP Version: 5.4.19
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -26,7 +26,6 @@ DELIMITER $$
 --
 -- Procedures
 --
-DROP PROCEDURE IF EXISTS `Read_personal_details`$$
 CREATE DEFINER=`root`@`localhost` PROCEDURE `Read_personal_details`(IN `add_id` INT(50))
     NO SQL
     COMMENT 'fetched * (all info) from personal details table'
@@ -40,7 +39,6 @@ DELIMITER ;
 -- Table structure for table `edu_qual`
 --
 
-DROP TABLE IF EXISTS `edu_qual`;
 CREATE TABLE IF NOT EXISTS `edu_qual` (
   `app_ID` int(50) NOT NULL COMMENT 'application number of the applicant',
   `degree` varchar(30) DEFAULT NULL COMMENT 'The degree attained /qualified',
@@ -64,7 +62,6 @@ INSERT INTO `edu_qual` (`app_ID`, `degree`, `specialization`, `boarduniv`, `yoc`
 -- Table structure for table `experience`
 --
 
-DROP TABLE IF EXISTS `experience`;
 CREATE TABLE IF NOT EXISTS `experience` (
   `app_ID` int(50) NOT NULL COMMENT 'application number of the applicant',
   `per_from` date DEFAULT NULL COMMENT 'date of starting period of getting experience',
@@ -86,38 +83,38 @@ INSERT INTO `experience` (`app_ID`, `per_from`, `per_to`, `organization`, `desig
 -- Table structure for table `pdetails`
 --
 
-DROP TABLE IF EXISTS `pdetails`;
 CREATE TABLE IF NOT EXISTS `pdetails` (
-  `app_ID` int(50) NOT NULL AUTO_INCREMENT COMMENT 'application number of the applicant',
-  `firstname` varchar(30) NOT NULL COMMENT 'First name of the applicant',
-  `middlename` varchar(30) DEFAULT NULL COMMENT 'second name of the applicant',
-  `lastname` varchar(30) NOT NULL COMMENT 'last name of the applicant',
-  `fathername` varchar(40) NOT NULL COMMENT 'fathers name of the applicant',
-  `mothername` varchar(40) NOT NULL COMMENT 'mothers name of the applicant',
+  `app_ID` int(50) NOT NULL AUTO_INCREMENT COMMENT 'application number',
+  `firstname` text NOT NULL COMMENT 'First name applicant',
+  `middlename` text COMMENT 'second name of the applicant',
+  `lastname` text NOT NULL COMMENT 'last name of the applicant',
+  `fathername` text NOT NULL COMMENT 'fathers name of the applicant',
+  `mothername` text NOT NULL COMMENT 'mothers name of the applicant',
   `DOB` date NOT NULL COMMENT 'Date of birth',
-  `nationality` varchar(30) NOT NULL COMMENT 'Nationality of the applicant',
-  `sex` varchar(10) NOT NULL COMMENT 'male/female',
-  `c_addr` varchar(50) NOT NULL COMMENT 'correspondance address of the applicant',
-  `c_city` varchar(30) NOT NULL COMMENT 'city of correspondance of applicant',
-  `c_state` varchar(30) NOT NULL COMMENT 'state(location) of correspondance of the applicant',
+  `nationality` text NOT NULL COMMENT 'Nationality of the applicant',
+  `sex` text NOT NULL COMMENT 'male/female',
+  `c_addr` varchar(250) NOT NULL COMMENT 'correspondance address of the applicant',
+  `c_city` text NOT NULL COMMENT 'city of correspondance of applicant',
+  `c_state` text NOT NULL COMMENT 'state(location) of correspondance of the applicant',
   `c_pin` int(6) NOT NULL COMMENT 'pin code of the location of the correspodance',
   `c_phone` int(10) NOT NULL COMMENT 'landline num of correspondance of the applicant',
-  `c_mobile` bigint(50) NOT NULL COMMENT 'mobile number of applicants correspondance',
-  `p_addr` varchar(50) NOT NULL COMMENT 'permanent address of the applicant',
-  `p_city` varchar(30) NOT NULL COMMENT 'permanent city of applicant',
-  `p_state` varchar(30) NOT NULL COMMENT 'permanent state(location) of the applicant',
+  `c_mobile` int(30) NOT NULL COMMENT 'mobile number of applicants correspondance',
+  `p_addr` varchar(250) NOT NULL COMMENT 'permanent address of the applicant',
+  `p_city` text NOT NULL COMMENT 'permanent city of applicant',
+  `p_state` text NOT NULL COMMENT 'permanent state(location) of the applicant',
   `p_pin` int(6) NOT NULL COMMENT 'pin number of the applicants permanent address',
   `p_phone` int(10) NOT NULL COMMENT 'permanent landline number of the applicant',
-  `p_mobile` bigint(30) NOT NULL COMMENT 'permanent mobile number of the applicant ',
+  `p_mobile` int(30) NOT NULL COMMENT 'permanent mobile number of the applicant ',
   PRIMARY KEY (`app_ID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `pdetails`
 --
 
 INSERT INTO `pdetails` (`app_ID`, `firstname`, `middlename`, `lastname`, `fathername`, `mothername`, `DOB`, `nationality`, `sex`, `c_addr`, `c_city`, `c_state`, `c_pin`, `c_phone`, `c_mobile`, `p_addr`, `p_city`, `p_state`, `p_pin`, `p_phone`, `p_mobile`) VALUES
-(1, 'Naresh', 'Aditya', 'Madhav', 'Harish Uppal', 'Rajni Uppal', '1993-12-12', 'Indian', 'male', '20,Todar mal Road', 'New Delhi', 'Delhi', 110001, 23352350, 8130980397, '20, Todar Mal Road', 'New Delhi', 'Delhi', 110001, 23352350, 8130980397);
+(1, 'Naresh', 'Aditya', 'Madhav', 'Harish Uppal', 'Rajni Uppal', '1993-12-12', 'Indian', '0', '20,Todar mal Road', 'New Delhi', 'Delhi', 110001, 23352350, 2147483647, '20, Todar Mal Road', 'New Delhi', 'Delhi', 110001, 23352350, 2147483647),
+(2, 'Mn', 'M', 'sj', 'jkj', 'kjk', '2014-04-05', 'india', 'Male', '114 engin', 'dsdff', 'fsfsf', 11001, 2454787, 959664611, '114 hdsn', 'djskjdskd', '', 313244, 42425256, 2147483647);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

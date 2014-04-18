@@ -27,13 +27,13 @@
 	require_once('../LIBRARIES/recaptchalib.php');
 ?>
 <?php
-	if(isset($_POST['submitbtn'])){ 
-
-	mysql_query("INSERT INTO pdetails ('firstname', 'middlename', 'lastname', 'fathername', 'mothername', 'DOB', 'nationality', 'sex', 'c_addr', 'c_city', 'c_state', 'c_pin', 'c_phone', 'c_mobile', 'p_addr', 'p_city', 'p_state', 'p_pin', 'p_phone', 'p_mobile') values(
-$candidate_fname, $candidate_mname, $candidate_lname, $f_candidate, $m_candidate, $dob_candidate, $nationality_candidate, $gender, $c_address, $c_city , $c_state, $c_pin, $c_landline, $c_mobile, $p_address, $p_city , $p_state, $p_pin, $p_landline, $p_mobile
-)") or die(mysql_error());
+	if(isset($_POST['submitbtn'])) { 
+		mysql_query("insert into pdetails (firstname, middlename, lastname, fathername, mothername, DOB, nationality, sex, c_addr, c_city, c_state, c_pin, c_phone, c_mobile, p_addr, p_city, p_state, p_pin, p_phone, p_mobile) values ('$candidate_fname', '$candidate_mname','$candidate_lname', '$f_candidate','$m_candidate', '$dob_candidate', '$nationality_candidate', '$gender', '$c_address', '$c_city', '$c_state', '$c_pin', '$c_landline', '$c_mobile', '$p_address', '$p_city' , '$p_state', '$p_pin', '$p_landline', '$p_mobile')
+					") or die(mysql_error());
+	}
+	/*mysql_query("INSERT INTO pdetails (, )  )") or die(mysql_error());*/
 	
-}
+
 ?>
 <body  style="background-color:#808080">
 <!--Navigation Bar-->
@@ -56,23 +56,22 @@ $candidate_fname, $candidate_mname, $candidate_lname, $f_candidate, $m_candidate
             		</div>
             		<div class="navbar-collapse collapse">
           				<ul class="nav navbar-nav navbar-right">
-                    <li><a href="">About Us</a></li>
-                    <li><a href="#">Portfolio</a></li>
-                    <li><a href="Contact.html">Contact Us</a></li>
-                   
-                 	<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Services<b class="caret"></b></a>  
-    					<ul class="dropdown-menu">
-						    <li><a href="#">Web Design</a></li>
-							<li><a href="#">Web development</a></li>
-                            <li class="divider"></li>
-							<li><a href="#">Theme development</a></li>  
-					    </ul>
-                    </li>
-               </ul>
-           </div>
-        </div>     
-	</div>
-</nav>
+                    		<li><a href="">About Us</a></li>
+                    		<li><a href="#">Portfolio</a></li>
+                    		<li><a href="Contact.html">Contact Us</a></li>
+                   			<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Services<b class="caret"></b></a>  
+    							<ul class="dropdown-menu">
+						    		<li><a href="#">Web Design</a></li>
+									<li><a href="#">Web development</a></li>
+                            		<li class="divider"></li>
+									<li><a href="#">Theme development</a></li>  
+					    		</ul>
+                    		</li>
+               			</ul>
+           			</div>
+        		</div>     
+			</div>
+		</nav>
 
 <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
 <section>

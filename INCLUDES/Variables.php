@@ -33,9 +33,11 @@
 	if(isset($_POST['p_landline']))	{$p_landline=$_POST['p_landline'];}
 	if(isset($_POST['p_mobile']))	{$p_mobile=$_POST['p_mobile'];}
 	
+	/*if(isset($_POST[''])){}
 	if(isset($_POST[''])){}
 	if(isset($_POST[''])){}
-	if(isset($_POST[''])){}
+	*/
+	
 	
 	
 	
