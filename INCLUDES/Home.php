@@ -1,18 +1,15 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
 
-
-	<title>AdminApplicant Form</title>
 	<!-- CSS Links -->
 	<link rel="stylesheet" type="text/css" href="../CSS/bootstrap.css" media="screen" />
     <link rel="stylesheet" type="text/css" href="../CSS/admin.css" media="screen" />
     <link rel="stylesheet" type="text/css" href="../CSS/animate-custom.css" media="screen" />
-    
-    
-    <!--Javascript Links-->
+	
+	<!--Javascript Links-->
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.1.min.js"></script><!--JQuery Online link -->
     <script type="text/javascript" src="../js/bootstrap.js"></script><!--Bootstrap Javascript -->
     <script type="text/javascript" src="../js/smoothscroll.js"></script><!--Smooth Scroll Animation -->
@@ -66,51 +63,6 @@
         		</div>     
 			</div>
 		</nav>
-        
-        <div class="container" style="top:80px;">
-        <div class="panel panel-default" >
-  				<div class="panel-heading">Summary</div>
-  				<div class="panel-body">
-                <div style="padding-left:320px">
-                <form method="post" >
-                	<label >Enter Applicant Name : </label>
-                    <input type="text" name="input" />
-                    <input type="submit" name="output_by_id" />
-                </form>
-                </div>
-                <div>
-                	<table>
-    				    <tr>
-                        	<td class="Label" width="10%">First Name</td>
-                            <td id="colon">:</td>
-                        	<td width="20%" ><?php if (isset($_REQUEST['input'])) {echo $fetch[1];}?></td>
-                        	<td class="Label" width="10%" >Middle Name</td>
-                            <td id="colon">:</td>
-                        	<td width="20%" ><?php if (isset($_REQUEST['input'])) {echo $fetch[2];}?></td>
-                        	<td class="Label" width="10%" >Last Name </td>
-                            <td id="colon">:</td>
-                        	<td width="20%" ><?php if (isset($_REQUEST['input'])) {echo $fetch[3];}?></td>
-                        </tr>
-                        <tr>
-	        				<td class="Label" width="10%">Father's Name </td>
-                            <td id="colon">:</td>
-				    	    <td width="20%"><?php if (isset($_REQUEST['input'])) {echo $fetch[4];}?></td>
-					       	<td class="Label" width="10%">Mother's Name </td>
-                            <td id="colon">:</td>
-			    	        <td width="20%"><?php if (isset($_REQUEST['input'])) {echo $fetch[5];}?></td>
-				    	</tr>
-                        <tr>
-					       	<td class="Label" width="10%">Date of Birth </td>
-                            <td id="colon">:</td>
-				    	    <td width="20%"><?php if (isset($_REQUEST['input'])) {echo $fetch[6];}?></td>
-				           	<td class="Label" width="10%">Nationality </td>
-                            <td id="colon">:</td>
-                            <td width="20%"><?php if (isset($_REQUEST['input'])) {echo $fetch[7];}?></td>
-                            <td class="Label" width="10%">Sex</td>
-                            <td id="colon">:</td>
-                            <td width="20%"><?php if (isset($_REQUEST['input'])) { if ($fetch[8] == '0') {echo "Male";}
-												  								   else {echo "Female";}}
-														?></td>
-                           
-                         </tr>
-                    </table>
+     
+</body>
+</html>
