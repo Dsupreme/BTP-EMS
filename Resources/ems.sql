@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.0.4.1
+-- version 4.0.9
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 18, 2014 at 07:14 PM
--- Server version: 5.5.32
--- PHP Version: 5.4.19
+-- Generation Time: Apr 20, 2014 at 05:57 PM
+-- Server version: 5.6.14
+-- PHP Version: 5.5.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -19,8 +19,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `ems`
 --
-CREATE DATABASE IF NOT EXISTS `ems` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-USE `ems`;
 
 DELIMITER $$
 --
@@ -53,8 +51,11 @@ CREATE TABLE IF NOT EXISTS `edu_qual` (
 --
 
 INSERT INTO `edu_qual` (`app_ID`, `degree`, `specialization`, `boarduniv`, `yoc`, `marks`) VALUES
-(1, '10th standard', 'all subjects', 'CBSE', 2009, '85.000'),
-(1, '12th exam', 'all subjects', 'cbse', 2011, '89.000');
+(1, '10th Pass', 'all subjects', 'CBSE', 2009, '85.000'),
+(1, '12th Pass', 'SCIENCE', 'CBSE', 2011, '89.000'),
+(1, 'BTECH', 'CSE', 'IIITD', 2015, '72.000'),
+(2, '10th Pass', 'all subjects', 'CBSE', 2009, '85.000'),
+(2, '12th Pass', 'SCIENCE', 'CBSE', 2011, '90.000');
 
 -- --------------------------------------------------------
 
@@ -67,15 +68,17 @@ CREATE TABLE IF NOT EXISTS `experience` (
   `per_from` date DEFAULT NULL COMMENT 'date of starting period of getting experience',
   `per_to` date DEFAULT NULL COMMENT 'date of end of periods of  getting experience',
   `organization` varchar(50) DEFAULT NULL COMMENT 'Organization where the applicant got experience from.',
-  `designation` varchar(50) DEFAULT NULL COMMENT 'designation while getting a particular experience'
+  `designation` varchar(50) DEFAULT NULL COMMENT 'designation while getting a particular experience',
+  `responsibility` varchar(500) DEFAULT NULL,
+  `salary` int(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `experience`
 --
 
-INSERT INTO `experience` (`app_ID`, `per_from`, `per_to`, `organization`, `designation`) VALUES
-(1, '2013-07-20', '2013-08-29', 'Accenture pvt. ltd.', 'intern');
+INSERT INTO `experience` (`app_ID`, `per_from`, `per_to`, `organization`, `designation`, `responsibility`, `salary`) VALUES
+(2, '0000-00-00', '0000-00-00', 'accenture', 'INTERM', 'DFKFJNSDKJVSKJNKJSDNK', 1872981);
 
 -- --------------------------------------------------------
 
@@ -85,6 +88,7 @@ INSERT INTO `experience` (`app_ID`, `per_from`, `per_to`, `organization`, `desig
 
 CREATE TABLE IF NOT EXISTS `pdetails` (
   `app_ID` int(50) NOT NULL AUTO_INCREMENT COMMENT 'application number',
+  `flag` tinyint(1) NOT NULL,
   `firstname` text NOT NULL COMMENT 'First name applicant',
   `middlename` text COMMENT 'second name of the applicant',
   `lastname` text NOT NULL COMMENT 'last name of the applicant',
@@ -98,13 +102,13 @@ CREATE TABLE IF NOT EXISTS `pdetails` (
   `c_state` text NOT NULL COMMENT 'state(location) of correspondance of the applicant',
   `c_pin` int(6) NOT NULL COMMENT 'pin code of the location of the correspodance',
   `c_phone` int(10) NOT NULL COMMENT 'landline num of correspondance of the applicant',
-  `c_mobile` int(30) NOT NULL COMMENT 'mobile number of applicants correspondance',
+  `c_mobile` bigint(30) NOT NULL COMMENT 'mobile number of applicants correspondance',
   `p_addr` varchar(250) NOT NULL COMMENT 'permanent address of the applicant',
   `p_city` text NOT NULL COMMENT 'permanent city of applicant',
   `p_state` text NOT NULL COMMENT 'permanent state(location) of the applicant',
   `p_pin` int(6) NOT NULL COMMENT 'pin number of the applicants permanent address',
   `p_phone` int(10) NOT NULL COMMENT 'permanent landline number of the applicant',
-  `p_mobile` int(30) NOT NULL COMMENT 'permanent mobile number of the applicant ',
+  `p_mobile` bigint(30) NOT NULL COMMENT 'permanent mobile number of the applicant ',
   PRIMARY KEY (`app_ID`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
@@ -112,9 +116,9 @@ CREATE TABLE IF NOT EXISTS `pdetails` (
 -- Dumping data for table `pdetails`
 --
 
-INSERT INTO `pdetails` (`app_ID`, `firstname`, `middlename`, `lastname`, `fathername`, `mothername`, `DOB`, `nationality`, `sex`, `c_addr`, `c_city`, `c_state`, `c_pin`, `c_phone`, `c_mobile`, `p_addr`, `p_city`, `p_state`, `p_pin`, `p_phone`, `p_mobile`) VALUES
-(1, 'Naresh', 'Aditya', 'Madhav', 'Harish Uppal', 'Rajni Uppal', '1993-12-12', 'Indian', '0', '20,Todar mal Road', 'New Delhi', 'Delhi', 110001, 23352350, 2147483647, '20, Todar Mal Road', 'New Delhi', 'Delhi', 110001, 23352350, 2147483647),
-(2, 'Mn', 'M', 'sj', 'jkj', 'kjk', '2014-04-05', 'india', 'Male', '114 engin', 'dsdff', 'fsfsf', 11001, 2454787, 959664611, '114 hdsn', 'djskjdskd', '', 313244, 42425256, 2147483647);
+INSERT INTO `pdetails` (`app_ID`, `flag`, `firstname`, `middlename`, `lastname`, `fathername`, `mothername`, `DOB`, `nationality`, `sex`, `c_addr`, `c_city`, `c_state`, `c_pin`, `c_phone`, `c_mobile`, `p_addr`, `p_city`, `p_state`, `p_pin`, `p_phone`, `p_mobile`) VALUES
+(1, 0, 'Naresh', 'ADITYA', 'Madhav', 'harish', 'rajni', '0000-00-00', 'Indian', 'Male', '20, Todar Mal Road', 'New Delhi', 'Delhi', 110001, 23352350, 8130980397, '20, Todar Mal Road', 'New Delhi', 'Delhi', 110001, 23352350, 8130980397),
+(2, 0, 'Naresh', 'ADITYA', 'Madhav', 'harish', 'rajni', '0000-00-00', 'Indian', 'Male', '20, Todar Mal Road', 'New Delhi', 'Delhi', 110001, 23352350, 8130980397, '20, Todar Mal Road', 'New Delhi', 'Delhi', 110001, 23352350, 8130980397);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

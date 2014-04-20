@@ -26,11 +26,56 @@
 	include 'database.php';
 	require_once('../LIBRARIES/recaptchalib.php');
 ?>
+
+	
 <?php
 	if(isset($_POST['submitbtn'])) { 
-		mysql_query("insert into pdetails (firstname, middlename, lastname, fathername, mothername, DOB, nationality, sex, c_addr, c_city, c_state, c_pin, c_phone, c_mobile, p_addr, p_city, p_state, p_pin, p_phone, p_mobile) values ('$candidate_fname', '$candidate_mname','$candidate_lname', '$f_candidate','$m_candidate', '$dob_candidate', '$nationality_candidate', '$gender', '$c_address', '$c_city', '$c_state', '$c_pin', '$c_landline', '$c_mobile', '$p_address', '$p_city' , '$p_state', '$p_pin', '$p_landline', '$p_mobile')
+		mysql_query("insert into pdetails (flag, firstname, middlename, lastname, fathername, mothername, DOB, nationality, sex, c_addr, c_city, c_state, c_pin, c_phone, c_mobile, p_addr, p_city, p_state, p_pin, p_phone, p_mobile) values (1,'$candidate_fname', '$candidate_mname','$candidate_lname', '$f_candidate','$m_candidate', '$dob_candidate', '$nationality_candidate', '$gender', '$c_address', '$c_city', '$c_state', '$c_pin', '$c_landline', '$c_mobile', '$p_address', '$p_city' , '$p_state', '$p_pin', '$p_landline', '$p_mobile')
 					") or die(mysql_error());
+		$result = mysql_query("SELECT * FROM pdetails WHERE flag=1;") ;
+		while($row = mysql_fetch_array($result))
+		{ $apid = $row['app_ID'];
+		}
+		$countd  = 0;
+		foreach($c_degree as $h)
+		{
+		$countd=$countd+1;
+		}
+		$counte = 0;
+		foreach($c_salary as $i)
+		{
+		$counte=$counte+1;
+		}
+		
+		$expe = array($c_from,$c_to,$c_desg,$c_org,$c_resp,$c_salary);	
+		for($u = 0 ; $u < $counte ; $u++){
+		$from = $expe[0][$u];
+		$to = $expe[1][$u];
+		$desg = $expe[2][$u];
+		$org = $expe[3][$u];
+		$resp = $expe[4][$u];
+		$salary = $expe[5][$u];
+		mysql_query("insert into experience (app_ID, per_from, per_to, organization, designation,responsibility,salary) values ('$apid','$from','$to','$desg','$org','$resp','$salary');
+					") or die(mysql_error());	
+		}
+		$qual = array($c_degree ,
+						$c_specialization ,
+						$c_university,
+						$c_year,
+						$c_marks);
+		for($v = 0 ; $v < $countd ; $v++){
+		$deg = $qual[0][$v];
+		$spec = $qual[1][$v];
+		$board = $qual[2][$v];
+		$yo = $qual[3][$v];
+		$mar = $qual[4][$v];
+		mysql_query("insert into edu_qual (app_ID, degree, specialization, boarduniv, yoc, marks) values ('$apid','$deg','$spec','$board','$yo','$mar');
+					") or die(mysql_error());
+		}
+		mysql_query("UPDATE pdetails SET flag=0 WHERE flag = 1;");		
 	}
+	
+	
 	/*mysql_query("INSERT INTO pdetails (, )  )") or die(mysql_error());*/
 	
 
