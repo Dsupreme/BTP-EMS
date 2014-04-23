@@ -1,4 +1,9 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<?php
+session_start();
+?>
+
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
 	<head>
 		<title>EMS-Welcome Page</title>
@@ -45,6 +50,26 @@
         
 	</head>
     
+<?php 
+	include 'INCLUDES/Variables.php';
+	include 'INCLUDES/file-uploader.php';
+	include 'INCLUDES/database.php';
+?>
+
+
+<?php
+	if(isset($_POST['signupbtn'])) { 
+
+	echo $unames.$emails.$pswds;
+	mysql_query("INSERT INTO users(username, email, password) VALUES ('$unames','$emails','$pswds');
+					") or die(mysql_error());
+	
+	echo "<script>
+	alert(\"User Added\");
+	</script>";
+	
+	}
+	?>
 	<body data-spy="scroll" data-target=".navbar navbar-fixed-top">
     <section id="Navigation">
 	    <!--Navigation Bar-->
@@ -67,7 +92,12 @@
             		</div>
             		<div class="navbar-collapse collapse">
           				<ul class="nav navbar-nav navbar-right">
-                    		<li><a href="INCLUDES/Application.php"><font size="+1">APPLY NOW</font></a></li>
+                    		<li><a <?php 
+							//if($_SESSION['Username'])
+								//echo "href=\"INCLUDES/Application.php\"";
+							//else
+								echo "href=\"#tologin\"";
+								?>><font size="+1">APPLY NOW</font></a></li>
                     		<li><a href="#">About Us</font></a></li>
                   			<li><a href="INCLUDES/Contactus.php">Contact Us</a></li>
                    			<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Services<b class="caret"></b></a>  
@@ -325,7 +355,7 @@ $('body').scrollspy({ target: '.navbar navbar-fixed-top' })
 						<label for="loginkeeping">Keep me logged in</label>
 					</p>
                     <p class="login button"> 
-                        <input type="submit" value="Login" /> 
+                        <input type="submit" value="Login" href="#tologin"/> 
 					</p>
                     <p class="change_link">
 						Not a member yet ?
@@ -353,7 +383,7 @@ $('body').scrollspy({ target: '.navbar navbar-fixed-top' })
                         <input id="passwordsignup_confirm" name="passwordsignup_confirm" required type="password" placeholder="eg. X8df!90EO"/>
                     </p>
                     <p class="signin button"> 
-						<input type="submit" value="Sign up"/> 
+						<input type="submit" name="signupbtn" value="Signup"/> 
 					</p>
                     <p class="change_link">  
 						Already a member ?

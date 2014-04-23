@@ -50,10 +50,17 @@
 	if(isset($_POST['c_resp'])) { $c_resp=$_POST['c_resp'];}
 	if(isset($_POST['c_salary'])) { $c_salary=$_POST['c_salary'];}
 	
-	/*if(isset($_POST[''])){}
+	//login
+	if(isset($_POST['usernamesignup'])){$unames=$_POST['usernamesignup'];}
+	if(isset($_POST['passwordsignup'])){$pswds=$_POST['passwordsignup'];}
+	if(isset($_POST['emailsignup'])){$emails=$_POST['emailsignup'];}
+/*
+	if(isset($_POST[''])){}
+	if(isset($_POST[''])){}	
 	if(isset($_POST[''])){}
 	if(isset($_POST[''])){}
-	*/
+	if(isset($_POST[''])){}
+*/
 	
 	
 	
