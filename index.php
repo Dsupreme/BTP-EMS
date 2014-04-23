@@ -84,7 +84,9 @@
 			</div>
 		</nav>
 	</section>
-    
+<script type="text/javascript">
+$('body').scrollspy({ target: '.navbar navbar-fixed-top' })
+</script>    
     <!-- SECTION 1 SLIDER -->
     <section id="MetroSlider1">
     	<div class="tiles blue tile-group nine-wide">
