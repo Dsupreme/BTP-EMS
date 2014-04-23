@@ -38,7 +38,7 @@
           				<ul class="nav navbar-nav navbar-right">
                     		<li><a href="">About Us</a></li>
                     		<li><a href="#">Portfolio</a></li>
-                    		<li><a href="Contact.html">Contact Us</a></li>
+                    		<li><a href="#">Contact Us</a></li>
                    			<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Services<b class="caret"></b></a>  
     							<ul class="dropdown-menu">
 						    		<li><a href="#">Web Design</a></li>
@@ -52,3 +52,30 @@
         		</div>     
 			</div>
 		</nav>
+
+	<!--Google Maps-->
+    <div style="position:relative;top:50px" id="contact">
+    	<script src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+		<script>
+			function initialize()
+			{
+				var latval = '28.54596';
+				var longval = '77.272666';
+				var myLatlng = new google.maps.LatLng(28.54597,77.272666);
+				var mapProp = {center: myLatlng,
+							   zoom:15,
+							   minZoom:13,
+							   scrollwheel:false,
+							   draggable: false,
+							   maxZoom:17,
+							   mapTypeId:google.maps.MapTypeId.ROADMAP};
+				var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
+				var marker = new google.maps.Marker({ position: myLatlng,
+													  map: map,
+													  animation: google.maps.Animation.DROP,
+													  title: 'Indraprastha Institute of Information Technology, Delhi'});
+			}
+			google.maps.event.addDomListener(window, 'load', initialize);
+		</script>
+        <div id="googleMap" style="width:1364px;height:593px;"></div>
+	</div>
