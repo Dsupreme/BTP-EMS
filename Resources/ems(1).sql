@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 20, 2014 at 05:57 PM
+-- Generation Time: Apr 24, 2014 at 12:10 AM
 -- Server version: 5.6.14
 -- PHP Version: 5.5.6
 
@@ -119,6 +119,21 @@ CREATE TABLE IF NOT EXISTS `pdetails` (
 INSERT INTO `pdetails` (`app_ID`, `flag`, `firstname`, `middlename`, `lastname`, `fathername`, `mothername`, `DOB`, `nationality`, `sex`, `c_addr`, `c_city`, `c_state`, `c_pin`, `c_phone`, `c_mobile`, `p_addr`, `p_city`, `p_state`, `p_pin`, `p_phone`, `p_mobile`) VALUES
 (1, 0, 'Naresh', 'ADITYA', 'Madhav', 'harish', 'rajni', '0000-00-00', 'Indian', 'Male', '20, Todar Mal Road', 'New Delhi', 'Delhi', 110001, 23352350, 8130980397, '20, Todar Mal Road', 'New Delhi', 'Delhi', 110001, 23352350, 8130980397),
 (2, 0, 'Naresh', 'ADITYA', 'Madhav', 'harish', 'rajni', '0000-00-00', 'Indian', 'Male', '20, Todar Mal Road', 'New Delhi', 'Delhi', 110001, 23352350, 8130980397, '20, Todar Mal Road', 'New Delhi', 'Delhi', 110001, 23352350, 8130980397);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users`
+--
+
+CREATE TABLE IF NOT EXISTS `users` (
+  `U_id` int(50) NOT NULL AUTO_INCREMENT COMMENT 'User ID',
+  `username` int(11) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `password` varchar(100) NOT NULL,
+  PRIMARY KEY (`U_id`),
+  UNIQUE KEY `username` (`username`,`email`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
