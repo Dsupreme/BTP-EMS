@@ -78,4 +78,10 @@
 			google.maps.event.addDomListener(window, 'load', initialize);
 		</script>
         <div id="googleMap" style="width:1364px;height:593px;"></div>
+        <div class="panel" style="position:absolute;left:850px;width:464px;top:80px;">
+        	<div class="panel-heading">Contact Us</div>
+            <div class="panel-body">
+			</div>
+        </div>
+         
 	</div>

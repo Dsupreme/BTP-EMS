@@ -33,14 +33,9 @@
 		mysql_query("insert into pdetails (flag, firstname, middlename, lastname, fathername, mothername, DOB, nationality, sex, c_addr, c_city, c_state, c_pin, c_phone, c_mobile, p_addr, p_city, p_state, p_pin, p_phone, p_mobile) values (1,'$candidate_fname', '$candidate_mname','$candidate_lname', '$f_candidate','$m_candidate', '$dob_candidate', '$nationality_candidate', '$gender', '$c_address', '$c_city', '$c_state', '$c_pin', '$c_landline', '$c_mobile', '$p_address', '$p_city' , '$p_state', '$p_pin', '$p_landline', '$p_mobile')
 					") or die(mysql_error());
 		$result = mysql_query("SELECT * FROM pdetails WHERE flag=1;") ;
-		while($row = mysql_fetch_array($result))
-		{ $apid = $row['app_ID'];
-		}
+		while($row = mysql_fetch_array($result)) { $apid = $row['app_ID'];}
 		$countd  = 0;
-		foreach($c_degree as $h)
-		{
-		$countd=$countd+1;
-		}
+		foreach($c_degree as $h) { $countd=$countd+1;}
 		$counte = 0;
 		foreach($c_salary as $i)
 		{
