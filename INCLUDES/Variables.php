@@ -54,6 +54,7 @@
 	if(isset($_POST['usernamesignup'])){$unames=$_POST['usernamesignup'];}
 	if(isset($_POST['passwordsignup'])){$pswds=$_POST['passwordsignup'];}
 	if(isset($_POST['emailsignup'])){$emails=$_POST['emailsignup'];}
+	
 /*
 	if(isset($_POST[''])){}
 	if(isset($_POST[''])){}	

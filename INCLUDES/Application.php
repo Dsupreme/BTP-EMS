@@ -117,9 +117,8 @@
         		</div>     
 			</div>
 		</nav>
-
-<form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
 <section>
+<form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
 		<div class="container" style="top:80px;">
     		<div class="panel panel-default">
   				<div class="panel-heading">Personal Details(as per matriculation certificate)</div>
@@ -241,7 +240,6 @@
                         </tr>
                     </table>
                     <table id="EQ_table">
-                    	<tbody
                         <tr>
                         <p>
                         	<td width="20%"><input class="input-group-lg" type="text" name="c_degree[]" style="width:90%"/></td>
@@ -285,10 +283,10 @@
                     </table>
                </div>
            </div>
+           <form method="post" action="file-uploader.php" enctype="multipart/form-data">
            <div class="panel panel-default">
             	<div class="panel-heading">Upload Photos & Signatures</div>
                 <div class="panel-body">
-                	<form method="post" action="file-uploader.php" enctype="multipart/form-data">
                     	<table>
                         	<tr>
                         		<td width="15%">Upload Photo: </td>
@@ -316,10 +314,9 @@
                                 <td width="80%" id="rules_upload">2. Allowed Photo / Signature Size - 20KB to 100 KB File Type : *.jpeg, *.gif, *.jpg,  *.png</td>
                             </tr>
                         </table>
-                    </form>
-
                </div>
            </div>
+           </form>
            <div class="panel panel-default">
            <div class="panel-body">
            		<div class="panel-heading">Declaration : <font size="+1" >I hereby declare that :- </font> </div>
@@ -338,7 +335,6 @@
  regarding age limits, educational qualifications etc, prescribed in the advertisement and other relevant rules and instructions.
                      </p></td>
                 </tr>
-				
                 <tr>
 					<td></td>
                     <td>
@@ -358,12 +354,12 @@
                     -->
 					<input class="btn btn-primary" name="submitbtn" type="submit" value="Submit" />
 					</td>
-                </tr>	
-                            
-
-
-</section>
+                </tr>
+           		</table>
+            </div>
+    	   </div>
+        </div>	
     </form>        
-
+</section>
 </body>
 </html>

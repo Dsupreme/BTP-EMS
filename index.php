@@ -26,7 +26,6 @@ session_start();
 		<link rel="apple-touch-icon" sizes="114x114" href="">
 
         
-        
 
 		<!--Fonts-->
    		<link href='http://fonts.googleapis.com/css?family=Economica:700,400italic' rel='stylesheet' type='text/css'>
@@ -34,7 +33,6 @@ session_start();
 		
         <!--Javascript Links-->
         <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.1.min.js"></script><!--JQuery Online link -->
-<!--        <script type="text/javascript" src="JS/jquery.cslider.js"></script><!--Javascript Slider-->
        	<script type="text/javascript" src="JS/bootstrap.js"></script><!--Bootstrap Javascript-->
 		<script type="text/javascript" src="JS/MetroJs.js"></script>
        	
@@ -43,11 +41,7 @@ session_start();
         <link rel="stylesheet" type="text/css" href="CSS/MetroJs.css" media="screen" />
         <link rel="stylesheet" type="text/css" href="CSS/index.css" media="screen" />
         <link rel="stylesheet" type="text/css" href="CSS/animate-custom.css" media="screen" />
-        
-        
-
-
-        
+              
 	</head>
     
 <?php 
@@ -59,14 +53,9 @@ session_start();
 
 <?php
 	if(isset($_POST['signupbtn'])) { 
-
-	echo $unames.$emails.$pswds;
-	mysql_query("INSERT INTO users(username, email, password) VALUES ('$unames','$emails','$pswds');
-					") or die(mysql_error());
-	
-	echo "<script>
-	alert(\"User Added\");
-	</script>";
+		echo $unames.$emails.$pswds;
+		mysql_query("INSERT INTO users(username, email, password) VALUES ('$unames','$emails','$pswds');") or die(mysql_error());
+		echo "<script>alert(\"User Added\");</script>";
 	
 	}
 	?>
@@ -364,7 +353,7 @@ $('body').scrollspy({ target: '.navbar navbar-fixed-top' })
                 </form>
             </div>
             <div id="register" class="animate form">
-            	<form  action="" autocomplete="on"> 
+            	<form  method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" autocomplete="on"> 
                 	<h1>SIGNUP</h1> 
                     <p> 
                     	<label for="usernamesignup" class="uname">Your username</label>
