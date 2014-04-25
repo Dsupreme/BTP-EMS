@@ -42,7 +42,7 @@ var username = $("#usernamesignup").val();
 var msgbox = $("#status");
 if(username.length > 3)
 {
-$("#status").html('<img src="loader.gif" align="absmiddle">&nbsp;Checking availability...');
+	$("#status").html('<img src="loader.gif" align="absmiddle">&nbsp;Checking availability...');
 $.ajax({  
     type: "POST",  
     url: "INCLUDES/check_ajax.php",  
