@@ -32,51 +32,43 @@ session_start();
         <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.1.min.js"></script><!--JQuery Online link -->
        	<script type="text/javascript" src="JS/bootstrap.js"></script><!--Bootstrap Javascript-->
 		<script type="text/javascript" src="JS/MetroJs.js"></script>
-		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.0/jquery.min.js" type="text/javascript"></script>	
 		<SCRIPT type="text/javascript">
-$(document).ready(function()
-{
-$("#usernamesignup").change(function() 
-{ 
-var username = $("#usernamesignup").val();
-var msgbox = $("#status");
-if(username.length > 3)
-{
-	$("#status").html('<img src="loader.gif" align="absmiddle">&nbsp;Checking availability...');
-$.ajax({  
-    type: "POST",  
-    url: "INCLUDES/check_ajax.php",  
-    data: "username="+username,  
-    success: function(msg){  
-   $("#status").ajaxComplete(function(event, request){ 
-	var d=msg;
-	var str=d.slice(-2);
-	
-	if(str == 'OK')
-	{ 
-	   $("#usernamesignup").removeClass("red");
-	    $("#usernamesignup").addClass("green");
-        $("#status").html('<img src="yes.png" align="absmiddle"> <font color="Green"> Available </font>  ');
-	}  
-	else  
-	{  
-	     $("#usernamesignup").removeClass("green");
-		 $("#usernamesignup").addClass("red");
-		$("#status").html(msg);
-	}  
-   });
-   } 
-  }); 
-}
-else
-{
- $("#usernamesignup").addClass("red");
-$("#status").html('<font color="#cc0000">Enter valid User Name</font>');
-}
-return false;
-});
-});
-</SCRIPT>
+			$(document).ready(function() {
+				$("#usernamesignup").change(function() { 
+					var username = $("#usernamesignup").val();
+					var msgbox = $("#status");
+					if(username.length > 3) {
+						$("#status").html('<img src="loader.gif" align="absmiddle">&nbsp;Checking availability...');
+						$.ajax({
+							type: "POST",  
+						    url: "INCLUDES/check_ajax.php",  
+						    data: "username="+username,  
+    						success: function(msg){  
+   								$("#status").ajaxComplete(function(event, request){ 
+								var d=msg;
+								var str=d.slice(-2);
+								if(str == 'OK')	{ 
+	   								$("#usernamesignup").removeClass("red");
+								    $("#usernamesignup").addClass("green");
+							        $("#status").html('<img src="yes.png" align="absmiddle"> <font color="Green"> Available </font>  ');
+								}  
+								else {  
+								     $("#usernamesignup").removeClass("green");
+									 $("#usernamesignup").addClass("red");
+									 $("#status").html(msg);
+								}  
+					  	});
+					} 
+				}); 
+			}
+			else {
+ 				$("#usernamesignup").addClass("red");
+				$("#status").html('<font color="#cc0000">Enter valid User Name</font>');
+			}
+					return false;
+				});
+			});
+		</SCRIPT>
 
        	
         <!-- CSS Links -->
@@ -85,10 +77,7 @@ return false;
         <link rel="stylesheet" type="text/css" href="CSS/index.css" media="screen" />
         <link rel="stylesheet" type="text/css" href="CSS/animate-custom.css" media="screen" />
 		<style type="text/css">
-body
-{
-font-family:Arial, Helvetica, sans-serif
-}
+
 #status
 {
 font-size:11px;

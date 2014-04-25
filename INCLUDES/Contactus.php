@@ -81,6 +81,7 @@
         <div class="panel" style="position:absolute;left:850px;width:464px;top:80px;">
         	<div class="panel-heading">Contact Us</div>
             <div class="panel-body">
+            
 			</div>
         </div>
          
