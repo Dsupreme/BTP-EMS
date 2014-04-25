@@ -24,10 +24,7 @@ session_start();
 		<link rel="apple-touch-icon" href="">
 		<link rel="apple-touch-icon" sizes="72x72" href="">
 		<link rel="apple-touch-icon" sizes="114x114" href="">
-
-        
-
-		<!--Fonts-->
+	<!--Fonts-->
    		<link href='http://fonts.googleapis.com/css?family=Economica:700,400italic' rel='stylesheet' type='text/css'>
 		<link href='http://fonts.googleapis.com/css?family=Revalia' rel='stylesheet' type='text/css'>
 		
@@ -35,13 +32,86 @@ session_start();
         <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.1.min.js"></script><!--JQuery Online link -->
        	<script type="text/javascript" src="JS/bootstrap.js"></script><!--Bootstrap Javascript-->
 		<script type="text/javascript" src="JS/MetroJs.js"></script>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.0/jquery.min.js" type="text/javascript"></script>	
+		<SCRIPT type="text/javascript">
+$(document).ready(function()
+{
+$("#usernamesignup").change(function() 
+{ 
+var username = $("#usernamesignup").val();
+var msgbox = $("#status");
+if(username.length > 3)
+{
+$("#status").html('<img src="loader.gif" align="absmiddle">&nbsp;Checking availability...');
+$.ajax({  
+    type: "POST",  
+    url: "INCLUDES/check_ajax.php",  
+    data: "username="+username,  
+    success: function(msg){  
+   $("#status").ajaxComplete(function(event, request){ 
+	var d=msg;
+	var str=d.slice(-2);
+	
+	if(str == 'OK')
+	{ 
+	   $("#usernamesignup").removeClass("red");
+	    $("#usernamesignup").addClass("green");
+        $("#status").html('<img src="yes.png" align="absmiddle"> <font color="Green"> Available </font>  ');
+	}  
+	else  
+	{  
+	     $("#usernamesignup").removeClass("green");
+		 $("#usernamesignup").addClass("red");
+		$("#status").html(msg);
+	}  
+   });
+   } 
+  }); 
+}
+else
+{
+ $("#usernamesignup").addClass("red");
+$("#status").html('<font color="#cc0000">Enter valid User Name</font>');
+}
+return false;
+});
+});
+</SCRIPT>
+
        	
         <!-- CSS Links -->
 		<link rel="stylesheet" type="text/css" href="CSS/bootstrap.css" media="screen" />
         <link rel="stylesheet" type="text/css" href="CSS/MetroJs.css" media="screen" />
         <link rel="stylesheet" type="text/css" href="CSS/index.css" media="screen" />
         <link rel="stylesheet" type="text/css" href="CSS/animate-custom.css" media="screen" />
-              
+		<style type="text/css">
+body
+{
+font-family:Arial, Helvetica, sans-serif
+}
+#status
+{
+font-size:11px;
+margin-left:10px;
+}
+.green
+{
+background-color:#CEFFCE;
+}
+.red
+{
+background-color:#FFD9D9;
+}
+input
+{
+font-size:16px;
+width:190px;
+height:25px;
+border:solid 1px #333333;
+padding:4px;
+}
+
+</style>              
 	</head>
     
 <?php 
@@ -53,10 +123,19 @@ session_start();
 
 <?php
 	if(isset($_POST['signupbtn'])) { 
-		echo $unames.$emails.$pswds;
 		mysql_query("INSERT INTO users(username, email, password) VALUES ('$unames','$emails','$pswds');") or die(mysql_error());
-		echo "<script>alert(\"User Added\");</script>";
+		echo "<script>alert(\"User Added\");</script>";	
+	}
 	
+	if(isset($_POST['loginbtn']))  {
+		$ldetail = mysql_query("SELECT * from users WHERE username = '$unamel' and password = '$pswdl';") or die(mysql_error());
+	while($rows = mysql_fetch_array($ldetail)){
+		echo "<script> alert(".$rows['username'].");</script>";
+		$_SESSION['username'] = $rows['username'];
+		$_SESSION['userid'] = $rows['U_id'];
+	} 
+	echo "Welcome! ".$_SESSION['username'];
+	echo "GO To Your <a href=\"INCLUDES/Home.php\">Home Page</a>";
 	}
 	?>
 	<body data-spy="scroll" data-target=".navbar navbar-fixed-top">
@@ -81,12 +160,6 @@ session_start();
             		</div>
             		<div class="navbar-collapse collapse">
           				<ul class="nav navbar-nav navbar-right">
-                    		<li><a <?php 
-							//if($_SESSION['Username'])
-								//echo "href=\"INCLUDES/Application.php\"";
-							//else
-								echo "href=\"#tologin\"";
-								?>><font size="+1">APPLY NOW</font></a></li>
                     		<li><a href="#">About Us</font></a></li>
                   			<li><a href="INCLUDES/Contactus.php">Contact Us</a></li>
                    			<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Services<b class="caret"></b></a>  
@@ -329,7 +402,7 @@ $('body').scrollspy({ target: '.navbar navbar-fixed-top' })
         <a class="hiddenanchor" id="tologin"></a>
         <div id="wrapper">
         	<div id="login" class="animate form">
-            	<form  action="" autocomplete="on"> 
+            	<form  method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" autocomplete="on"> 
                 	<h1>LOGIN</h1> 
                     <p> 
                     	<label for="username" class="uname" > Email or Username </label>
@@ -344,7 +417,7 @@ $('body').scrollspy({ target: '.navbar navbar-fixed-top' })
 						<label for="loginkeeping">Keep me logged in</label>
 					</p>
                     <p class="login button"> 
-                        <input type="submit" value="Login" href="#tologin"/> 
+                        <input type="submit" name="loginbtn" value="Login" href="#tologin"/> 
 					</p>
                     <p class="change_link">
 						Not a member yet ?
@@ -357,7 +430,7 @@ $('body').scrollspy({ target: '.navbar navbar-fixed-top' })
                 	<h1>SIGNUP</h1> 
                     <p> 
                     	<label for="usernamesignup" class="uname">Your username</label>
-                        <input id="usernamesignup" name="usernamesignup" type="text" placeholder="mysuperusername690" />
+                        <input id="usernamesignup" name="usernamesignup" type="text" placeholder="mysuperusername690" /><span id="status"></span>
                     </p>
                     <p> 
                     	<label for="emailsignup" class="youmail"> Your email</label>
