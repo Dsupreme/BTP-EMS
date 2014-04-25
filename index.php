@@ -128,14 +128,19 @@ padding:4px;
 	}
 	
 	if(isset($_POST['loginbtn']))  {
-		$ldetail = mysql_query("SELECT * from users WHERE username = '$unamel' and password = '$pswdl';") or die(mysql_error());
+	$flag=0;
+	$ldetail = mysql_query("SELECT * from users WHERE username = '$unamel' and password = '$pswdl';") or die(mysql_error());
 	while($rows = mysql_fetch_array($ldetail)){
 		echo "<script> alert(".$rows['username'].");</script>";
 		$_SESSION['username'] = $rows['username'];
 		$_SESSION['userid'] = $rows['U_id'];
-	} 
-	echo "Welcome! ".$_SESSION['username'];
-	echo "GO To Your <a href=\"INCLUDES/Home.php\">Home Page</a>";
+		$flag=1;
+	}
+	if($flag==1)
+		echo "<script>window.location = 'INCLUDES/Home.php';</script>";
+	else
+		
+		echo "<script>window.location = 'index.php';</script>";
 	}
 	?>
 	<body data-spy="scroll" data-target=".navbar navbar-fixed-top">

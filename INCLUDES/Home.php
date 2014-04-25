@@ -50,16 +50,20 @@ session_start();
                 		</ul>
             		</div>
             		<ul class="nav navbar-nav navbar-right">
-							<li> Welcome!<?php echo $_SESSION['username']; ?></li>
+						<?php if(session_id() != ''){?>
+							<li style="color:white;">Welcome!<font size="+2">  <?php echo $_SESSION['username'] ?></font></li>
 							<li><a <?php 
+							
 							if($_SESSION['username'])
 								echo "href=\"Application.php\"";
 							else
 								echo "href=\"#tologin\"";
+								}
+							else{die("<a href=\"../index.php\">Please go to the login page again CLICK HERE</a>");}	
 								?>><font size="+1">APPLY NOW</font></a></li>
                     		<li><a href="#">About Us</font></a></li>
                   			<li><a href="Contactus.php">Contact Us</a></li>
-                       		<li><a href="#">Logout</a></li>
+                       		<li><a href="logout.php">Logout</a></li>
                    			<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Services<b class="caret"></b></a>  
     							<ul class="dropdown-menu">
 						    		<li><a href="#">Web Design</a></li>
