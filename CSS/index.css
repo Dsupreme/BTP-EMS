@@ -157,7 +157,7 @@ input {
 	background: rgb(61, 157, 179);
 	font-family: 'BebasNeueRegular','Arial Narrow',Arial,sans-serif;
 	color: #fff;
-	font-size: 24px;	
+	font-size: 20px;
 	border: 1px solid rgb(28, 108, 122);	
 	margin-bottom: 10px;	
 	text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
@@ -355,4 +355,27 @@ p.change_link{
 	position:relative;
 	top:50px;
 }	
+
+
+#status
+{
+	font-size:11px;
+	margin-left:10px;
+}
+.green
+{
+	background-color:#CEFFCE;
+}
+.red
+{
+	background-color:#FFD9D9;
+}
+input
+{
+	font-size:16px;
+	width:190px;
+	height:25px;
+	border:solid 1px #333333;
+	padding:4px;
+}
 

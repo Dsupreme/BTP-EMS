@@ -24,83 +24,22 @@ session_start();
 		<link rel="apple-touch-icon" href="">
 		<link rel="apple-touch-icon" sizes="72x72" href="">
 		<link rel="apple-touch-icon" sizes="114x114" href="">
-	<!--Fonts-->
+		<!--Fonts-->
    		<link href='http://fonts.googleapis.com/css?family=Economica:700,400italic' rel='stylesheet' type='text/css'>
 		<link href='http://fonts.googleapis.com/css?family=Revalia' rel='stylesheet' type='text/css'>
 		
-        <!--Javascript Links-->
-        <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.1.min.js"></script><!--JQuery Online link -->
-       	<script type="text/javascript" src="JS/bootstrap.js"></script><!--Bootstrap Javascript-->
-		<script type="text/javascript" src="JS/MetroJs.js"></script>
-		<SCRIPT type="text/javascript">
-			$(document).ready(function() {
-				$("#usernamesignup").change(function() { 
-					var username = $("#usernamesignup").val();
-					var msgbox = $("#status");
-					if(username.length > 3) {
-						$("#status").html('<img src="loader.gif" align="absmiddle">&nbsp;Checking availability...');
-						$.ajax({
-							type: "POST",  
-						    url: "INCLUDES/check_ajax.php",  
-						    data: "username="+username,  
-    						success: function(msg){  
-   								$("#status").ajaxComplete(function(event, request){ 
-								var d=msg;
-								var str=d.slice(-2);
-								if(str == 'OK')	{ 
-	   								$("#usernamesignup").removeClass("red");
-								    $("#usernamesignup").addClass("green");
-							        $("#status").html('<img src="yes.png" align="absmiddle"> <font color="Green"> Available </font>  ');
-								}  
-								else {  
-								     $("#usernamesignup").removeClass("green");
-									 $("#usernamesignup").addClass("red");
-									 $("#status").html(msg);
-								}  
-					  	});
-					} 
-				}); 
-			}
-			else {
- 				$("#usernamesignup").addClass("red");
-				$("#status").html('<font color="#cc0000">Enter valid User Name</font>');
-			}
-					return false;
-				});
-			});
-		</SCRIPT>
-
        	
         <!-- CSS Links -->
 		<link rel="stylesheet" type="text/css" href="CSS/bootstrap.css" media="screen" />
         <link rel="stylesheet" type="text/css" href="CSS/MetroJs.css" media="screen" />
         <link rel="stylesheet" type="text/css" href="CSS/index.css" media="screen" />
         <link rel="stylesheet" type="text/css" href="CSS/animate-custom.css" media="screen" />
-		<style type="text/css">
-
-#status
-{
-font-size:11px;
-margin-left:10px;
-}
-.green
-{
-background-color:#CEFFCE;
-}
-.red
-{
-background-color:#FFD9D9;
-}
-input
-{
-font-size:16px;
-width:190px;
-height:25px;
-border:solid 1px #333333;
-padding:4px;
-}
-
-</style>              
+        
+        <!--Javascript Links-->
+        <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.1.min.js"></script><!--JQuery Online link -->
+       	<script type="text/javascript" src="JS/bootstrap.js"></script><!--Bootstrap Javascript-->
+		<script type="text/javascript" src="JS/MetroJs.js"></script>
+		<script type="text/javascript" src="JS/check_ajax.js"></script>              
 	</head>
     
 <?php 
@@ -407,11 +346,11 @@ $('body').scrollspy({ target: '.navbar navbar-fixed-top' })
                     	<input id="password" name="password" required type="password" placeholder="eg. X8df!90EO" /> 
                     </p>
                     <p class="keeplogin"> 
-						<input type="checkbox" name="loginkeeping" id="loginkeeping" value="loginkeeping" /> 
-						<label for="loginkeeping">Keep me logged in</label>
+						<input type="checkbox" name="loginkeeping" id="loginkeeping" value="loginkeeping" style="position:relative;left:50px;"/> 
+						<label for="loginkeeping" style="position:relative;top:-20px;">Keep me logged in</label>
 					</p>
                     <p class="login button"> 
-                        <input type="submit" name="loginbtn" value="Login" href="#tologin"/> 
+                        <input type="submit" name="loginbtn" value="LOGIN" href="#tologin"/> 
 					</p>
                     <p class="change_link">
 						Not a member yet ?
@@ -439,7 +378,7 @@ $('body').scrollspy({ target: '.navbar navbar-fixed-top' })
                         <input id="passwordsignup_confirm" name="passwordsignup_confirm" required type="password" placeholder="eg. X8df!90EO"/>
                     </p>
                     <p class="signin button"> 
-						<input type="submit" name="signupbtn" value="Signup"/> 
+						<input type="submit" name="signupbtn" value="SIGNUP"/> 
 					</p>
                     <p class="change_link">  
 						Already a member ?
