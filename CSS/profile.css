@@ -2,7 +2,32 @@
 /* CSS Document */
 #general_det {
 	position:relative;
-	margin-top:120px;
+	margin-top:100px;
 	margin-left:80px;
-	width:70%;
+	width:65%;
+	height:150px;
+}
+#contact_det {
+	position:relative;
+	margin-top:50px;
+	margin-left:80px;
+	width:65%;
+	height:180px;
+}
+
+#pic-sign {
+	position:relative;
+	width:22%;
+	float:right;
+	margin-right:80px;
+}
+
+#pic {
+	height:325px;
+}
+
+#label {
+	position:relative;
+	width:130px;
+	padding:5px 0px 5px 10px;
 }

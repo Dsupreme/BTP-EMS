@@ -47,9 +47,9 @@
           				<ul class="nav navbar-nav navbar-right">
                     		<li><a href="#">About Us</font></a></li>
                   			<li><a href="INCLUDES/Contactus.php">Contact Us</a></li>
-                   			<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Services<b class="caret"></b></a>  
+                   			<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">My Account<b class="caret"></b></a>  
     							<ul class="dropdown-menu">
-						    		<li><a href="#">Web Design</a></li>
+						    		<li><a href="#">Profile</a></li>
 									<li><a href="#">Web development</a></li>
                             		<li class="divider"></li>
 									<li><a href="#">Theme development</a></li>  
@@ -62,10 +62,55 @@
 		</nav>
 	</section>
     <section >
-    	<div class="panel" id="general_det">
-        	<div class="panel-heading">Personal Information</div>
-            <div class="panel-body">Profile picture</div>
+    	<div class="panel panel-info" id="pic-sign">
+			<div class="panel-heading"> Photo </div>
+        	<div class="panel-body" id="pic"></div>
         </div>
+    	<div class="panel panel-info" id="general_det">
+        	<div class="panel-heading">Personal Information</div>
+            <div class="panel-body">
+            	<table>
+                	<tr>
+                    	<td id="label">First Name : </td>
+                        <td><input type="text" name="fname" value="" /></td>
+                        <td id="label">Middle Name : </td>
+                        <td><input type="text" name"mname" value="" /></td>
+                        <td id="label">Last Name : </td>
+                        <td><input type="text" name="lname" value="" /></td>
+                    </tr>
+                    <tr>
+                    	<td id="label">Father's Name : </td>
+                        <td><input type="text" name="name_f" value="" /></td>
+                        <td id="label">Mother's Name : </td>
+                        <td><input type="text" name="name_m" value="" /></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="panel panel-info" id="contact_det">
+        	<div class="panel-heading">Contact Info</div>
+            <div class="panel-body">
+            	<table>
+                	<tr>
+                    	<td id="label">Address (1) : </td>
+                        <td colspan="6"><input type="text" name="add_p" value="" style="width:735px" /></td>
+                    </tr>
+                    <tr>
+                        <td id="label">Address (2) : </td>
+                        <td colspan="6"><input type="text" name"add_c" value=""  style="width:735px"/></td>
+                    </tr>
+                    <tr>
+                        <td id="label">Mobile (1) : </td>
+                        <td><input type="text" name="mobile_1" value="" /></td>
+                       	<td id="label">Mobile (2) : </td>
+                        <td><input type="text" name="mobile_2" value="" /></td>
+                        <td id="label">Landline : </td>
+                        <td><input type="text" name="landline" value="" /></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        
     </section>
     
     

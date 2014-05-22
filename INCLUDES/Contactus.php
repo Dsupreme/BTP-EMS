@@ -62,11 +62,11 @@
 				var latval = '28.54596';
 				var longval = '77.272666';
 				var myLatlng = new google.maps.LatLng(28.54597,77.272666);
-				var mapProp = {center: myLatlng,
+				var centerlatling = new google.maps.LatLng(28.54596,77.2837047); 
+				var mapProp = {center: centerlatling,
 							   zoom:15,
 							   minZoom:13,
 							   scrollwheel:false,
-							   draggable: false,
 							   maxZoom:17,
 							   mapTypeId:google.maps.MapTypeId.ROADMAP};
 				var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);

@@ -95,9 +95,9 @@ session_start();
           				<ul class="nav navbar-nav navbar-right">
                     		<li><a href="#">About Us</font></a></li>
                   			<li><a href="INCLUDES/Contactus.php">Contact Us</a></li>
-                   			<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Services<b class="caret"></b></a>  
+                   			<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">My Account<b class="caret"></b></a>  
     							<ul class="dropdown-menu">
-						    		<li><a href="#">Web Design</a></li>
+						    		<li><a href="INCLUDES/profile.php">Profile</a></li>
 									<li><a href="#">Web development</a></li>
                             		<li class="divider"></li>
 									<li><a href="#">Theme development</a></li>  
