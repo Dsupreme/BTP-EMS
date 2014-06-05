@@ -64,7 +64,11 @@
     <section >
     	<div class="panel panel-info" id="pic-sign">
 			<div class="panel-heading"> Photo </div>
-        	<div class="panel-body" id="pic"></div>
+        	<div class="panel-body" id="pic">
+            	<a href="#" class="thumbnail">
+                	<img src="../IMAGES/2.png" />
+			    </a>
+            </div>
         </div>
     	<div class="panel panel-info" id="general_det">
         	<div class="panel-heading">Personal Information</div>

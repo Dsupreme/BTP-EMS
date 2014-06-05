@@ -126,7 +126,7 @@
                         	<td ><input type="text" name="candidate_fname" placeholder="Mandatory"/></td>
                         	<td class="Label" >Middle Name</td>
                             <td id="colon">:</td>
-                        	<td ><input type="text" name="candidate_mname"  /></td>
+                        	<td ><input type="text" name="candidate_mname"  placeholder="Mandatory" /></td>
                         	<td class="Label" >Last Name </td>
                             <td id="colon">:</td>
                         	<td ><input type="text" name="candidate_lname" placeholder="Mandatory" /></td>
