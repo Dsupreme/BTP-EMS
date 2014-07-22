@@ -1,23 +1,34 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 <?php
-session_start();
+	session_start();
+	if($_SESSION['username']){
+	}
+	//else {
+//		echo "href=\"../#tologin\"";
+//	}
+	else {
+		echo (
+			"<SCRIPT LANGUAGE='JavaScript'>
+    			window.location.href='/Github/BTP-EMS/#login';
+    		   	window.alert('Not logged in.Please login to EMS to continue.')
+    			</SCRIPT>"
+		);
+	}	
 ?>
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Untitled Document</title>
-
-	<!-- CSS Links -->
-	<link rel="stylesheet" type="text/css" href="../CSS/bootstrap.css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="../CSS/admin.css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="../CSS/animate-custom.css" media="screen" />
-	
-	<!--Javascript Links-->
-    <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.1.min.js"></script><!--JQuery Online link -->
-    <script type="text/javascript" src="../js/bootstrap.js"></script><!--Bootstrap Javascript -->
-    <script type="text/javascript" src="../js/smoothscroll.js"></script><!--Smooth Scroll Animation -->
-</head>
+	<head>
+	    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    	<title>Untitled Document</title>
+    
+        <!-- CSS Links -->
+        <link rel="stylesheet" type="text/css" href="../CSS/bootstrap.css" media="screen" />
+        <link rel="stylesheet" type="text/css" href="../CSS/admin.css" media="screen" />
+        <link rel="stylesheet" type="text/css" href="../CSS/animate-custom.css" media="screen" />
+        
+        <!--Javascript Links-->
+        <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.1.min.js"></script><!--JQuery Online link -->
+        <script type="text/javascript" src="../js/bootstrap.js"></script><!--Bootstrap Javascript -->
+        <script type="text/javascript" src="../js/smoothscroll.js"></script><!--Smooth Scroll Animation -->
+    </head>
 <?php    
    	include 'database.php';
 	if(isset($_REQUEST['output_by_id'])) {
@@ -49,29 +60,23 @@ session_start();
                 			<li class="active"><a class="navbar-brand" href="../index.php"><font size="+3"> Employee Management System</font></a></li>
                 		</ul>
             		</div>
-            		<ul class="nav navbar-nav navbar-right">
-						<?php if(session_id() != ''){?>
-							<li style="color:white;">Welcome!<font size="+2">  <?php echo $_SESSION['username'] ?></font></li>
-							<li><a <?php 
-							
-							if($_SESSION['username'])
-								echo "href=\"Application.php\"";
-							else
-								echo "href=\"#tologin\"";
-								}
-							else{die("<a href=\"../index.php\">Please go to the login page again CLICK HERE</a>");}	
-								?>><font size="+1">APPLY NOW</font></a></li>
-                    		<li><a href="#">About Us</font></a></li>
-                  			<li><a href="Contactus.php">Contact Us</a></li>
-                       		<li><a href="logout.php">Logout</a></li>
-                   			<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Services<b class="caret"></b></a>  
+            		<ul class="nav navbar-nav navbar-right">							
+                            <li><a href="Application.php"><font size="+1">APPLY NOW</font></a></li>        		
+			                <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Shortcuts<b class="caret"></b></a>  
     							<ul class="dropdown-menu">
-						    		<li><a href="#">Web Design</a></li>
-									<li><a href="#">Web development</a></li>
-                            		<li class="divider"></li>
-									<li><a href="#">Theme development</a></li>  
+						    		<li><a href="#">About Us</a></li>
+                               		<li class="divider"></li>
+									<li><a href="Contactus.php">Contact Us</a></li>
 					    		</ul>
                     		</li>
+                   			<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo "Welcome, ".$_SESSION['username'] . "<b class='caret'></b>"?></a>
+                            	<ul class="dropdown-menu">
+                                	<li><a href="">Settings</a></li>
+                                	<li><a href="logout.php">Logout</a></li>
+                                </ul>
+                            </li>
+                            
+
                			</ul>
            			</div>
         		</div>     

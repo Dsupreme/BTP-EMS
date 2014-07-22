@@ -3,14 +3,14 @@
 .list-tile,
 .copy-tile,
 .tile-strip .flip-list > li {
-  height: 150px;
-  margin: 0px;
+  height: 149.8px;
+  margin: 0p;
   outline: 1px solid transparent;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   padding: 0px;
-  width: 150px;
+  width: 149.8px;
 }
 .live-tile.half-tile,
 .list-tile.half-tile,
@@ -325,7 +325,7 @@
 }
 .tile-group.nine-wide,
 .tile-strip.nine-wide {
-  width: 1351px;
+  width: 1349px;
 }
 .tile-group.ten-wide,
 .tile-strip.ten-wide {

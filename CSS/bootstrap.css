@@ -824,7 +824,7 @@ pre code {
 
 @media (min-width: 1200px) {
   .container {
-    width: 1170px;
+    width: 1250px;
   }
 }
 
@@ -4581,7 +4581,7 @@ textarea.input-group-sm > .input-group-btn > .btn {
   }
   .navbar-nav > li > a {
     padding-top: 15px;
-    padding-bottom: 15px;
+    padding-bottom: 5px;
   }
   .navbar-nav.navbar-right:last-child {
     margin-right: -15px;
@@ -4658,7 +4658,7 @@ textarea.input-group-sm > .input-group-btn > .btn {
 }
 
 .navbar-nav > li > .dropdown-menu {
-  margin-top: 0;
+  margin-top: 9px;
   border-top-right-radius: 0;
   border-top-left-radius: 0;
 }
