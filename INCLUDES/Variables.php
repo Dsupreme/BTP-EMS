@@ -54,6 +54,7 @@
 	if(isset($_POST['usernamesignup'])){$unames=$_POST['usernamesignup'];}
 	if(isset($_POST['passwordsignup'])){$pswds=$_POST['passwordsignup'];}
 	if(isset($_POST['emailsignup'])){$emails=$_POST['emailsignup'];}
+	if(isset($_POST['passwordsignup_confirm'])) { $pswds_c = $_POST['passwordsignup_confirm'];}
 	
 	
 	//login
@@ -69,7 +70,16 @@
 */
 	
 	
-	
+	//Functions
+	function checkEmail ($mail) {
+		if(preg_match('/^([a-zA-Z0-9])+([a-zA-Z0-9._-])*@([a-zA-Z0-9_-])+([a-zA-Z0-9._-]+)+$/' , $mail)){
+			list($name,$domain)=split('@',$mail);
+			if(!checkdnsrr($domain,'MX')) {
+				return false;
+			}
+			return true;
+		}
+	}
 	
 	
 ?>

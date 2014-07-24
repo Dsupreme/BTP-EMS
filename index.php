@@ -39,16 +39,52 @@ session_start();
 	</head>
     
 <?php 
+	include 'INCLUDES/database.php';
 	include 'INCLUDES/Variables.php';
 	include 'INCLUDES/file-uploader.php';
-	include 'INCLUDES/database.php';
+	
 ?>
 
 
 <?php
-	if(isset($_POST['signupbtn'])) { 
-		mysql_query("INSERT INTO users(username, email, password) VALUES ('$unames','$emails','$pswds');") or die(mysql_error());
-		echo "<script>alert(\"User Added\");</script>";	
+	if(isset($_REQUEST['signupbtn'])) {
+		$signup_error = "";
+		if ($_SERVER["REQUEST_METHOD"] == "POST") {
+			if (empty($unames)) {
+				$signup_error.="Username is required.";	
+			}
+			else {
+				if (1/* Add pre reg code to check name here */) {
+				}
+			}
+			
+			if (empty($emails)) {
+				$signup_error.="Email address is required.";
+			}
+			else {
+				$emails = trim($emails);   
+				if(!checkEmail($emails)) {  
+					$signup_error.="Invalid email address!";
+				}
+			}
+			if (strcmp($pswds,$pswds_c)=='0') {
+			}
+			else {
+				$signup_error.="Both the password fields do not match ";
+			}
+		}
+		if (strcmp($signup_error,"")!='0') {
+			echo "<script language='javascript' type='text/javascript'>";
+			echo "alert('$signup_error');";
+			echo "</script>";
+		}
+		else {
+			mysql_query("INSERT INTO users(username, email, password) VALUES ('$unames','$emails','$pswds');") or die(mysql_error());
+			echo "<script language='javascript' type='text/javascript'>";
+			echo "alert('User added to database. Please login to EMS to continue');";
+			echo "</script>";
+			
+		}
 	}
 	
 	if(isset($_POST['loginbtn']))  {

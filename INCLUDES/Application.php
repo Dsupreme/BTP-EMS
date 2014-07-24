@@ -21,6 +21,7 @@
 
 
 <?php 
+	session_start();
 	include 'Variables.php';
 	include 'file-uploader.php';
 	include 'database.php';
@@ -53,11 +54,7 @@
 		mysql_query("insert into experience (app_ID, per_from, per_to, organization, designation,responsibility,salary) values ('$apid','$from','$to','$desg','$org','$resp','$salary');
 					") or die(mysql_error());	
 		}
-		$qual = array($c_degree ,
-						$c_specialization ,
-						$c_university,
-						$c_year,
-						$c_marks);
+		$qual = array($c_degree,$c_specialization,$c_university,$c_year,$c_marks);
 		for($v = 0 ; $v < $countd ; $v++){
 		$deg = $qual[0][$v];
 		$spec = $qual[1][$v];
@@ -107,6 +104,12 @@
 									<li><a href="#">Theme development</a></li>  
 					    		</ul>
                     		</li>
+                            <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo "Welcome, ".$_SESSION['username'] . "<b class='caret'></b>"?></a>
+                            	<ul class="dropdown-menu">
+                                	<li><a href="">Settings</a></li>
+                                	<li><a href="logout.php">Logout</a></li>
+                                </ul>
+                            </li>
                			</ul>
            			</div>
         		</div>     
