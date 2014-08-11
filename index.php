@@ -54,10 +54,10 @@ session_start();
 				$signup_error.="Username is required.";	
 			}
 			else {
-				if (1/* Add pre reg code to check name here */) {
+				if (!preg_match('/^[a-zA-Z0-9]+$/', $unames)) {
+					$signup_error.="Invalid Username. Remove invalid characters";
 				}
-			}
-			
+			}			
 			if (empty($emails)) {
 				$signup_error.="Email address is required.";
 			}
