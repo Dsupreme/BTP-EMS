@@ -14,6 +14,9 @@
     <script type="text/javascript" src="../js/bootstrap.js"></script><!--Bootstrap Javascript -->
     <script type="text/javascript" src="../js/smoothscroll.js"></script><!--Smooth Scroll Animation -->
 </head>
+<?php 
+	session_start();
+	?>
 
 <body  style="background-color:#808080">
 <!--Navigation Bar-->
@@ -38,7 +41,6 @@
           				<ul class="nav navbar-nav navbar-right">
                     		<li><a href="">About Us</a></li>
                     		<li><a href="#">Portfolio</a></li>
-                    		<li><a href="#">Contact Us</a></li>
                    			<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Services<b class="caret"></b></a>  
     							<ul class="dropdown-menu">
 						    		<li><a href="#">Web Design</a></li>
@@ -47,6 +49,20 @@
 									<li><a href="#">Theme development</a></li>  
 					    		</ul>
                     		</li>
+							<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">My Account<b class="caret"></b></a>  
+    							<ul class="dropdown-menu">
+						    		<li><a href="profile.php">Profile</a></li>
+									<li><a href="#">Web development</a></li>
+                            		<li class="divider"></li>
+									<li><a href="#">Theme development</a></li>  
+					    		</ul>
+                    		</li>
+                            <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo "Welcome, ".$_SESSION['username'] . "<b class='caret'></b>"?></a>
+                            	<ul class="dropdown-menu">
+                                	<li><a href="">Settings</a></li>
+                                	<li><a href="logout.php">Logout</a></li>
+                                </ul>
+                            </li>
                			</ul>
            			</div>
         		</div>     

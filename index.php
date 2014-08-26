@@ -126,9 +126,9 @@ session_start();
                         </div>
                         <div class="navbar-collapse collapse">
                             <ul class="nav navbar-nav navbar-right">
-                                <li><a href="#">Apply Now</a></li>
+                               
                                 <li><a href="#">About</a></li>
-                                <li><a href="INCLUDES/Contactus.php">Contact Us</a></li>
+                                <li><a href="INCLUDES/Contact.php">Contact Us</a></li>
                             </ul>
                         </div>
                     </div>     
