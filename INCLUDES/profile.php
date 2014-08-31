@@ -1,5 +1,9 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
+<?php
+session_start();
+
+?>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Untitled Document</title>
@@ -40,13 +44,13 @@
 		    			</button>
                 		<ul class="nav navbar-nav">
                 		<!-- Header & Brand/Company Name-->
-                			<li class="active"><a class="navbar-brand" href="index.php"><font size="+3"> Employee Management System</font></a></li>
+                			<li class="active"><a class="navbar-brand" href="Home.php"><font size="+3"> Employee Management System</font></a></li>
                 		</ul>
             		</div>
             		<div class="navbar-collapse collapse">
           				<ul class="nav navbar-nav navbar-right">
-                    		<li><a href="#">About Us</font></a></li>
-                  			<li><a href="INCLUDES/Contactus.php">Contact Us</a></li>
+                    		<li><a href="aboutus.php">About Us</font></a></li>
+                  			<li><a href="Contactus.php">Contact Us</a></li>
                    			<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">My Account<b class="caret"></b></a>  
     							<ul class="dropdown-menu">
 						    		<li><a href="#">Profile</a></li>
@@ -55,6 +59,13 @@
 									<li><a href="#">Theme development</a></li>  
 					    		</ul>
                     		</li>
+							<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo "Welcome, ".$_SESSION['username'] . "<b class='caret'></b>"?></a>
+                            	<ul class="dropdown-menu">
+                                	<li><a href="">Settings</a></li>
+                                	<li><a href="logout.php">Logout</a></li>
+                                </ul>
+                            </li>
+                          
                			</ul>
            			</div>
         		</div>     

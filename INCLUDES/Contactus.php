@@ -34,13 +34,13 @@
 		    			</button>
                 		<ul class="nav navbar-nav">
                 		<!-- Header & Brand/Company Name-->
-                			<li class="active"><a class="navbar-brand" href="../index.php"><font size="+3"> Employee Management System</font></a></li>
+                			<li class="active"><a class="navbar-brand" href="Home.php"><font size="+3"> Employee Management System</font></a></li>
                 		</ul>
             		</div>
             		<div class="navbar-collapse collapse">
           				<ul class="nav navbar-nav navbar-right">
-                    		<li><a href="">About Us</a></li>
-                    		<li><a href="#">Portfolio</a></li>
+                    		<li><a href="aboutus.php">About Us</a></li>
+                    		<li><a href="Home.php">Home</a></li>
                    			<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Services<b class="caret"></b></a>  
     							<ul class="dropdown-menu">
 						    		<li><a href="#">Web Design</a></li>

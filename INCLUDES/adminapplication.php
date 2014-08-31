@@ -52,7 +52,7 @@
           				<ul class="nav navbar-nav navbar-right">
             		        <li><a href="">About Us</a></li>
                    	 		<li><a href="#">Portfolio</a></li>
-                    		<li><a href="Contact.html">Contact Us</a></li>
+                    		<li><a href="Contact.php">Contact Us</a></li>
                    			<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Services<b class="caret"></b></a>  
     							<ul class="dropdown-menu">
 						    		<li><a href="#">Web Design</a></li>

@@ -339,7 +339,8 @@ p.change_link{
 
 #MetroSlider1 {
 	position:relative;
-	top:50px;
+	top:0px;
+	float:left;
 }	
 
 

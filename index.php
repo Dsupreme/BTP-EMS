@@ -82,11 +82,9 @@ session_start();
 			mysql_query("INSERT INTO users(username, email, password) VALUES ('$unames','$emails','$pswds');") or die(mysql_error());
 			echo "<script language='javascript' type='text/javascript'>";
 			echo "alert('User added to database. Please login to EMS to continue');";
-			echo "</script>";
-			
+			echo "</script>";			
 		}
 	}
-	
 	if(isset($_POST['loginbtn']))  {
 	$flag=0;
 	$ldetail = mysql_query("SELECT * from users WHERE username = '$unamel' and password = '$pswdl';") or die(mysql_error());
@@ -127,7 +125,7 @@ session_start();
                         <div class="navbar-collapse collapse">
                             <ul class="nav navbar-nav navbar-right">
                                
-                                <li><a href="#">About</a></li>
+                                <li><a href="INCLUDES/about.php">About</a></li>
                                 <li><a href="INCLUDES/Contact.php">Contact Us</a></li>
                             </ul>
                         </div>

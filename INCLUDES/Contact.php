@@ -39,7 +39,7 @@
             		</div>
             		<div class="navbar-collapse collapse">
           				<ul class="nav navbar-nav navbar-right">
-                    		<li><a href="">About Us</a></li>
+                    		<li><a href="about.php">About Us</a></li>
 							<li><a href="../index.php">log in</a></li>
                			</ul>
            			</div>
