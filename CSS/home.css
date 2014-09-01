@@ -1,0 +1,10 @@
+@charset "utf-8";
+/* CSS Document */
+#calendar {
+	  max-width: 900px;
+	  position: relative;
+	  top:100px;
+	  margin: auto 5em;
+	  background: #FFF;
+	  padding:1em;
+}
