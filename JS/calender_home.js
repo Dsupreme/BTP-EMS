@@ -1,8 +1,13 @@
 // JavaScript Document
 $(document).ready(function() {
 	$('#calendar').fullCalendar({
+		header: {
+				left: 'prev,next today',
+				center: 'title',
+				right: 'month,agendaWeek,agendaDay'
+		},
 		defaultDate: '2014-09-12',
-		editable: true,
+		editable: false,
 		eventLimit: true, // allow "more" link when too many events
 		//Recieve the events as AJAX from php in the JSON format
 		events: [

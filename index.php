@@ -98,7 +98,7 @@ session_start();
 		echo "<script>window.location = 'INCLUDES/';</script>";
 	else
 		
-		echo "<script>window.location = 'index.php';</script>";
+		echo "<script>window.location = '../BTP-EMS';</script>";
 	}
 	?>
 	<body data-spy="scroll" data-target=".navbar navbar-fixed-top">

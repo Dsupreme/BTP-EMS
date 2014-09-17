@@ -362,17 +362,3 @@ input
 	padding:4px;
 }
 
-.footer {
-	position:relative;
-	top:3.5em;
-	background-color:#000;
-}
-#legal{
-  width: 100%;
-  text-align: center;
-  color: #FFF;
-  background: #333333;
-  font-size: 10pt;
-  line-height: 1.6em;
-  padding: 15px 10px 5px 10px;
-}

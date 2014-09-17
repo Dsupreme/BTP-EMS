@@ -29,7 +29,7 @@
         <link rel="stylesheet" type="text/css" href="../CSS/home.css" media="screen" />      
 
         <!--Javascript Links-->
-        <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.1.min.js"></script><!--JQuery Online link -->
+        <script type="text/javascript" src="../JS/jquery-1.11.0.min.js"></script><!--JQuery Online link -->
         <script type="text/javascript" src="../js/bootstrap.js"></script><!--Bootstrap Javascript -->
         <script type="text/javascript" src="../js/smoothscroll.js"></script><!--Smooth Scroll Animation -->
         <script type="text/javascript" src="../JS/moment.min.js"></script>
@@ -97,8 +97,39 @@
             </div>     
         </div>
     </nav>
-    <!--========== CALENDER========-->   
-    <div id='calendar'></div>
+    <!--========== CALENDER========--> 
+    <table width="100%">
+    	<tr>
+            <td>
+            <div class="panel panel-default" id="calender_panel">
+                <div class="panel-body">
+                    <div id='calendar'></div>
+                </div>
+            </div>
+            <div class="panel panel-default" id="side_panel">
+                <div class="panel-heading" style="text-align:center">Quick Links</div>
+                <div class="panel-body">
+                    <button type="button" class="fc-button fc-state-default quicklinks">Apply For Leave</button>
+                    <button type="button" class="fc-button fc-state-default quicklinks">Add Calender Event</button>
+                </div>
+            </div>
+            </td>
+        </tr>
+		<tr>
+		    <td>
+        	<div class="footer">
+            	<div id="legal">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.<br>
+                    In at purus at nisl pretium interdum. Aenean condimentum elementum nulla, non hendrerit diam scelerisque ac.<br><br>
+                    © Copyright 2014 - 2020  IIIT - Delhi
+                </div>
+            </div>
+			</td>
+	    </tr>
+    </table>
+
+
+            
 
 </body>
 </html>

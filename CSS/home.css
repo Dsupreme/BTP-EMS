@@ -1,10 +1,33 @@
 @charset "utf-8";
 /* CSS Document */
 #calendar {
-	  max-width: 900px;
-	  position: relative;
-	  top:100px;
-	  margin: auto 5em;
-	  background: #FFF;
-	  padding:1em;
+	max-width: 767px;
+	position: relative;
+	
+	
+	background: #FFF;
+	padding:0.2em;
+}
+
+#calender_panel {
+	width:60%;
+	position:relative;
+	top:8.5em;
+	margin-left:5em;
+	float:left;
+	margin-bottom:7em;
+}
+
+#side_panel {
+	float:right;
+	position:relative;
+	top:8.5em;
+	margin-right:5em;
+	width:27%;
+}
+
+.quicklinks {
+	width:100%;
+	padding:0.2em;
+	margin:0.2em;
 }
