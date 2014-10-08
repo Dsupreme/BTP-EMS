@@ -45,4 +45,62 @@ td {
 	color:#F00;
 }
 
+/* Progress Bar*/
+#progress-bar {
+  position: relative;
+  background: #333333;
+  width: 556px;
+  height: 10px;
+}
 
+.prog-text {
+  position:relative;
+  top:1em;
+  right:0.4em;
+  color:#fff;
+}
+.common {
+  position: relative;
+  top: 5em;
+  margin: 3em 30%;
+  cursor: pointer;
+  transition: all 0.4s ease-in-out;
+}
+
+.all_span {
+  height: 18px;
+  width: 18px;
+  border-radius: 10%;
+  border: 4px solid #3fada8;
+  background:#33333;
+  position: absolute;
+  left:-3px;
+  top: -4px;
+  cursor: pointer;
+  transition: all 0.4s ease-in-out;
+
+}
+
+.second {
+  left: 33%;
+    background:#33333;
+
+}
+.third{
+  left: 67%;
+}
+.fourth{
+  left: 100%;
+}
+#progress-bar::-webkit-progress-value{ /* Changes line color */
+  background: #fff;
+  transition: all 0.4s ease-in-out;
+}
+#progress-bar::-webkit-progress-bar{ /* Changes background color */
+  background: #333333;
+  transition: all 0.4s ease-in-out;
+}
+.border-change{
+  border-color:#3fada8;
+  transition: all 0.4s ease-in-out;
+}
