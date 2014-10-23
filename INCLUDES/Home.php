@@ -25,7 +25,6 @@
         <link rel="stylesheet" type="text/css" href="../CSS/admin.css" media="screen" />
         <link rel="stylesheet" type="text/css" href="../CSS/animate-custom.css" media="screen" />
         <link rel="stylesheet" type="text/css" href="../CSS/fullcalendar.css" media="screen" />
-        <link rel="stylesheet" type="text/css" href="../CSS/animate-custom.css" media="screen" /> 
         <link rel="stylesheet" type="text/css" href="../CSS/home.css" media="screen" />      
 
         <!--Javascript Links-->

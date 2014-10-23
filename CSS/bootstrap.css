@@ -2349,7 +2349,54 @@ fieldset[disabled] .btn-default.active {
   color: #ffffff;
   background-color: #fff;
 }
+/*xxxxxxxxxxxxxxxxxxxxxxxxxx*/
 
+.btn-tabs {
+  color: #333333;
+  background-color: #ffffff;
+  border-color: #cccccc;
+}
+
+.btn-tabs:hover,
+.btn-tabs:focus,
+.btn-tabs:active,
+.btn-tabs.active,
+.open .dropdown-toggle.btn-tabs {
+  color: #333333;
+  background-color: #666;
+  border-color: #adadad;
+}
+
+.btn-tabs:active,
+.btn-tabs.active,
+.open .dropdown-toggle.btn-tabs {
+  background-image: none;
+}
+
+.btn-tabs.disabled,
+.btn-tabs[disabled],
+fieldset[disabled] .btn-tabs,
+.btn-tabs.disabled:hover,
+.btn-tabs[disabled]:hover,
+fieldset[disabled] .btn-tabs:hover,
+.btn-tabs.disabled:focus,
+.btn-tabs[disabled]:focus,
+fieldset[disabled] .btn-tabs:focus,
+.btn-tabs.disabled:active,
+.btn-tabs[disabled]:active,
+fieldset[disabled] .btn-tabs:active,
+.btn-tabs.disabled.active,
+.btn-tabs[disabled].active,
+fieldset[disabled] .btn-tabs.active {
+  background-color: #ffffff;
+  border-color: #cccccc;
+}
+
+.btn-tabs .badge {
+  color: #ffffff;
+  background-color: #fff;
+}
+/*xxxxxxxxxxxxxxxxxxxxxxxxxx*/
 .btn-primary {
   color: #ffffff;
   background-color: #428bca;
