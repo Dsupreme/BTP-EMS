@@ -88,7 +88,8 @@
                         </li>
                         <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo "Welcome, ".$_SESSION['username'] . "<b class='caret'></b>"?></a>
                             <ul class="dropdown-menu">
-                                <li><a href="">Settings</a></li>
+                                <li><a href="Settings.php">Settings</a></li>
+                                <li class="divider"></li>
                                 <li><a href="logout.php">Logout</a></li>
                             </ul>
                         </li>
