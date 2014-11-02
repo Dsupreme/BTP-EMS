@@ -109,8 +109,8 @@
             <div class="panel panel-default" id="side_panel">
                 <div class="panel-heading" style="text-align:center">Quick Links</div>
                 <div class="panel-body">
-                    <button type="button" class="fc-button fc-state-default quicklinks">Apply For Leave</button>
-                    <button type="button" class="fc-button fc-state-default quicklinks">Add Calender Event</button>
+                    <a href="Leave.php" ><button class="fc-button fc-state-default quicklinks">Apply For Leave</button></a>
+                    <a href=""><button type="button" class="fc-button fc-state-default quicklinks" >Add Calender Event</button></a>
                 </div>
             </div>
             </td>

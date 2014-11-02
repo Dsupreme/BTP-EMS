@@ -1,6 +1,20 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-
+<!DOCTYPE html>
+<?php
+	session_start();
+	if($_SESSION['username']){
+	}
+	//else {
+//		echo "href=\"../#tologin\"";
+//	}
+	else {
+		echo (
+			"<SCRIPT LANGUAGE='JavaScript'>
+    			window.location.href='/Github/BTP-EMS/#login';
+    		   	window.alert('Not logged in.Please login to EMS to continue.')
+    			</SCRIPT>"
+		);
+	}	
+?>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
@@ -188,7 +202,6 @@
             		<div class="navbar-collapse collapse">
           				<ul class="nav navbar-nav navbar-right">
                     		<li><a href="aboutus.php">About Us</a></li>
-                    		<li><a href="Home.php">Home</a></li>
                     		<li><a href="Contactus.php">Contact Us</a></li>
                    			<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">My Account<b class="caret"></b></a>  
     							<ul class="dropdown-menu">
