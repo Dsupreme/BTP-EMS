@@ -10,7 +10,7 @@ $(document).ready(function(){
         $('.percent').html("0% Complete");
     } else if ($(this).hasClass('second')){
         $(this).nextAll().removeClass('border-change');  
-        $('#progress-bar').val('34');
+        $('#progress-bar').val('35');
         $(this).prevAll().addClass('border-change');  
         $(this).addClass('border-change');
         $('#form2').fadeIn(500);
@@ -19,7 +19,7 @@ $(document).ready(function(){
         $('.percent').html("33% Complete");
        }else if ($(this).hasClass('third')){
         $(this).nextAll().removeClass('border-change');  
-        $('#progress-bar').val('67');
+        $('#progress-bar').val('68');
         $(this).prevAll().addClass('border-change'); 
         $(this).addClass('border-change');
         $('.percent').html("66% Complete");

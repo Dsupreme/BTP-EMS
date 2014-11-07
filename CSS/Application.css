@@ -62,7 +62,7 @@ td {
 .common {
   position: relative;
   top: 5em;
-  margin: 3em 30%;
+  margin: 0em 30% 4em;
   cursor: pointer;
   transition: all 0.4s ease-in-out;
 }
@@ -75,7 +75,7 @@ td {
   background:#33333;
   position: absolute;
   left:-3px;
-  top: -4px;
+  top: 4px;
   cursor: pointer;
   transition: all 0.4s ease-in-out;
 
