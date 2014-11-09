@@ -122,12 +122,6 @@
 			
 		}
 		
-		
-		
-		
-
-		
-		
 		if (strcmp($signup_error,"")!='0') {
 			echo "<script language='javascript' type='text/javascript'>";
 			echo "alert('$signup_error');";
