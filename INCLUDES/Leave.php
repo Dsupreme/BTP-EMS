@@ -110,9 +110,55 @@
                         <div class="panel panel-default" id="leave_ticker">
                             <div class="panel-heading">Leave Ticker</div>
                             <div class="panel-body">
+                                <div class="row">
+                                    <div class="col-xs-6 col-md-4">
+                                        <a class="thumbnail">
+                                            <div class="caption">
+                                                THIS <br /> WEEK
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="col-xs-6 col-md-4">
+                                        <a class="thumbnail">
+                                          <div class="caption">
+                                                THIS <br /> MONTH
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="col-xs-6 col-md-4">
+                                        <a class="thumbnail">
+                                         <div class="caption">
+                                                TILL <br />NOW
+                                            </div>
+                                        </a>
+                                    </div>                                   
+                                </div>
+                                <div class="row"  style="margin-top:1em">
+                                    <div class="col-xs-6 col-md-4">
+                                        <a class="thumbnail">
+                                            <div class="caption">
+                                                1
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="col-xs-6 col-md-4">
+                                        <a class="thumbnail">
+                                          <div class="caption">
+                                                20
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="col-xs-6 col-md-4">
+                                        <a class="thumbnail">
+                                         <div class="caption">
+                                               30
+                                            </div>
+                                        </a>
+                                    </div>                                   
+                                </div>
+                                
                             </div>
                         </div>
-			
                 </form>
             </section> 
         </div>        
@@ -121,11 +167,12 @@
     		    <div class="panel-heading">Leave History</div>
                 <div class="panel-body">
                     <ul class="list-group">
-                        <li class="list-group-item">Cras justo odio</li>
-                        <li class="list-group-item">Dapibus ac facilisis in</li>
-                        <li class="list-group-item">Morbi leo risus</li>
-                        <li class="list-group-item">Porta ac consectetur ac</li>
-                        <li class="list-group-item">Vestibulum at eros</li>
+                        <?php //Insert while loop here to list all the leaves taken so far 
+                        ?>
+                        <li class="list-group-item">
+                            Add all the fields here
+                        </li>
+
                     </ul>
                     
 

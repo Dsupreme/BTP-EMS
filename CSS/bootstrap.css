@@ -5317,10 +5317,11 @@ a.list-group-item.active > .badge,
 .thumbnail {
   display: block;
   padding: 4px;
+  color: #3fada8;
   margin-bottom: 20px;
   line-height: 1.428571429;
   background-color: #ffffff;
-  border: 1px solid #dddddd;
+  border: 0px solid #dddddd;
   border-radius: 4px;
   -webkit-transition: all 0.2s ease-in-out;
           transition: all 0.2s ease-in-out;
@@ -5338,12 +5339,16 @@ a.list-group-item.active > .badge,
 a.thumbnail:hover,
 a.thumbnail:focus,
 a.thumbnail.active {
-  border-color: #428bca;
+    text-decoration: none;
+  
 }
 
 .thumbnail .caption {
   padding: 9px;
-  color: #333333;
+  font-size: 17.5px;
+  text-shadow: 1px 0px 1px #3fada8;
+  color:#3fada8;
+  text-align: center;
 }
 
 .alert {
