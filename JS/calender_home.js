@@ -6,7 +6,6 @@ $(document).ready(function() {
 				center: 'title',
 				right: 'month,agendaWeek,agendaDay'
 		},
-		defaultDate: '2014-09-12',
 		editable: false,
 		eventLimit: true, // allow "more" link when too many events
 		//Recieve the events as AJAX from php in the JSON format
@@ -67,4 +66,6 @@ $(document).ready(function() {
 			}
 		]
 	});	
+    $('#calendar').fullCalendar('gotoDate', currentDate);
 });
+

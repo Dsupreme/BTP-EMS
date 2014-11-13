@@ -110,7 +110,7 @@
                 <div class="panel-heading" style="text-align:center">Quick Links</div>
                 <div class="panel-body">
                     <a href="Leave.php" ><button class="fc-button fc-state-default quicklinks">Apply For Leave</button></a>
-                    <a href=""><button type="button" class="fc-button fc-state-default quicklinks" >Add Calender Event</button></a>
+                    <a><button type="button" class="fc-button fc-state-default quicklinks" data-toggle="modal" data-target="#addcalenderevent" >Add Calender Event</button></a>
                 </div>
             </div>
             </td>
@@ -127,6 +127,24 @@
 			</td>
 	    </tr>
     </table>
+    
+    <!-- Add Calender Event-->
+    <div class="modal fade" id="addcalenderevent" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Add Calender Event</h4>
+                </div>
+                <div class="modal-body">
+                    ...
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
             

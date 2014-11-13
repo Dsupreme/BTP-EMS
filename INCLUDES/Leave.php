@@ -50,7 +50,6 @@
             		</div>
             		<div class="navbar-collapse collapse">
           				<ul class="nav navbar-nav navbar-right">
-                            <li><a href="Application.php"><font size="+1">APPLY NOW</font></a></li>        		
                     		<li><a href="Home.php">Home</a></li>
                    			<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Shortcuts<b class="caret"></b></a>  
     							<ul class="dropdown-menu">
@@ -73,7 +72,7 @@
 		</nav>
      	<div class="container" style="margin-top:8em;">
 	        <section>
-                <form id="form2" method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+                <form id="form1" method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
                         <div class="panel panel-default" id="leave_form">
                             <div class="panel-heading">Leave Application</div>
                             <div class="panel-body">

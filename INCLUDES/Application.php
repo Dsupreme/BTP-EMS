@@ -226,7 +226,12 @@
     		<span class="all_span fourth"><div class="prog-text">4/4</div></span>
     	</div>
 			
-			<form id="form1" >
+			<form id="form1" method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+                <div class="container" style="top:80px;">
+		    		<div class="panel panel-default">
+		  				<div class="panel-heading">Apply for</div>
+                    </div>
+                </div>
 			</form>
 			<form id="form2" method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
 				<div class="container" style="top:80px;">

@@ -104,3 +104,7 @@ td {
   border-color:#3fada8;
   transition: all 0.4s ease-in-out;
 }
+
+#form1 { display: none;}
+#form2 { display:none;}
+#form3 { display: none;}
