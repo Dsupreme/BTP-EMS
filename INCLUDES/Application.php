@@ -52,20 +52,20 @@
 				$signup_error.=" First name and last name , both are required. ";
 			}
 			else {
-				if (!preg_match('/^[a-zA-Z]+$/', $candidate_fname)) {
+				if (!preg_match('/^[a-zA-Z ]+$/', $candidate_fname)) {
 					$signup_error.=" Invalid Firstname. Remove invalid characters ";
 				}
-				else if (!preg_match('/^[a-zA-Z]+$/', $candidate_lname)) {
+				else if (!preg_match('/^[a-zA-Z ]+$/', $candidate_lname)) {
 					$signup_error.=" Invalid Lastname. Remove invalid characters";
 				}
 			}
-			if(empty($f_candidate)){$signup_error.=" Fathers name is required. ";}else{if (!preg_match('/^[a-zA-Z]+$/', $f_candidate)) {
+			if(empty($f_candidate)){$signup_error.=" Fathers name is required. ";}else{if (!preg_match('/^[a-zA-Z ]+$/', $f_candidate)) {
 					$signup_error.=" Invalid Fathers name. Remove invalid characters";
 				}}
-			if(empty($m_candidate)){$signup_error.=" Mothers name is required. ";}else{if (!preg_match('/^[a-zA-Z]+$/', $m_candidate)) {
+			if(empty($m_candidate)){$signup_error.=" Mothers name is required. ";}else{if (!preg_match('/^[a-zA-Z ]+$/', $m_candidate)) {
 					$signup_error.=" Invalid Mothers name. Remove invalid characters";
 				}}
-			if(empty($nationality_candidate)){$signup_error.=" Nationality is required. ";}else{if (!preg_match('/^[a-zA-Z]+$/', $nationality_candidate)) {
+			if(empty($nationality_candidate)){$signup_error.=" Nationality is required. ";}else{if (!preg_match('/^[a-zA-Z ]+$/', $nationality_candidate)) {
 					$signup_error.=" Invalid Nationality. Remove invalid characters, only alphabets allowed";
 				}}
 			if(empty($dob_candidate)){$signup_error.=" Date of Birth is required. ";}else{if(!preg_match('/^[0-9]{4}-[0-9]{2}-[0-9]{2}$/', $dob_candidate)){ 
@@ -73,16 +73,16 @@
 				}}
 			if(empty($gender)){$signup_error.=" Gender is not selected. ";}
 			
-			if(empty($c_address)){$signup_error.=" Correspondence address required to be filled ";}else{/*if (!preg_match('/^[a-zA-Z]+$/', $c_address)) {
+			if(empty($c_address)){$signup_error.=" Correspondence address required to be filled ";}else{if (!preg_match('/([a-zA-Z 0-9.!\n&-])+/', $c_address)) {
 					$signup_error.=" Invalid Correspondence address. Remove invalid characters ";
-				}*/}
-			if(empty($c_city)){$signup_error.=" Correspondence city required to be filled ";}else{if (!preg_match('/^[a-zA-Z]+$/', $c_city)) {
+				}}
+			if(empty($c_city)){$signup_error.=" Correspondence city required to be filled ";}else{if (!preg_match('/^[a-zA-Z ]+$/', $c_city)) {
 					$signup_error.=" Invalid Correspondence City. Remove invalid characters ";
 				}}
-			if(empty($c_state)){$signup_error.=" Correspondence state required to be filled ";}else{if (!preg_match('/^[a-zA-Z]+$/', $c_state)) {
+			if(empty($c_state)){$signup_error.=" Correspondence state required to be filled ";}else{if (!preg_match('/^[a-zA-Z ]+$/', $c_state)) {
 					$signup_error.=" Invalid Correspondence state. Remove invalid characters ";
 				}}
-			if(empty($c_state)){$signup_error.=" Correspondence state required to be filled ";}else{if (!preg_match('/^[a-zA-Z]+$/', $c_state)) {
+			if(empty($c_state)){$signup_error.=" Correspondence state required to be filled ";}else{if (!preg_match('/^[a-zA-Z ]+$/', $c_state)) {
 					$signup_error.=" Invalid Correspondence state. Remove invalid characters ";
 				}}
 			if(empty($c_pin)){$signup_error.=" Correspondence pin code required to be filled ";}else{if (!preg_match('/^\d{6}$/', $c_pin)) {
@@ -94,16 +94,16 @@
 			if(empty($c_mobile)){}else{if (!preg_match('/^\d{10}$/', $c_mobile)) {
 					$signup_error.=" Invalid Correspondence mobile number. Remove special characters ";
 				}}
-			if(empty($p_address)){$signup_error.=" Permanent address required to be filled ";}else{/*if (!preg_match('/^[a-zA-Z]+$/', $p_address)) {
+			if(empty($p_address)){$signup_error.=" Permanent address required to be filled ";}else{if (!preg_match('/([a-zA-Z 0-9.!\n&-])+/', $p_address)) {
 					$signup_error.=" Invalid Permanent address. Remove invalid characters ";
-				}*/}
-			if(empty($p_city)){$signup_error.=" Permanent city required to be filled ";}else{if (!preg_match('/^[a-zA-Z]+$/', $p_city)) {
+				}}
+			if(empty($p_city)){$signup_error.=" Permanent city required to be filled ";}else{if (!preg_match('/^[a-zA-Z ]+$/', $p_city)) {
 					$signup_error.=" Invalid Permanent City. Remove invalid characters ";
 				}}
-			if(empty($p_state)){$signup_error.=" Permanent state required to be filled ";}else{if (!preg_match('/^[a-zA-Z]+$/', $p_state)) {
+			if(empty($p_state)){$signup_error.=" Permanent state required to be filled ";}else{if (!preg_match('/^[a-zA-Z ]+$/', $p_state)) {
 					$signup_error.=" Invalid Permanent state. Remove invalid characters ";
 				}}
-			if(empty($p_state)){$signup_error.=" Permanent state required to be filled ";}else{if (!preg_match('/^[a-zA-Z]+$/', $p_state)) {
+			if(empty($p_state)){$signup_error.=" Permanent state required to be filled ";}else{if (!preg_match('/^[a-zA-Z ]+$/', $p_state)) {
 					$signup_error.=" Invalid Permanent state. Remove invalid characters ";
 				}}
 			if(empty($p_pin)){$signup_error.=" Permanent pin code required to be filled ";}else{if (!preg_match('/^\d{6}$/', $p_pin)) {
@@ -115,9 +115,9 @@
 			if(empty($p_mobile)){}else{if (!preg_match('/^\d{10}$/', $p_mobile)) {
 					$signup_error.=" Invalid Permanent mobile number. Remove special characters ";
 				}}
-			if(empty($c_year)){}else{if (!preg_match('/^\d{4}$/', $c_year)) {
-					$signup_error.=" Invalid Permanent qualification completion year. Remove invalid characters ";
-				}}
+			//if(empty($c_year)){}else{if (!preg_match('/^\d{4}$/', $c_year)) {
+			//		$signup_error.=" Invalid Permanent qualification completion year. Remove invalid characters ";
+			//	}}
 			
 			
 		}
@@ -225,11 +225,28 @@
     		<span class="all_span third"><div class="prog-text">3/4</div></span>
     		<span class="all_span fourth"><div class="prog-text">4/4</div></span>
     	</div>
-			
+				<script type="text/javascript">
+				$(document).ready(function(){
+						$('.datepicker').datepicker({showAnim: "fadeIn"});
+					});
+				</script>
 			<form id="form1" method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
                 <div class="container" style="top:80px;">
 		    		<div class="panel panel-default">
 		  				<div class="panel-heading">Apply for</div>
+						<div class="list-group">
+							<a href="#" class="list-group-item ">
+							<h4 class="list-group-item-heading">List group item heading</h4>
+							<p class="list-group-item-text">...</p>
+							</a>
+							<a href="#" class="list-group-item">
+							<h4 class="list-group-item-heading">List group item heading</h4>
+							<p class="list-group-item-text">...</p>
+							</a><a href="#" class="list-group-item" >
+							<h4 class="list-group-item-heading">List group item heading</h4>
+							<p class="list-group-item-text">...</p>
+							</a>
+							</div>
                     </div>
                 </div>
 			</form>
@@ -262,7 +279,7 @@
 		                        <tr>
 							       	<td class="Label">Date of Birth </td>
 		                            <td id="colon">:</td>
-						    	    <td ><input type="date" title="yyyy-mm-dd" name="dob_candidate" placeholder="Mandatory" /></td>
+						    	    <td ><input type="text" class="datepicker" title="yyyy-mm-dd" name="dob_candidate" placeholder="Mandatory" /></td>
 						      
 		                        	<td class="Label">Nationality </td>
 		                            <td id="colon">:</td>
