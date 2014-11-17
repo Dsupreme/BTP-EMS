@@ -225,28 +225,56 @@
     		<span class="all_span third"><div class="prog-text">3/4</div></span>
     		<span class="all_span fourth"><div class="prog-text">4/4</div></span>
     	</div>
-				<script type="text/javascript">
-				$(document).ready(function(){
-						$('.datepicker').datepicker({showAnim: "fadeIn"});
-					});
-				</script>
+        
 			<form id="form1" method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
                 <div class="container" style="top:80px;">
 		    		<div class="panel panel-default">
 		  				<div class="panel-heading">Apply for</div>
-						<div class="list-group">
-							<a href="#" class="list-group-item ">
-							<h4 class="list-group-item-heading">List group item heading</h4>
-							<p class="list-group-item-text">...</p>
-							</a>
-							<a href="#" class="list-group-item">
-							<h4 class="list-group-item-heading">List group item heading</h4>
-							<p class="list-group-item-text">...</p>
-							</a><a href="#" class="list-group-item" >
-							<h4 class="list-group-item-heading">List group item heading</h4>
-							<p class="list-group-item-text">...</p>
-							</a>
-							</div>
+                        <div class="panel-body">
+                            <div class="list-group">
+                                <a href="#" class="list-group-item ">
+                                    <h4 class="list-group-item-heading">Post 1</h4>
+                                    <p class="list-group-item-text">...</p>
+                                </a>
+                                <a href="#" class="list-group-item">
+                                    <h4 class="list-group-item-heading">Post 2</h4>
+                                    <p class="list-group-item-text">...</p>
+                                </a>
+                                <a href="#" class="list-group-item" >
+                                    <h4 class="list-group-item-heading">Post 3</h4>
+                                    <p class="list-group-item-text">...</p>
+                                </a>
+                            </div>
+                            <label class="btn btn-primary" name="" onclick="goto_form2();">Next</label>
+                            <script>
+                                function goto_form2() {
+                                    $('#form2').fadeIn(500);
+                                    $('#form1').hide();
+                                    $('#form3').hide();
+                                    $('.first').removeClass('border-change');
+                                    $('.second').removeClass('border-change');
+                                    $('.third').removeClass('border-change');
+                                    $('.fourth').removeClass('border-change');
+                                    $('.first').addClass('border-change');
+                                    $('.second').addClass('border-change');
+                                    $('#progress-bar').val('35');
+                                };
+                                
+                                function goto_form3() {
+                                    $('#form3').fadeIn(500);
+                                    $('#form1').hide();
+                                    $('#form2').hide();
+                                    $('.first').removeClass('border-change');
+                                    $('.second').removeClass('border-change');
+                                    $('.third').removeClass('border-change');
+                                    $('.fourth').removeClass('border-change');
+                                    $('.first').addClass('border-change');
+                                    $('.second').addClass('border-change');
+                                    $('.third').addClass('border-change');
+                                    $('#progress-bar').val('68');
+                                };
+                            </script>
+                        </div>
                     </div>
                 </div>
 			</form>
@@ -279,7 +307,7 @@
 		                        <tr>
 							       	<td class="Label">Date of Birth </td>
 		                            <td id="colon">:</td>
-						    	    <td ><input type="text" class="datepicker" title="yyyy-mm-dd" name="dob_candidate" placeholder="Mandatory" /></td>
+						    	    <td ><input type="date" title="yyyy-mm-dd" name="dob_candidate" placeholder="Mandatory" /></td>
 						      
 		                        	<td class="Label">Nationality </td>
 		                            <td id="colon">:</td>

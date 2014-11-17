@@ -76,9 +76,10 @@ session_start();
     	<div class="panel panel-info" id="pic-sign">
 			<div class="panel-heading"> Photo </div>
         	<div class="panel-body" id="pic">
-            	<a href="#" class="thumbnail">
-                	<img src="../IMAGES/2.png" />
+            	<a href="" class="thumbnail">
+                	<img src="../IMAGES/2.png" />             
 			    </a>
+                <input type="file">
             </div>
         </div>
     	<div class="panel panel-info" id="general_det">
@@ -94,15 +95,15 @@ session_start();
                         <td><input type="text" name="lname" value="" /></td>
                     </tr>
                     <tr>
-                    	<td id="label">Father's Name : </td>
-                        <td><input type="text" name="name_f" value="" /></td>
-                        <td id="label">Mother's Name : </td>
-                        <td><input type="text" name="name_m" value="" /></td>
+                    	<td id="label">D.O.B : </td>
+                        <td><input type="date" name="d_o_b" value="" style="width:100%"/></td>
+                        <td id="label">Mobile No : </td>
+                        <td><input type="text" name="mobile" value="" /></td>
                     </tr>
                 </table>
             </div>
         </div>
-        <div class="panel panel-info" id="contact_det">
+        <div class="panel panel-info" id="contact_det" style="display:none">
         	<div class="panel-heading">Contact Info</div>
             <div class="panel-body">
             	<table>
