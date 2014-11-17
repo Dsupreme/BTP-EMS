@@ -100,7 +100,11 @@ session_start();
                         <td id="label">Mobile No : </td>
                         <td><input type="text" name="mobile" value="" /></td>
                     </tr>
+                    <tr>
+                        <td colspan="6"><input type="submit" class="btn btn-primary" name="profile_submit" value="Submit" style="align:center"/></td>
+                    </tr>
                 </table>
+                
             </div>
         </div>
         <div class="panel panel-info" id="contact_det" style="display:none">
