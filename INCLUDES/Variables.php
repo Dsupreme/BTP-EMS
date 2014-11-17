@@ -61,7 +61,18 @@
 	
 	if(isset($_POST['username'])){$unamel=$_POST['username'];}
 	if(isset($_POST['password'])){$pswdl=$_POST['password'];}
-/*
+
+	//profile
+	
+	if(isset($_POST['fname'])) { $fname=$_POST['fname'];}
+	if(isset($_POST['mname'])) { $mname=$_POST['mname'];}
+	if(isset($_POST['lname'])) { $lname=$_POST['lname'];}
+	if(isset($_POST['d_o_b'])) { $d_o_b=$_POST['d_o_b'];}
+	if(isset($_POST['mobile'])) { $mobile=$_POST['mobile'];}
+	//if(isset($_POST['image'])) { $image=$_POST['image'];}
+	
+	
+	/*
 	if(isset($_POST[''])){}
 	if(isset($_POST[''])){}	
 	if(isset($_POST[''])){}
