@@ -92,12 +92,16 @@ session_start();
 		echo "<script> alert(".$rows['username'].");</script>";
 		$_SESSION['username'] = $rows['username'];
 		$_SESSION['userid'] = $rows['U_id'];
+		$flagprof = $rows['flag'];
 		$flag=1;
 	}
-	if($flag==1)
+	if($flag==1){
+		if($flagprof == 1)
 		echo "<script>window.location = 'INCLUDES/';</script>";
+		else
+		echo "<script>window.location = 'INCLUDES/profile.php';</script>";
+	}
 	else
-		
 		echo "<script>window.location = '../BTP-EMS';</script>";
 	}
 	?>
