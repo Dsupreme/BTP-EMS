@@ -1,17 +1,18 @@
 // JavaScript Document
+var d = "";
 $(document).ready(function() {
-    var d = "";
-	$('#calendar').load(function() {
-		$.ajax({
-			type: "GET",
-			url: "INCLUDES/calender_ajax.php",
-			data: "userid is taken from session",  
+	
+	$.ajax({
+			type: "POST",
+			url: "calender_ajax.php",  
     		success: function(msg) {
-				d=msg;
-                alert(msg);					
+				d = (msg).text();
+                alert('yo'+d);					
 			} 
 		});	
 	});
+
+$(document).ready(function() {
 	$('#calendar').fullCalendar({
 		header: {
 				left: 'prev,next today',
@@ -24,7 +25,7 @@ $(document).ready(function() {
 		events: d
 	});	
     $('#calendar').fullCalendar('gotoDate', currentDate);
-});
+})
 
 /*[
 			
