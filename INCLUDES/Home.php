@@ -22,7 +22,6 @@
     
         <!-- CSS Links -->
         <link rel="stylesheet" type="text/css" href="../CSS/bootstrap.css" media="screen" />
-        <link rel="stylesheet" type="text/css" href="../CSS/admin.css" media="screen" />
         <link rel="stylesheet" type="text/css" href="../CSS/animate-custom.css" media="screen" />
         <link rel="stylesheet" type="text/css" href="../CSS/fullcalendar.css" media="screen" />
         <link rel="stylesheet" type="text/css" href="../CSS/home.css" media="screen" />      
@@ -137,10 +136,38 @@
                     <h4 class="modal-title" id="myModalLabel">Add Calender Event</h4>
                 </div>
                 <div class="modal-body">
-                    ...
+                    <form id="form1" method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+                        <table width="100%">
+                            <tr>
+                                <td colspan="1">Title: </td>
+                                <td colspan="3"><input type="text" name="event_title" placeholder="Mandatory" style="width:95%"/></td>
+                            </tr>
+                            <tr>
+                                <td colspan="1">Url: </td>
+                                <td colspan="3"><input type="text" name="event_url" placeholder="Optional" style="width:95%"</td>
+                            </tr>
+                            <tr>
+                                <td>Start Date: </td>
+                                <td><input type="text" name="event_start_d" placeholder="Mandatory"</td>
+                                <td>Start Time: </td>
+                                <td><input type="text" name="event_start_t" placeholder="Optional"</td>
+                            </tr>
+                            <tr>
+                                <td>End date: </td>
+                                <td><input type="text" name="event_end_d" placeholder="Mandatory"</td>
+                                <td>End Time: </td>
+                                <td><input type="text" name="event_end_t" placeholder="Optional"</td>
+                            </tr>
+                        </table>
+                    </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-primary">Save changes</button>
+                    <button type="button" class="btn btn-primary" name="event_submit" id="submit_event">Submit</button>
+                    <script>
+                        $('#submit_event').click(function() {
+                            $('#addcalenderevent').modal('hide');
+                        })
+                    </script>
                 </div>
             </div>
         </div>

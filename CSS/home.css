@@ -31,3 +31,7 @@
 	padding:0.2em;
 	margin:0.2em;
 }
+
+#form1 > table > tbody > tr > td {
+    padding-top:0.8em;
+}
