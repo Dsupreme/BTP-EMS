@@ -1,16 +1,15 @@
 // JavaScript Document
-var d = "";
+var d;
+var arr1;
 $(document).ready(function() {
-	
 	$.ajax({
-			type: "POST",
-			url: "calender_ajax.php",  
-    		success: function(msg) {
-				d = (msg).text();
-                alert('yo'+d);					
-			} 
-		});	
-	});
+		type: "POST",
+		url: "calender_ajax.php",  
+    	success: function(msg) {
+			d = msg;					
+		} 
+	});	
+});
 
 $(document).ready(function() {
 	$('#calendar').fullCalendar({
@@ -22,8 +21,9 @@ $(document).ready(function() {
 		editable: false,
 		eventLimit: true, // allow "more" link when too many events
 		//Recieve the events as AJAX from php in the JSON format
-		events: d
+		events: window.d
 	});	
+	alert(window.d);
     $('#calendar').fullCalendar('gotoDate', currentDate);
 })
 
