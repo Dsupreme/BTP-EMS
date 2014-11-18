@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 18, 2014 at 02:47 PM
+-- Generation Time: Nov 18, 2014 at 04:17 PM
 -- Server version: 5.6.16
 -- PHP Version: 5.5.11
 
@@ -38,37 +38,27 @@ DELIMITER ;
 --
 -- Table structure for table `calender`
 --
--- Creation: Nov 18, 2014 at 01:44 PM
---
 
 CREATE TABLE IF NOT EXISTS `calender` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `id` bigint(20) NOT NULL,
   `title` varchar(100) NOT NULL,
   `url` varchar(100) NOT NULL,
   `start` varchar(100) NOT NULL,
-  `end` varchar(100) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `calender_user_mapping`
---
--- Creation: Nov 18, 2014 at 01:45 PM
---
-
-CREATE TABLE IF NOT EXISTS `calender_user_mapping` (
-  `userid` bigint(20) NOT NULL,
-  `id` bigint(20) NOT NULL
+  `end` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `calender`
+--
+
+INSERT INTO `calender` (`id`, `title`, `url`, `start`, `end`) VALUES
+(5, 'All day Event', 'www.iiitd.ac.in', '2014-11-19T16:00:00', '2014-11-19T19:00:00'),
+(5, 'Kabhi Kabhi', 'www.google.com', '2014-11-17', '2014-11-18');
 
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `edu_qual`
---
--- Creation: Aug 21, 2014 at 05:17 PM
 --
 
 CREATE TABLE IF NOT EXISTS `edu_qual` (
@@ -107,8 +97,6 @@ INSERT INTO `edu_qual` (`app_ID`, `degree`, `specialization`, `boarduniv`, `yoc`
 --
 -- Table structure for table `experience`
 --
--- Creation: Aug 21, 2014 at 05:17 PM
---
 
 CREATE TABLE IF NOT EXISTS `experience` (
   `app_ID` int(50) NOT NULL COMMENT 'application number of the applicant',
@@ -142,8 +130,6 @@ INSERT INTO `experience` (`app_ID`, `per_from`, `per_to`, `organization`, `desig
 
 --
 -- Table structure for table `pdetails`
---
--- Creation: Aug 21, 2014 at 05:17 PM
 --
 
 CREATE TABLE IF NOT EXISTS `pdetails` (
@@ -196,8 +182,6 @@ INSERT INTO `pdetails` (`app_ID`, `flag`, `firstname`, `middlename`, `lastname`,
 
 --
 -- Table structure for table `users`
---
--- Creation: Nov 17, 2014 at 06:18 PM
 --
 
 CREATE TABLE IF NOT EXISTS `users` (

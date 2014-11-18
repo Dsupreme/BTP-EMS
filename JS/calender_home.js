@@ -1,8 +1,17 @@
 // JavaScript Document
 $(document).ready(function() {
-    
-
-
+    var d = "";
+	$('#calendar').load(function() {
+		$.ajax({
+			type: "GET",
+			url: "INCLUDES/calender_ajax.php",
+			data: "userid is taken from session",  
+    		success: function(msg) {
+				d=msg;
+                alert(msg);					
+			} 
+		});	
+	});
 	$('#calendar').fullCalendar({
 		header: {
 				left: 'prev,next today',
@@ -12,7 +21,15 @@ $(document).ready(function() {
 		editable: false,
 		eventLimit: true, // allow "more" link when too many events
 		//Recieve the events as AJAX from php in the JSON format
-		events: [
+		events: d
+	});	
+    $('#calendar').fullCalendar('gotoDate', currentDate);
+});
+
+/*[
+			
+			
+			
 			{
 				title: 'All Day Event',
 				start: '2014-09-01'
@@ -32,11 +49,7 @@ $(document).ready(function() {
 				title: 'Repeating Event',
 				start: '2014-09-16T16:00:00'
 			},
-			{
-				title: 'Conference',
-				start: '2014-09-11',
-				end: '2014-09-13'
-			},
+			{"title": "Conference","start": "2014-09-11","end": "2014-09-13"},
 			{
 				title: 'Meeting',
 				start: '2014-09-12T10:30:00',
@@ -67,8 +80,4 @@ $(document).ready(function() {
 				url: 'http://google.com/',
 				start: '2014-09-28'
 			}
-		]
-	});	
-    $('#calendar').fullCalendar('gotoDate', currentDate);
-});
-
+		]*/
