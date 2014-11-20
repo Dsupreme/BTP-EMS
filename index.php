@@ -97,7 +97,7 @@ session_start();
 	}
 	if($flag==1){
 		if($flagprof == 1)
-		echo "<script>window.location = 'INCLUDES/';</script>";
+		echo "<script>window.location = 'INCLUDES/Home.php';</script>";
 		else
 		echo "<script>window.location = 'INCLUDES/profile.php';</script>";
 	}

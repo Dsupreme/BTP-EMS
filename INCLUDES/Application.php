@@ -27,10 +27,10 @@
     
     <!--Javascript Links-->
     <script type="text/javascript" src="../JS/jquery-1.11.0.min.js"></script><!--JQuery Online link -->
-    <script type="text/javascript" src="../js/bootstrap.js"></script><!--Bootstrap Javascript -->
-    <script type="text/javascript" src="../js/smoothscroll.js"></script><!--Smooth Scroll Animation -->
-    <script type="text/javascript" src="../js/add-del-row.js"></script><!--Add Deleting New Rows -->
-    <script type="text/javascript" src="../js/progress.js"></script><!-- Progress of Completion -->
+    <script type="text/javascript" src="../JS/bootstrap.js"></script><!--Bootstrap Javascript -->
+    <script type="text/javascript" src="../JS/smoothscroll.js"></script><!--Smooth Scroll Animation -->
+    <script type="text/javascript" src="../JS/add-del-row.js"></script><!--Add Deleting New Rows -->
+    <script type="text/javascript" src="../JS/progress.js"></script><!-- Progress of Completion -->
 </head>
 
 
