@@ -79,6 +79,7 @@ session_start();
 			echo "</script>";
 		}
 		else {
+		    $pswds = md5($pswds);
 			mysql_query("INSERT INTO users(username, email, password) VALUES ('$unames','$emails','$pswds');") or die(mysql_error());
 			echo "<script language='javascript' type='text/javascript'>";
 			echo "alert('User added to database. Please login to EMS to continue');";
@@ -87,6 +88,7 @@ session_start();
 	}
 	if(isset($_POST['loginbtn']))  {
 	$flag=0;
+	$pswdl = md5($pswdl);
 	$ldetail = mysql_query("SELECT * from users WHERE username = '$unamel' and password = '$pswdl';") or die(mysql_error());
 	while($rows = mysql_fetch_array($ldetail)){
 		echo "<script> alert(".$rows['username'].");</script>";
