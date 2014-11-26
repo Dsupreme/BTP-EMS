@@ -103,8 +103,10 @@ session_start();
 		else
 		echo "<script>window.location = 'INCLUDES/profile.php';</script>";
 	}
-	else
-		echo "<script>window.location = '../BTP-EMS';</script>";
+	else {
+        echo "<script language='javascript' type='text/javascript'>"."alert('Invalid Username or Password. Kindly Enter again');"."</script>";
+		echo "<script>window.location = '../';</script>";
+    }
 	}
 	?>
 	<body data-spy="scroll" data-target=".navbar navbar-fixed-top">
