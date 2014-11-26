@@ -1,7 +1,6 @@
 // JavaScript Document
 $(document).ready(function() {   
     var d;
-    var currentDate = new Date();
     $('#calendar').fullCalendar({
         header: {
 				left: 'prev,next today',
@@ -14,9 +13,9 @@ $(document).ready(function() {
         events: {
             url: 'calender_ajax.php',
             type: 'GET',
-            //error: function() {
-            //    alert('there was an error while fetching events!');
-            /*},*/
+            error: function() {
+                alert('there was an error while fetching events!');
+            },
             //color: 'yellow',   // a non-ajax option
             //textColor: 'black' // a non-ajax option
         }

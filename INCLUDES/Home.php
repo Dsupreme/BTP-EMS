@@ -9,7 +9,7 @@
 	else {
 		echo (
 			"<SCRIPT LANGUAGE='JavaScript'>
-    			window.location.href='../#login';
+    			window.location.href='/Github/BTP-EMS/#login';
     		   	window.alert('Not logged in.Please login to EMS to continue.')
     			</SCRIPT>"
 		);
@@ -28,8 +28,8 @@
 
         <!--Javascript Links-->
         <script type="text/javascript" src="../JS/jquery-1.11.0.min.js"></script><!--JQuery Online link -->
-        <script type="text/javascript" src="../JS/bootstrap.js"></script><!--Bootstrap Javascript -->
-        <script type="text/javascript" src="../JS/smoothscroll.js"></script><!--Smooth Scroll Animation -->
+        <script type="text/javascript" src="../js/bootstrap.js"></script><!--Bootstrap Javascript -->
+        <script type="text/javascript" src="../js/smoothscroll.js"></script><!--Smooth Scroll Animation -->
         <script type="text/javascript" src="../JS/moment.min.js"></script>
         <script type="text/javascript" src="../JS/fullcalendar.js"></script><!--Calender-->
         <script type="text/javascript" src="../JS/calender_home.js"></script>

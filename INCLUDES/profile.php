@@ -29,6 +29,7 @@
         
         <!-- CSS Links -->
 		<link rel="stylesheet" type="text/css" href="../CSS/bootstrap.css" media="screen" />
+        <link rel="stylesheet" type="text/css" href="../CSS/MetroJs.css" media="screen" />
         <link rel="stylesheet" type="text/css" href="../CSS/animate-custom.css" media="screen" />
         <link rel="stylesheet" type="text/css" href="../CSS/profile.css" media="screen"  />
         
@@ -54,7 +55,7 @@
 		$signup_error = "";
 		if ($_SERVER["REQUEST_METHOD"] == "POST") {
 			if(empty($fname)and(empty($lname))){
-				$signup_error.=" First name and last name , both are required.";
+				$signup_error.=" First name and last name , both are required. ";
 			}
 			else {
 				if (!preg_match('/^[a-zA-Z ]+$/', $fname)) {
@@ -166,31 +167,24 @@
             <div class="panel-body">
             	<table>
                 	<tr>
-                    	<td id="label">First Name</td>
-                        <td id="colon">:</td>
+                    	<td id="label">First Name : </td>
                         <td><input type="text" name="fname" placeholder="Mandatory" value="" /></td>
-                        <td id="label">Middle Name</td>
-                        <td id="colon">:</td>
+                        <td id="label">Middle Name : </td>
                         <td><input type="text" name="mname" value="" /></td>
-                        <td id="label">Last Name</td>
-                        <td id="colon">:</td>
+                        <td id="label">Last Name : </td>
                         <td><input type="text" name="lname" placeholder="Mandatory" value="" /></td>
                     </tr>
                     <tr>
                     	<td id="label">D.O.B : </td>
-                        <td id="colon">:</td>
                         <td><input type="date" title="yyyy-mm-dd" name="d_o_b" placeholder="Mandatory" style="width:100%"/></td>
                         <td id="label">Mobile No : </td>
-                        <td id="colon">:</td>
-                        <td><input type="tel" name="mobile" value="" placeholder=" No prefix"/></td>
+                        <td><input type="tel" name="mobile" value="" /></td>
                     </tr>
 					<tr>
-                        <td id="label">Profile Photo</td>
-                        <td id="colon">:</td>
-					    <td colspan="3"><input type="file" name="image"></td>
+					    <td colspan="6"><input type="file" name="image"> </td>
 					</tr>
                     <tr>
-                        <td style="align:center"><input type="submit" class="btn btn-primary" name="profile_submit" value="Submit" style="align:center"/></td>
+                        <td colspan="6"><input type="submit" class="btn btn-primary" name="profile_submit" value="Submit" style="align:center"/></td>
                     </tr>
                 </table>
                 
