@@ -1,9 +1,3 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Untitled Document</title>
-</head>
 <?php 
 	
 	////Peronal Details////
@@ -58,12 +52,10 @@
 	
 	
 	//login
-	
 	if(isset($_POST['username'])){$unamel=$_POST['username'];}
 	if(isset($_POST['password'])){$pswdl=$_POST['password'];}
 
 	//profile
-	
 	if(isset($_POST['fname'])) { $fname=$_POST['fname'];}
 	if(isset($_POST['mname'])) { $mname=$_POST['mname'];}
 	if(isset($_POST['lname'])) { $lname=$_POST['lname'];}
@@ -71,6 +63,13 @@
 	if(isset($_POST['mobile'])) { $mobile=$_POST['mobile'];}
 	//if(isset($_POST['image'])) { $image=$_POST['image'];}
 	
+    //calendar_modal
+    if(isset($_POST['event_title'])){$event_title=$_POST['event_title'];}
+    if(isset($_POST['event_url'])){$event_url=$_POST['event_url'];}
+    if(isset($_POST['event_start_d'])){$event_start_d=$_POST['event_start_d'];}
+    if(isset($_POST['event_start_t'])){$event_start_t=$_POST['event_start_T'];}
+    if(isset($_POST['event_end_d'])){$event_end_d=$_POST['event_end_d'];}
+    if(isset($_POST['event_end_t'])){$event_end_t=$_POST['event_end_t'];}
 	
 	/*
 	if(isset($_POST[''])){}
@@ -94,6 +93,3 @@
 	
 	
 ?>
-<body>
-</body>
-</html>

@@ -36,7 +36,6 @@
 
 
 <?php 
-	session_start();
 	include 'Variables.php';
 	include 'file-uploader.php';
 	include 'database.php';

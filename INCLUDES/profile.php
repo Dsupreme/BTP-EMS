@@ -10,7 +10,7 @@
 	else {
 		echo (
 			"<SCRIPT LANGUAGE='JavaScript'>
-    			window.location.href='/Github/BTP-EMS/#login';
+    			window.location.href='../#login';
     		   	window.alert('Not logged in.Please login to EMS to continue.')
     			</SCRIPT>"
 		);
@@ -45,7 +45,6 @@
 	include 'Variables.php';
 	include 'file-uploader.php';
 	include 'database.php';
-	require_once('../LIBRARIES/recaptchalib.php');
 ?>
 
 	
@@ -87,7 +86,7 @@
 			echo "<script language='javascript' type='text/javascript'>";
 			echo "alert('The profile is successfully saved');";
 			echo "</script>";
-			echo "<script>window.location = '../INCLUDES';</script>";
+			echo "<script>window.location = '../INCLUDES/Home.php';</script>";
 			}
 			else{
 			echo "<script language='javascript' type='text/javascript'>";

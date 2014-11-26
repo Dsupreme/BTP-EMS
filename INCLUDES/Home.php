@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <?php
 	session_start();
 	if($_SESSION['username']){
@@ -46,15 +46,36 @@
         
     </head>
 <?php    
+	include 'Variables.php';
    	include 'database.php';
-	if(isset($_REQUEST['output_by_id'])) {
+?>
+
+<?php        
+    if(isset($_POST['profile_submit'])) {
+        $calendar_error = "";
+        
+        console.log("hello");
+        echo "<script language='javascript' type='text/javascript'>"."alert('hello');"."</script";
+        
+        if($_SERVER["REQUEST_METHOD"] == "POST"){
+            if (empty($event_title)){
+                $calendar_error .= "Event title is required. \\n";
+            }
+        }
+        alert($calendar_error);
+    }
+    
+    /*
+    
+    YEH CODE KAAM KA HAI BHI  ????
+    
+    
+    if(isset($_REQUEST['output_by_id'])) {
 		if(isset($_REQUEST['input'])) {$username = $_REQUEST['input']; }
 		$applicant = mysql_query("select * from pdetails where firstname = '$username'") or die(mysql_error());
 		$fetch=(mysql_fetch_array($applicant));
 		//echo $fetch[0],$fetch[1],$fetch[2],$fetch[3],$fetch[4],$fetch[5],$fetch[6],$fetch[7],$fetch[8],$fetch[9];
-		
-	
-	}
+	*/	
 ?>
 
 <body  style="background-color:#808080">
@@ -96,7 +117,7 @@
             </div>     
         </div>
     </nav>
-    <!--========== CALENDER========--> 
+    <!--========== CALENDAR========--> 
     <table width="100%">
     	<tr>
             <td>
@@ -136,7 +157,7 @@
                     <h4 class="modal-title" id="myModalLabel">Add Calender Event</h4>
                 </div>
                 <div class="modal-body">
-                    <form id="form1" method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+                    <form id="form1" method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>"enctype="multipart/form-data">
                         <table width="100%">
                             <tr>
                                 <td colspan="1">Title: </td>
@@ -162,7 +183,8 @@
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" name="event_submit" id="submit_event">Submit</button>
+                    <input type="submit" class="btn btn-primary" name="event_submit" id="submit_event" value="Submit" />
+                    <input type="submit" class="btn btn-primary" name="profile_submit" value="Submit" style="align:center"/>
                     <script>
                         $('#submit_event').click(function() {
                             $('#addcalenderevent').modal('hide');
