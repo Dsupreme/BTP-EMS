@@ -3,7 +3,7 @@ include('database.php');
 session_start();
 $uid = $_SESSION['userid'];
 $count =0;
-$sql_check = mysql_query("SELECT * FROM calender WHERE id = '$uid';") or die(mysql_error());   
+$sql_check = mysql_query("SELECT * FROM calendar WHERE id = '$uid';") or die(mysql_error());
   if(mysql_num_rows($sql_check))
   {
   echo "[";

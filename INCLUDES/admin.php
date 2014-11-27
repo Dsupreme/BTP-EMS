@@ -78,21 +78,43 @@
                         <div class="panel-heading">Leave Applications</div>
                         <div class="panel-body">
                             <table  class="tb5" width="100%" align="center">
-        	<th colspan="12">CONTACT INFO</th>
-            <tr>
-        		<td align="center">Company Name</td>
-                <td align="center">Address 1</td>
-                <td align="center">Address 2</td>
-                <td align="center">City</td>
-                <td align="center">State</td>
-                <td align="center">Country</td>
-                <td align="center">Pincode</td>
-                <td align="center">Telephone(1)</td>
-                <td align="center">Telephone(2)</td>
-                <td align="center">Fax</td>
-                <td align="center">Email</td>
-                <td align="center">Action</td>
-            </tr>
+                                <tr>
+                                    <td align="center"></td>
+                                    <td align="center">Address 1</td>
+                                    <td align="center">Address 2</td>
+                                    <td align="center">City</td>
+                                    <td align="center">State</td>
+                                    <td align="center">Country</td>
+                                    <td align="center">Pincode</td>
+                                    <td align="center">Telephone(1)</td>
+                                    <td align="center">Telephone(2)</td>
+                                    <td align="center">Fax</td>
+                                    <td align="center">Email</td>
+                                    <td align="center">Action</td>
+                                </tr>
+                                <?php
+                                    //$select=mysql_query("select * from contact") or die(mysql_error());
+                                    //while($fetch=mysql_fetch_array($select))
+                                    //{
+                                ?>
+	<tr>
+        <td align="center"><?php echo $fetch[1] ?></td>
+        <td align="center"><?php echo $fetch[2] ?></td>
+        <td align="center"><?php echo $fetch[3] ?></td>
+        <td align="center"><?php echo $fetch[4] ?></td>
+        <td align="center"><?php echo $fetch[5] ?></td>
+        <td align="center"><?php echo $fetch[6] ?></td>
+        <td align="center"><?php echo $fetch[7] ?></td>
+        <td align="center"><?php echo $fetch[8] ?></td>
+        <td align="center"><?php echo $fetch[9] ?></td>
+        <td align="center"><?php echo $fetch[10] ?></td>
+        <td align="center"><?php echo $fetch[11] ?></td>
+    	<td align="center"><a href="contact.php?Del=<?php echo $fetch[0]; ?>"><img src="airlines/Icon_Delete.png" alt="Delete"></a>
+        				   <a href="contact.php?Edit=<?php echo $fetch[0]; ?>"><img src="airlines/Icon_Edit.png" alt="Edit"></a>
+        </td>
+    </tr>
+<?php //} ?>
+                            </table>
                         </div>
             </section>
 

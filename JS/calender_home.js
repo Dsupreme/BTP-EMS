@@ -12,7 +12,7 @@ $(document).ready(function() {
 		eventLimit: true, // allow "more" link when too many events
 		//Recieve the events as AJAX from php in the JSON format
         events: {
-            url: 'calender_ajax.php',
+            url: 'calendar_ajax.php',
             type: 'GET',
             //error: function() {
             //    alert('there was an error while fetching events!');
