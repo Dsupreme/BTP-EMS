@@ -32,7 +32,7 @@
         <script type="text/javascript" src="../JS/smoothscroll.js"></script><!--Smooth Scroll Animation -->
         <script type="text/javascript" src="../JS/moment.min.js"></script>
         <script type="text/javascript" src="../JS/fullcalendar.js"></script><!--Calender-->
-        <script type="text/javascript" src="../JS/calender_home.js"></script>
+        <script type="text/javascript" src="../JS/calendar_home.js"></script>
 
         
 		<link rel="shortcut icon" href="images/favicon.png">

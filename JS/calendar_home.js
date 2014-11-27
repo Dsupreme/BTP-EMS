@@ -1,5 +1,5 @@
 // JavaScript Document
-$(document).ready(function() {   
+$(document).ready(function() {
     var d;
     var currentDate = new Date();
     $('#calendar').fullCalendar({
@@ -21,5 +21,5 @@ $(document).ready(function() {
             //textColor: 'black' // a non-ajax option
         }
     });
-    $('#calendar').fullCalendar('gotoDate', currentDate); 
+    $('#calendar').fullCalendar('gotoDate', currentDate);
 });
