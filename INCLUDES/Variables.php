@@ -67,7 +67,7 @@
     if(isset($_POST['event_title'])){$event_title=$_POST['event_title'];}
     if(isset($_POST['event_url'])){$event_url=$_POST['event_url'];}
     if(isset($_POST['event_start_d'])){$event_start_d=$_POST['event_start_d'];}
-    if(isset($_POST['event_start_t'])){$event_start_t=$_POST['event_start_T'];}
+    if(isset($_POST['event_start_t'])){$event_start_t=$_POST['event_start_t'];}
     if(isset($_POST['event_end_d'])){$event_end_d=$_POST['event_end_d'];}
     if(isset($_POST['event_end_t'])){$event_end_t=$_POST['event_end_t'];}
 	

@@ -1,4 +1,4 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 <?php
 	session_start();
 	if($_SESSION['username']){
@@ -51,18 +51,68 @@
 ?>
 
 <?php        
-    if(isset($_POST['profile_submit'])) {
+    if(isset($_POST['event_submit'])) {
         $calendar_error = "";
         
-        console.log("hello");
-        echo "<script language='javascript' type='text/javascript'>"."alert('hello');"."</script";
+
         
         if($_SERVER["REQUEST_METHOD"] == "POST"){
             if (empty($event_title)){
                 $calendar_error .= "Event title is required. \\n";
             }
+            else {
+                if (!preg_match('/([a-zA-Z 0-9.!\n&-])+/',$event_title)) {
+                    $calendar_error .= "Invalid Title. Remove invalid characters. \\n";
+                }
+            }
+
+            if (!preg_match('/\b(?:(?:https?|ftp):\/\/|www\.)[-a-z0-9+&@#\/%?=~_|!:,.;]*[-a-z0-9+&@#\/%=~_|]/i',$event_url)) {
+                $calendar_error .= "Invalid URL. Kindly remove invalid characters. \\n";
+            }
+
+            if (empty($event_start_d)) {
+                $calendar_error .= "Event start date is required. \\n";
+            }
+            else {
+                if (!preg_match('/^[0-9]{4}-[0-9]{2}-[0-9]{2}$/',$event_start_d)) {
+                    $calendar_error .= "Invalid Start Date. Kindly follow mentioned format. \\n";
+                }
+            }
+
+            if (empty($event_start_t)) {
+                $calendar_error .= "Event Start time is required. \\n";
+            }
+            else {
+                if (!preg_match('',$event_start_t)) {
+                    $calendar_error .= "Invalid Start Time. Kindly follow mentioned format. \\n";
+                }
+            }
+
+            if (empty($event_end_d)) {
+                $calendar_error .= "Event end date is required. \\n";
+            }
+            else {
+                if (!preg_match('/^[0-9]{4}-[0-9]{2}-[0-9]{2}',$event_end_d)) {
+                    $calendar_error .= "Invalid End Date. Kindly follow mentioned format. \\";
+                }
+            }
+
+            if (empty($event_end_t)) {
+                $calendar_error .= "Event end time is required. \\n";
+            }
+            else {
+                if (!preg_match('',$event_end_t)) {
+                    $calendar_error .= "Invalid End Time. Kindly follow mentioned format. \\n";
+                }
+            }
+
+            if (strcmp($calendar_error,"")!="0") {
+                echo "<script language='javascript' type='text/javascript'>"."alert('$calendar_error');"."</script";
+            }
+            else {
+
+            }
         }
-        alert($calendar_error);
     }
     
     /*
@@ -169,28 +219,28 @@
                             </tr>
                             <tr>
                                 <td>Start Date: </td>
-                                <td><input type="text" name="event_start_d" placeholder="Mandatory"</td>
+                                <td><input type="date" name="event_start_d" placeholder="Mandatory"</td>
                                 <td>Start Time: </td>
                                 <td><input type="text" name="event_start_t" placeholder="Optional"</td>
                             </tr>
                             <tr>
                                 <td>End date: </td>
-                                <td><input type="text" name="event_end_d" placeholder="Mandatory"</td>
+                                <td><input type="date" name="event_end_d" placeholder="Mandatory"</td>
                                 <td>End Time: </td>
                                 <td><input type="text" name="event_end_t" placeholder="Optional"</td>
                             </tr>
                         </table>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <input type="submit" class="btn btn-primary" name="event_submit" id="submit_event" value="Submit" />
-                    <input type="submit" class="btn btn-primary" name="profile_submit" value="Submit" style="align:center"/>
-                    <script>
-                        $('#submit_event').click(function() {
-                            $('#addcalenderevent').modal('hide');
-                        })
-                    </script>
-                </div>
+                    </div>
+                    <div class="modal-footer">
+                        <input type="submit" class="btn btn-primary" name="event_submit" id="submit_event" value="Submit" />
+
+                        <script>
+                            $('#submit_event').click(function() {
+                                $('#addcalenderevent').modal('hide');
+                            })
+                        </script>
+                    </div>
+                </form>
             </div>
         </div>
     </div>

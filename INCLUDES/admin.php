@@ -75,8 +75,25 @@
             <section>
                 <form id="form1" method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
                     <div class="panel panel-default" id="leave_form">
-                        <div class="panel-heading">Leave Application</div>
+                        <div class="panel-heading">Leave Applications</div>
                         <div class="panel-body">
+                            <table  class="tb5" width="100%" align="center">
+        	<th colspan="12">CONTACT INFO</th>
+            <tr>
+        		<td align="center">Company Name</td>
+                <td align="center">Address 1</td>
+                <td align="center">Address 2</td>
+                <td align="center">City</td>
+                <td align="center">State</td>
+                <td align="center">Country</td>
+                <td align="center">Pincode</td>
+                <td align="center">Telephone(1)</td>
+                <td align="center">Telephone(2)</td>
+                <td align="center">Fax</td>
+                <td align="center">Email</td>
+                <td align="center">Action</td>
+            </tr>
+                        </div>
             </section>
 
 
