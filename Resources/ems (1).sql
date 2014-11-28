@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.0.4.1
+-- version 4.1.12
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 27, 2014 at 04:32 PM
--- Server version: 5.5.32
--- PHP Version: 5.4.19
+-- Generation Time: Nov 28, 2014 at 03:50 PM
+-- Server version: 5.6.16
+-- PHP Version: 5.5.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -44,16 +44,19 @@ CREATE TABLE IF NOT EXISTS `calendar` (
   `title` varchar(100) NOT NULL,
   `url` varchar(100) NOT NULL,
   `start` varchar(100) NOT NULL,
-  `end` varchar(100) NOT NULL
+  `end` varchar(100) NOT NULL,
+  `backgroundColor` varchar(30) NOT NULL DEFAULT 'blue'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `calendar`
 --
 
-INSERT INTO `calendar` (`id`, `title`, `url`, `start`, `end`) VALUES
-(5, 'New Entry', '', '2014-11-23T12:30:00', '2014-11-24T12:00:00'),
-(9, 'report submission', 'http://www.google.com', '2014-11-25T12:30:00\r\n', '2014-11-27T12:30:00\r\n');
+INSERT INTO `calendar` (`id`, `title`, `url`, `start`, `end`, `backgroundColor`) VALUES
+(5, 'New Entry', '', '2014-11-23T12:30:00', '2014-11-24T12:00:00', 'blue'),
+(9, 'report submission', 'http://www.google.com', '2014-11-25T12:30:00\r\n', '2014-11-27T12:30:00\r\n', 'blue'),
+(5, 'yp', 'http://www.iiitd.ac.in', '2014-11-29T12:30:00', '2014-11-30T12:30:00', 'blue'),
+(5, 'NareshEvent', 'http://usebackpack.com', '2014-11-26T08:20:00', '2014-11-26T11:30:00', 'blue');
 
 -- --------------------------------------------------------
 
