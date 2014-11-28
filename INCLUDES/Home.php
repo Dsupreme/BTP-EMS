@@ -83,7 +83,7 @@
                 $calendar_error .= "Event Start time is required. \\n";
             }
             else {
-                if (!preg_match('',$event_start_t)) {
+                if (!preg_match('/^[0-9]{2}:[0-9]{2}:[0-9]{2}$/',$event_start_t)) {
                     $calendar_error .= "Invalid Start Time. Kindly follow mentioned format. \\n";
                 }
             }
@@ -92,7 +92,7 @@
                 $calendar_error .= "Event end date is required. \\n";
             }
             else {
-                if (!preg_match('/^[0-9]{4}-[0-9]{2}-[0-9]{2}',$event_end_d)) {
+                if (!preg_match('/^[0-9]{4}-[0-9]{2}-[0-9]{2}$/',$event_end_d)) {
                     $calendar_error .= "Invalid End Date. Kindly follow mentioned format. \\";
                 }
             }
@@ -101,7 +101,7 @@
                 $calendar_error .= "Event end time is required. \\n";
             }
             else {
-                if (!preg_match('',$event_end_t)) {
+                if (!preg_match('/^[0-9]{2}:[0-9]{2}:[0-9]{2}$/',$event_end_t)) {
                     $calendar_error .= "Invalid End Time. Kindly follow mentioned format. \\n";
                 }
             }
@@ -110,7 +110,12 @@
                 echo "<script language='javascript' type='text/javascript'>"."alert('$calendar_error');"."</script";
             }
             else {
-
+			$event_start = $event_start_d."T".$event_start_t;
+			$event_end = $event_end_d."T".$event_end_t;
+			mysql_query("INSERT INTO calendar (id, title, url , start , end, backgroundColor) VALUES ( '".$_SESSION['userid']."' , '$event_title' , '$event_url' , '$event_start' , '$event_end' ,'blue')") or die(mysql_error());
+			echo "<script language='javascript' type='text/javascript'>";
+			echo "alert('Event added to for you');";
+			echo "</script>";			
             }
         }
     }
@@ -221,16 +226,17 @@
                                 <td>Start Date: </td>
                                 <td><input type="date" name="event_start_d" placeholder="Mandatory"</td>
                                 <td>Start Time: </td>
-                                <td><input type="text" name="event_start_t" placeholder="Optional"</td>
+                                <td><input type="text" name="event_start_t" title="hh:mm:ss" placeholder="Optional"</td>
                             </tr>
                             <tr>
                                 <td>End date: </td>
                                 <td><input type="date" name="event_end_d" placeholder="Mandatory"</td>
                                 <td>End Time: </td>
-                                <td><input type="text" name="event_end_t" placeholder="Optional"</td>
+                                <td><input type="text" name="event_end_t" title="hh:mm:ss" placeholder="Optional"</td>
                             </tr>
                         </table>
-                    </div>
+                    
+					</div>
                     <div class="modal-footer">
                         <input type="submit" class="btn btn-primary" name="event_submit" id="submit_event" value="Submit" />
 
