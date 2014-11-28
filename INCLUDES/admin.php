@@ -116,8 +116,14 @@
 <?php //} ?>
                             </table>
                         </div>
+                    </div>
+                </form>
             </section>
-
+            <section>
+                <form id="form2" method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+                                                                                                </form>
+            </section>
+        </div>
 
 
 </html>
