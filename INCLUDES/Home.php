@@ -110,12 +110,13 @@
                 echo "<script language='javascript' type='text/javascript'>"."alert('$calendar_error');"."</script";
             }
             else {
-			$event_start = $event_start_d."T".$event_start_t;
-			$event_end = $event_end_d."T".$event_end_t;
-			mysql_query("INSERT INTO calendar (id, title, url , start , end, backgroundColor) VALUES ( '".$_SESSION['userid']."' , '$event_title' , '$event_url' , '$event_start' , '$event_end' ,'blue')") or die(mysql_error());
-			echo "<script language='javascript' type='text/javascript'>";
-			echo "alert('Event added to for you');";
-			echo "</script>";			
+                $event_start = $event_start_d."T".$event_start_t;
+                $event_end = $event_end_d."T".$event_end_t;
+                mysql_query("INSERT INTO calendar (id, title, url , start , end, backgroundColor) VALUES ( '".$_SESSION['userid']."' , '$event_title' , '$event_url' , '$event_start' , '$event_end' ,'blue')") or die(mysql_error());
+                echo "<script language='javascript' type='text/javascript'>";
+                echo "alert('Calendar event added');";
+                echo "$('#calendar').reload(true)";
+                echo "</script>";
             }
         }
     }

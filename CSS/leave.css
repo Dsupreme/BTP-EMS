@@ -20,8 +20,13 @@ table {
 
 .Label {
 	position:relative;
-	width:250px;
+	width:150px;
 	padding:5px 1em 5px 1em;
+}
+
+
+#colon {
+	padding-right:10px;
 }
 
 textarea[name=descrip] {
@@ -33,3 +38,9 @@ textarea[name=descrip] {
 		top:1em;
 }
 
+select {
+    width: 100%;
+    padding:0.2em;
+    margin: 1em 0;
+    font-size: 15px;
+}

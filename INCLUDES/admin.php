@@ -77,53 +77,121 @@
                     <div class="panel panel-default" id="leave_form">
                         <div class="panel-heading">Leave Applications</div>
                         <div class="panel-body">
-                            <table  class="tb5" width="100%" align="center">
-                                <tr>
-                                    <td align="center"></td>
-                                    <td align="center">Address 1</td>
-                                    <td align="center">Address 2</td>
-                                    <td align="center">City</td>
-                                    <td align="center">State</td>
-                                    <td align="center">Country</td>
-                                    <td align="center">Pincode</td>
-                                    <td align="center">Telephone(1)</td>
-                                    <td align="center">Telephone(2)</td>
-                                    <td align="center">Fax</td>
-                                    <td align="center">Email</td>
-                                    <td align="center">Action</td>
-                                </tr>
-                                <?php
+                            <ul class="list-group">
+                                <table  class="tb5" width="100%"  style="margin:1em 0;">
+                                    <tr>
+                                        <td align="center">First Name</td>
+                                        <td align="center">Last Name</td>
+                                        <td align="center">Start Date & Time</td>
+                                        <td align="center">End Date & Time</td>
+                                        <td align="center">Leave Type</td>
+                                        <td align="center">Action</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="divider" colspan="6"> </td>
+                                    </tr>
+                                </table>
+                                                                <?php
                                     //$select=mysql_query("select * from contact") or die(mysql_error());
                                     //while($fetch=mysql_fetch_array($select))
                                     //{
                                 ?>
-	<tr>
-        <td align="center"><?php echo $fetch[1] ?></td>
-        <td align="center"><?php echo $fetch[2] ?></td>
+                                <li class="list-group-item">
+
+                                    Add all the fields here
+                                </li>
+
+                            </ul>
+                            <!---->
+
+	<!--<tr>
+        <td align="center"><?php echo $fetch[1] . " " . $fetch[2] ?></td>
         <td align="center"><?php echo $fetch[3] ?></td>
         <td align="center"><?php echo $fetch[4] ?></td>
         <td align="center"><?php echo $fetch[5] ?></td>
         <td align="center"><?php echo $fetch[6] ?></td>
         <td align="center"><?php echo $fetch[7] ?></td>
-        <td align="center"><?php echo $fetch[8] ?></td>
-        <td align="center"><?php echo $fetch[9] ?></td>
-        <td align="center"><?php echo $fetch[10] ?></td>
-        <td align="center"><?php echo $fetch[11] ?></td>
     	<td align="center"><a href="contact.php?Del=<?php echo $fetch[0]; ?>"><img src="airlines/Icon_Delete.png" alt="Delete"></a>
         				   <a href="contact.php?Edit=<?php echo $fetch[0]; ?>"><img src="airlines/Icon_Edit.png" alt="Edit"></a>
         </td>
-    </tr>
+    </tr>-->
 <?php //} ?>
-                            </table>
+<!--                            </table>-->
                         </div>
                     </div>
                 </form>
             </section>
             <section>
                 <form id="form2" method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
-                                                                                                </form>
+                    <div class="panel panel-default" id="holiday_form">
+                        <div class="panel-heading">Add Holidays</div>
+                        <div class="panel-body">
+                            <table width="100%">
+                                <tr>
+                                    <td class="Label">Title</td>
+                                    <td id="colon">:</td>
+                                    <td colspan="4"><input type="text" name="holiday_title" placeholder="Mandatory" style="width:95%"/></td>
+                                    <td class="Label">Type</td>
+                                    <td id="colon">:</td>
+                                    <td>
+                                        <select name="holiday_type" form="form2">
+                                            <option value="National">National</option>
+                                            <option value="Guested">Guested</option>
+                                            <option value="op3">Option 3</option>
+                                            <option value="op4">Option 4</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="Label">Start Date</td>
+                                    <td id="colon">:</td>
+                                    <td><input type="Date" name="holiday_start" placeholder="Mandatory" style="width:95%"/></td>
+                                    <td class="Label">End Date</td>
+                                    <td id="colon">:</td>
+                                    <td><input type="date" style="width:86.5%"/></td>
+                                    <td colspan="3" align="center"><input type="submit" class="btn btn-primary" style="margin:1em 0" name="hoilday_submit" value="Submit" /></td>
+                                </tr>
+                            </table>
+                            <ul class="list-group">
+                                <table  class="tb5" width="100%" style="margin:1em 0;">
+                                    <tr>
+                                        <td align="center">First Name</td>
+                                        <td align="center">Last Name</td>
+                                        <td align="center">Start Date & Time</td>
+                                        <td align="center">End Date & Time</td>
+                                        <td align="center">Leave Type</td>
+                                        <td align="center">Action</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="divider" colspan="6"> </td>
+                                    </tr>
+                                </table>
+                                                                <?php
+                                    //$select=mysql_query("select * from contact") or die(mysql_error());
+                                    //while($fetch=mysql_fetch_array($select))
+                                    //{
+                                ?>
+                                <li class="list-group-item">
+
+                                    Add all the fields here
+                                </li>
+                            </ul>
+
+                        <script>$('.collapse').collapse();</script>
+                    </div>
+            </div>
+                        </div>
+                    </div>
+                </form>
             </section>
         </div>
+        <div class="footer">
+            	<div id="legal">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.<br>
+                    In at purus at nisl pretium interdum. Aenean condimentum elementum nulla, non hendrerit diam scelerisque ac.<br><br>
+                    © Copyright 2014 - 2020  IIIT - Delhi
+                </div>
+            </div>
 
 
 </html>

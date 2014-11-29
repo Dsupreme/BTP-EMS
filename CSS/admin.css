@@ -1,4 +1,22 @@
 @charset "utf-8";
 /* CSS Document */
 
+.Label {
+	position:relative;
+	width:150px;
+	padding:5px 30px 5px 20px;
+}
 
+#colon {
+	padding-right:10px;
+}
+
+select {
+    border:none;
+}
+
+.divider {
+    height: 5px;
+    overflow: hidden;
+    background-color: #e5e5e5;
+}

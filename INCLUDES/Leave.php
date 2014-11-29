@@ -80,11 +80,11 @@
                                     <tr>
                                         <td class="Label" >First Name </td>
                                         <td id="colon"> : </td>
-                                        <td ><input type="text" name="candidate_fname" contenteditable="false" value="" disabled/></td>
+                                        <td ><input type="text" name="candidate_fname" contenteditable="false" value="" style="width:100%" disabled/></td>
                                         
                                         <td class="Label" >Last Name </td>
                                         <td id="colon"> : </td>
-                                        <td ><input type="text" name="candidate_lname" contenteditable="false" value="" disabled/></td>
+                                        <td ><input type="text" name="candidate_lname" contenteditable="false" value="" style="width:100%" disabled/></td>
                                     </tr>
                                     <tr>               
                                         <td class="Label" >Start Date</td>
@@ -101,7 +101,21 @@
                                         <td colspan="5"><textarea name="descrip" style="width:100%" placeholder="This is just for remembering why you took this leave. This isn't shared with anybody "></textarea></td>
                                     </tr>
                                     <tr>
-                                        <td colspan="6" align="center"><input class="btn btn-primary" style="margin-top:2em" name="submitleave" type="submit" value="Submit" /></td>
+                                        <td class="Label">Type </td>
+                                        <td id="colon"> : </td>
+                                        <td>
+                                            <select name="holiday_type" form="form2">
+                                                <option value="op1">Casual leave</option>
+                                                <option value="op2">Option 2</option>
+                                                <option value="op3">Option 3</option>
+                                                <option value="op4">Option 4</option>
+                                        </select>
+                                        <td></td>
+                                        </td>
+                                        <td colspan="2" align="center"><input class="btn btn-primary" style="margin:1em 0" name="submitleave" type="submit" value="Submit" /></td>
+                                    </tr>
+                                    <tr>
+
                                     </tr>
                              </table>
                             </div>
