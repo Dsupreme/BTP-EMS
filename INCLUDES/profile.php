@@ -83,10 +83,16 @@
 		    if($image_size != FALSE){
 			$usersid = $_SESSION['userid'];
 		    mysql_query("UPDATE users SET  flag = 1 , firstname = '$fname' ,middlename = '$mname', lastname = '$lname', DOB = '$d_o_b' , mobile = '$mobile' , image = '$imageData' WHERE U_id = '$usersid'") or die(mysql_error());
+		
+		    
 			echo "<script language='javascript' type='text/javascript'>";
 			echo "alert('The profile is successfully saved');";
 			echo "</script>";
+			
+			if($_SESSION['userright'] == 0)
 			echo "<script>window.location = '../INCLUDES/Home.php';</script>";
+			else
+			echo "<script>window.location = '../INCLUDES/admin.php';</script>";
 			}
 			else{
 			echo "<script language='javascript' type='text/javascript'>";
