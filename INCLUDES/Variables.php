@@ -78,6 +78,12 @@
 
 	//Application Post
     if(isset($_POST['app_post_title'])) {$app_post_title=$_POST['app_post_title'];}
+
+    //Admin_Add_User
+    if(isset($_POST['admin_username_add'])){$_admin_username_add=$_POST['admin_username_add'];}
+    if(isset($_POST['admin_email_add'])){$admin_email_add=$_POST['admin_email_add'];}
+    if(isset($_POST['admin_password_add'])){$admin_password_add=$_POST['admin_password_add'];}
+    if(isset($_POST['admin_password_confirm'])){$admin_password_confirm=$_POST['admin_password_confirm'];}
 	/*
 	if(isset($_POST[''])){}
 	if(isset($_POST[''])){}	

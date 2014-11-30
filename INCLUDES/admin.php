@@ -226,20 +226,70 @@
 
                         <script>$('.collapse').collapse();</script>
                     </div>
-            </div>
+                </form>
+            </section>
+            <section>
+                <form id="form4" method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+                    <div class="panel panel-default" id="user_form">
+                        <div class="panel-heading">Add user</div>
+                        <div class="panel-body">
+                            <table width="100%">
+                                <tr>
+                                    <td class="Label">Username</td>
+                                    <td id="colon">:</td>
+                                    <td ><input type="text" name="admin_username_add" placeholder="Mandatory" style="width:95%"/></td>
+                                    <td class="Label">Email</td>
+                                    <td id="colon">:</td>
+                                    <td><input type="text" name="admin_email_add" placeholder="Mandatory" style="width:85%"/></td>
+                                </tr>
+                                <tr>
+                                    <td class="Label">Password</td>
+                                    <td id="colon">:</td>
+                                    <td ><input type="text" name="admin_password_add" placeholder="Mandatory" style="width:95%"/></td>
+                                    <td class="Label">Confirm Password</td>
+                                    <td id="colon">:</td>
+                                    <td><input type="text" name="admin_password_confirm" placeholder="Mandatory" style="width:85%"/></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="6" align="center"><input type="submit" name="admin_newuser_submit" class="btn btn-primary" style="margin:1em 0"/></td>
+                                </tr>
+                            </table>
+                            <ul class="list-group">
+                                <table  class="tb5" width="100%" style="margin:1em 0;">
+                                    <tr>
+                                        <td align="center">Username</td>
+                                        <td align="center">First Name</td>
+                                        <td align="center">Last Name</td>
+                                        <td align="center">User Privilege</td>
+                                        <td align="center">Action</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="divider" colspan="6"> </td>
+                                    </tr>
+                                </table>
+                                                                <?php
+                                    //$select=mysql_query("select * from contact") or die(mysql_error());
+                                    //while($fetch=mysql_fetch_array($select))
+                                    //{
+                                ?>
+                                <li class="list-group-item">
+
+                                    Add all the fields here
+                                </li>
+                            </ul>
+                            <script>$('.collapse').collapse();</script>
                         </div>
                     </div>
                 </form>
             </section>
-
         </div>
         <div class="footer">
-            	<div id="legal">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.<br>
-                    In at purus at nisl pretium interdum. Aenean condimentum elementum nulla, non hendrerit diam scelerisque ac.<br><br>
-                    © Copyright 2014 - 2020  IIIT - Delhi
-                </div>
+            <div id="legal">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.<br>
+                In at purus at nisl pretium interdum. Aenean condimentum elementum nulla, non hendrerit diam scelerisque ac.<br><br>
+                © Copyright 2014 - 2020  IIIT - Delhi
             </div>
+        </div>
 
 
 </html>
