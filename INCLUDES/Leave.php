@@ -40,12 +40,28 @@
 
             if($_SERVER['REQUEST_METHOD']== "POST") {
                 if($empty($leave_start)) {
-                    $leave_error .= "Leave Start Date is required. \\n"
+                    $leave_error .= "Leave Start Date is required. \\n";
                 }
                 else {
                     if (!preg_match('',$leave_start)) {
                         $leave_error .= "Invalid Start Date. Kindly follow mentioned format. \\n";
                     }
+                }
+
+                if($empty($leave_end)) {
+                    $leave_error .= "Leave Start Date is required. \\n";
+                }
+                else {
+                    if (!preg_match('',$leave_end)) {
+                        $leave_error .= "Invalid End Date. Kindly follow mentioned format. \\n";
+                    }
+                }
+
+                if (strcmp($leave_error,"")!="0") {
+                echo "<script language='javascript' type='text/javascript'>"."alert('$calendar_error');"."</script";
+                }
+                else {
+
                 }
             }
         }
@@ -126,11 +142,11 @@
                                         <td class="Label">Type </td>
                                         <td id="colon"> : </td>
                                         <td>
-                                            <select name="holiday_type" form="form2">
-                                                <option value="op1">Casual leave</option>
-                                                <option value="op2">Option 2</option>
-                                                <option value="op3">Option 3</option>
-                                                <option value="op4">Option 4</option>
+                                        <select name="leave_type" form="form1">
+                                            <option value="op1">Casual leave</option>  <!-- Add appropriate color codes here-->
+                                            <option value="op2">Option 2</option>
+                                            <option value="op3">Option 3</option>
+                                            <option value="op4">Option 4</option>
                                         </select>
                                         <td></td>
                                         </td>

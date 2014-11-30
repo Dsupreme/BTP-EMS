@@ -20,3 +20,7 @@ select {
     overflow: hidden;
     background-color: #e5e5e5;
 }
+
+textarea[name=app_descp] {
+    resize: none;
+}

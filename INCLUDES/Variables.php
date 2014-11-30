@@ -76,7 +76,8 @@
     if(isset($_POST['leave_end'])) {$leave_end=$_POST['leave_end'];}
     if(isset($_POST['holiday_type'])){$holiday_type=$_POST['holiday_type'];}
 
-	
+	//Application Post
+    if(isset($_POST['app_post_title'])) {$app_post_title=$_POST['app_post_title'];}
 	/*
 	if(isset($_POST[''])){}
 	if(isset($_POST[''])){}	
