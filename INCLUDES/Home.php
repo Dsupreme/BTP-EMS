@@ -190,15 +190,15 @@
 
                     <a id="checkadmin"><button class="fc-button fc-state-default quicklinks">Admin Panel</button></a>
                 <script>
-                        var name="admin";
-                        if (name=="<?php echo $_SESSION['username'];?>") {
+                        var name=1;
+                        if (name == <?php echo $_SESSION['userright'];?>) {
                             document.getElementById('checkadmin').style.display = "block";
                         }
                     </script>
                     <script>
                             $('#checkadmin > button').click(function() {
-                                var name="admin";
-                                if (name=="<?php echo $_SESSION['username'];?>") {
+                                var name=1;
+                                if (name==<?php echo $_SESSION['userright'];?>) {
                                     window.location.href='Admin.php';
                                 }
                             })

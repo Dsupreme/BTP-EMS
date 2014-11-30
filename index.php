@@ -94,13 +94,17 @@ session_start();
 		echo "<script> alert(".$rows['username'].");</script>";
 		$_SESSION['username'] = $rows['username'];
 		$_SESSION['userid'] = $rows['U_id'];
+		$_SESSION['userright'] = $rows['rights'];
 		$flagprof = $rows['flag'];
 		$flag=1;
 	}
 	if($flag==1){
-		if($flagprof == 1)
+		if($flagprof == 1){
+		if($_SESSION['userright'] == 0)
 		echo "<script>window.location = 'INCLUDES/Home.php';</script>";
 		else
+		echo "<script>window.location = 'INCLUDES/admin.php';</script>";
+		}else
 		echo "<script>window.location = 'INCLUDES/profile.php';</script>";
 	}
 	else {
