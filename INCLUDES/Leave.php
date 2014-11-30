@@ -29,6 +29,28 @@
         <script type="text/javascript" src="../js/smoothscroll.js"></script><!--Smooth Scroll Animation -->
 
 	</head>
+    <?php
+        include 'Variables.php';
+        include 'database.php';
+    ?>
+
+    <?php
+        if(isset($_POST['submitleave'])) {
+            $leave_error = "";
+
+            if($_SERVER['REQUEST_METHOD']== "POST") {
+                if($empty($leave_start)) {
+                    $leave_error .= "Leave Start Date is required. \\n"
+                }
+                else {
+                    if (!preg_match('',$leave_start)) {
+                        $leave_error .= "Invalid Start Date. Kindly follow mentioned format. \\n";
+                    }
+                }
+            }
+        }
+    ?>
+
     <body  style="background-color:#808080">
 		<!--Navigation Bar-->
 		<nav class="navbar navbar-fixed-top" role="navigation">
@@ -80,11 +102,11 @@
                                     <tr>
                                         <td class="Label" >First Name </td>
                                         <td id="colon"> : </td>
-                                        <td ><input type="text" name="candidate_fname" contenteditable="false" value="" style="width:100%" disabled/></td>
+                                        <td ><input type="text" name="leave_fname" contenteditable="false" value="" style="width:100%" disabled/></td>
                                         
                                         <td class="Label" >Last Name </td>
                                         <td id="colon"> : </td>
-                                        <td ><input type="text" name="candidate_lname" contenteditable="false" value="" style="width:100%" disabled/></td>
+                                        <td ><input type="text" name="leave_lname" contenteditable="false" value="" style="width:100%" disabled/></td>
                                     </tr>
                                     <tr>               
                                         <td class="Label" >Start Date</td>

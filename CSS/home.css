@@ -35,3 +35,7 @@
 #form1 > table > tbody > tr > td {
     padding-top:0.8em;
 }
+
+#checkadmin {
+    display: none;
+}

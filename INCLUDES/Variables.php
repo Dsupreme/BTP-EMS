@@ -1,6 +1,6 @@
 <?php 
 	
-	////Peronal Details////
+	//Peronal Details
 	if(isset($_POST['candidate_fname'])) {	$candidate_fname=$_POST['candidate_fname'];}	
 	if(isset($_POST['candidate_mname'])) {	$candidate_mname=$_POST['candidate_mname'];}	
 	if(isset($_POST['candidate_lname'])) {	$candidate_lname=$_POST['candidate_lname'];}	
@@ -11,7 +11,7 @@
 	if(isset($_POST['sex'])) {	$gender = $_POST['sex'];}
 	
 	
-	////Correspondence Address////	
+	//Correspondence Address
 	if(isset($_POST['c_address'])) {	$c_address=$_POST['c_address'];}
 	if(isset($_POST['c_city']))	{ $c_city=$_POST['c_city'];}
 	if(isset($_POST['c_state'])) { $c_state=$_POST['c_state'];}
@@ -19,7 +19,7 @@
 	if(isset($_POST['c_landline'])) { $c_landline=$_POST['c_landline'];}
 	if(isset($_POST['c_mobile'])) { $c_mobile=$_POST['c_mobile'];}
 	
-	////Permanent Address////
+	//Permanent Address
 	if(isset($_POST['p_address'])) {$p_address=$_POST['p_address'];}
 	if(isset($_POST['p_city']))	{$p_city=$_POST['p_city'];}
 	if(isset($_POST['p_state'])) {$p_state=$_POST['p_state'];}
@@ -70,6 +70,12 @@
     if(isset($_POST['event_start_t'])){$event_start_t=$_POST['event_start_t'];}
     if(isset($_POST['event_end_d'])){$event_end_d=$_POST['event_end_d'];}
     if(isset($_POST['event_end_t'])){$event_end_t=$_POST['event_end_t'];}
+
+    //Leave
+    if(isset($_POST['leave_start'])) {$leave_start=$_POST['leave_start'];}
+    if(isset($_POST['leave_end'])) {$leave_end=$_POST['leave_end'];}
+    if(isset($_POST['holiday_type'])){$holiday_type=$_POST['holiday_type'];}
+
 	
 	/*
 	if(isset($_POST[''])){}

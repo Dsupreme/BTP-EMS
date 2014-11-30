@@ -187,6 +187,22 @@
                 <div class="panel-body">
                     <a href="Leave.php" ><button class="fc-button fc-state-default quicklinks">Apply For Leave</button></a>
                     <a><button type="button" class="fc-button fc-state-default quicklinks" data-toggle="modal" data-target="#addcalenderevent" >Add Calender Event</button></a>
+
+                    <a id="checkadmin"><button class="fc-button fc-state-default quicklinks">Admin Panel</button></a>
+                <script>
+                        var name="admin";
+                        if (name=="<?php echo $_SESSION['username'];?>") {
+                            document.getElementById('checkadmin').style.display = "block";
+                        }
+                    </script>
+                    <script>
+                            $('#checkadmin > button').click(function() {
+                                var name="admin";
+                                if (name=="<?php echo $_SESSION['username'];?>") {
+                                    window.location.href='Admin.php';
+                                }
+                            })
+                    </script>
                 </div>
             </div>
             </td>
