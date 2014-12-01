@@ -100,12 +100,13 @@ session_start();
 	}
 	if($flag==1){
 		if($flagprof == 1){
-		if($_SESSION['userright'] == 0)
-		echo "<script>window.location = 'INCLUDES/Home.php';</script>";
+			if($_SESSION['userright'] == 0)
+			echo "<script>window.location = 'INCLUDES/Home.php';</script>";
+			else
+			echo "<script>window.location = 'INCLUDES/admin.php';</script>";
+		}
 		else
-		echo "<script>window.location = 'INCLUDES/admin.php';</script>";
-		}else
-		echo "<script>window.location = 'INCLUDES/profile.php';</script>";
+			echo "<script>window.location = 'INCLUDES/profile.php';</script>";
 	}
 	else {
         echo "<script language='javascript' type='text/javascript'>"."alert('Invalid Username or Password. Kindly Enter again');"."</script>";

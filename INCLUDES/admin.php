@@ -25,11 +25,63 @@
         
         <!--Javascript Links-->
         <script type="text/javascript" src="../JS/jquery-1.11.0.min.js"></script><!--JQuery Online link -->
-        <script type="text/javascript" src="../js/bootstrap.js"></script><!--Bootstrap Javascript -->
-        <script type="text/javascript" src="../js/smoothscroll.js"></script><!--Smooth Scroll Animation -->
-
+        <script type="text/javascript" src="../JS/bootstrap.js"></script><!--Bootstrap Javascript -->
+        <script type="text/javascript" src="../JS/smoothscroll.js"></script><!--Smooth Scroll Animation -->
+        <script type="text/javascript" src="JS/check_ajax.js"></script>
 	</head>
-    <body  style="background-color:#808080">
+ 
+<?php 
+	include 'database.php';
+	include 'Variables.php';
+	include 'file-uploader.php';
+	
+?>
+
+<?php
+	if(isset($_REQUEST['admin_newuser_submit'])) {
+		$signup_error = "";
+		if ($_SERVER["REQUEST_METHOD"] == "POST") {
+			if (empty($_admin_username_add)) {
+				$signup_error.="Username is required.";	
+			}
+			else {
+				if (!preg_match('/^[a-zA-Z0-9]+$/', $_admin_username_add)) {
+					$signup_error.="Invalid Username. Remove invalid characters";
+				}
+			}			
+			if (empty($admin_email_add)) {
+				$signup_error.="Email address is required.";
+			}
+			else {
+				$admin_email_add = trim($admin_email_add);   
+				if(!checkEmail($admin_email_add)) {  
+					$signup_error.="Invalid email address!";
+				}
+			}
+			if (strcmp($admin_password_add,$admin_password_confirm)=='0') {
+			}
+			else {
+				$signup_error.="Both the password fields do not match ";
+			}
+		}
+		if (strcmp($signup_error,"")!='0') {
+			echo "<script language='javascript' type='text/javascript'>";
+			echo "alert('$signup_error');";
+			echo "</script>";
+		}
+		else {
+		    $admin_password_add = md5($admin_password_add);
+			$right = 1;
+			mysql_query("INSERT INTO users(rights,username, email, password) VALUES ('$right','$_admin_username_add','$admin_email_add','$admin_password_add');") or die(mysql_error());
+			echo "<script language='javascript' type='text/javascript'>";
+			echo "alert('User added to database.');";
+			echo "</script>";			
+		}
+	}
+?>
+
+
+ <body  style="background-color:#808080">
 		<!--Navigation Bar-->
 		<nav class="navbar navbar-fixed-top" role="navigation">
 			<div class="navbar-inner">
@@ -237,7 +289,7 @@
                                 <tr>
                                     <td class="Label">Username</td>
                                     <td id="colon">:</td>
-                                    <td ><input type="text" name="admin_username_add" placeholder="Mandatory" style="width:95%"/></td>
+                                    <td ><input type="text" id="admin_username_add" name="admin_username_add" placeholder="Mandatory" style="width:95%"/><span id="status"></span></td>
                                     <td class="Label">Email</td>
                                     <td id="colon">:</td>
                                     <td><input type="text" name="admin_email_add" placeholder="Mandatory" style="width:85%"/></td>
@@ -253,7 +305,7 @@
                                 <tr>
                                     <td colspan="6" align="center"><input type="submit" name="admin_newuser_submit" class="btn btn-primary" style="margin:1em 0"/></td>
                                 </tr>
-                            </table>
+                            </table><!--
                             <ul class="list-group">
                                 <table  class="tb5" width="100%" style="margin:1em 0;">
                                     <tr>
@@ -276,7 +328,7 @@
 
                                     Add all the fields here
                                 </li>
-                            </ul>
+                            </ul> -->
                             <script>$('.collapse').collapse();</script>
                         </div>
                     </div>

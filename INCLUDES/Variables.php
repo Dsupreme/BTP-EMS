@@ -74,7 +74,8 @@
     //Leave
     if(isset($_POST['leave_start'])) {$leave_start=$_POST['leave_start'];}
     if(isset($_POST['leave_end'])) {$leave_end=$_POST['leave_end'];}
-    if(isset($_POST['holiday_type'])){$holiday_type=$_POST['holiday_type'];}
+	if(isset($_POST['descrip'])) {$leave_description = $_POST['descrip'];}
+    if(isset($_POST['leave_type'])){$leave_type=$_POST['leave_type'];}
 
 	//Application Post
     if(isset($_POST['app_post_title'])) {$app_post_title=$_POST['app_post_title'];}

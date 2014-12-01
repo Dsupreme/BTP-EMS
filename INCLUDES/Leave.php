@@ -30,38 +30,52 @@
 
 	</head>
     <?php
+
         include 'Variables.php';
-        include 'database.php';
-    ?>
+        include 'database.php';   
+   ?>
 
     <?php
-        if(isset($_POST['submitleave'])) {
+		$details=mysql_query("select firstname, lastname from users where U_id = '".$_SESSION['userid']."';") or die(mysql_error());
+		while($rows = mysql_fetch_array($details)){
+		$fname = $rows['firstname'];
+		$lname = $rows['lastname'];
+		}		
+		
+		if(isset($_POST['submitleave'])) {
             $leave_error = "";
 
             if($_SERVER['REQUEST_METHOD']== "POST") {
-                if($empty($leave_start)) {
+                if(empty($leave_start)) {
                     $leave_error .= "Leave Start Date is required. \\n";
                 }
                 else {
-                    if (!preg_match('',$leave_start)) {
+                    if (!preg_match('/^[0-9]{4}-[0-9]{2}-[0-9]{2}$/',$leave_start)) {
                         $leave_error .= "Invalid Start Date. Kindly follow mentioned format. \\n";
                     }
                 }
 
-                if($empty($leave_end)) {
+                if(empty($leave_end)) {
                     $leave_error .= "Leave Start Date is required. \\n";
                 }
                 else {
-                    if (!preg_match('',$leave_end)) {
+                    if (!preg_match('/^[0-9]{4}-[0-9]{2}-[0-9]{2}$/',$leave_end)) {
                         $leave_error .= "Invalid End Date. Kindly follow mentioned format. \\n";
                     }
                 }
 
                 if (strcmp($leave_error,"")!="0") {
-                echo "<script language='javascript' type='text/javascript'>"."alert('$calendar_error');"."</script";
+                echo "<script language='javascript' type='text/javascript'>"."alert('$leave_error');"."</script";
                 }
                 else {
-
+                        $leave_start = $leave_start."T00:00:00";
+                $leave_end = $leave_end."T00:00:00";
+                mysql_query("INSERT INTO `leave` (`id`, `title`, `start`, `end`, `description`, `backgroundColor`) VALUES (".$_SESSION['userid']." , '$leave_type' , '$leave_start' , '$leave_end' , '$leave_description', 'orange')") or die(mysql_error());
+                echo "<script language='javascript' type='text/javascript'>";
+                echo "alert('Leave sent for approval');";
+                echo "$('#calendar').reload(true)";
+                echo "</script>";
+               
                 }
             }
         }
@@ -118,11 +132,11 @@
                                     <tr>
                                         <td class="Label" >First Name </td>
                                         <td id="colon"> : </td>
-                                        <td ><input type="text" name="leave_fname" contenteditable="false" value="" style="width:100%" disabled/></td>
+                                        <td ><input type="text" name="leave_fname" contenteditable="false" value="<?php if(isset($fname)){echo $fname;}?>" style="width:100%" disabled/></td>
                                         
                                         <td class="Label" >Last Name </td>
                                         <td id="colon"> : </td>
-                                        <td ><input type="text" name="leave_lname" contenteditable="false" value="" style="width:100%" disabled/></td>
+                                        <td ><input type="text" name="leave_lname" contenteditable="false" value="<?php if(isset($lname)){echo $lname;}?>" style="width:100%" disabled/></td>
                                     </tr>
                                     <tr>               
                                         <td class="Label" >Start Date</td>
@@ -143,10 +157,10 @@
                                         <td id="colon"> : </td>
                                         <td>
                                         <select name="leave_type" form="form1">
-                                            <option value="op1">Casual leave</option>  <!-- Add appropriate color codes here-->
-                                            <option value="op2">Option 2</option>
-                                            <option value="op3">Option 3</option>
-                                            <option value="op4">Option 4</option>
+                                            <option value="Casual leave">Casual leave</option>  <!-- Add appropriate color codes here-->
+                                            <option value="Payed Leave">Payed Leave</option>
+                                            <option value="Maternity Leave">Maternity Leave</option>
+                                            <option value="Paternity Leave">Paternity Leave</option>
                                         </select>
                                         <td></td>
                                         </td>

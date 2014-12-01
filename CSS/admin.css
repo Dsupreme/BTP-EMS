@@ -24,3 +24,8 @@ select {
 textarea[name=app_descp] {
     resize: none;
 }
+
+.red
+{
+	background-color:#FFD9D9;
+}
