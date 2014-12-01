@@ -150,7 +150,7 @@
                                 ?>
                                 <li class="list-group-item">
 
-                                    Add all the fields here
+                                    No pending leave request.
                                 </li>
 
                             </ul>
