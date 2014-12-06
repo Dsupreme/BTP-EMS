@@ -27,7 +27,8 @@
         <script type="text/javascript" src="../JS/jquery-1.11.0.min.js"></script><!--JQuery Online link -->
         <script type="text/javascript" src="../JS/bootstrap.js"></script><!--Bootstrap Javascript -->
         <script type="text/javascript" src="../JS/smoothscroll.js"></script><!--Smooth Scroll Animation -->
-        <script type="text/javascript" src="JS/check_ajax.js"></script>
+        <script type="text/javascript" src="../JS/check_ajax.js"></script>
+        <script type="text/javascript" src="../JS/admin.js"></script>
 	</head>
  
 <?php 
@@ -124,164 +125,147 @@
 		</nav>
         
         <div class="container" style="margin-top:8em;">
+            
             <section>
-                <form id="form1" method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
-                    <div class="panel panel-default" id="leave_form">
-                        <div class="panel-heading">Leave Applications</div>
-                        <div class="panel-body">
-                            <ul class="list-group">
-                                <table  class="tb5" width="100%"  style="margin:1em 0;">
-                                    <tr>
-                                        <td align="center">First Name</td>
-                                        <td align="center">Last Name</td>
-                                        <td align="center">Start Date & Time</td>
-                                        <td align="center">End Date & Time</td>
-                                        <td align="center">Leave Type</td>
-                                        <td align="center">Action</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="divider" colspan="6"> </td>
-                                    </tr>
-                                </table>
-                                                                <?php
-                                    //$select=mysql_query("select * from contact") or die(mysql_error());
-                                    //while($fetch=mysql_fetch_array($select))
-                                    //{
-                                ?>
-                                <li class="list-group-item">
-
-                                    No pending leave request.
-                                </li>
-
-                            </ul>
-                            <!---->
-
-	<!--<tr>
-        <td align="center"><?php echo $fetch[1] . " " . $fetch[2] ?></td>
-        <td align="center"><?php echo $fetch[3] ?></td>
-        <td align="center"><?php echo $fetch[4] ?></td>
-        <td align="center"><?php echo $fetch[5] ?></td>
-        <td align="center"><?php echo $fetch[6] ?></td>
-        <td align="center"><?php echo $fetch[7] ?></td>
-    	<td align="center"><a href="contact.php?Del=<?php echo $fetch[0]; ?>"><img src="airlines/Icon_Delete.png" alt="Delete"></a>
-        				   <a href="contact.php?Edit=<?php echo $fetch[0]; ?>"><img src="airlines/Icon_Edit.png" alt="Edit"></a>
-        </td>
-    </tr>-->
-<?php //} ?>
-<!--                            </table>-->
+                <div class="tabs">
+                    <ul class="tab-links" id="pages">
+                        <li class="active"><a href="#tab1">Leave Applications</a></li>
+                        <li><a href="#tab2">Holidays</a></li>
+                        <li><a href="#tab3">Application Posts</a></li>
+                        <li><a href="#tab4">User Addition</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div id="tab1" class="tab active">
+                            <p>Pending Leave applications waiting for approval or rejection :</p>
+                            <p>
+                                <form id="form1" method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+                                    <table  class="tb5" width="100%"  style="margin:1em 0;">
+                                        <tr>
+                                            <td align="center">First Name</td>
+                                            <td align="center">Last Name</td>
+                                            <td align="center">Start Date & Time</td>
+                                            <td align="center">End Date & Time</td>
+                                            <td align="center">Leave Type</td>
+                                            <td align="center">Action</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="divider" colspan="6"> </td>
+                                        </tr>
+                                    </table>
+                                    <table>
+                                    <?php
+                                        //$select=mysql_query("select * from contact") or die(mysql_error());
+                                        //while($fetch=mysql_fetch_array($select))
+                                        //{
+                                    ?>
+                                    <!--<tr>
+                                        <td align="center"><?php echo $fetch[1] . " " . $fetch[2] ?></td>
+                                        <td align="center"><?php echo $fetch[3] ?></td>
+                                        <td align="center"><?php echo $fetch[4] ?></td>
+                                        <td align="center"><?php echo $fetch[5] ?></td>
+                                        <td align="center"><?php echo $fetch[6] ?></td>
+                                        <td align="center"><?php echo $fetch[7] ?></td>
+                                        <td align="center">
+                                            <a href="contact.php?Del=<?php echo $fetch[0]; ?>"><img src="airlines/Icon_Delete.png" alt="Delete"></a>                                               <a href="contact.php?Edit=<?php echo $fetch[0]; ?>"><img src="airlines/Icon_Edit.png" alt="Edit"></a>
+                                        </td>
+                                    </tr>-->
+                                    <?php //} ?>
+                                    </table>
+                                </form>
+                            </p>
                         </div>
-                    </div>
-                </form>
-            </section>
-            <section>
-                <form id="form2" method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
-                    <div class="panel panel-default" id="holiday_form">
-                        <div class="panel-heading">Add Holidays</div>
-                        <div class="panel-body">
-                            <table width="100%">
-                                <tr>
-                                    <td class="Label">Title</td>
-                                    <td id="colon">:</td>
-                                    <td colspan="4"><input type="text" name="holiday_title" placeholder="Mandatory" style="width:96.3%"/></td>
-                                    <td class="Label">Type</td>
-                                    <td id="colon">:</td>
-                                    <td>
-                                        <select name="holiday_type" form="form2">
-                                            <option value="National">National</option>
-                                            <option value="Guested">Guested</option>
-                                            <option value="op3">Option 3</option>
-                                            <option value="op4">Option 4</option>
-                                        </select>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="Label">Start Date</td>
-                                    <td id="colon">:</td>
-                                    <td><input type="Date" name="holiday_start" placeholder="Mandatory" style="width:90%"/></td>
-                                    <td class="Label">End Date</td>
-                                    <td id="colon">:</td>
-                                    <td><input type="date" style="width:90%"/></td>
-                                    <td colspan="3" align="center"><input type="submit" class="btn btn-primary" style="margin:1em 0" name="hoilday_submit" value="Submit" /></td>
-                                </tr>
-                            </table>
-                            <ul class="list-group">
-                                <table  class="tb5" width="100%" style="margin:1em 0;">
-                                    <tr>
-                                        <td align="center">First Name</td>
-                                        <td align="center">Last Name</td>
-                                        <td align="center">Start Date & Time</td>
-                                        <td align="center">End Date & Time</td>
-                                        <td align="center">Leave Type</td>
-                                        <td align="center">Action</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="divider" colspan="6"> </td>
-                                    </tr>
-                                </table>
-                                                                <?php
-                                    //$select=mysql_query("select * from contact") or die(mysql_error());
-                                    //while($fetch=mysql_fetch_array($select))
-                                    //{
-                                ?>
-                                <li class="list-group-item">
+                        <div id="tab2" class="tab">
+                            <p>Add holidays for all users</p>
+                            <p>
+                               <form id="form2" method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+                                   <table width="100%">
+                                       <tr>
+                                           <td class="Label">Title</td>
+                                           <td id="colon">:</td>
+                                           <td colspan="4"><input type="text" name="holiday_title" placeholder="Mandatory" style="width:96.3%"/></td>
+                                           <td class="Label">Type</td>
+                                           <td id="colon">:</td>
+                                           <td>
+                                               <select name="holiday_type" form="form2">
+                                                   <option value="National">National</option>
+                                                   <option value="Guested">Guested</option>
+                                                   <option value="op3">Option 3</option>
+                                                   <option value="op4">Option 4</option>
+                                               </select>
+                                           </td>
+                                       </tr>
+                                       <tr>
+                                           <td class="Label">Start Date</td>
+                                           <td id="colon">:</td>
+                                           <td><input type="Date" name="holiday_start" placeholder="Mandatory" style="width:90%"/></td>
+                                           <td class="Label">End Date</td>
+                                           <td id="colon">:</td>
+                                           <td><input type="date" style="width:90%"/></td>
+                                           <td colspan="3" align="center"><input type="submit" class="btn btn-primary" style="margin:1em 0" name="hoilday_submit" value="Submit" /></td>
+                                       </tr>
+                                   </table>
+                                   <table  class="tb5" width="100%" style="margin-top:2em;">
+                                       <tr>
+                                           <td align="center">First Name</td>
+                                           <td align="center">Last Name</td>
+                                           <td align="center">Start Date & Time</td>
+                                           <td align="center">End Date & Time</td>
+                                           <td align="center">Leave Type</td>
+                                           <td align="center">Action</td>
+                                       </tr>
+                                       <tr>
+                                           <td class="divider" colspan="6"> </td>
+                                       </tr>
+                                   </table>
+                                   <?php
+                                        //$select=mysql_query("select * from contact") or die(mysql_error());
+                                        //while($fetch=mysql_fetch_array($select))
+                                        //{
+                                   ?>
+                                </form>
+                            </p>
+                        </div>
+                        <div id="tab3" class="tab">
+                            <p>Job Application Posts currently available</p>
+                            <p>
+                                <form id="form3" method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+                                    <table width="100%">
+                                        <tr>
+                                            <td class="Label">Post</td>
+                                            <td id="colon">:</td>
+                                            <td ><input type="text" name="app_post_title" placeholder="Mandatory" style="width:95%"/></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="Label">Description</td>
+                                            <td id="colon">:</td>
+                                            <td ><textarea type="Date" name="app_descp" placeholder="Mandatory" style="width:95%"></textarea></td>
 
-                                    Add all the fields here
-                                </li>
-                            </ul>
-
-                        <script>$('.collapse').collapse();</script>
-                    </div>
-
-                    </div>
-                </form>
-            </section>
-            <section>
-                <form id="form3" method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
-                    <div class="panel panel-default" id="application_form">
-                        <div class="panel-heading">Add Application Post</div>
-                        <div class="panel-body">
-                            <table width="100%">
-                                <tr>
-                                    <td class="Label">Post</td>
-                                    <td id="colon">:</td>
-                                    <td ><input type="text" name="app_post_title" placeholder="Mandatory" style="width:95%"/></td>
-                                </tr>
-                                <tr>
-                                    <td class="Label">Description</td>
-                                    <td id="colon">:</td>
-                                    <td ><textarea type="Date" name="app_descp" placeholder="Mandatory" style="width:95%"></textarea></td>
-
-                                    <td align="center"><input type="submit" class="btn btn-primary" style="margin:1em 0" name="hoilday_submit" value="Submit" /></td>
-                                </tr>
-                            </table>
-                            <ul class="list-group">
-                                <table  class="tb5" width="100%" style="margin:1em 0;">
-                                    <tr>
-                                        <td align="center">Post</td>
-                                        <td align="center">Description</td>
-                                        <td align="center">Action</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="divider" colspan="6"> </td>
-                                    </tr>
-                                </table>
-                                                                <?php
-                                    //$select=mysql_query("select * from contact") or die(mysql_error());
-                                    //while($fetch=mysql_fetch_array($select))
-                                    //{
-                                ?>
-                                <li class="list-group-item">
-
-                                    Add all the fields here
-                                </li>
-                            </ul>
-
-                        <script>$('.collapse').collapse();</script>
-                    </div>
-                </form>
-            </section>
-            <section>
-                <form id="form4" method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+                                            <td align="center"><input type="submit" class="btn btn-primary" style="margin:1em 0" name="hoilday_submit" value="Submit" /></td>
+                                        </tr>
+                                    </table>
+                                    <table  class="tb5" width="100%" style="margin:1em 0;">
+                                        <tr>
+                                            <td align="center">Post</td>
+                                            <td align="center">Description</td>
+                                            <td align="center">Action</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="divider" colspan="6"> </td>
+                                        </tr>
+                                    </table>
+                                    <table>
+                                        <?php
+                                            //$select=mysql_query("select * from contact") or die(mysql_error());
+                                            //while($fetch=mysql_fetch_array($select))
+                                            //{}
+                                        ?>
+                                    </table>
+                                </form>
+                            </p>
+                        </div>
+                        <div id="tab4" class="tab">
+                            <p>Tab #4 content goes here!</p>
+                            <p><form id="form4" method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
                     <div class="panel panel-default" id="user_form">
                         <div class="panel-heading">Add user</div>
                         <div class="panel-body">
@@ -332,8 +316,11 @@
                             <script>$('.collapse').collapse();</script>
                         </div>
                     </div>
-                </form>
-            </section>
+                </form></p>
+                        </div>
+                    </div>
+                </div>
+            </section>   
         </div>
         <div class="footer">
             <div id="legal">

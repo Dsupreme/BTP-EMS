@@ -35,7 +35,8 @@ session_start();
         <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.1.min.js"></script><!--JQuery Online link -->
        	<script type="text/javascript" src="JS/bootstrap.js"></script><!--Bootstrap Javascript-->
 		<script type="text/javascript" src="JS/MetroJs.js"></script>
-		<script type="text/javascript" src="JS/check_ajax.js"></script>              
+		<script type="text/javascript" src="JS/check_ajax.js"></script>   
+        <script type="text/javascript" src="JS/signup.js"></script>
 	</head>
     
 <?php 
@@ -48,7 +49,9 @@ session_start();
 
 
 <?php
-	if(isset($_REQUEST['signupbtn'])) {
+
+		/*
+        	if(isset($_REQUEST['signupbtn'])) {
 		$signup_error = "";
 		if ($_SERVER["REQUEST_METHOD"] == "POST") {
 			if (empty($unames)) {
@@ -78,12 +81,11 @@ session_start();
 			echo "<script language='javascript' type='text/javascript'>";
 			echo "alert('$signup_error');";
 			echo "</script>";
-		}
-		else {
+		}else {
 		    $pswds = md5($pswds);
 			mysql_query("INSERT INTO users(username, email, password) VALUES ('$unames','$emails','$pswds');") or die(mysql_error());
             
-            $mail = new PHPMailer;	
+            /*$mail = new PHPMailer;	
             $mail->isSMTP();                                      // Set mailer to use SMTP
             $mail->Host = 'smtp.gmail.com';						  // Specify main and backup SMTP servers
             $mail->SMTPAuth = true;                               // Enable SMTP authentication
@@ -99,11 +101,9 @@ session_start();
             $mail->Body    = 'This is the HTML message body <b>in bold!</b>';
             $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
             $mail->send();
-			echo "<script language='javascript' type='text/javascript'>";
-			echo "alert('User added to database. Please login to EMS to continue');";
-			echo "</script>";			
+			echo "<script>window.location = 'INCLUDES/profile.php';</script>";			
 		}
-	}
+	}*/
 	if(isset($_POST['loginbtn']))  {
 	$flag=0;
 	$pswdl = md5($pswdl);
@@ -198,7 +198,7 @@ session_start();
                         </form>
                     </div>
                     <div id="register" class="animate form">
-                        <form  method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" autocomplete="on"> 
+                        <form  method="POST" autocomplete="on" onSubmit="JavaScript:signup()"> 
                             <h1>SIGNUP</h1> 
                             <p> 
                                 <label for="usernamesignup" class="uname">Your username</label>
