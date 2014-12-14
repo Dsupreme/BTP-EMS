@@ -231,7 +231,7 @@ session_start();
     <!--============================== Metro Js Image slider ==============================-->
         <!-- SECTION 1 SLIDER -->
             <section id="MetroSlider1">
-                <div class="tiles blue tile-group nine-wide">
+                <div class="tiles tile-group nine-wide">
                     <div class="live-tile" data-speed="750" data-delay="5000">
                         <div><img class="full" src="IMAGES/iiitd/image1.png" alt="1" /></div>
                     </div>

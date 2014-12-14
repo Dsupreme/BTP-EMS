@@ -11,10 +11,6 @@
 	padding-right:10px;
 }
 
-select {
-    border:none;
-}
-
 .divider {
     height: 5px;
     overflow: hidden;
@@ -52,22 +48,23 @@ textarea[name=app_descp] {
         list-style:none;
     }
  
-        .tab-links a {
-            padding:5px 20px;
-            display:inline-block;
-            background:#333333;
-            font-size:20px;
-            font-weight:600;
-            transition:all linear 0.15s;
-        }
+    .tab-links a {
+        padding:5px 20px;
+        display:inline-block;
+        background:#333333;
+        font-size:20px;
+        font-weight:600;
+        transition:all linear 0.15s;
+    }
  
-        .tab-links a:hover {
-            background:#3fada8;
-            color:#fff;
-            text-decoration:none;
-        }
- 
-    #pages li.active a, li.active a:hover {
+    .tab-links a:hover {
+        background:#3fada8;
+        color:#fff;
+        text-decoration:none;
+    }
+
+
+    #pages li.active a {
         background:#fff;
         color:#4c4c4c;
         text-decoration:none;
@@ -91,3 +88,10 @@ textarea[name=app_descp] {
         .tab.active {
             display:block;
         }
+
+select {
+    width: 100%;
+    padding:0.2em;
+    margin: 1em 0;
+    font-size: 15px;
+}
