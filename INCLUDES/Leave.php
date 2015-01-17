@@ -24,10 +24,12 @@
         <link rel="stylesheet" type="text/css" href="../CSS/leave.css" media="screen" />
         
         <!--Javascript Links-->
-        <script type="text/javascript" src="../JS/jquery-1.11.0.min.js"></script><!--JQuery Online link -->
+         <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+		<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+		<script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
         <script type="text/javascript" src="../js/bootstrap.js"></script><!--Bootstrap Javascript -->
         <script type="text/javascript" src="../js/smoothscroll.js"></script><!--Smooth Scroll Animation -->
-
+		<script type="text/javascript" src="JS/check_ajax.js"></script>   
 	</head>
     <?php
 
@@ -81,6 +83,22 @@
         }
     ?>
 
+	 <script>
+$(function() {
+$( "#sdate" ).datepicker({
+altField: "#sdate",
+altFormat: "yy-mm-dd",
+minDate: -5, maxDate: "+3M +10D"
+});
+});
+$(function() {
+$( "#edate" ).datepicker({
+altField: "#edate",
+altFormat: "yy-mm-dd",
+minDate: 0, maxDate: "+1M +10D"
+});
+});
+</script>
     <body  style="background-color:#808080">
 		<!--Navigation Bar-->
 		<nav class="navbar navbar-fixed-top" role="navigation">
@@ -141,11 +159,11 @@
                                     <tr>               
                                         <td class="Label" >Start Date</td>
                                         <td id="colon"> : </td>
-                                        <td ><input type="date" style="width:100%"  title="yyyy-mm-dd" name="leave_start" placeholder="Mandatory" /></td>
+                                        <td ><input id="sdate" type="text" style="width:100%"  title="yyyy-mm-dd" name="leave_start" placeholder="Mandatory" /><!--min="<?php echo date("Y-m-d");?>"--> </td>
                                         
                                         <td class="Label" >End Date</td>
                                         <td id="colon"> : </td>
-                                        <td ><input type="date" style="width:100%"  title="yyyy-mm-dd" name="leave_end" placeholder="Mandatory" /></td>
+                                        <td ><input id="edate" type="text" style="width:100%"  title="yyyy-mm-dd" name="leave_end" placeholder="Mandatory" /><!--min="<?php echo date("Y-m-d");?>"--></td>
                                     </tr>
                                     <tr>
                                         <td class="Label">Description</td>

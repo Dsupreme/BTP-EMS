@@ -33,7 +33,9 @@
         <script type="text/javascript" src="../JS/moment.min.js"></script>
         <script type="text/javascript" src="../JS/fullcalendar.js"></script><!--Calender-->
         <script type="text/javascript" src="../JS/calendar_home.js"></script>
-
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+	<!--	<script src="//code.jquery.com/jquery-1.10.2.js"></script> -->
+		<script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
         
 		<link rel="shortcut icon" href="images/favicon.png">
 		<link rel="apple-touch-icon" href="">
@@ -49,6 +51,25 @@
 	include 'Variables.php';
    	include 'database.php';
 ?>
+
+<script>
+$(function() {
+var tooltips = $( "[title]" ).tooltip({
+position: {
+my: "left top",
+at: "right+5 top-5"
+}
+});
+$( "<button>" )
+.text( "" )
+.button()
+.click(function() {
+tooltips.tooltip( "open" );
+})
+.insertAfter( "form" );
+});
+</script>
+
 
 <?php        
     if(isset($_POST['event_submit'])) {
@@ -133,6 +154,25 @@
 		//echo $fetch[0],$fetch[1],$fetch[2],$fetch[3],$fetch[4],$fetch[5],$fetch[6],$fetch[7],$fetch[8],$fetch[9];
 	*/	
 ?>
+
+	 <script>
+$(function() {
+$( "#sdate" ).datepicker({
+altField: "#sdate",
+altFormat: "yy-mm-dd",
+minDate: -5, maxDate: "+3M +10D"
+});
+});
+$(function() {
+$( "#edate" ).datepicker({
+altField: "#edate",
+altFormat: "yy-mm-dd",
+minDate: 0, maxDate: "+3M +10D"
+});
+});
+</script>
+
+
 
 <body  style="background-color:#808080">
 	<!--Navigation Bar-->
@@ -230,7 +270,8 @@
                 </div>
                 <div class="modal-body">
                     <form id="form1" method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>"enctype="multipart/form-data">
-                        <table width="100%">
+                        
+						<table width="100%">
                             <tr>
                                 <td colspan="1">Title: </td>
                                 <td colspan="3"><input type="text" name="event_title" placeholder="Mandatory" style="width:95%"/></td>
@@ -241,18 +282,17 @@
                             </tr>
                             <tr>
                                 <td>Start Date: </td>
-                                <td><input type="date" name="event_start_d" placeholder="Mandatory"</td>
+                                <td><input id="sdate" type="text" name="event_start_d" placeholder="Mandatory" title="yyyy-mm-dd"/></td>
                                 <td>Start Time: </td>
-                                <td><input type="text" name="event_start_t" title="hh:mm:ss" placeholder="Optional"</td>
+                                <td><input type="text" name="event_start_t" title="use this format  -  hh:mm:ss" placeholder="Optional" /></td>
                             </tr>
                             <tr>
                                 <td>End date: </td>
-                                <td><input type="date" name="event_end_d" placeholder="Mandatory"</td>
+                                <td><input  id="edate" type="text" name="event_end_d" placeholder="Mandatory" title="yyyy-mm-dd"/></td>
                                 <td>End Time: </td>
-                                <td><input type="text" name="event_end_t" title="hh:mm:ss" placeholder="Optional"</td>
+                                <td><input type="text" name="event_end_t" title="use this format  -  hh:mm:ss" placeholder="Optional" /></td>
                             </tr>
                         </table>
-                    
 					</div>
                     <div class="modal-footer">
                         <input type="submit" class="btn btn-primary" name="event_submit" id="submit_event" value="Submit" />
