@@ -35,7 +35,7 @@ $(document).ready(function() {
 		var username = $("#admin_username_add").val();
 		var msgbox = $("#status");
 		if(username.length > 3) {
-			$("#status").html('<img src="loader.gif" align="absmiddle">&nbsp;Checking availability...');
+			$("#status").html('<img src="../loader.gif" align="absmiddle">&nbsp;Checking availability...');
 			$.ajax({
 				type: "POST",
 				url: "check_ajax.php",
@@ -46,7 +46,7 @@ $(document).ready(function() {
 					if(str == 'OK') { 
 	   					$("#admin_username_add").removeClass("red");
 						$("#admin_username_add").addClass("green");
-						$("#status").html('<img src="yes.png" align="absmiddle"> <font color="Green"> Available </font>  ');
+						$("#status").html('<img src="..//yes.png" align="absmiddle"> <font color="Green"> Available </font>  ');
 					}  
 					else {  
 						$("#admin_username_add").removeClass("green");

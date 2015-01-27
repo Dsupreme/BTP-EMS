@@ -13,16 +13,16 @@
     		   	window.alert('Not logged in.Please login to EMS to continue.')
     			</SCRIPT>"
 		);
-	}	
+	}
 ?>
     <head>
 
 	    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        
+
         <!-- CSS Links -->
         <link rel="stylesheet" type="text/css" href="../CSS/bootstrap.css" media="screen" />
         <link rel="stylesheet" type="text/css" href="../CSS/admin.css" media="screen" />
-        
+        <title> Admin Panel - EMS </title>
         <!--Javascript Links-->
         <script type="text/javascript" src="../JS/jquery-1.11.0.min.js"></script><!--JQuery Online link -->
         <script type="text/javascript" src="../JS/bootstrap.js"></script><!--Bootstrap Javascript -->
@@ -30,32 +30,47 @@
         <script type="text/javascript" src="../JS/check_ajax.js"></script>
         <script type="text/javascript" src="../JS/admin.js"></script>
 	</head>
- 
-<?php 
+
+<?php
 	include 'database.php';
 	include 'Variables.php';
 	include 'file-uploader.php';
-	
+require '../Libraries/PHPMailer/PHPMailerAutoload.php';
+
 ?>
 
 <?php
+
+function checkEmail ($mail) {
+	if(preg_match('/^([a-zA-Z0-9])+([a-zA-Z0-9._-])*@([a-zA-Z0-9_-])+([a-zA-Z0-9._-]+)+$/' , $mail)){
+		list($name,$domain)=split('@',$mail);
+		if(!checkdnsrr($domain,'MX')) {
+			return false;
+		}
+		return true;
+	}
+			else {
+					return false;
+			}
+}
+
 	if(isset($_REQUEST['admin_newuser_submit'])) {
 		$signup_error = "";
 		if ($_SERVER["REQUEST_METHOD"] == "POST") {
 			if (empty($_admin_username_add)) {
-				$signup_error.="Username is required.";	
+				$signup_error.="Username is required.";
 			}
 			else {
 				if (!preg_match('/^[a-zA-Z0-9]+$/', $_admin_username_add)) {
 					$signup_error.="Invalid Username. Remove invalid characters";
 				}
-			}			
+			}
 			if (empty($admin_email_add)) {
 				$signup_error.="Email address is required.";
 			}
 			else {
-				$admin_email_add = trim($admin_email_add);   
-				if(!checkEmail($admin_email_add)) {  
+				$admin_email_add = trim($admin_email_add);
+				if(!checkEmail($admin_email_add)) {
 					$signup_error.="Invalid email address!";
 				}
 			}
@@ -71,12 +86,30 @@
 			echo "</script>";
 		}
 		else {
+				$passs  = $admin_password_add;
 		    $admin_password_add = md5($admin_password_add);
 			$right = 1;
 			mysql_query("INSERT INTO users(rights,username, email, password) VALUES ('$right','$_admin_username_add','$admin_email_add','$admin_password_add');") or die(mysql_error());
+
+			$mail = new PHPMailer;
+			$mail->isSMTP();                                      // Set mailer to use SMTP
+			$mail->Host = 'smtp.gmail.com';						  // Specify main and backup SMTP servers
+			$mail->SMTPAuth = true;                               // Enable SMTP authentication
+			$mail->Username = 'madhavadityanaresh@gmail.com';            // SMTP username
+			$mail->Password = 'naresh12121993';                           // SMTP password
+			$mail->SMTPSecure = 'tls';                            // Enable encryption, 'ssl' also accepted
+			$mail->From = 'madhavadityanaresh@gmail.com';
+			$mail->FromName = '<Do Not Reply>EMS Mailer';
+			$mail->addAddress($admin_email_add,$_admin_username_add);     // Add a recipient
+			$mail->WordWrap = 55;                                 // Set word wrap to 50 characters
+			$mail->isHTML(true);                                  // Set email format to HTML
+			$mail->Subject = 'Successful Admin creation';
+			$mail->Body    = 'Welcome to the Employee Management System of <b>IIIT-Delhi</b> as an Admin. Your  user name is '.$_admin_username_add.' and password is '.$passs.' Please dont share your password with anyone.';
+			$mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
+			$mail->send();
 			echo "<script language='javascript' type='text/javascript'>";
 			echo "alert('User added to database.');";
-			echo "</script>";			
+			echo "</script>";
 		}
 	}
 ?>
@@ -104,7 +137,7 @@
             		<div class="navbar-collapse collapse">
           				<ul class="nav navbar-nav navbar-right">
                     		<li><a href="Home.php">Home</a></li>
-                   			<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Shortcuts<b class="caret"></b></a>  
+                   			<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Shortcuts<b class="caret"></b></a>
     							<ul class="dropdown-menu">
                                 	<li><a href="aboutus.php">About Us</a></li>
                                 	<li class="divider"></li>
@@ -120,11 +153,11 @@
                             </li>
                			</ul>
            			</div>
-        		</div>     
+        		</div>
 			</div>
 		</nav>
-        
-        <div class="container" style="margin-top:8em;">        
+
+        <div class="container" style="margin-top:8em;">
             <section>
                 <div class="tabs">
                     <ul class="tab-links" id="pages">
@@ -278,13 +311,13 @@
                                         <tr>
                                             <td class="Label">Password</td>
                                             <td id="colon">:</td>
-                                            <td ><input type="text" name="admin_password_add" placeholder="Mandatory" style="width:95%"/></td>
+                                            <td ><input type="password" name="admin_password_add" placeholder="Mandatory" style="width:95%"/></td>
                                             <td class="Label">Confirm Password</td>
                                             <td id="colon">:</td>
-                                            <td><input type="text" name="admin_password_confirm" placeholder="Mandatory" style="width:85%"/></td>
+                                            <td><input type="password" name="admin_password_confirm" placeholder="Mandatory" style="width:85%"/></td>
                                         </tr>
                                         <tr>
-                                            <td colspan="6" align="center"><input type="submit" name="admin_newuser_submit" class="btn btn-primary" style="margin:1em 0"/></td>
+                                            <td colspan="6" align="center"><input type="submit" name="admin_newuser_submit" class="btn btn-primary" style="margin:1em 0" value="Add Admin"/></td>
                                         </tr>
                                     </table>
                                     <table  class="tb5" width="100%" style="margin:1em 0;">
@@ -307,7 +340,7 @@
                                     ?>
                                         <tr>
                                         </tr>
-                                    
+
                                     <?php //} ?>
                                         </table>
                                 </form>
@@ -315,7 +348,7 @@
                         </div>
                     </div>
                 </div>
-            </section>   
+            </section>
         </div>
         <div class="footer">
             <div id="legal">
