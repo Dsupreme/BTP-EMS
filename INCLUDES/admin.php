@@ -173,35 +173,43 @@ function checkEmail ($mail) {
                                 <form id="form1" method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
                                     <table  class="tb5" width="100%"  style="margin:1em 0;">
                                         <tr>
+																					<td align="center">Leave ID</td>
                                             <td align="center">First Name</td>
                                             <td align="center">Last Name</td>
                                             <td align="center">Start Date & Time</td>
                                             <td align="center">End Date & Time</td>
-                                            <td align="center">Leave Type</td>
-                                            <td align="center">Action</td>
-                                        </tr>
+                                            <td align="center">Status</td>
+																						<td align="center">Leave Type</td>
+																						<td align="center">Action</td>
+
+
                                         <tr>
-                                            <td class="divider" colspan="6"> </td>
+																				</tr>
+                                            <td class="divider" colspan="8"> </td>
                                         </tr>
-                                    </table>
-                                    <table>
+
                                     <?php
-                                        //$select=mysql_query("select * from contact") or die(mysql_error());
-                                        //while($fetch=mysql_fetch_array($select))
-                                        //{
+                                        $select=mysql_query("select * from `leave` where 1") or die(mysql_error());
+                                        while($fetch=mysql_fetch_array($select))
+                                        {
                                     ?>
-                                    <!--<tr>
-                                        <td align="center"><?php echo $fetch[1] . " " . $fetch[2] ?></td>
+                                    <tr>
+																				<?php
+																							$select2 = mysql_query("select firstname, lastname from users where U_id = ".$fetch[1]) or die(mysql_error());
+																								$fetch2 = mysql_fetch_array($select2);
+																							?>
+																				<td align="center"><?php echo $fetch[0] ?></td>			
+																				<td align="center"><?php echo $fetch2[0] ?></td>
+																				<td align="center"><?php echo $fetch2[1] ?></td>
                                         <td align="center"><?php echo $fetch[3] ?></td>
                                         <td align="center"><?php echo $fetch[4] ?></td>
-                                        <td align="center"><?php echo $fetch[5] ?></td>
-                                        <td align="center"><?php echo $fetch[6] ?></td>
-                                        <td align="center"><?php echo $fetch[7] ?></td>
+																				<td align="center"><?php if($fetch[6] == "orange"){echo "not-approved";}else{echo "approved";} ?></td>
+                                        <td align="center"><?php echo $fetch[2] ?></td>
                                         <td align="center">
-                                            <a href="contact.php?Del=<?php echo $fetch[0]; ?>"><img src="airlines/Icon_Delete.png" alt="Delete"></a>                                               <a href="contact.php?Edit=<?php echo $fetch[0]; ?>"><img src="airlines/Icon_Edit.png" alt="Edit"></a>
+                                            <a href="deleteleave.php?Del=<?php echo $fetch[0]; ?>"><img src="airlines/Icon_Delete.png" alt="Disapprove "></a>                                               <a href="approveleave.php?Edit=<?php echo $fetch[0]; ?>"><img src="airlines/Icon_Edit.png" alt="Approve"></a>
                                         </td>
-                                    </tr>-->
-                                    <?php //} ?>
+                                    </tr>
+                                    <?php } ?>
                                     </table>
                                 </form>
                             </p>
@@ -325,23 +333,27 @@ function checkEmail ($mail) {
                                             <td align="center">Username</td>
                                             <td align="center">First Name</td>
                                             <td align="center">Last Name</td>
-                                            <td align="center">User Privilege</td>
+                                            <td align="center">User Privilege(1/0:admin/user)</td>
                                             <td align="center">Action</td>
                                         </tr>
                                         <tr>
                                             <td class="divider" colspan="6"> </td>
                                         </tr>
-                                    </table>
-                                    <table>
+
                                     <?php
-                                        //$select=mysql_query("select * from contact") or die(mysql_error());
-                                        //while($fetch=mysql_fetch_array($select))
-                                        //{
+                                        $select=mysql_query("select * from users") or die(mysql_error());
+                                        while($fetch=mysql_fetch_array($select))
+                                        {
                                     ?>
                                         <tr>
+																					<td align="center"><?php echo $fetch['username'];?></td>
+																					<td align="center"><?php echo $fetch['firstname'];?></td>
+																					<td align="center"><?php echo $fetch['lastname'];?></td>
+																					<td align="center"><?php echo $fetch['rights'];?></td>
+																					<td align="center">Action</td>
                                         </tr>
 
-                                    <?php //} ?>
+                                    <?php } ?>
                                         </table>
                                 </form>
                             </p>
