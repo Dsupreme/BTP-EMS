@@ -108,7 +108,66 @@ function checkEmail ($mail) {
 			$mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
 			$mail->send();
 			echo "<script language='javascript' type='text/javascript'>";
-			echo "alert('User added to database.');";
+			echo "alert('Admin added to database.');";
+			echo "</script>";
+		}
+	}
+
+	if(isset($_REQUEST['admin_newemp_submit'])) {
+		$signup_error = "";
+		if ($_SERVER["REQUEST_METHOD"] == "POST") {
+			if (empty($_admin_username_add)) {
+				$signup_error.="Username is required.";
+			}
+			else {
+				if (!preg_match('/^[a-zA-Z0-9]+$/', $_admin_username_add)) {
+					$signup_error.="Invalid Username. Remove invalid characters";
+				}
+			}
+			if (empty($admin_email_add)) {
+				$signup_error.="Email address is required.";
+			}
+			else {
+				$admin_email_add = trim($admin_email_add);
+				if(!checkEmail($admin_email_add)) {
+					$signup_error.="Invalid email address!";
+				}
+			}
+			if (strcmp($admin_password_add,$admin_password_confirm)=='0') {
+			}
+			else {
+				$signup_error.="Both the password fields do not match ";
+			}
+		}
+		if (strcmp($signup_error,"")!='0') {
+			echo "<script language='javascript' type='text/javascript'>";
+			echo "alert('$signup_error');";
+			echo "</script>";
+		}
+		else {
+				$passs  = $admin_password_add;
+				$admin_password_add = md5($admin_password_add);
+			$right = 2;
+			mysql_query("INSERT INTO users(rights,username, email, password) VALUES ('$right','$_admin_username_add','$admin_email_add','$admin_password_add');") or die(mysql_error());
+
+			$mail = new PHPMailer;
+			$mail->isSMTP();                                      // Set mailer to use SMTP
+			$mail->Host = 'smtp.gmail.com';						  // Specify main and backup SMTP servers
+			$mail->SMTPAuth = true;                               // Enable SMTP authentication
+			$mail->Username = 'madhavadityanaresh@gmail.com';            // SMTP username
+			$mail->Password = 'naresh12121993';                           // SMTP password
+			$mail->SMTPSecure = 'tls';                            // Enable encryption, 'ssl' also accepted
+			$mail->From = 'madhavadityanaresh@gmail.com';
+			$mail->FromName = '<Do Not Reply>EMS Mailer';
+			$mail->addAddress($admin_email_add,$_admin_username_add);     // Add a recipient
+			$mail->WordWrap = 55;                                 // Set word wrap to 50 characters
+			$mail->isHTML(true);                                  // Set email format to HTML
+			$mail->Subject = 'Successful Employee Account creation';
+			$mail->Body    = 'Welcome to the Employee Management System of <b>IIIT-Delhi</b> as an employee of IIITD. Your  user name/employee code is '.$_admin_username_add.' and password is '.$passs.' Please dont share your password with anyone.';
+			$mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
+			$mail->send();
+			echo "<script language='javascript' type='text/javascript'>";
+			echo "alert('Employee added to database.');";
 			echo "</script>";
 		}
 	}
@@ -198,7 +257,7 @@ function checkEmail ($mail) {
 																							$select2 = mysql_query("select firstname, lastname from users where U_id = ".$fetch[1]) or die(mysql_error());
 																								$fetch2 = mysql_fetch_array($select2);
 																							?>
-																				<td align="center"><?php echo $fetch[0] ?></td>			
+																				<td align="center"><?php echo $fetch[0] ?></td>
 																				<td align="center"><?php echo $fetch2[0] ?></td>
 																				<td align="center"><?php echo $fetch2[1] ?></td>
                                         <td align="center"><?php echo $fetch[3] ?></td>
@@ -325,8 +384,10 @@ function checkEmail ($mail) {
                                             <td><input type="password" name="admin_password_confirm" placeholder="Mandatory" style="width:85%"/></td>
                                         </tr>
                                         <tr>
-                                            <td colspan="6" align="center"><input type="submit" name="admin_newuser_submit" class="btn btn-primary" style="margin:1em 0" value="Add Admin"/></td>
-                                        </tr>
+                                            <td colspan="1" align="center"><input type="submit" name="admin_newuser_submit" class="btn btn-primary" style="margin:1em 0" value="Add as Admin"/></td>
+                                        <td colspan="1" align="center"><input type="submit" name="admin_newemp_submit" class="btn btn-primary" style="margin:1em 0" value="Add as Employee"/></td>
+
+																				</tr>
                                     </table>
                                     <table  class="tb5" width="100%" style="margin:1em 0;">
                                         <tr>
@@ -350,7 +411,7 @@ function checkEmail ($mail) {
 																					<td align="center"><?php echo $fetch['firstname'];?></td>
 																					<td align="center"><?php echo $fetch['lastname'];?></td>
 																					<td align="center"><?php echo $fetch['rights'];?></td>
-																					<td align="center">Action</td>
+																					<td align="center"></td>
                                         </tr>
 
                                     <?php } ?>

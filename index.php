@@ -178,7 +178,7 @@ session_start();
                             <h1>LOGIN</h1>
                             <p>
                                 <label for="username" class="uname" > Email or Username </label>
-                                <input id="username" name="username" type="text" placeholder="myusername or mymail@mail.com"/>
+                                <input id="username" name="username" type="text" placeholder="Employee Code or Username"/>
                             </p>
                             <p>
                                 <label for="password" class="youpasswd"> Enter password </label>
@@ -192,8 +192,8 @@ session_start();
                                 <input type="submit" name="loginbtn" value="LOGIN" href="#tologin"/>
                             </p>
                             <p class="change_link">
-                                Not a member yet ?
-                                <a href="#toregister" class="to_register">Join us</a>
+                                Not working at IIITD, want to apply?
+                                <a href="#toregister" class="to_register">Join us/SignUp</a>
                             </p>
                         </form>
                     </div>
