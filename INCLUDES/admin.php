@@ -327,7 +327,7 @@ function checkEmail ($mail) {
                         <div id="tab3" class="tab">
                             <p>Job Application Posts currently available</p>
                             <p>
-                                <form id="form3" method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+                                <form id="form3" method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" autocomplete="on" onSubmit="JavaScript:load_posts()">
                                     <table width="100%">
                                         <tr>
                                             <td class="Label">Post</td>
