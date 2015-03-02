@@ -399,7 +399,6 @@ altFormat: "yy-mm-dd"
                                    </table>
                                    <table  class="tb5" width="100%" style="margin-top:2em;">
                                        <tr>
-																					<td align="center">Holiday_id</td>
                                            <td align="center">Title</td>
                                            <td align="center">Start Date & Time</td>
                                            <td align="center">End Date & Time</td>
@@ -407,7 +406,7 @@ altFormat: "yy-mm-dd"
                                            <td align="center">Action</td>
                                        </tr>
                                        <tr>
-                                           <td class="divider" colspan="6"> </td>
+                                           <td class="divider" colspan="5"> </td>
                                        </tr>
 																				<?php
 																						$select=mysql_query("select * from holidays") or die(mysql_error());
@@ -416,7 +415,7 @@ altFormat: "yy-mm-dd"
 																							?>
 
 																					<tr>
-																					<td align="center"><?php echo $fetch['holiday_id']; ?></td>
+
 																					<td align="center"><?php echo $fetch['title']; ?></td>
 																					<td align="center"><?php echo $fetch['start']; ?></td>
 																					<td align="center"><?php echo $fetch['end']; ?></td>
