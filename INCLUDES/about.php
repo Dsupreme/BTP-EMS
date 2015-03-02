@@ -2,16 +2,26 @@
 <?php
 session_start();
 ?>
+
+<?php
+if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 900)) {
+		session_destroy();
+		echo "<script language='javascript' type='text/javascript'>";
+		echo "alert('Session Timed Out');";
+		echo "</script>";
+}
+$_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
+?>
 	<head>
 		<title>EMS-Welcome Page</title>
 
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 		<meta name="author" content="Naresh and Manmeet"/>
 		<meta name="description" content="A new Job Portal and Employee Management System for IIIT-Delhi"/>
-        
+
         <meta name="keywords" content="slider, animations, , delayed, easing, jquery, css3, kendo UI" />
 
 		<!--Favicons-->
@@ -22,13 +32,13 @@ session_start();
 		<!--Fonts-->
    		<link href='http://fonts.googleapis.com/css?family=Economica:700,400italic' rel='stylesheet' type='text/css'>
 		<link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
-		
-       	
+
+
         <!-- CSS Links -->
 		<link rel="stylesheet" type="text/css" href="../CSS/bootstrap.css" media="screen" />
         <link rel="stylesheet" type="text/css" href="../CSS/index.css" media="screen" />
         <link rel="stylesheet" type="text/css" href="../CSS/animate-custom.css" media="screen" />
-        
+
         <!--Javascript Links-->
         <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.1.min.js"></script><!--JQuery Online link -->
        	<script type="text/javascript" src="../JS/bootstrap.js"></script><!--Bootstrap Javascript-->
@@ -57,16 +67,16 @@ session_start();
                         </div>
                         <div class="navbar-collapse collapse">
                             <ul class="nav navbar-nav navbar-right">
-                               
+
                                 <li><a href="../index.php">log in</a></li>
                                 <li><a href="Contact.php">Contact Us</a></li>
                             </ul>
                         </div>
-                    </div>     
+                    </div>
                 </div>
             </nav>
         </section>
-		
+
 		<section>
 			<div class="container">
 				<div id="about-text" style="margin:100px 0px;">
@@ -77,13 +87,13 @@ The institute began with its first batch of 60 BTech students in 2008. This firs
 				<!--<div id="about-events" style="margin:100px 0px;">
 					<table id="events">
 						<tr id="r1">
-							<td>2nd April 2008 : 
+							<td>2nd April 2008 :
 							</td>
 							<td>the IIIT-Delhi Act passed in Legislative Assembly
 							</td>
 						</tr>
 						<tr id="r2">
-							<td>2nd May 2008 : 
+							<td>2nd May 2008 :
 							</td>
 							<td>Notification of the IIIT-Delhi Act
 							</td>
@@ -94,7 +104,7 @@ The institute began with its first batch of 60 BTech students in 2008. This firs
 		</section>
 	<script type="text/javascript">
     $('body').scrollspy({ target: '.navbar navbar-fixed-top' })
-    </script> 
+    </script>
 	 <section>
             <div class="footer">
             	<div id="legal">

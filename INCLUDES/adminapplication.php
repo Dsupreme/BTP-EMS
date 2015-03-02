@@ -10,25 +10,25 @@
 	<link rel="stylesheet" type="text/css" href="../CSS/bootstrap.css" media="screen" />
     <link rel="stylesheet" type="text/css" href="../CSS/admin.css" media="screen" />
     <link rel="stylesheet" type="text/css" href="../CSS/animate-custom.css" media="screen" />
-    
-    
+
+
     <!--Javascript Links-->
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.1.min.js"></script><!--JQuery Online link -->
     <script type="text/javascript" src="../js/bootstrap.js"></script><!--Bootstrap Javascript -->
     <script type="text/javascript" src="../js/smoothscroll.js"></script><!--Smooth Scroll Animation -->
 </head>
-<?php    
+<?php
    	include 'database.php';
 	if(isset($_REQUEST['output_by_id'])) {
 		if(isset($_REQUEST['input'])) {$username = $_REQUEST['input']; }
 		$applicant = mysql_query("select * from pdetails where firstname = '$username'") or die(mysql_error());
 		$fetch=(mysql_fetch_array($applicant));
 		//echo $fetch[0],$fetch[1],$fetch[2],$fetch[3],$fetch[4],$fetch[5],$fetch[6],$fetch[7],$fetch[8],$fetch[9];
-		
-	
+
+
 	}
 ?>
-    
+
 <body  style="background-color:#808080">
 <!--Navigation Bar-->
 		<nav class="navbar navbar-fixed-top" role="navigation">
@@ -53,20 +53,20 @@
             		        <li><a href="">About Us</a></li>
                    	 		<li><a href="#">Portfolio</a></li>
                     		<li><a href="Contact.php">Contact Us</a></li>
-                   			<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Services<b class="caret"></b></a>  
+                   			<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Services<b class="caret"></b></a>
     							<ul class="dropdown-menu">
 						    		<li><a href="#">Web Design</a></li>
 									<li><a href="#">Web development</a></li>
                             		<li class="divider"></li>
-									<li><a href="#">Theme development</a></li>  
+									<li><a href="#">Theme development</a></li>
 					    		</ul>
                     		</li>
                			</ul>
            			</div>
-        		</div>     
+        		</div>
 			</div>
 		</nav>
-        
+
         <div class="container" style="top:80px;">
         <div class="panel panel-default" >
   				<div class="panel-heading">Summary</div>
@@ -111,6 +111,6 @@
                             <td width="20%"><?php if (isset($_REQUEST['input'])) { if ($fetch[8] == '0') {echo "Male";}
 												  								   else {echo "Female";}}
 														?></td>
-                           
+
                          </tr>
                     </table>

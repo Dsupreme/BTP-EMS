@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <?php
 	session_start();
+	if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 900)) {
+			session_destroy();
+			echo "<script language='javascript' type='text/javascript'>";
+			echo "alert('Session Timed Out');";
+			echo "</script>";
+	}
+	$_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
 	if($_SESSION['username']){
 	}
 	//else {
@@ -9,32 +16,32 @@
 	else {
 		echo (
 			"<SCRIPT LANGUAGE='JavaScript'>
-    			window.location.href='/Github/BTP-EMS/#login';
+    			window.location.href='/BTP-EMS/#login';
     		   	window.alert('Not logged in.Please login to EMS to continue.')
     			</SCRIPT>"
 		);
-	}	
+	}
 ?>
 	<head>
 
 	    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        
+
         <!-- CSS Links -->
         <link rel="stylesheet" type="text/css" href="../CSS/bootstrap.css" media="screen" />
         <link rel="stylesheet" type="text/css" href="../CSS/leave.css" media="screen" />
-        
+
         <!--Javascript Links-->
          <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
 		<script src="//code.jquery.com/jquery-1.10.2.js"></script>
 		<script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
         <script type="text/javascript" src="../js/bootstrap.js"></script><!--Bootstrap Javascript -->
         <script type="text/javascript" src="../js/smoothscroll.js"></script><!--Smooth Scroll Animation -->
-		<script type="text/javascript" src="JS/check_ajax.js"></script>   
+		<script type="text/javascript" src="JS/check_ajax.js"></script>
 	</head>
     <?php
 
         include 'Variables.php';
-        include 'database.php';   
+        include 'database.php';
    ?>
 
     <?php
@@ -42,8 +49,8 @@
 		while($rows = mysql_fetch_array($details)){
 		$fname = $rows['firstname'];
 		$lname = $rows['lastname'];
-		}		
-		
+		}
+
 		if(isset($_POST['submitleave'])) {
             $leave_error = "";
 
@@ -77,7 +84,7 @@
                 echo "alert('Leave sent for approval');";
                 echo "$('#calendar').reload(true)";
                 echo "</script>";
-               
+
                 }
             }
         }
@@ -121,7 +128,7 @@ minDate: 0, maxDate: "+1M +10D"
             		<div class="navbar-collapse collapse">
           				<ul class="nav navbar-nav navbar-right">
                     		<li><a href="Home.php">Home</a></li>
-                   			<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Shortcuts<b class="caret"></b></a>  
+                   			<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Shortcuts<b class="caret"></b></a>
     							<ul class="dropdown-menu">
                                 	<li><a href="aboutus.php">About Us</a></li>
                                 	<li class="divider"></li>
@@ -137,7 +144,7 @@ minDate: 0, maxDate: "+1M +10D"
                             </li>
                			</ul>
            			</div>
-        		</div>     
+        		</div>
 			</div>
 		</nav>
      	<div class="container" style="margin-top:8em;">
@@ -151,16 +158,16 @@ minDate: 0, maxDate: "+1M +10D"
                                         <td class="Label" >First Name </td>
                                         <td id="colon"> : </td>
                                         <td ><input type="text" name="leave_fname" contenteditable="false" value="<?php if(isset($fname)){echo $fname;}?>" style="width:100%" disabled/></td>
-                                        
+
                                         <td class="Label" >Last Name </td>
                                         <td id="colon"> : </td>
                                         <td ><input type="text" name="leave_lname" contenteditable="false" value="<?php if(isset($lname)){echo $lname;}?>" style="width:100%" disabled/></td>
                                     </tr>
-                                    <tr>               
+                                    <tr>
                                         <td class="Label" >Start Date</td>
                                         <td id="colon"> : </td>
                                         <td ><input id="sdate" type="text" style="width:100%"  title="yyyy-mm-dd" name="leave_start" placeholder="Mandatory" /><!--min="<?php echo date("Y-m-d");?>"--> </td>
-                                        
+
                                         <td class="Label" >End Date</td>
                                         <td id="colon"> : </td>
                                         <td ><input id="edate" type="text" style="width:100%"  title="yyyy-mm-dd" name="leave_end" placeholder="Mandatory" /><!--min="<?php echo date("Y-m-d");?>"--></td>
@@ -214,7 +221,7 @@ minDate: 0, maxDate: "+1M +10D"
                                                 TILL <br />NOW
                                             </div>
                                         </a>
-                                    </div>                                   
+                                    </div>
                                 </div>
                                 <div class="row"  style="margin-top:1em">
                                     <div class="col-xs-6 col-md-4">
@@ -237,31 +244,31 @@ minDate: 0, maxDate: "+1M +10D"
                                                30
                                             </div>
                                         </a>
-                                    </div>                                   
+                                    </div>
                                 </div>
-                                
+
                             </div>
                         </div>
                 </form>
-            </section> 
-        </div>        
+            </section>
+        </div>
 		<div class="container">
             <div class="panel panel-default" id="leave_history">
     		    <div class="panel-heading">Leave History</div>
                 <div class="panel-body">
                     <ul class="list-group">
-                        <?php //Insert while loop here to list all the leaves taken so far 
+                        <?php //Insert while loop here to list all the leaves taken so far
                         ?>
                         <li class="list-group-item">
                             Add all the fields here
                         </li>
 
                     </ul>
-                    
+
 
                     <script>$('.collapse').collapse();</script>
                 </div>
-            </div> 
+            </div>
         </div>
 	</body>
 </html>

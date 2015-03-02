@@ -2,6 +2,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <?php
 	session_start();
+	if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 900)) {
+			session_destroy();
+			echo "<script language='javascript' type='text/javascript'>";
+			echo "alert('Session Timed Out');";
+			echo "</script>";
+	}
+	$_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
 	if($_SESSION['username']){
 	}
 	//else {
@@ -14,42 +21,42 @@
     		   	window.alert('Not logged in.Please login to EMS to continue.')
     			</SCRIPT>"
 		);
-	}	
+	}
 ?>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Untitled Document</title>
+<title>Profile Edit page</title>
 
 
 		<!--Fonts-->
    		<link href='http://fonts.googleapis.com/css?family=Economica:700,400italic' rel='stylesheet' type='text/css'>
 		<link href='http://fonts.googleapis.com/css?family=Revalia' rel='stylesheet' type='text/css'>
-		
 
-        
+
+
         <!-- CSS Links -->
 		<link rel="stylesheet" type="text/css" href="../CSS/bootstrap.css" media="screen" />
         <link rel="stylesheet" type="text/css" href="../CSS/animate-custom.css" media="screen" />
         <link rel="stylesheet" type="text/css" href="../CSS/profile.css" media="screen"  />
-        
+
         <!--Javascript Links-->
         <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.1.min.js"></script><!--JQuery Online link -->
        	<script type="text/javascript" src="../JS/bootstrap.js"></script><!--Bootstrap Javascript-->
-        
+
 </head>
 
 
 
-<?php 
+<?php
 
 	include 'Variables.php';
 	include 'file-uploader.php';
 	include 'database.php';
 ?>
 
-	
+
 <?php
-	if(isset($_POST['profile_submit'])) { 
+	if(isset($_POST['profile_submit'])) {
 		$signup_error = "";
 		if ($_SERVER["REQUEST_METHOD"] == "POST") {
 			if(empty($fname)and(empty($lname))){
@@ -63,15 +70,15 @@
 					$signup_error.=" Invalid Lastname. Remove invalid characters";
 				}
 			}
-			if(empty($d_o_b)){$signup_error.=" Date of Birth is required. ";}else{if(!preg_match('/^[0-9]{4}-[0-9]{2}-[0-9]{2}$/', $d_o_b)){ 
-					$signup_error.=" Invalid Date format , Please fill as suggested in tool-tip";					
+			if(empty($d_o_b)){$signup_error.=" Date of Birth is required. ";}else{if(!preg_match('/^[0-9]{4}-[0-9]{2}-[0-9]{2}$/', $d_o_b)){
+					$signup_error.=" Invalid Date format , Please fill as suggested in tool-tip";
 				}}
 			if(empty($mobile)){$signup_error.=" Mobile number is required. ";}else{if (!preg_match('/^\d{10}$/', $mobile)) {
 					$signup_error.=" Invalid mobile number. Remove special characters ";
 				}}
-			
+
 		}
-		
+
 		if (strcmp($signup_error,"")!='0') {
 			echo "<script language='javascript' type='text/javascript'>";
 			echo "alert('$signup_error');";
@@ -83,30 +90,31 @@
 		    if($image_size != FALSE){
 			$usersid = $_SESSION['userid'];
 		    mysql_query("UPDATE users SET  flag = 1 , firstname = '$fname' ,middlename = '$mname', lastname = '$lname', DOB = '$d_o_b' , mobile = '$mobile' , image = '$imageData' WHERE U_id = '$usersid'") or die(mysql_error());
-		
-		    
+
+
 			echo "<script language='javascript' type='text/javascript'>";
 			echo "alert('The profile is successfully saved');";
 			echo "</script>";
-			
+
 			if($_SESSION['userright'] == 0)
 			echo "<script>window.location = '../INCLUDES/Home.php';</script>";
-			else
+			elseif($_SESSION['userright'] == 1)
 			echo "<script>window.location = '../INCLUDES/admin.php';</script>";
+			else
+			echo "<script>window.location = '../INCLUDES/Application.php';</script>";
 			}
 			else{
 			echo "<script language='javascript' type='text/javascript'>";
 			echo "alert('Only image files are allowed');";
 			echo "</script>";
 			}
-		    
 		}
 	}
-	
-	
-	
+
+
+
 	/*mysql_query("INSERT INTO pdetails (, )  )") or die(mysql_error());*/
-	
+
 
 ?>
 
@@ -134,12 +142,12 @@
           				<ul class="nav navbar-nav navbar-right">
                     		<li><a href="aboutus.php">About Us</font></a></li>
                   			<li><a href="Contactus.php">Contact Us</a></li>
-                   			<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">My Account<b class="caret"></b></a>  
+                   			<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">My Account<b class="caret"></b></a>
     							<ul class="dropdown-menu">
 						    		<li><a href="#">Profile</a></li>
 									<li><a href="#">Web development</a></li>
                             		<li class="divider"></li>
-									<li><a href="#">Theme development</a></li>  
+									<li><a href="#">Theme development</a></li>
 					    		</ul>
                     		</li>
 							<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo "Welcome, ".$_SESSION['username'] . "<b class='caret'></b>"?></a>
@@ -148,20 +156,20 @@
                                 	<li><a href="logout.php">Logout</a></li>
                                 </ul>
                             </li>
-                          
+
                			</ul>
            			</div>
-        		</div>     
+        		</div>
 			</div>
 		</nav>
 	</section>
     <section >
-	 
+
     	<div class="panel panel-info" id="pic-sign">
 			<div class="panel-heading"> Photo </div>
         	<div class="panel-body" id="pic">
             	<a href="" class="thumbnail">
-                	<img src="../IMAGES/2.png" />             
+                	<img src="../IMAGES/2.png" />
 			    </a>
             </div>
         </div>
@@ -198,7 +206,7 @@
                         <td style="align:center"><input type="submit" class="btn btn-primary" name="profile_submit" value="Submit" style="align:center"/></td>
                     </tr>
                 </table>
-                
+
             </div>
         </div>
 	</form>
@@ -225,9 +233,9 @@
                 </table>
             </div>
         </div>
-        
+
     </section>
-    
-    
+
+
 </body>
 </html>

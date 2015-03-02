@@ -8,14 +8,21 @@
 	<title>Contact Us</title>
 	<!-- CSS Links -->
 	<link rel="stylesheet" type="text/css" href="../CSS/bootstrap.css" media="screen" />
-    
+
     <!--Javascript Links-->
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.1.min.js"></script><!--JQuery Online link -->
     <script type="text/javascript" src="../js/bootstrap.js"></script><!--Bootstrap Javascript -->
     <script type="text/javascript" src="../js/smoothscroll.js"></script><!--Smooth Scroll Animation -->
 </head>
-<?php 
+<?php
 	session_start();
+	if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 900)) {
+			session_destroy();
+			echo "<script language='javascript' type='text/javascript'>";
+			echo "alert('Session Timed Out');";
+			echo "</script>";
+	}
+	$_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
 	?>
 
 <body  style="background-color:#808080">
@@ -41,20 +48,20 @@
           				<ul class="nav navbar-nav navbar-right">
                     		<li><a href="aboutus.php">About Us</a></li>
                     		<li><a href="Home.php">Home</a></li>
-                   			<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Services<b class="caret"></b></a>  
+                   			<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Services<b class="caret"></b></a>
     							<ul class="dropdown-menu">
 						    		<li><a href="#">Web Design</a></li>
 									<li><a href="#">Web development</a></li>
                             		<li class="divider"></li>
-									<li><a href="#">Theme development</a></li>  
+									<li><a href="#">Theme development</a></li>
 					    		</ul>
                     		</li>
-							<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">My Account<b class="caret"></b></a>  
+							<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">My Account<b class="caret"></b></a>
     							<ul class="dropdown-menu">
 						    		<li><a href="profile.php">Profile</a></li>
 									<li><a href="#">Web development</a></li>
                             		<li class="divider"></li>
-									<li><a href="#">Theme development</a></li>  
+									<li><a href="#">Theme development</a></li>
 					    		</ul>
                     		</li>
                             <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo "Welcome, ".$_SESSION['username'] . "<b class='caret'></b>"?></a>
@@ -65,7 +72,7 @@
                             </li>
                			</ul>
            			</div>
-        		</div>     
+        		</div>
 			</div>
 		</nav>
 
@@ -78,7 +85,7 @@
 				var latval = '28.54596';
 				var longval = '77.272666';
 				var myLatlng = new google.maps.LatLng(28.54597,77.272666);
-				var centerlatling = new google.maps.LatLng(28.54596,77.2837047); 
+				var centerlatling = new google.maps.LatLng(28.54596,77.2837047);
 				var mapProp = {center: centerlatling,
 							   zoom:15,
 							   minZoom:13,
@@ -97,8 +104,8 @@
         <div class="panel" style="position:absolute;left:850px;width:464px;top:80px;">
         	<div class="panel-heading">Contact Us</div>
             <div class="panel-body">
-            
+
 			</div>
         </div>
-         
+
 	</div>

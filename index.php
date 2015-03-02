@@ -83,7 +83,8 @@ session_start();
 			echo "</script>";
 		}else {
 		    $pswds = md5($pswds);
-			mysql_query("INSERT INTO users(username, email, password) VALUES ('$unames','$emails','$pswds');") or die(mysql_error());
+				$right = 0;
+			mysql_query("INSERT INTO users(rights,username, email, password) VALUES ('$right','$unames','$emails','$pswds');") or die(mysql_error());
 
             $mail = new PHPMailer;
             $mail->isSMTP();                                      // Set mailer to use SMTP
@@ -109,7 +110,7 @@ session_start();
 	$pswdl = md5($pswdl);
 	$ldetail = mysql_query("SELECT * from users WHERE username = '$unamel' and password = '$pswdl';") or die(mysql_error());
 	while($rows = mysql_fetch_array($ldetail)){
-		echo "<script> alert(".$rows['username'].");</script>";
+
 		$_SESSION['username'] = $rows['username'];
 		$_SESSION['userid'] = $rows['U_id'];
 		$_SESSION['userright'] = $rows['rights'];
@@ -118,10 +119,12 @@ session_start();
 	}
 	if($flag==1){
 		if($flagprof == 1){
-			if($_SESSION['userright'] == 0)
+			if($_SESSION['userright'] == 2)
 			echo "<script>window.location = 'INCLUDES/Home.php';</script>";
-			else
+			elseif($_SESSION['userright'] == 1)
 			echo "<script>window.location = 'INCLUDES/admin.php';</script>";
+			else
+			echo "<script>window.location = 'INCLUDES/Application.php';</script>";
 		}
 		else
 			echo "<script>window.location = 'INCLUDES/profile.php';</script>";

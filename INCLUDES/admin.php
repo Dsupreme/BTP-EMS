@@ -9,11 +9,21 @@
 	else {
 		echo (
 			"<SCRIPT LANGUAGE='JavaScript'>
-    			window.location.href='/Github/BTP-EMS/#login';
+    			window.location.href='../#login';
     		   	window.alert('Not logged in.Please login to EMS to continue.')
     			</SCRIPT>"
 		);
 	}
+?>
+
+<?php
+if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 900)) {
+		session_destroy();
+		echo "<script language='javascript' type='text/javascript'>";
+		echo "alert('Session Timed Out');";
+		echo "</script>";
+}
+$_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
 ?>
     <head>
 
@@ -24,11 +34,18 @@
         <link rel="stylesheet" type="text/css" href="../CSS/admin.css" media="screen" />
         <title> Admin Panel - EMS </title>
         <!--Javascript Links-->
+
         <script type="text/javascript" src="../JS/jquery-1.11.0.min.js"></script><!--JQuery Online link -->
         <script type="text/javascript" src="../JS/bootstrap.js"></script><!--Bootstrap Javascript -->
         <script type="text/javascript" src="../JS/smoothscroll.js"></script><!--Smooth Scroll Animation -->
         <script type="text/javascript" src="../JS/check_ajax.js"></script>
         <script type="text/javascript" src="../JS/admin.js"></script>
+			 <link rel="stylesheet" href="//code.jquery.com/ui/1.11.3/themes/smoothness/jquery-ui.css">
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script src="//code.jquery.com/ui/1.11.3/jquery-ui.js"></script>
+
+
+
 	</head>
 
 <?php
@@ -113,6 +130,71 @@ function checkEmail ($mail) {
 		}
 	}
 
+if(isset($_POST['submitholiday'])) {
+				$leave_error = "";
+
+				if($_SERVER['REQUEST_METHOD']== "POST") {
+						if(empty($holiday_start)) {
+								$leave_error .= "Holiday Start Date is required. \\n";
+						}
+						else {
+								if (!preg_match('/^[0-9]{4}-[0-9]{2}-[0-9]{2}$/',$holiday_start)) {
+										$leave_error .= "Invalid Start Date. Kindly follow mentioned format. \\n";
+								}
+						}
+
+						if(empty($holiday_end)) {
+								$leave_error .= "Holiday end Date is required. \\n";
+						}
+						else {
+								if (!preg_match('/^[0-9]{4}-[0-9]{2}-[0-9]{2}$/',$holiday_end)) {
+										$leave_error .= "Invalid End Date. Kindly follow mentioned format. \\n";
+								}
+						if(empty($holiday_title)) {
+								$leave_error .= "Holiday title is required. \\n";
+						}
+						if(empty($holiday_type)) {
+								$leave_error .= "Holiday type is required. \\n";
+						}
+						}
+
+						if (strcmp($leave_error,"")!="0") {
+						echo "<script language='javascript' type='text/javascript'>"."alert('$leave_error');"."</script>";
+						}
+						else {
+										$holiday_start = $holiday_start."T00:00:00";
+						$holiday_end = $holiday_end."T00:00:00";
+						mysql_query("INSERT INTO `holidays` (`title`,`type`, `start`, `end`, `backgroundColor`) VALUES ('$holiday_title' , '$holiday_type' , '$holiday_start' , '$holiday_end' , '$holiday_type')") or die(mysql_error());
+						echo "<script language='javascript' type='text/javascript'>";
+						echo "alert('Holiday inserted');";
+						echo "$('#calendar').reload(true)";
+						echo "</script>";
+						}
+				}
+		}
+
+
+if(isset($_REQUEST['holiday_submit'])) {
+		$signup_error = "";
+		if ($_SERVER["REQUEST_METHOD"] == "POST") {
+			if (empty($app_post_title)) {
+				$signup_error.="Post name is required.";
+			}
+			if (empty($app_descp)) {
+				$signup_error.="Post Description is required.";
+			}
+		}
+		if (strcmp($signup_error,"")!='0') {
+			echo "<script language='javascript' type='text/javascript'>";
+			echo "alert('$signup_error');";
+			echo "</script>";
+		}
+		else {
+			$status = 1;
+			mysql_query("INSERT INTO posts(post, description,status) VALUES ('$app_post_title','$app_descp','$status');") or die(mysql_error());
+	}
+}
+
 	if(isset($_REQUEST['admin_newemp_submit'])) {
 		$signup_error = "";
 		if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -172,7 +254,19 @@ function checkEmail ($mail) {
 		}
 	}
 ?>
-
+<script>
+$(function() {
+$( "#holiday_start" ).datepicker({
+altField: "#holiday_start",
+altFormat: "yy-mm-dd"});
+});
+$(function() {
+$( "#holiday_end" ).datepicker({
+altField: "#holiday_end",
+altFormat: "yy-mm-dd"
+});
+});
+</script>
 
  <body  style="background-color:#808080">
 		<!--Navigation Bar-->
@@ -286,41 +380,54 @@ function checkEmail ($mail) {
                                            <td id="colon">:</td>
                                            <td>
                                                <select name="holiday_type" form="form2">
-                                                   <option value="National">National</option>
-                                                   <option value="Guested">Guested</option>
-                                                   <option value="op3">Option 3</option>
-                                                   <option value="op4">Option 4</option>
+                                                   <option value="RebeccaPurple">National</option>
+                                                   <option value="SteelBlue">Guested</option>
+                                                   <option value="Turquoise">ESYA</option>
+                                                   <option value="Violet">Odyssey</option>
                                                </select>
                                            </td>
                                        </tr>
                                        <tr>
                                            <td class="Label">Start Date</td>
                                            <td id="colon">:</td>
-                                           <td><input type="Date" name="holiday_start" placeholder="Mandatory" style="width:90%"/></td>
+                                           <td><input type="text" id="holiday_start" name="holiday_start" placeholder="Mandatory" style="width:90%"/></td>
                                            <td class="Label">End Date</td>
                                            <td id="colon">:</td>
-                                           <td><input type="date" style="width:90%"/></td>
-                                           <td colspan="3" align="center"><input type="submit" class="btn btn-primary" style="margin:1em 0" name="hoilday_submit" value="Submit" /></td>
+                                           <td><input type="text" id="holiday_end" name="holiday_end" placeholder="Mandatory" style="width:90%"/></td>
+                                           <td colspan="3" align="center"><input type="submit" class="btn btn-primary" style="margin:1em 0" name="submitholiday" value="Submit" /></td>
                                        </tr>
                                    </table>
                                    <table  class="tb5" width="100%" style="margin-top:2em;">
                                        <tr>
-                                           <td align="center">First Name</td>
-                                           <td align="center">Last Name</td>
+																					<td align="center">Holiday_id</td>
+                                           <td align="center">Title</td>
                                            <td align="center">Start Date & Time</td>
                                            <td align="center">End Date & Time</td>
-                                           <td align="center">Leave Type</td>
+                                           <td align="center">Holiday Type</td>
                                            <td align="center">Action</td>
                                        </tr>
                                        <tr>
                                            <td class="divider" colspan="6"> </td>
                                        </tr>
+																				<?php
+																						$select=mysql_query("select * from holidays") or die(mysql_error());
+																						while($fetch=mysql_fetch_array($select))
+																						{
+																							?>
+
+																					<tr>
+																					<td align="center"><?php echo $fetch['holiday_id']; ?></td>
+																					<td align="center"><?php echo $fetch['title']; ?></td>
+																					<td align="center"><?php echo $fetch['start']; ?></td>
+																					<td align="center"><?php echo $fetch['end']; ?></td>
+																					<td align="center"><?php if($fetch['type'] == "RebeccaPurple"){echo "National";} if($fetch['type'] == "SteelBlue"){echo "Guested";} if($fetch['type'] == "Turquoise"){echo "Esya";} if($fetch['type'] == "Violet"){echo "Odyssey";} ?></td>
+																					<td align="center">
+																							<a href="deleteholiday.php?Del=<?php echo $fetch['holiday_id']; ?>"><img src="airlines/Icon_Delete.png" alt="Delete"></a>
+																					</td>
+
+																					</tr>
+																			<?php } ?>
                                    </table>
-                                   <?php
-                                        //$select=mysql_query("select * from contact") or die(mysql_error());
-                                        //while($fetch=mysql_fetch_array($select))
-                                        //{
-                                   ?>
                                 </form>
                             </p>
                         </div>
@@ -338,27 +445,39 @@ function checkEmail ($mail) {
                                             <td class="Label">Description</td>
                                             <td id="colon">:</td>
                                             <td ><textarea type="Date" name="app_descp" placeholder="Mandatory" style="width:95%"></textarea></td>
-
-                                            <td align="center"><input type="submit" class="btn btn-primary" style="margin:1em 0" name="hoilday_submit" value="Submit" /></td>
+                                            <td align="center"><input type="submit" class="btn btn-primary" style="margin:1em 0" name="holiday_submit" value="Submit" /></td>
                                         </tr>
                                     </table>
                                     <table  class="tb5" width="100%" style="margin:1em 0;">
                                         <tr>
+																						<td align="center">Post ID</td>
                                             <td align="center">Post</td>
                                             <td align="center">Description</td>
+																						<td align="center">Status</td>
                                             <td align="center">Action</td>
                                         </tr>
                                         <tr>
                                             <td class="divider" colspan="6"> </td>
                                         </tr>
+																				<?php
+																						$select=mysql_query("select * from posts") or die(mysql_error());
+																						while($fetch=mysql_fetch_array($select))
+																						{
+																				?>
+																						<tr>
+																							<td align="center"><?php echo $fetch['post_id'];?></td>
+																							<td align="center"><?php echo $fetch['post'];?></td>
+																							<td align="center"><?php echo $fetch['description'];?></td>
+																							<td align="center"><?php if($fetch['status'] == 1){echo "Active";} else {echo "Inactive";}?></td>
+																							<td align="center">
+																							<a href="deletepost.php?Del=<?php echo $fetch['post_id']; ?>"><img src="airlines/Icon_Delete.png" alt="Deactivate"></a> <a href="approvepost.php?Edit=<?php echo $fetch['post_id']; ?>"><img src="airlines/Icon_Edit.png" alt="Activate"></a>
+																							</td>
+																						</tr>
+
+																				<?php } ?>
+
                                     </table>
-                                    <table>
-                                        <?php
-                                            //$select=mysql_query("select * from contact") or die(mysql_error());
-                                            //while($fetch=mysql_fetch_array($select))
-                                            //{}
-                                        ?>
-                                    </table>
+
                                 </form>
                             </p>
                         </div>
@@ -430,6 +549,5 @@ function checkEmail ($mail) {
                 © Copyright 2014 - 2020  IIIT - Delhi
             </div>
         </div>
-
 
 </html>

@@ -13,18 +13,27 @@
     		   	window.alert('Not logged in.Please login to EMS to continue.')
     			</SCRIPT>"
 		);
-	}	
+	}
+?>
+<?php
+if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 900)) {
+    session_destroy();
+		echo "<script language='javascript' type='text/javascript'>";
+		echo "alert('Session Timed Out');";
+		echo "</script>";
+}
+$_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
 ?>
 	<head>
 
 	    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     	<title>EMS: Home</title>
-    
+
         <!-- CSS Links -->
         <link rel="stylesheet" type="text/css" href="../CSS/bootstrap.css" media="screen" />
         <link rel="stylesheet" type="text/css" href="../CSS/animate-custom.css" media="screen" />
         <link rel="stylesheet" type="text/css" href="../CSS/fullcalendar.css" media="screen" />
-        <link rel="stylesheet" type="text/css" href="../CSS/home.css" media="screen" />      
+        <link rel="stylesheet" type="text/css" href="../CSS/home.css" media="screen" />
 
         <!--Javascript Links-->
         <script type="text/javascript" src="../JS/jquery-1.11.0.min.js"></script><!--JQuery Online link -->
@@ -36,18 +45,18 @@
 <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
 	<!--	<script src="//code.jquery.com/jquery-1.10.2.js"></script> -->
 		<script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
-        
+
 		<link rel="shortcut icon" href="images/favicon.png">
 		<link rel="apple-touch-icon" href="">
 		<link rel="apple-touch-icon" sizes="72x72" href="">
 		<link rel="apple-touch-icon" sizes="114x114" href="">
-		
+
         <!--Fonts-->
    		<link href='http://fonts.googleapis.com/css?family=Economica:700,400italic' rel='stylesheet' type='text/css'>
 		<link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
-        
+
     </head>
-<?php    
+<?php
 	include 'Variables.php';
    	include 'database.php';
 ?>
@@ -71,12 +80,12 @@ tooltips.tooltip( "open" );
 </script>
 
 
-<?php        
+<?php
     if(isset($_POST['event_submit'])) {
         $calendar_error = "";
-        
 
-        
+
+
         if($_SERVER["REQUEST_METHOD"] == "POST"){
             if (empty($event_title)){
                 $calendar_error .= "Event title is required. \\n";
@@ -141,18 +150,18 @@ tooltips.tooltip( "open" );
             }
         }
     }
-    
+
     /*
-    
+
     YEH CODE KAAM KA HAI BHI  ????
-    
-    
+
+
     if(isset($_REQUEST['output_by_id'])) {
 		if(isset($_REQUEST['input'])) {$username = $_REQUEST['input']; }
 		$applicant = mysql_query("select * from pdetails where firstname = '$username'") or die(mysql_error());
 		$fetch=(mysql_fetch_array($applicant));
 		//echo $fetch[0],$fetch[1],$fetch[2],$fetch[3],$fetch[4],$fetch[5],$fetch[6],$fetch[7],$fetch[8],$fetch[9];
-	*/	
+	*/
 ?>
 
 	 <script>
@@ -193,9 +202,9 @@ minDate: 0, maxDate: "+3M +10D"
                         <li class="active"><a class="navbar-brand" href="#"><font size="+3"> Employee Management System</font></a></li>
                     </ul>
                 </div>
-                <ul class="nav navbar-nav navbar-right">							
-                        <li><a href="Application.php"><font size="+1">APPLY NOW</font></a></li>        		
-                        <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Shortcuts<b class="caret"></b></a>  
+                <ul class="nav navbar-nav navbar-right">
+                        <li><a href="Application.php"><font size="+1">APPLY NOW</font></a></li>
+                        <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Shortcuts<b class="caret"></b></a>
                             <ul class="dropdown-menu">
                                 <li><a href="aboutus.php">About Us</a></li>
                                 <li class="divider"></li>
@@ -210,10 +219,10 @@ minDate: 0, maxDate: "+3M +10D"
                             </ul>
                         </li>
                     </ul>
-            </div>     
+            </div>
         </div>
     </nav>
-    <!--========== CALENDAR========--> 
+    <!--=href="Leave.php"========= CALENDAR========-->
     <table width="100%">
     	<tr>
             <td>
@@ -225,7 +234,7 @@ minDate: 0, maxDate: "+3M +10D"
             <div class="panel panel-default" id="side_panel">
                 <div class="panel-heading" style="text-align:center">Quick Links</div>
                 <div class="panel-body">
-                    <a href="Leave.php" ><button class="fc-button fc-state-default quicklinks">Apply For Leave</button></a>
+                    <a id="leaveb"><button class="fc-button fc-state-default quicklinks">Apply For Leave</button></a>
                     <a><button type="button" class="fc-button fc-state-default quicklinks" data-toggle="modal" data-target="#addcalenderevent" >Add Calender Event</button></a>
 
                     <a id="checkadmin"><button class="fc-button fc-state-default quicklinks">Admin Panel</button></a>
@@ -243,6 +252,24 @@ minDate: 0, maxDate: "+3M +10D"
                                 }
                             })
                     </script>
+										<script>
+														var name=0;
+														if (name == <?php echo $_SESSION['userright'];?>) {
+											document.getElementById('leaveb').style.display='none';
+													}
+												</script>
+
+
+
+												<script>
+																$('#leaveb > button').click(function() {
+																		var name1=0;
+																		if (name1 != <?php echo $_SESSION['userright'];?>) {
+																				window.location.href='Leave.php';
+																		}
+																})
+												</script>
+
                 </div>
             </div>
             </td>
@@ -259,7 +286,7 @@ minDate: 0, maxDate: "+3M +10D"
 			</td>
 	    </tr>
     </table>
-    
+
     <!-- Add Calender Event-->
     <div class="modal fade" id="addcalenderevent" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -270,7 +297,7 @@ minDate: 0, maxDate: "+3M +10D"
                 </div>
                 <div class="modal-body">
                     <form id="form1" method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>"enctype="multipart/form-data">
-                        
+
 						<table width="100%">
                             <tr>
                                 <td colspan="1">Title: </td>
@@ -309,7 +336,7 @@ minDate: 0, maxDate: "+3M +10D"
     </div>
 
 
-            
+
 
 </body>
 </html>

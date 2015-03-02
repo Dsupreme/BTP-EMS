@@ -9,11 +9,21 @@
 	else {
 		echo (
 			"<SCRIPT LANGUAGE='JavaScript'>
-    			window.location.href='/Github/BTP-EMS/#login';
+    			window.location.href='/BTP-EMS/#login';
     		   	window.alert('Not logged in.Please login to EMS to continue.')
     			</SCRIPT>"
 		);
-	}	
+	}
+?>
+
+<?php
+if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 900)) {
+		session_destroy();
+		echo "<script language='javascript' type='text/javascript'>";
+		echo "alert('Session Timed Out');";
+		echo "</script>";
+}
+$_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
 ?>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -23,8 +33,8 @@
 	<!-- CSS Links -->
 	<link rel="stylesheet" type="text/css" href="../CSS/bootstrap.css" media="screen" />
     <link rel="stylesheet" type="text/css" href="../CSS/application.css" media="screen" />
-    
-    
+
+
     <!--Javascript Links-->
     <script type="text/javascript" src="../JS/jquery-1.11.0.min.js"></script><!--JQuery Online link -->
     <script type="text/javascript" src="../JS/bootstrap.js"></script><!--Bootstrap Javascript -->
@@ -35,16 +45,16 @@
 
 
 
-<?php 
+<?php
 	include 'Variables.php';
 	include 'file-uploader.php';
 	include 'database.php';
 	require_once('../LIBRARIES/recaptchalib.php');
 ?>
 
-	
+
 <?php
-	if(isset($_POST['submitbtn'])) { 
+	if(isset($_POST['submitbtn'])) {
 		$signup_error = "";
 		if ($_SERVER["REQUEST_METHOD"] == "POST") {
 			if(empty($candidate_fname)and(empty($candidate_lname))){
@@ -67,11 +77,11 @@
 			if(empty($nationality_candidate)){$signup_error.=" Nationality is required. ";}else{if (!preg_match('/^[a-zA-Z ]+$/', $nationality_candidate)) {
 					$signup_error.=" Invalid Nationality. Remove invalid characters, only alphabets allowed";
 				}}
-			if(empty($dob_candidate)){$signup_error.=" Date of Birth is required. ";}else{if(!preg_match('/^[0-9]{4}-[0-9]{2}-[0-9]{2}$/', $dob_candidate)){ 
-					$signup_error.=" Invalid Date format , Please fill as suggested in tool-tip";					
+			if(empty($dob_candidate)){$signup_error.=" Date of Birth is required. ";}else{if(!preg_match('/^[0-9]{4}-[0-9]{2}-[0-9]{2}$/', $dob_candidate)){
+					$signup_error.=" Invalid Date format , Please fill as suggested in tool-tip";
 				}}
 			if(empty($gender)){$signup_error.=" Gender is not selected. ";}
-			
+
 			if(empty($c_address)){$signup_error.=" Correspondence address required to be filled ";}else{if (!preg_match('/([a-zA-Z 0-9.!\n&-])+/', $c_address)) {
 					$signup_error.=" Invalid Correspondence address. Remove invalid characters ";
 				}}
@@ -117,10 +127,10 @@
 			//if(empty($c_year)){}else{if (!preg_match('/^\d{4}$/', $c_year)) {
 			//		$signup_error.=" Invalid Permanent qualification completion year. Remove invalid characters ";
 			//	}}
-			
-			
+
+
 		}
-		
+
 		if (strcmp($signup_error,"")!='0') {
 			echo "<script language='javascript' type='text/javascript'>";
 			echo "alert('$signup_error');";
@@ -138,8 +148,8 @@
 			{
 			$counte=$counte+1;
 			}
-			
-			$expe = array($c_from,$c_to,$c_desg,$c_org,$c_resp,$c_salary);	
+
+			$expe = array($c_from,$c_to,$c_desg,$c_org,$c_resp,$c_salary);
 			for($u = 0 ; $u < $counte ; $u++){
 			$from = $expe[0][$u];
 			$to = $expe[1][$u];
@@ -148,7 +158,7 @@
 			$resp = $expe[4][$u];
 			$salary = $expe[5][$u];
 			mysql_query("insert into experience (app_ID, per_from, per_to, organization, designation,responsibility,salary) values ('$apid','$from','$to','$desg','$org','$resp','$salary');
-						") or die(mysql_error());	
+						") or die(mysql_error());
 			}
 			$qual = array($c_degree,$c_specialization,$c_university,$c_year,$c_marks);
 			for($v = 0 ; $v < $countd ; $v++){
@@ -166,11 +176,11 @@
 			echo "</script>";
 		}
 	}
-	
-	
-	
+
+
+
 	/*mysql_query("INSERT INTO pdetails (, )  )") or die(mysql_error());*/
-	
+
 
 ?>
 <body  style="background-color:#808080">
@@ -196,12 +206,12 @@
           				<ul class="nav navbar-nav navbar-right">
                     		<li><a href="aboutus.php">About Us</a></li>
                     		<li><a href="Contactus.php">Contact Us</a></li>
-                   			<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">My Account<b class="caret"></b></a>  
+                   			<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">My Account<b class="caret"></b></a>
     							<ul class="dropdown-menu">
 						    		<li><a href="profile.php">Profile</a></li>
 									<li><a href="#">Web development</a></li>
                             		<li class="divider"></li>
-									<li><a href="#">Theme development</a></li>  
+									<li><a href="#">Theme development</a></li>
 					    		</ul>
                     		</li>
                             <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo "Welcome, ".$_SESSION['username'] . "<b class='caret'></b>"?></a>
@@ -212,7 +222,7 @@
                             </li>
                			</ul>
            			</div>
-        		</div>     
+        		</div>
 			</div>
 		</nav>
 	<section>
@@ -224,26 +234,25 @@
     		<span class="all_span third"><div class="prog-text">3/4</div></span>
     		<span class="all_span fourth"><div class="prog-text">4/4</div></span>
     	</div>
-        
+
 			<form id="form1" method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
                 <div class="container" style="top:80px;">
 		    		<div class="panel panel-default">
 		  				<div class="panel-heading">Apply for</div>
                         <div class="panel-body">
                             <div class="list-group">
-                                <a href="#" class="list-group-item ">
-                                    <h4 class="list-group-item-heading">Post 1</h4>
-                                    <p class="list-group-item-text">...</p>
+                                <?php
+															$select=mysql_query("select * from posts where status = 1;") or die(mysql_error());
+															while($fetch=mysql_fetch_array($select))
+															{
+														?>
+
+																<a href="#" class="list-group-item ">
+                                    <h4 class="list-group-item-heading"><?php echo $fetch['post'];?></h4>
+                                    <p class="list-group-item-text"><?php echo $fetch['description'];?></p>
                                 </a>
-                                <a href="#" class="list-group-item">
-                                    <h4 class="list-group-item-heading">Post 2</h4>
-                                    <p class="list-group-item-text">...</p>
-                                </a>
-                                <a href="#" class="list-group-item" >
-                                    <h4 class="list-group-item-heading">Post 3</h4>
-                                    <p class="list-group-item-text">...</p>
-                                </a>
-                            </div>
+															<?php } ?>
+															</div>
                             <label class="btn btn-primary" name="" onclick="goto_form2();">Next</label>
                             <script>
                                 function goto_form2() {
@@ -258,7 +267,7 @@
                                     $('.second').addClass('border-change');
                                     $('#progress-bar').val('35');
                                 };
-                                
+
                                 function goto_form3() {
                                     $('#form3').fadeIn(500);
                                     $('#form1').hide();
@@ -307,7 +316,7 @@
 							       	<td class="Label">Date of Birth </td>
 		                            <td id="colon">:</td>
 						    	    <td ><input type="date" title="yyyy-mm-dd" name="dob_candidate" placeholder="Mandatory" /></td>
-						      
+
 		                        	<td class="Label">Nationality </td>
 		                            <td id="colon">:</td>
 		                            <td ><input type="text" name="nationality_candidate" placeholder="Mandatory" /></td>
@@ -318,7 +327,7 @@
 		                                <input type="radio" name="sex" class="radio" value="Female" />
 		                                <span style="position:relative;top:-15px; padding-left:5px;"> Female</span>
 		                            </td>
-		                           
+
 		                         </tr>
 		                    </table>
 						</div>
@@ -342,17 +351,17 @@
 		                            <td ><input type="text" name="c_state" placeholder="Mandatory" /></td>
 		                            <td class="Label" >PIN Code</td>
 		                            <td id="colon">:</td>
-		                            <td ><input type="tel" name="c_pin" placeholder="Mandatory" /></td> 
+		                            <td ><input type="tel" name="c_pin" placeholder="Mandatory" /></td>
 		                        </tr>
-		                        <tr>  
+		                        <tr>
 		                            <td class="Label" >Phone(Landline)</td>
 		                            <td id="colon">:</td>
 		                            <td ><input type="tel" name="c_landline" placeholder="DON'T  ADD  011" /></td>
 		                            <td class="Label" >Phone(mobile)</td>
 		                            <td id="colon">:</td>
-		                            <td ><input type="tel" name="c_mobile" /></td>                                                     
+		                            <td ><input type="tel" name="c_mobile" /></td>
 		                        </tr>
-		                        
+
 		                   		<th style="font-size:13px"> b) Permanent Address </th>
 		                    	<tr>
 		                    		<td class="Label" >Address </td>
@@ -378,7 +387,7 @@
 		                            <td id="colon">:</td>
 		                            <td ><input type="tel" name="p_mobile" /></td>
 		                        </tr>
-		              		</table>          
+		              		</table>
 		    			</div>
 		        	</div>
 		        	<div class="panel panel-default">
@@ -503,7 +512,7 @@
 				                    	<div>
 					                        <form method="POST" action="recaptcha-verify.php">
 												<?php
-													
+
 													$publickey = "6LdLKvASAAAAAH8kNO-2m5zbkvJNviMjhPP_1Whn"; // From the signup page for recaptacha Library
 													echo recaptcha_get_html($publickey);
 												?>
@@ -521,9 +530,9 @@
     		</form>
     		<form id="form3" >
     		</form>
-    		
-			
-	</section>        
+
+
+	</section>
 	</section>
 </body>
 </html>

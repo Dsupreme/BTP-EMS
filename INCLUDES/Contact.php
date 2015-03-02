@@ -8,14 +8,21 @@
 	<title>Contact Us</title>
 	<!-- CSS Links -->
 	<link rel="stylesheet" type="text/css" href="../CSS/bootstrap.css" media="screen" />
-    
+
     <!--Javascript Links-->
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.1.min.js"></script><!--JQuery Online link -->
     <script type="text/javascript" src="../js/bootstrap.js"></script><!--Bootstrap Javascript -->
     <script type="text/javascript" src="../js/smoothscroll.js"></script><!--Smooth Scroll Animation -->
 </head>
-<?php 
+<?php
 	session_start();
+	if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 900)) {
+			session_destroy();
+			echo "<script language='javascript' type='text/javascript'>";
+			echo "alert('Session Timed Out');";
+			echo "</script>";
+	}
+	$_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
 	?>
 
 <body  style="background-color:#808080">
@@ -43,7 +50,7 @@
 							<li><a href="../index.php">log in</a></li>
                			</ul>
            			</div>
-        		</div>     
+        		</div>
 			</div>
 		</nav>
 
@@ -56,7 +63,7 @@
 				var latval = '28.54596';
 				var longval = '77.272666';
 				var myLatlng = new google.maps.LatLng(28.54597,77.272666);
-				var centerlatling = new google.maps.LatLng(28.54596,77.2837047); 
+				var centerlatling = new google.maps.LatLng(28.54596,77.2837047);
 				var mapProp = {center: centerlatling,
 							   zoom:15,
 							   minZoom:13,
@@ -75,8 +82,8 @@
         <div class="panel" style="position:absolute;left:850px;width:464px;top:80px;">
         	<div class="panel-heading">Contact Us</div>
             <div class="panel-body">
-            
+
 			</div>
         </div>
-         
+
 	</div>
