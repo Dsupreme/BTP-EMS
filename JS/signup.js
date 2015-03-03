@@ -25,3 +25,7 @@ function signup() {
     })
     
 }
+
+function login() {
+    var uname = $('').val();
+}

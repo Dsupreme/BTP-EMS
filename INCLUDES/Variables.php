@@ -1,14 +1,16 @@
 <?php
 
 	//Peronal Details
-	if(isset($_POST['candidate_fname'])) {	$candidate_fname=$_POST['candidate_fname'];}
-	if(isset($_POST['candidate_mname'])) {	$candidate_mname=$_POST['candidate_mname'];}
-	if(isset($_POST['candidate_lname'])) {	$candidate_lname=$_POST['candidate_lname'];}
-	if(isset($_POST['f_candidate']))	{	$f_candidate=$_POST['f_candidate'];}
-	if(isset($_POST['m_candidate']))	{	$m_candidate=$_POST['m_candidate'];}
-	if(isset($_POST['dob_candidate'])) {	$dob_candidate=$_POST['dob_candidate'];}
-	if(isset($_POST['nationality_candidate'])){ $nationality_candidate=$_POST['nationality_candidate'];}
-	if(isset($_POST['sex'])) {	$gender = $_POST['sex'];}
+    $candidate_fname = $candidate_mname = $candidate_lname = $f_candidate = $m_candidate = $dob_candidate = $nationality_candidate = $gender = "";
+	
+if(isset($_POST['candidate_fname']))       {	$candidate_fname=test_input($_POST['candidate_fname']);}
+	if(isset($_POST['candidate_mname']))       {	$candidate_mname=test_input($_POST['candidate_mname']);}
+	if(isset($_POST['candidate_lname']))       {	$candidate_lname=test_input($_POST['candidate_lname']);}
+	if(isset($_POST['f_candidate']))	       {	$f_candidate=test_input($_POST['f_candidate']);}
+	if(isset($_POST['m_candidate']))	       {	$m_candidate=test_input($_POST['m_candidate']);}
+	if(isset($_POST['dob_candidate']))         {	$dob_candidate=test_input($_POST['dob_candidate']);}
+	if(isset($_POST['nationality_candidate'])) {    $nationality_candidate=test_input($_POST['nationality_candidate']);}
+	if(isset($_POST['sex']))                   {	$gender =test_input($_POST['sex']);}
 
 
 	//Correspondence Address
@@ -45,6 +47,8 @@
 	if(isset($_POST['c_salary'])) { $c_salary=$_POST['c_salary'];}
 
 	//signup
+    $unames = $pswds = $emails = $pswds_c = $unamel = $pswdl = "";
+    
 	if(isset($_POST['usernamesignup'])){$unames=$_POST['usernamesignup'];}
 	if(isset($_POST['passwordsignup'])){$pswds=$_POST['passwordsignup'];}
 	if(isset($_POST['emailsignup'])){$emails=$_POST['emailsignup'];}
@@ -82,12 +86,11 @@
 
 	if(isset($_POST['app_descp'])) {$app_descp=$_POST['app_descp'];}
 
-//holiday
-
-if(isset($_POST['holiday_start'])) {$holiday_start=$_POST['holiday_start'];}
-if(isset($_POST['holiday_end'])) {$holiday_end=$_POST['holiday_end'];}
-if(isset($_POST['holiday_title'])) {$holiday_title=$_POST['holiday_title'];}
-if(isset($_POST['holiday_type'])) {$holiday_type=$_POST['holiday_type'];}
+    //holiday
+    if(isset($_POST['holiday_start'])) {$holiday_start=$_POST['holiday_start'];}
+    if(isset($_POST['holiday_end'])) {$holiday_end=$_POST['holiday_end'];}
+    if(isset($_POST['holiday_title'])) {$holiday_title=$_POST['holiday_title'];}
+    if(isset($_POST['holiday_type'])) {$holiday_type=$_POST['holiday_type'];}
 
     //Admin_Add_User
     if(isset($_POST['admin_username_add'])){$_admin_username_add=$_POST['admin_username_add'];}
@@ -104,6 +107,10 @@ if(isset($_POST['holiday_type'])) {$holiday_type=$_POST['holiday_type'];}
 /*
 
 }*/
-
-
+    function test_input($data) {
+        $data = trim($data);
+        $data = stripslashes($data);
+        $data = htmlspecialchars($data);
+        return $data;
+    }
 ?>

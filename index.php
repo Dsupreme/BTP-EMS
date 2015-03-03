@@ -32,7 +32,7 @@ session_start();
         <link rel="stylesheet" type="text/css" href="CSS/animate-custom.css" media="screen" />
 
         <!--Javascript Links-->
-        <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.1.min.js"></script><!--JQuery Online link -->
+        <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.1.min.js"></script><!--JQuery Online link -->
        	<script type="text/javascript" src="JS/bootstrap.js"></script><!--Bootstrap Javascript-->
 		<script type="text/javascript" src="JS/MetroJs.js"></script>
 		<script type="text/javascript" src="JS/check_ajax.js"></script>
@@ -49,92 +49,35 @@ session_start();
 
 
 <?php
-
-
-        	/*if(isset($_REQUEST['signupbtn'])) {
-		$signup_error = "";
-		if ($_SERVER["REQUEST_METHOD"] == "POST") {
-			if (empty($unames)) {
-				$signup_error.="Username is required.";
-			}
-			else {
-				if (!preg_match('/^[a-zA-Z0-9]+$/', $unames)) {
-					$signup_error.="Invalid Username. Remove invalid characters";
-				}
-			}
-			if (empty($emails)) {
-				$signup_error.="Email address is required.";
-			}
-			else {
-				$emails = trim($emails);
-				if(!checkEmail($emails)) {
-					$signup_error.="Invalid email address!";
-				}
-			}
-			if (strcmp($pswds,$pswds_c)=='0') {
-			}
-			else {
-				$signup_error.="Both the password fields do not match ";
-			}
-		}
-		if (strcmp($signup_error,"")!='0') {
-			echo "<script language='javascript' type='text/javascript'>";
-			echo "alert('$signup_error');";
-			echo "</script>";
-		}else {
-		    $pswds = md5($pswds);
-				$right = 0;
-			mysql_query("INSERT INTO users(rights,username, email, password) VALUES ('$right','$unames','$emails','$pswds');") or die(mysql_error());
-
-            $mail = new PHPMailer;
-            $mail->isSMTP();                                      // Set mailer to use SMTP
-            $mail->Host = 'smtp.gmail.com';						  // Specify main and backup SMTP servers
-            $mail->SMTPAuth = true;                               // Enable SMTP authentication
-            $mail->Username = 'naresh11067@iiitd.ac.in';            // SMTP username
-            $mail->Password = 'naresh12121993';                           // SMTP password
-            $mail->SMTPSecure = 'tls';                            // Enable encryption, 'ssl' also accepted
-            $mail->From = 'naresh11067@iiitd.ac.in';
-            $mail->FromName = '<Do Not Reply>EMS Mailer';
-            $mail->addAddress($emails,$unames);     // Add a recipient
-            $mail->WordWrap = 55;                                 // Set word wrap to 50 characters
-            $mail->isHTML(true);                                  // Set email format to HTML
-            $mail->Subject = 'Successful User creation';
-            $mail->Body    = 'This is the HTML message body <b>in bold!</b>';
-            $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
-            $mail->send();
-			echo "<script>window.location = 'INCLUDES/profile.php';</script>";
-		}
-	}*/
-	if(isset($_POST['loginbtn']))  {
-	$flag=0;
-	$pswdl = md5($pswdl);
-	$ldetail = mysql_query("SELECT * from users WHERE username = '$unamel' and password = '$pswdl';") or die(mysql_error());
-	while($rows = mysql_fetch_array($ldetail)){
-
-		$_SESSION['username'] = $rows['username'];
-		$_SESSION['userid'] = $rows['U_id'];
-		$_SESSION['userright'] = $rows['rights'];
-		$flagprof = $rows['flag'];
-		$flag=1;
-	}
-	if($flag==1){
-		if($flagprof == 1){
-			if($_SESSION['userright'] == 2)
-			echo "<script>window.location = 'INCLUDES/Home.php';</script>";
-			elseif($_SESSION['userright'] == 1)
-			echo "<script>window.location = 'INCLUDES/admin.php';</script>";
-			else
-			echo "<script>window.location = 'INCLUDES/Application.php';</script>";
-		}
-		else
-			echo "<script>window.location = 'INCLUDES/profile.php';</script>";
-	}
-	else {
-        echo "<script language='javascript' type='text/javascript'>"."alert('Invalid Username or Password. Kindly Enter again');"."</script>";
-		echo "<script>window.location = '../BTP-EMS';</script>";
+	if(isset($_POST['loginbtn'])){
+        $flag=0;
+        $pswdl = md5($pswdl);
+        $ldetail = mysql_query("SELECT * from users WHERE username = '$unamel' and password = '$pswdl';") or die(mysql_error());
+        while($rows = mysql_fetch_array($ldetail)){
+            $_SESSION['username'] = $rows['username'];
+            $_SESSION['userid'] = $rows['U_id'];
+            $_SESSION['userright'] = $rows['rights'];
+            $flagprof = $rows['flag'];
+            $flag=1;
+        }
+	    if($flag==1){
+            if($flagprof == 1){
+                if($_SESSION['userright'] == 2)
+                    echo "<script>window.location = 'INCLUDES/Home.php';</script>";
+                elseif($_SESSION['userright'] == 1)
+                    echo "<script>window.location = 'INCLUDES/admin.php';</script>";
+                else
+                    echo "<script>window.location = 'INCLUDES/Application.php';</script>";
+            }
+            else
+                echo "<script>window.location = 'INCLUDES/profile.php';</script>";
+	    }
+	    else {
+            echo "<script language='javascript' type='text/javascript'>"."alert('Invalid Username or Password. Kindly Enter again');"."</script>";
+            echo "<script>window.location = '../BTP-EMS';</script>";
+        }
     }
-	}
-	?>
+?>
 	<body data-spy="scroll" data-target=".navbar navbar-fixed-top">
     <!--============================== Navigation Bar ==============================-->
         <section id="Navigation">

@@ -326,40 +326,38 @@ altFormat: "yy-mm-dd"
                                 <form id="form1" method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
                                     <table  class="tb5" width="100%"  style="margin:1em 0;">
                                         <tr>
-																					<td align="center">Leave ID</td>
+											<td align="center">Leave ID</td>
                                             <td align="center">First Name</td>
                                             <td align="center">Last Name</td>
                                             <td align="center">Start Date & Time</td>
                                             <td align="center">End Date & Time</td>
                                             <td align="center">Status</td>
-																						<td align="center">Leave Type</td>
-																						<td align="center">Action</td>
-
-
-                                        <tr>
-																				</tr>
-                                            <td class="divider" colspan="8"> </td>
+											<td align="center">Leave Type</td>
+											<td align="center">Action</td>
                                         </tr>
-
+                                        <tr>
+                                            <td class="divider" colspan="8"></td>
+                                        </tr>
                                     <?php
                                         $select=mysql_query("select * from `leave` where 1") or die(mysql_error());
                                         while($fetch=mysql_fetch_array($select))
                                         {
                                     ?>
-                                    <tr>
-																				<?php
-																							$select2 = mysql_query("select firstname, lastname from users where U_id = ".$fetch[1]) or die(mysql_error());
-																								$fetch2 = mysql_fetch_array($select2);
-																							?>
-																				<td align="center"><?php echo $fetch[0] ?></td>
-																				<td align="center"><?php echo $fetch2[0] ?></td>
-																				<td align="center"><?php echo $fetch2[1] ?></td>
-                                        <td align="center"><?php echo $fetch[3] ?></td>
-                                        <td align="center"><?php echo $fetch[4] ?></td>
-																				<td align="center"><?php if($fetch[6] == "orange"){echo "not-approved";}else{echo "approved";} ?></td>
-                                        <td align="center"><?php echo $fetch[2] ?></td>
-                                        <td align="center">
-                                            <a href="deleteleave.php?Del=<?php echo $fetch[0]; ?>"><img src="airlines/Icon_Delete.png" alt="Disapprove "></a>                                               <a href="approveleave.php?Edit=<?php echo $fetch[0]; ?>"><img src="airlines/Icon_Edit.png" alt="Approve"></a>
+                                            <tr>
+											<?php
+												$select2 = mysql_query("select firstname, lastname from users where U_id = ".$fetch[1]) or die(mysql_error());
+												$fetch2 = mysql_fetch_array($select2);
+											?>
+												<td align="center"><?php echo $fetch[0] ?></td>
+												<td align="center"><?php echo $fetch2[0] ?></td>
+												<td align="center"><?php echo $fetch2[1] ?></td>
+                                                <td align="center"><?php echo $fetch[3] ?></td>
+                                                <td align="center"><?php echo $fetch[4] ?></td>
+												<td align="center"><?php if($fetch[6] == "orange"){echo "not-approved";}else{echo "approved";} ?></td>
+                                                <td align="center"><?php echo $fetch[2] ?></td>
+                                                <td align="center">
+                                                    <a href="deleteleave.php?Del=<?php echo $fetch[0]; ?>"><img src="../IMAGES/cross.png" alt="Disapprove "></a>                              
+                                                    <a href="approveleave.php?Edit=<?php echo $fetch[0]; ?>"><img src="../IMAGES/tick.png" alt="Approve"></a>
                                         </td>
                                     </tr>
                                     <?php } ?>
@@ -421,7 +419,7 @@ altFormat: "yy-mm-dd"
 																					<td align="center"><?php echo $fetch['end']; ?></td>
 																					<td align="center"><?php if($fetch['type'] == "RebeccaPurple"){echo "National";} if($fetch['type'] == "SteelBlue"){echo "Guested";} if($fetch['type'] == "Turquoise"){echo "Esya";} if($fetch['type'] == "Violet"){echo "Odyssey";} ?></td>
 																					<td align="center">
-																							<a href="deleteholiday.php?Del=<?php echo $fetch['holiday_id']; ?>"><img src="airlines/Icon_Delete.png" alt="Delete"></a>
+																							<a href="deleteholiday.php?Del=<?php echo $fetch['holiday_id']; ?>"><img src="../IMAGES/cross.png" alt="Delete"></a>
 																					</td>
 
 																					</tr>
@@ -469,7 +467,7 @@ altFormat: "yy-mm-dd"
 																							<td align="center"><?php echo $fetch['description'];?></td>
 																							<td align="center"><?php if($fetch['status'] == 1){echo "Active";} else {echo "Inactive";}?></td>
 																							<td align="center">
-																							<a href="deletepost.php?Del=<?php echo $fetch['post_id']; ?>"><img src="airlines/Icon_Delete.png" alt="Deactivate"></a> <a href="approvepost.php?Edit=<?php echo $fetch['post_id']; ?>"><img src="airlines/Icon_Edit.png" alt="Activate"></a>
+																							<a href="deletepost.php?Del=<?php echo $fetch['post_id']; ?>"><img src="../IMAGES/cross.png" alt="Deactivate"></a> <a href="approvepost.php?Edit=<?php echo $fetch['post_id']; ?>"><img src="../IMAGES/tick.png" alt="Activate"></a>
 																							</td>
 																						</tr>
 
@@ -502,8 +500,8 @@ altFormat: "yy-mm-dd"
                                             <td><input type="password" name="admin_password_confirm" placeholder="Mandatory" style="width:85%"/></td>
                                         </tr>
                                         <tr>
-                                            <td colspan="1" align="center"><input type="submit" name="admin_newuser_submit" class="btn btn-primary" style="margin:1em 0" value="Add as Admin"/></td>
-                                        <td colspan="1" align="center"><input type="submit" name="admin_newemp_submit" class="btn btn-primary" style="margin:1em 0" value="Add as Employee"/></td>
+                                            <td colspan="1" align="center"><input type="submit" name="admin_newuser_submit" class="btn btn-primary" style="margin:1em 0" value="Add Admin"/></td>
+                                        <td colspan="1" align="center"><input type="submit" name="admin_newemp_submit" class="btn btn-primary" style="margin:1em 0" value="Add Employee"/></td>
 
 																				</tr>
                                     </table>
