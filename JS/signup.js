@@ -27,5 +27,16 @@ function signup() {
 }
 
 function login() {
-    var uname = $('').val();
+    var uname = $('#username').val();
+    var pswd = $('#password').val();
+    $.ajax({
+        type: "POST",
+        url: "",
+        data: {
+            usr : uname,
+            pwd: pswd,
+        },
+        success: function(response) {
+        }
+    })
 }
