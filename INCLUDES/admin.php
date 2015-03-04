@@ -388,10 +388,10 @@ altFormat: "yy-mm-dd"
                                        <tr>
                                            <td class="Label">Start Date</td>
                                            <td id="colon">:</td>
-                                           <td><input type="text" id="holiday_start" name="holiday_start" placeholder="Mandatory" style="width:90%"/></td>
+                                           <td><input type="date" id="holiday_start" name="holiday_start" placeholder="Mandatory" style="width:90%"/></td>
                                            <td class="Label">End Date</td>
                                            <td id="colon">:</td>
-                                           <td><input type="text" id="holiday_end" name="holiday_end" placeholder="Mandatory" style="width:90%"/></td>
+                                           <td><input type="date" id="holiday_end" name="holiday_end" placeholder="Mandatory" style="width:90%"/></td>
                                            <td colspan="3" align="center"><input type="submit" class="btn btn-primary" style="margin:1em 0" name="submitholiday" value="Submit" /></td>
                                        </tr>
                                    </table>

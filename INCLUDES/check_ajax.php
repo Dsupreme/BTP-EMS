@@ -1,5 +1,5 @@
 <?php
-include('database.php');
+include 'database.php';
 if(isset($_POST['username'])) {
 	$username = $_POST['username'];
 	$username = mysql_real_escape_string($username);

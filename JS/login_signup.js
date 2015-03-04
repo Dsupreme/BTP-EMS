@@ -1,3 +1,6 @@
+//Javascript Document
+/*jslint browser: true*/
+/*global $, jQuery, alert*/
 function signup() {
     var uname = $('#usernamesignup').val();
     var email = $('#emailsignup').val();
@@ -5,38 +8,40 @@ function signup() {
     var pswdc = $('#passwordsignup_confirm').val();
     $.ajax({
         type: "POST",
-        url: "Ajax/login_signup.php",
+        url: "Ajax/signup.php",
         data: {
             usrname : uname,
             usremail : email,
             usrpswd : pswd,
             usrpswdc : pswdc
         },
-        success: function(msg) {
-            var d=msg;
-            var str=d.slice(-2);
-            if(str == 'OK') { 
+        success: function (msg) {
+            var d = msg;
+            var str = d.slice(-2);
+            if (str == 'OK') {
                 alert("Hello");
+                window.location = "INCLUDES/profile.php";
             }
             else {
-            alert(msg);    
+                alert(d);    
             }
         }
-    })
-    
+    });
 }
 
 function login() {
+        alert("signup.js login function called");
+
     var uname = $('#username').val();
     var pswd = $('#password').val();
     $.ajax({
         type: "POST",
-        url: "",
+        url: "Ajax/login.php",
         data: {
             usr : uname,
             pwd: pswd,
         },
         success: function(response) {
         }
-    })
+    });
 }

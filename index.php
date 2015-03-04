@@ -1,4 +1,5 @@
 <!doctype html>
+
 <?php
 session_start();
 ?>
@@ -21,7 +22,7 @@ session_start();
 		<link rel="apple-touch-icon" sizes="72x72" href="">
 		<link rel="apple-touch-icon" sizes="114x114" href="">
 		<!--Fonts-->
-   		<link href='http://fonts.googleapis.com/css?family=Economica:700,400italic' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Economica:700,400italic' rel='stylesheet' type='text/css'>
 		<link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
 
 
@@ -36,48 +37,15 @@ session_start();
        	<script type="text/javascript" src="JS/bootstrap.js"></script><!--Bootstrap Javascript-->
 		<script type="text/javascript" src="JS/MetroJs.js"></script>
 		<script type="text/javascript" src="JS/check_ajax.js"></script>
-        <script type="text/javascript" src="JS/signup.js"></script>
+        <script type="text/javascript" src="JS/login_signup.js"></script>
 	</head>
 
 <?php
 	include 'INCLUDES/database.php';
 	include 'INCLUDES/Variables.php';
 	include 'INCLUDES/file-uploader.php';
-	require 'Libraries/PHPMailer/PHPMailerAutoload.php';
-	include 'Ajax/login_signup.php';
 ?>
 
-
-<?php
-	if(isset($_POST['loginbtn'])){
-        $flag=0;
-        $pswdl = md5($pswdl);
-        $ldetail = mysql_query("SELECT * from users WHERE username = '$unamel' and password = '$pswdl';") or die(mysql_error());
-        while($rows = mysql_fetch_array($ldetail)){
-            $_SESSION['username'] = $rows['username'];
-            $_SESSION['userid'] = $rows['U_id'];
-            $_SESSION['userright'] = $rows['rights'];
-            $flagprof = $rows['flag'];
-            $flag=1;
-        }
-	    if($flag==1){
-            if($flagprof == 1){
-                if($_SESSION['userright'] == 2)
-                    echo "<script>window.location = 'INCLUDES/Home.php';</script>";
-                elseif($_SESSION['userright'] == 1)
-                    echo "<script>window.location = 'INCLUDES/admin.php';</script>";
-                else
-                    echo "<script>window.location = 'INCLUDES/Application.php';</script>";
-            }
-            else
-                echo "<script>window.location = 'INCLUDES/profile.php';</script>";
-	    }
-	    else {
-            echo "<script language='javascript' type='text/javascript'>"."alert('Invalid Username or Password. Kindly Enter again');"."</script>";
-            echo "<script>window.location = '../BTP-EMS';</script>";
-        }
-    }
-?>
 	<body data-spy="scroll" data-target=".navbar navbar-fixed-top">
     <!--============================== Navigation Bar ==============================-->
         <section id="Navigation">
@@ -135,7 +103,7 @@ session_start();
                                 <label for="loginkeeping" style="position:relative;top:-20px;">Keep me logged in</label>
                             </p>
                             <p class="login button">
-                                <input type="submit" name="loginbtn" value="LOGIN" href="#tologin"/>
+                                <input type="submit" name="loginbtn" value="LOGIN" onclick="login()"/>
                             </p>
                             <p class="change_link">
                                 Not working at IIITD, want to apply?
@@ -144,7 +112,7 @@ session_start();
                         </form>
                     </div>
                     <div id="register" class="animate form">
-                        <form  method="POST" autocomplete="on" onSubmit="JavaScript:signup()">
+                        <form  method="POST" autocomplete="on">
                             <h1>SIGNUP</h1>
                             <p>
                                 <label for="usernamesignup" class="uname">Your username</label>
@@ -163,7 +131,7 @@ session_start();
                                 <input id="passwordsignup_confirm" class="youpasswd" name="passwordsignup_confirm" required type="password" placeholder="eg. X8df!90EO"/>
                             </p>
                             <p class="signin button">
-                                <input type="submit" name="signupbtn" value="SIGNUP"/>
+                                <input type="submit" name="signupbtn" value="SIGNUP" onclick="signup()"/>
                             </p>
                             <p class="change_link">
                                 Already a member ?
@@ -232,7 +200,7 @@ session_start();
                 </div>
             </section>
         <!-- SECTION 2 SLIDER -->
-             <section id="MetroSlider1">
+            <section id="MetroSlider1">
                 <div class="tiles blue tile-group nine-wide">
                     <div class="green live-tile" data-mode="flip" data-delay="6000">
                         <div><img class="full" /></div>
