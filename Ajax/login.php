@@ -1,30 +1,38 @@
 <?php
-if(isset($_POST['loginbtn'])){
-        $flag=0;
-        $pswdl = md5($pswdl);
-        $ldetail = mysql_query("SELECT * from users WHERE username = '$unamel' and password = '$pswdl';") or die(mysql_error());
-        while($rows = mysql_fetch_array($ldetail)){
-            $_SESSION['username'] = $rows['username'];
-            $_SESSION['userid'] = $rows['U_id'];
-            $_SESSION['userright'] = $rows['rights'];
-            $flagprof = $rows['flag'];
-            $flag=1;
-        }
-	    if($flag==1){
-            if($flagprof == 1){
-                if($_SESSION['userright'] == 2)
-                    echo "<script>window.location = 'INCLUDES/Home.php';</script>";
-                elseif($_SESSION['userright'] == 1)
-                    echo "<script>window.location = 'INCLUDES/admin.php';</script>";
-                else
-                    echo "<script>window.location = 'INCLUDES/Application.php';</script>";
-            }
+    session_start();
+
+    include('../INCLUDES/database.php');
+
+    $uname = $_POST['usrname'];
+    $pswd =  $_POST['usrpswd'];
+
+    $flag=0;    //To check if user has filled his profile or not.
+    $epswd = md5($pswd);
+    
+    $detail = mysql_query("SELECT * from users WHERE username = '$uname' and password = '$epswd';") or die(mysql_error());
+    while($rows = mysql_fetch_array($detail)){
+        $_SESSION['username'] = $rows['username'];
+        $_SESSION['userid'] = $rows['U_id'];
+        $_SESSION['userright'] = $rows['rights'];
+        $flagprof = $rows['flag'];
+        $flag=1;
+    }
+
+    if($flag==1){
+        if($flagprof == 1){
+            if($_SESSION['userright'] == 2)
+                echo 'INCLUDES/Home.php';
+            elseif($_SESSION['userright'] == 1)
+                echo 'INCLUDES/admin.php';
             else
-                echo "<script>window.location = 'INCLUDES/profile.php';</script>";
-	    }
-	    else {
-            echo "<script language='javascript' type='text/javascript'>"."alert('Invalid Username or Password. Kindly Enter again');"."</script>";
-            echo "<script>window.location = '../BTP-EMS';</script>";
+                echo 'INCLUDES/Application.php';
         }
+        else
+            echo 'INCLUDES/profile.php';
+    }
+	else {
+        echo 'Invalid';
+        //echo 'Invalid Username or Password. Kindly Enter again';
+        //echo "<script>window.location = '../BTP-EMS';</script>";
     }
 ?>

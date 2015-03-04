@@ -30,18 +30,24 @@ function signup() {
 }
 
 function login() {
-        alert("signup.js login function called");
-
     var uname = $('#username').val();
     var pswd = $('#password').val();
     $.ajax({
         type: "POST",
         url: "Ajax/login.php",
         data: {
-            usr : uname,
-            pwd: pswd,
+            usrname : uname,
+            usrpswd : pswd,
         },
         success: function(response) {
+            var d = response;
+            var str = d.slice(-7);
+            if (str == 'Invalid') {
+                alert("Invalid Username or Password. Kindly Enter again");
+            }
+            else {
+                window.location = d;
+            }
         }
     });
 }
