@@ -32,7 +32,5 @@
     }
 	else {
         echo 'Invalid';
-        //echo 'Invalid Username or Password. Kindly Enter again';
-        //echo "<script>window.location = '../BTP-EMS';</script>";
     }
 ?>

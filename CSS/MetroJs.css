@@ -3961,6 +3961,22 @@ html body .black.accentBorderTop {
 
 
 @media screen and (max-width: 801px) {
+    
+  .live-tile,
+  .list-tile,
+  .copy-tile,
+  .tile-strip .flip-list > li {
+  height: 85.6px;
+  margin: 0px;
+  outline: 1px solid transparent;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 0px;
+  width: 85.6px;
+  }    
+    
+    
   .appbar .theme-options h2,
   .appbar .base-theme-options h2,
   .appbar .links {
@@ -3971,6 +3987,7 @@ html body .black.accentBorderTop {
   }
 }
 @media screen and (max-width: 641px) {
+
   .appbar .theme-options {
     width: 70%;
   }

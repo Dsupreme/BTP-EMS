@@ -46,7 +46,7 @@
 	if(isset($_POST['c_resp'])) { $c_resp=$_POST['c_resp'];}
 	if(isset($_POST['c_salary'])) { $c_salary=$_POST['c_salary'];}
 
-	//signup
+/*	//signup
     $unames = $pswds = $emails = $pswds_c = $unamel = $pswdl = "";
     
 	if(isset($_POST['usernamesignup'])){$unames=$_POST['usernamesignup'];}
@@ -56,9 +56,9 @@
 
 
 	//login
-
+    $unamel = $
 	if(isset($_POST['username'])){$unamel=$_POST['username'];}
-	if(isset($_POST['password'])){$pswdl=$_POST['password'];}
+	if(isset($_POST['password'])){$pswdl=$_POST['password'];}*/
 
 	//profile
 	if(isset($_POST['fname'])) { $fname=$_POST['fname'];}

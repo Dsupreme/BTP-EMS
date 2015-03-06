@@ -58,7 +58,6 @@
         mail_newuser($email,$uname,$pswd);
         $_SESSION['username'] = $uname;
         $_SESSION['userright'] = 0;
-        //echo "<script>window.location = 'INCLUDES/profile.php';</script>";
     }
     /*
     

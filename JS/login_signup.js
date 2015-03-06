@@ -1,6 +1,5 @@
 //Javascript Document
-/*jslint browser: true*/
-/*global $, jQuery, alert*/
+
 function signup() {
     var uname = $('#usernamesignup').val();
     var email = $('#emailsignup').val();

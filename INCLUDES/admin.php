@@ -1,19 +1,16 @@
 <!DOCTYPE html>
+<html>
 <?php
 	session_start();
-	if($_SESSION['username']){
-	}
-	//else {
-//		echo "href=\"../#tologin\"";
-//	}
-	else {
-		echo (
+	if(!$_SESSION['username']){
+        echo (
 			"<SCRIPT LANGUAGE='JavaScript'>
-    			window.location.href='../#login';
+    			window.location.href='../index.php';
     		   	window.alert('Not logged in.Please login to EMS to continue.')
     			</SCRIPT>"
 		);
 	}
+	else {
 ?>
 
 <?php
@@ -541,10 +538,12 @@ altFormat: "yy-mm-dd"
         </div>
         <div class="footer">
             <div id="legal">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.<br>
-                In at purus at nisl pretium interdum. Aenean condimentum elementum nulla, non hendrerit diam scelerisque ac.<br><br>
-                © Copyright 2014 - 2020  IIIT - Delhi
+                EMS, an online portal to facilitate all the administrative tasks<br>
+                © Copyright 2014 IIIT - Delhi
             </div>
         </div>
 
 </html>
+<?php
+	}
+?>

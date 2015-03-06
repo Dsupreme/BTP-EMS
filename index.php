@@ -1,8 +1,5 @@
 <!doctype html>
-
-<?php
-session_start();
-?>
+<html>
 	<head>
 		<title>EMS-Welcome Page</title>
 
@@ -40,11 +37,10 @@ session_start();
         <script type="text/javascript" src="JS/login_signup.js"></script>
 	</head>
 
-<?php
-	include 'INCLUDES/database.php';
-	include 'INCLUDES/Variables.php';
-	include 'INCLUDES/file-uploader.php';
-?>
+    <?php
+	   include 'INCLUDES/database.php';
+	   include 'INCLUDES/Variables.php';
+    ?>
 
 	<body data-spy="scroll" data-target=".navbar navbar-fixed-top">
     <!--============================== Navigation Bar ==============================-->
@@ -78,27 +74,29 @@ session_start();
                 </div>
             </nav>
         </section>
-	<script type="text/javascript">
-    $('body').scrollspy({ target: '.navbar navbar-fixed-top' })
-    </script>
+        <script type="text/javascript">
+        $('body').scrollspy({ target: '.navbar navbar-fixed-top' })
+        </script>
     <!--============================== Login - Signup ==============================-->
 		<section>
             <div id="container_demo" >
                 <a class="hiddenanchor" id="toregister"></a>
                 <a class="hiddenanchor" id="tologin"></a>
                 <div id="wrapper">
+                    
+                    <!--Login Form-->
                     <div id="login" class="animate form">
-                        <form  method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" autocomplete="on">
+                        <form  method="POST" autocomplete="on">
                             <h1>LOGIN</h1>
                             <p>
                                 <label for="username" class="uname" > Email or Username </label>
-                                <input id="username" name="username" type="text" placeholder="Employee Code or Username"/>
+                                <input id="username" name="username" type="text" placeholder="Employee Code or Username (case-sensitive)"/>
                             </p>
                             <p>
                                 <label for="password" class="youpasswd"> Enter password </label>
                                 <input id="password" name="password" required type="password" placeholder="eg. X8df!90EO" />
                             </p>
-                            <p class="keeplogin">
+                            <p class="keeplogin" style="display:none">
                                 <input type="checkbox" name="loginkeeping" id="loginkeeping" value="loginkeeping" style="position:relative;left:50px;top:10px"/>
                                 <label for="loginkeeping" style="position:relative;top:-20px;">Keep me logged in</label>
                             </p>
@@ -111,6 +109,8 @@ session_start();
                             </p>
                         </form>
                     </div>
+                    
+                    <!--Signup Form-->
                     <div id="register" class="animate form">
                         <form  method="POST" autocomplete="on">
                             <h1>SIGNUP</h1>
@@ -351,7 +351,8 @@ session_start();
                     </div>
                </div>
             </section>
-        <script type="text/javascript">
+        <!-- Slider Javascript -->
+            <script type="text/javascript">
             // apply regular slide universally unless .exclude class is applied
             // NOTE: The default options for each liveTile are being pulled from the 'data-' attributes
             $(".live-tile, .flip-list").not(".exclude").liveTile();
@@ -360,9 +361,8 @@ session_start();
         <section>
             <div class="footer">
             	<div id="legal">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.<br>
-                    In at purus at nisl pretium interdum. Aenean condimentum elementum nulla, non hendrerit diam scelerisque ac.<br><br>
-                    © Copyright 2014 - 2020  IIIT - Delhi
+                    EMS, an online portal to facilitate all the administrative tasks<br>
+                    © Copyright 2014 IIIT - Delhi
                 </div>
             </div>
         </section>
