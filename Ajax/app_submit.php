@@ -26,10 +26,19 @@
     $p_landline      = $_POST['ajax_p_landline'];
     $p_mobile        = $_POST['ajax_p_mobile'];
 
+    //First name, Middle Name, Last Name
     if(empty($candidate_fname) or (empty($candidate_lname))) {
         $appsubmit_error.=" First name and last name, both are required. \n";
     }
-    else {
+    elseif(empty($candidate_mname)) {
+        if (!preg_match('/^[a-zA-Z ]+$/', $candidate_fname)) {
+			$appsubmit_error.=" Invalid Firstname. Remove invalid characters. \n";
+        }
+        if (!preg_match('/^[a-zA-Z ]+$/', $candidate_lname)) {
+			$appsubmit_error.=" Invalid Lastname. Remove invalid characters. \n";
+        }
+    }
+    else{
         if (!preg_match('/^[a-zA-Z ]+$/', $candidate_fname)) {
 			$appsubmit_error.=" Invalid Firstname. Remove invalid characters. \n";
 		}
@@ -41,6 +50,7 @@
         }
     }
 
+    //Father's Name
     if(empty($f_candidate)) {
         $appsubmit_error.=" Fathers name is required. \n";
     }
@@ -49,7 +59,8 @@
 				$appsubmit_error.=" Invalid Fathers name. Remove invalid characters. \n";
         }
     }
-	
+
+	//Mother's Name
     if(empty($m_candidate)) {
         $appsubmit_error.=" Mothers name is required. \n";
     }
@@ -59,18 +70,142 @@
         }
     }
 
+    //Nationality
+    if(empty($nat_candidate)) {
+        $appsubmit_error.=" Nationality is required. ";
+    }
+    else {
+        if (!preg_match('/^[a-zA-Z ]+$/', $nat_candidate)) {
+				$appsubmit_error.=" Invalid Nationality. Remove invalid characters, only alphabets allowed";
+        }
+    }
+	
+    //Date of Birth
+    if(empty($dob_candidate)) {
+        $appsubmit_error.=" Date of Birth is required.";
+    }
+    else {
+        if(!preg_match('/^[0-9]{4}-[0-9]{2}-[0-9]{2}$/', $dob_candidate)) {
+            $appsubmit_error.=" Invalid Date format , Please fill as suggested in tool-tip";
+        }
+    }
+	
+    //Gender
+    if(empty($g_candidate)) {
+        $appsubmit_error.=" Gender is not selected. ";
+    }
 
-if(empty($nationality_candidate)){$signup_error.=" Nationality is required. ";}else{if (!preg_match('/^[a-zA-Z ]+$/', $nationality_candidate)) {
-					$signup_error.=" Invalid Nationality. Remove invalid characters, only alphabets allowed";
-				}}
-			if(empty($dob_candidate)){$signup_error.=" Date of Birth is required. ";}else{if(!preg_match('/^[0-9]{4}-[0-9]{2}-[0-9]{2}$/', $dob_candidate)){
-					$signup_error.=" Invalid Date format , Please fill as suggested in tool-tip";
-				}}
-			if(empty($gender)){$signup_error.=" Gender is not selected. ";}
+    //Correspondence Address
+    if(empty($c_addr)) {
+        $appsubmit_error.=" Correspondence address required to be filled ";
+    }
+    else {
+        if (!preg_match('/([a-zA-Z 0-9.!\n&-])+/', $c_addrs)) {
+					$appsubmit_error.=" Invalid Correspondence address. Remove invalid characters ";
+        }
+    }
+    
+    if(empty($c_city)) {
+        $appsubmit_error.=" Correspondence city required to be filled ";
+    }
+    else {
+        if (!preg_match('/^[a-zA-Z ]+$/', $c_city)) {
+			$appsubmit_error.=" Invalid Correspondence City. Remove invalid characters ";
+        }
+    }
 
-			if(empty($c_address)){$signup_error.=" Correspondence address required to be filled ";}else{if (!preg_match('/([a-zA-Z 0-9.!\n&-])+/', $c_address)) {
-					$signup_error.=" Invalid Correspondence address. Remove invalid characters ";
-				}}
+    if(empty($c_state)) {
+        $appsubmit_error.=" Correspondence state required to be filled ";
+    }
+    else {
+        if (!preg_match('/^[a-zA-Z ]+$/', $c_state)) {
+			$appsubmit_error.=" Invalid Correspondence state. Remove invalid characters ";
+        }
+    }
+    
+    if(empty($c_state)) {
+        $appsubmit_error.=" Correspondence state required to be filled ";
+    }
+    else {
+        if (!preg_match('/^[a-zA-Z ]+$/', $c_state)) {
+					$appsubmit_error.=" Invalid Correspondence state. Remove invalid characters ";
+        }
+    }
+
+	if(empty($c_pin)) {
+        $appsubmit_error.=" Correspondence pin code required to be filled ";
+    }
+    else {
+        if (!preg_match('/^\d{6}$/', $c_pin)) {
+            $appsubmit_error.=" Invalid Correspondence pin code. Remove invalid characters ";
+        }
+    }
+
+    if(empty($c_landline)) {}
+    else {
+        if (!preg_match('/^\d{8}$/', $c_landline)) {
+					$appsubmit_error.=" Invalid Correspondence landline number. Remove invalid characters ";
+        }
+    }
+	
+    if(empty($c_mobile)) {}
+    else {
+        if (!preg_match('/^\d{10}$/', $c_mobile)) {
+			$appsubmit_error.=" Invalid Correspondence mobile number. Remove special characters ";
+        }
+    }
+
+    //Permanent Address
+    if(empty($p_address)) {
+        $appsubmit_error.=" Permanent address required to be filled ";
+    }
+    else {
+        if (!preg_match('/([a-zA-Z 0-9.!\n&-])+/', $p_address)) {
+            $appsubmit_error.=" Invalid Permanent address. Remove invalid characters ";
+        }
+    }
+
+    if(empty($p_city)) {
+        $appsubmit_error.=" Permanent city required to be filled ";
+    }
+    else {
+        if (!preg_match('/^[a-zA-Z ]+$/', $p_city)) {
+            $appsubmit_error.=" Invalid Permanent City. Remove invalid characters ";
+        }
+    }
+
+	if(empty($p_state)) {
+        $appsubmit_error.=" Permanent state required to be filled ";
+    }
+    else {
+        if (!preg_match('/^[a-zA-Z ]+$/', $p_state)) {
+            $appsubmit_error.=" Invalid Permanent state. Remove invalid characters ";
+        }
+    }
+    
+	if(empty($p_pin)) {
+        $appsubmit_error.=" Permanent pin code required to be filled ";
+    }
+    else {
+        if (!preg_match('/^\d{6}$/', $p_pin)) {
+            $appsubmit_error.=" Invalid Permanent pin code. Remove invalid characters ";
+        }
+    }
+
+	if(empty($p_landline)) {}
+    else {
+        if (!preg_match('/^\d{8}$/', $p_landline)) {
+			$appsubmit_error.=" Invalid Permanent landline number. Remove invalid characters ";
+        }
+    }
+    
+    if(empty($p_mobile)) {}
+    else { 
+        if (!preg_match('/^\d{10}$/', $p_mobile)) {
+			$appsubmit_error.=" Invalid Permanent mobile number. Remove special characters ";
+        }
+    }
+
 ?>
 <?php
 /*
@@ -78,45 +213,9 @@ if(empty($nationality_candidate)){$signup_error.=" Nationality is required. ";}e
 			
 			
 			
-			if(empty($c_city)){$signup_error.=" Correspondence city required to be filled ";}else{if (!preg_match('/^[a-zA-Z ]+$/', $c_city)) {
-					$signup_error.=" Invalid Correspondence City. Remove invalid characters ";
-				}}
-			if(empty($c_state)){$signup_error.=" Correspondence state required to be filled ";}else{if (!preg_match('/^[a-zA-Z ]+$/', $c_state)) {
-					$signup_error.=" Invalid Correspondence state. Remove invalid characters ";
-				}}
-			if(empty($c_state)){$signup_error.=" Correspondence state required to be filled ";}else{if (!preg_match('/^[a-zA-Z ]+$/', $c_state)) {
-					$signup_error.=" Invalid Correspondence state. Remove invalid characters ";
-				}}
-			if(empty($c_pin)){$signup_error.=" Correspondence pin code required to be filled ";}else{if (!preg_match('/^\d{6}$/', $c_pin)) {
-					$signup_error.=" Invalid Correspondence pin code. Remove invalid characters ";
-				}}
-			if(empty($c_landline)){}else{if (!preg_match('/^\d{8}$/', $c_landline)) {
-					$signup_error.=" Invalid Correspondence landline number. Remove invalid characters ";
-				}}
-			if(empty($c_mobile)){}else{if (!preg_match('/^\d{10}$/', $c_mobile)) {
-					$signup_error.=" Invalid Correspondence mobile number. Remove special characters ";
-				}}
-			if(empty($p_address)){$signup_error.=" Permanent address required to be filled ";}else{if (!preg_match('/([a-zA-Z 0-9.!\n&-])+/', $p_address)) {
-					$signup_error.=" Invalid Permanent address. Remove invalid characters ";
-				}}
-			if(empty($p_city)){$signup_error.=" Permanent city required to be filled ";}else{if (!preg_match('/^[a-zA-Z ]+$/', $p_city)) {
-					$signup_error.=" Invalid Permanent City. Remove invalid characters ";
-				}}
-			if(empty($p_state)){$signup_error.=" Permanent state required to be filled ";}else{if (!preg_match('/^[a-zA-Z ]+$/', $p_state)) {
-					$signup_error.=" Invalid Permanent state. Remove invalid characters ";
-				}}
-			if(empty($p_state)){$signup_error.=" Permanent state required to be filled ";}else{if (!preg_match('/^[a-zA-Z ]+$/', $p_state)) {
-					$signup_error.=" Invalid Permanent state. Remove invalid characters ";
-				}}
-			if(empty($p_pin)){$signup_error.=" Permanent pin code required to be filled ";}else{if (!preg_match('/^\d{6}$/', $p_pin)) {
-					$signup_error.=" Invalid Permanent pin code. Remove invalid characters ";
-				}}
-			if(empty($p_landline)){}else{if (!preg_match('/^\d{8}$/', $p_landline)) {
-					$signup_error.=" Invalid Permanent landline number. Remove invalid characters ";
-				}}
-			if(empty($p_mobile)){}else{if (!preg_match('/^\d{10}$/', $p_mobile)) {
-					$signup_error.=" Invalid Permanent mobile number. Remove special characters ";
-				}}
+			
+			
+			
 			//if(empty($c_year)){}else{if (!preg_match('/^\d{4}$/', $c_year)) {
 			//		$signup_error.=" Invalid Permanent qualification completion year. Remove invalid characters ";
 			//	}}
@@ -132,7 +231,10 @@ if(empty($nationality_candidate)){$signup_error.=" Nationality is required. ";}e
 		else{
 			mysql_query("insert into pdetails (flag, firstname, middlename, lastname, fathername, mothername, DOB, nationality, sex, c_addr, c_city, c_state, c_pin, c_phone, c_mobile, p_addr, p_city, p_state, p_pin, p_phone, p_mobile) values (1,'$candidate_fname', '$candidate_mname','$candidate_lname', '$f_candidate','$m_candidate', '$dob_candidate', '$nationality_candidate', '$gender', '$c_address', '$c_city', '$c_state', '$c_pin', '$c_landline', '$c_mobile', '$p_address', '$p_city' , '$p_state', '$p_pin', '$p_landline', '$p_mobile')
 						") or die(mysql_error());
+                        
+                        
 			$result = mysql_query("SELECT * FROM pdetails WHERE flag=1;") ;
+            
 			while($row = mysql_fetch_array($result)) { $apid = $row['app_ID'];}
 			$countd  = 0;
 			foreach($c_degree as $h) { $countd=$countd+1;}

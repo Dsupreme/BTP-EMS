@@ -1,8 +1,7 @@
 function app_submit() {
-    //var uname = $('#usernamesignup').val();
-    //var email = $('#emailsignup').val();
-    //var pswd = $('#passwordsignup').val();
-    //var pswdc = $('#passwordsignup_confirm').val();
+    
+    //Temporary Variables
+    var obj=[],i,n,isArray,isNum,val;
     
     //Personal Details Variables
     var c_fname  = $('#candidate_fname').val();
@@ -28,7 +27,41 @@ function app_submit() {
     var p_pin      = $('#p_pin').val();
     var p_landline = $('#p_landline').val();
     var p_mobile   = $('#p_mobile').val();
+    
+    //Education qualification variables
+    
+    var c_inputs = document.getElementById("EQ_table").getElementsByTagName('input');
+    // For each of them
+    for (i = 0, l = c_inputs.length; i < l; i++) {
+        // Get their name
+        n = c_inputs[i].getAttribute('name');
+        // Is it an array?    This will make an array of c_degree, 
+        isArray = n.slice(-2) == '[]';
+         // Is is of type "number"?
+        isNum = c_inputs[i].getAttribute('type') == 'number';
+        // What's the value?
+        val = c_inputs[i].value;
+        // If it's an array
+        if (isArray) {
+            // Get rid of the "[]"
+            n = n.substring(0, n.length - 2);
+            console.log(n);
+            console.log(val);
+            // If it's the first entry, create an empty array
+            if (obj[n] === undefined) obj[n] = [];
+            // Push the value in it (parsed as an integer if it's a number)
+            obj[n].push(isNum ? +val : val);
+            // If it's a single field, just assign it
+        } 
+        else {
+            obj[n] = isNum ? +val : val;
+            console.log("qqqqq");
+            console.log(JSON.stringify(obj[i]));
+        }
+    }
 
+    console.log("xxxxxxxxxxxxxxx");
+    alert(JSON.stringify(obj));
     
     $.ajax({
         type: "POST",

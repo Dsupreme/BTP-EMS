@@ -18,8 +18,8 @@ function addrow(tableid) {
 function delrow(tableid) {
 	var tablename = document.getElementById(tableid);
 	var rows = tablename.rows.length;
-	if (rows<=1) {
-		alert ("Cannot remove all the rows.");
+	if (rows<=3) {
+		alert ("Cannot have less than 3 rows.");
 	}
 	else {
 		tablename.deleteRow((rows-1));

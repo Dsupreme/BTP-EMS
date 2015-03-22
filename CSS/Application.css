@@ -106,5 +106,53 @@ td {
 }
 
 #form1 { display: none;}
-#form2 { display:none;}
+#form2 { display: none;}
 #form3 { display: none;}
+#form4 { display: none;}
+
+@media only screen and (min-width : 916px) and (max-width : 1100px) {
+    #progress-bar {
+      position: relative;
+      background: #333333;
+      width: 454px;
+      height: 10px;
+    }
+    .common {
+        position: relative;
+        top: 6em;
+        margin: 0em 30% 4em;
+        cursor: pointer;
+        transition: all 0.4s ease-in-out;
+    }
+}
+@media only screen and (min-width : 841px) and (max-width : 915px) {
+    #progress-bar {
+      position: relative;
+      background: #333333;
+      width: 376px;
+      height: 10px;
+    }
+    .common {
+        position: relative;
+        top: 8em;
+        margin: 0em 30% 4em;
+        cursor: pointer;
+        transition: all 0.4s ease-in-out;
+    }
+}
+@media only screen and (max-width : 840px) {
+    #progress-bar {
+      position: relative;
+      background: #333333;
+      width: 326px;
+      height: 10px;
+    }
+    
+    .common {
+        position: relative;
+        top: 8em;
+        margin: 0em 30% 4em;
+        cursor: pointer;
+        transition: all 0.4s ease-in-out;
+    }
+}

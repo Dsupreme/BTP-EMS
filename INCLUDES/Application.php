@@ -35,13 +35,12 @@
     <!--Javascript Links-->
     <script type="text/javascript" src="../JS/jquery-1.11.0.min.js"></script><!--JQuery Online link -->
     <script type="text/javascript" src="../JS/bootstrap.js"></script><!--Bootstrap Javascript -->
+    <script type="text/javascript" src="../JS/next_button.js"></script><!--Detecting next button clicks -->
     <script type="text/javascript" src="../JS/smoothscroll.js"></script><!--Smooth Scroll Animation -->
     <script type="text/javascript" src="../JS/add-del-row.js"></script><!--Add Deleting New Rows -->
     <script type="text/javascript" src="../JS/progress.js"></script><!-- Progress of Completion -->
     <script type="text/javascript" src="../JS/app_submit.js"></script><!-- Ajax script for submitting application -->
 </head>
-
-
 
 <?php
 	include 'Variables.php';
@@ -103,53 +102,32 @@
     		<span class="all_span fourth"><div class="prog-text">4/4</div></span>
     	</div>
 
-			<form id="form1" method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+			<form id="form1" method="POST">
                 <div class="container" style="top:80px;">
 		    		<div class="panel panel-default">
-		  				<div class="panel-heading">Apply for</div>
+                        <div class="panel-heading">Apply for</div>
                         <div class="panel-body">
                             <div class="list-group">
                                 <?php
-															$select=mysql_query("select * from posts where status = 1;") or die(mysql_error());
-															while($fetch=mysql_fetch_array($select))
-															{
-														?>
-
-																<a href="#" class="list-group-item ">
-                                    <h4 class="list-group-item-heading"><?php echo $fetch['post'];?></h4>
-                                    <p class="list-group-item-text"><?php echo $fetch['description'];?></p>
-                                </a>
-															<?php } ?>
-															</div>
-                            <label class="btn btn-primary" name="" onclick="goto_form2();">Next</label>
-                            <script>
-                                function goto_form2() {
-                                    $('#form2').fadeIn(500);
-                                    $('#form1').hide();
-                                    $('#form3').hide();
-                                    $('.first').removeClass('border-change');
-                                    $('.second').removeClass('border-change');
-                                    $('.third').removeClass('border-change');
-                                    $('.fourth').removeClass('border-change');
-                                    $('.first').addClass('border-change');
-                                    $('.second').addClass('border-change');
-                                    $('#progress-bar').val('35');
-                                };
-
-                                function goto_form3() {
-                                    $('#form3').fadeIn(500);
-                                    $('#form1').hide();
-                                    $('#form2').hide();
-                                    $('.first').removeClass('border-change');
-                                    $('.second').removeClass('border-change');
-                                    $('.third').removeClass('border-change');
-                                    $('.fourth').removeClass('border-change');
-                                    $('.first').addClass('border-change');
-                                    $('.second').addClass('border-change');
-                                    $('.third').addClass('border-change');
-                                    $('#progress-bar').val('68');
-                                };
-                            </script>
+									$select=mysql_query("select * from posts where status = 1;") or die(mysql_error());
+                                    while($fetch=mysql_fetch_array($select))
+									   {
+								?>
+                                    <a href="#" class="list-group-item ">
+                                        <h4 class="list-group-item-heading">
+                                            <?php echo $fetch['post'];?>
+                                        </h4>
+                                        <p class="list-group-item-text">
+                                            <?php echo $fetch['description'];?>
+                                        </p>
+                                    </a>
+							<?php } ?>
+							</div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                        <label class="btn btn-primary" style="float:right" name="" onclick="goto_form2();">Next</label>
                         </div>
                     </div>
                 </div>
@@ -230,7 +208,7 @@
 		                            <td ><input type="tel" name="c_mobile" /></td>
 		                        </tr>
 
-		                   		<th style="font-size:13px"> b) Permanent Address </th>
+                                <th style="font-size:13px"> b) Permanent Address </th>
 		                    	<tr>
 		                    		<td class="Label" >Address </td>
 		                            <td id="colon">:</td>
@@ -255,12 +233,22 @@
 		                            <td id="colon">:</td>
 		                            <td ><input type="tel" name="p_mobile" /></td>
 		                        </tr>
-		              		</table>
+                            </table>
 		    			</div>
-		        	</div>
-		        	<div class="panel panel-default">
-		  				<div class="panel-heading">Education Qualification</div>
-		  				<div class="panel-body">
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                        <label class="btn btn-primary" name="" onclick="goto_form2();">Previous</label>    
+                        <label class="btn btn-primary" style="float:right" name="" onclick="goto_form3();">Next</label>
+                        </div>
+                    </div>
+		        </div>
+    		</form>
+    		<form id="form3" method="POST">
+				<div class="container" style="top:80px;">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">Education Qualification</div>
+                        <div class="panel-body">
 		                 	<p>
 		                      	<td><input type="button" value="Add Row" onclick="addrow('EQ_table')" /></td>
 		                        <td><input type="button" value="Delete Last Row" onclick="delrow('EQ_table')" /></td>
@@ -276,6 +264,24 @@
 			                </table>
 		                    <table id="EQ_table">
 		                        <tr>
+		                        	<p>
+			                        	<td width="20%"><input class="input-group-lg" type="text" name="c_degree[]" style="width:90%"/></td>
+			                            <td width="25%"><input class="input-group-lg" type="text" name="c_specialization[]" style="width:90%" /></td>
+										<td width="30%"><input class="input-group-lg" type="text" name="c_university[]" style="width:90%" /></td>
+			                            <td width="15%"><input class="input-group-lg" type="number" name="c_year[]" min="1990" max="2015" /></td>
+			                            <td width="10%"><input class="input-group-lg" type="number" name="c_marks[]" min="1" max="100" /></td>
+		                         	</p>
+		                        </tr>
+                                <tr>
+		                        	<p>
+			                        	<td width="20%"><input class="input-group-lg" type="text" name="c_degree[]" style="width:90%"/></td>
+			                            <td width="25%"><input class="input-group-lg" type="text" name="c_specialization[]" style="width:90%" /></td>
+										<td width="30%"><input class="input-group-lg" type="text" name="c_university[]" style="width:90%" /></td>
+			                            <td width="15%"><input class="input-group-lg" type="number" name="c_year[]" min="1990" max="2015" /></td>
+			                            <td width="10%"><input class="input-group-lg" type="number" name="c_marks[]" min="1" max="100" /></td>
+		                         	</p>
+		                        </tr>
+                                <tr>
 		                        	<p>
 			                        	<td width="20%"><input class="input-group-lg" type="text" name="c_degree[]" style="width:90%"/></td>
 			                            <td width="25%"><input class="input-group-lg" type="text" name="c_specialization[]" style="width:90%" /></td>
@@ -315,10 +321,43 @@
 			                        <!--ADD AJAX CODED ROWS-->
 			                     	</p>
 		                        </tr>
+                                <tr>
+			                        <p>
+			                         	<td width="10%"><input class="input-group-lg" type="datetime" name="c_from[]" style="width:90%" /></td>
+			                            <td width="10%"><input class="input-group-lg" type="datetime" name="c_to[]" style="width:90%" /></td>
+			                            <td width="25%"><input class="input-group-lg" type="text" name="c_desg[]" style="width:90%" />
+			                            <td width="20%"><input class="input-group-lg" type="text" name="c_org[]" style="width:90%" /></td>
+			                            <td width="25%"><input class="input-group-lg" type="text" name="c_resp[]" style="width:90%" /></td>
+			                            <td width="10%"><input class="input-group-lg" type="number" name="c_salary[]" style="width:90%" /></td>
+			                        <!--ADD AJAX CODED ROWS-->
+			                     	</p>
+		                        </tr>
+                                <tr>
+			                        <p>
+			                         	<td width="10%"><input class="input-group-lg" type="datetime" name="c_from[]" style="width:90%" /></td>
+			                            <td width="10%"><input class="input-group-lg" type="datetime" name="c_to[]" style="width:90%" /></td>
+			                            <td width="25%"><input class="input-group-lg" type="text" name="c_desg[]" style="width:90%" />
+			                            <td width="20%"><input class="input-group-lg" type="text" name="c_org[]" style="width:90%" /></td>
+			                            <td width="25%"><input class="input-group-lg" type="text" name="c_resp[]" style="width:90%" /></td>
+			                            <td width="10%"><input class="input-group-lg" type="number" name="c_salary[]" style="width:90%" /></td>
+			                        <!--ADD AJAX CODED ROWS-->
+			                     	</p>
+		                        </tr>
 		                    </table>
 		               </div>
 		           </div>
-		           <form method="post" action="file-uploader.php" enctype="multipart/form-data">
+                    <div class="panel panel-default" onclick="app_submit();">
+                    <div class="panel-body">
+                    <label class="btn btn-primary" name="" onclick="goto_form3();">Previous</label>    
+                    <label class="btn btn-primary" style="float:right" name="" onclick="goto_form4();">Next</label>
+                    </div>
+                </div>
+                </div>
+                
+    		</form>
+            <form id="form4" method="POST">
+                <div class="container" style="top:80px;">
+                    <form method="post" action="file-uploader.php" enctype="multipart/form-data">
 			           <div class="panel panel-default">
 			            	<div class="panel-heading">Upload Photos & Signatures</div>
 			                <div class="panel-body">
@@ -354,7 +393,7 @@
 		            </form>
 		            <div class="panel panel-default">
 		            	<div class="panel-body">
-		           		<div class="panel-heading">Declaration : <font size="+1" >I hereby declare that :- </font> </div>
+                            <div class="panel-heading">Declaration : <font size="+1" >I hereby declare that :- </font> </div>
 			                <table>
 				                <tr>
 				                	<td width="5%">(1)</td>
@@ -394,12 +433,8 @@
 			           		</table>
 		            	</div>
 		    	    </div>
-		        </div>
-    		</form>
-    		<form id="form3" >
-    		</form>
-
-
+                </div>
+            </form>
 	</section>
 	</section>
 </body>

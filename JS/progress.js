@@ -3,6 +3,7 @@ $(document).ready(function(){
     $('#form1').show();
     $('#form2').hide();
     $('#form3').hide();
+    $('#form4').hide();
   $('span').click(function(){
     if ($(this).hasClass('first')){
         $('#progress-bar').val('0');
@@ -37,11 +38,11 @@ $(document).ready(function(){
         $('#form2').hide();
         
         $('.percent').html("66% Complete");
-    } else{
+    } else {
         $('#progress-bar').val('100');
-         $(this).addClass('border-change');
+        $(this).addClass('border-change');
         $(this).prevAll().addClass('border-change');
-         $('.percent').html("100% Complete");
+        $('.percent').html("100% Complete");
        }
   });
 });// complete click 
