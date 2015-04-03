@@ -113,15 +113,16 @@
                                     while($fetch=mysql_fetch_array($select))
 									   {
 								?>
-                                    <a href="#" class="list-group-item ">
+                                    <a class="list-group-item ">
                                         <h4 class="list-group-item-heading">
                                             <?php echo $fetch['post'];?>
                                         </h4>
+                                        <input type="radio" name="job_post" style="float:right" value="<?php if(isset($fetch)){echo $fetch['post_id'];}?>" />
                                         <p class="list-group-item-text">
                                             <?php echo $fetch['description'];?>
                                         </p>
                                     </a>
-							<?php } ?>
+                                <?php } ?>
 							</div>
                         </div>
                     </div>

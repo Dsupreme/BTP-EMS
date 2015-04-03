@@ -31,6 +31,6 @@
             echo 'INCLUDES/profile.php';
     }
 	else {
-        echo 'Invalid';
+        echo "Invalid";
     }
 ?>

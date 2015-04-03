@@ -3,6 +3,9 @@ function app_submit() {
     //Temporary Variables
     var obj=[],i,n,isArray,isNum,val;
     
+    //Post Selection Variable
+    var post_id = $('#job_post').val();
+    
     //Personal Details Variables
     var c_fname  = $('#candidate_fname').val();
     var c_mname  = $('#candidate_mname').val();
@@ -55,18 +58,23 @@ function app_submit() {
         } 
         else {
             obj[n] = isNum ? +val : val;
-            console.log("qqqqq");
-            console.log(JSON.stringify(obj[i]));
+            //console.log("qqqqq");
+            //console.log(JSON.stringify(obj);
         }
     }
 
-    console.log("xxxxxxxxxxxxxxx");
-    alert(JSON.stringify(obj));
+    //console.log("xxxxxxxxxxxxxxx");
+    //alert(JSON.stringify(obj));
+            
+            
+    var form_data = $("form3").serialize();
+    alert(form_data);
     
     $.ajax({
         type: "POST",
         url: "../Ajax/app_submit.php",
         data: {
+            ajax_job_post   : post_id,
             ajax_c_fname    : c_fname,
             ajax_c_mname    : c_mname,
             ajax_c_lname    : c_lname,

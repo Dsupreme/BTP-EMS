@@ -51,7 +51,7 @@
     else {
         $epswd = $pswd;
         $epswd = md5($epswd);   //Store encrypted password in the database.
-        echo 'OK';
+        echo "OK";
 		mysql_query("INSERT INTO users(username, email, password) VALUES ('$uname','$email','$epswd');") or die(mysql_error());
 
         //Sending a greeting's mail to new User.
