@@ -62,7 +62,7 @@ $_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
                             </button>
                             <ul class="nav navbar-nav">
                             <!-- Header & Brand/Company Name-->
-                                <li class="active"><a class="navbar-brand" href="index.php"><font size="+3"> Employee Management System</font></a></li>
+                                <li class="active"><a class="navbar-brand" href="../index.php"><font size="+3"> Employee Management System</font></a></li>
                             </ul>
                         </div>
                         <div class="navbar-collapse collapse">
