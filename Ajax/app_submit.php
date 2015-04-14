@@ -25,7 +25,20 @@
     $p_pin           = $_POST['ajax_p_pin'];
     $p_landline      = $_POST['ajax_p_landline'];
     $p_mobile        = $_POST['ajax_p_mobile'];
+    $c_deg           = $_POST['ajax_c_deg'];
+    $c_spec          = $_POST['ajax_c_spec'];  
+    $c_uni           = $_POST['ajax_c_uni'];
+    $c_yr            = $_POST['ajax_c_yr'];
+    $c_marks         = $_POST['ajax_c_marks'];
+    $c_from          = $_POST['ajax_c_from'];
+    $c_to            = $_POST['ajax_c_to'];
+    $c_desg          = $_POST['ajax_c_desg'];
+    $c_org           = $_POST['ajax_c_org'];
+    $c_resp          = $_POST['ajax_c_resp'];
+    $c_salary        = $_POST['ajax_c_salary'];
 
+
+$c_degree,$c_specialization,$c_university,$c_year,$c_marks
     //First name, Middle Name, Last Name
     if(empty($candidate_fname) or (empty($candidate_lname))) {
         $appsubmit_error.=" First name and last name, both are required. \n";
@@ -206,74 +219,72 @@
         }
     }
 
+    //Number of degrees and past employment
+    $countd  = 0; $counte = 0;
+    foreach($c_degree as $h) { $countd=$countd+1;}
+	foreach($c_salary as $i) { $counte=$counte+1;}
+
+    //Check each value in education qualification array and past employeement arrays
+    /*
+    
+    CODE HERE......
+    */
+
+
+    if (strcmp($signup_error,"")!='0') {
+	//	echo "<script language='javascript' type='text/javascript'>";
+	//	echo "alert('$signup_error');";
+	//	echo "</script>";
+        echo "invalid";
+	}
+    else {
+        mysql_query("insert into pdetails (flag, firstname, middlename, lastname, fathername, mothername, DOB, nationality, sex, c_addr, c_city, c_state, c_pin, c_phone, c_mobile, p_addr, p_city, p_state, p_pin, p_phone, p_mobile) values (1,'$candidate_fname', '$candidate_mname','$candidate_lname', '$f_candidate','$m_candidate', '$dob_candidate', '$nat_candidate', '$g_candidate', '$c_addr', '$c_city', '$c_state', '$c_pin', '$c_landline', '$c_mobile', '$p_addr', '$p_city' , '$p_state', '$p_pin', '$p_landline', '$p_mobile')") or die(mysql_error());
+        
+        
+        $result = mysql_query("SELECT * FROM pdetails WHERE flag=1;") ;
+        
+        //Getting the foreign key for the experience and degree table
+        while($row = mysql_fetch_array($result)) { $apid = $row['app_ID'];}
+        
+
+        //Making a 2D array for all the qualification records
+        $qual = array($c_deg,$c_spec,$c_uni,$c_year,$c_marks);
+        for($v = 0 ; $v < $countd ; $v++) {
+			$deg = $qual[0][$v];
+			$spec = $qual[1][$v];
+			$board = $qual[2][$v];
+			$yo = $qual[3][$v];
+			$mar = $qual[4][$v];
+			mysql_query("insert into edu_qual (app_ID, degree, specialization, boarduniv, yoc, marks) values ('$apid','$deg','$spec','$board','$yo','$mar')") or die(mysql_error());
+        }
+        
+        //Making a 2D array for all the experience records
+        $expe = array($c_from,$c_to,$c_desg,$c_org,$c_resp,$c_salary);
+        for($u = 0 ; $u < $counte ; $u++) {
+            $from = $expe[0][$u];
+            $to = $expe[1][$u];
+            $desg = $expe[2][$u];
+            $org = $expe[3][$u];
+            $resp = $expe[4][$u];
+            $salary = $expe[5][$u];
+            mysql_query("insert into experience (app_ID, per_from, per_to, organization, designation,responsibility,salary) values ('$apid','$from','$to','$desg','$org','$resp','$salary')") or die(mysql_error());
+        }
+		
+        mysql_query("UPDATE pdetails SET flag=0 WHERE flag = 1;");
+        
+        echo "Done";
+        
+
+    }
 ?>
 <?php
 /*
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-			
-			
-			
-			
-			
-			
+
 			//if(empty($c_year)){}else{if (!preg_match('/^\d{4}$/', $c_year)) {
 			//		$signup_error.=" Invalid Permanent qualification completion year. Remove invalid characters ";
 			//	}}
 
 
 		}
-
-		if (strcmp($signup_error,"")!='0') {
-			echo "<script language='javascript' type='text/javascript'>";
-			echo "alert('$signup_error');";
-			echo "</script>";
-		}
-		else{
-			mysql_query("insert into pdetails (flag, firstname, middlename, lastname, fathername, mothername, DOB, nationality, sex, c_addr, c_city, c_state, c_pin, c_phone, c_mobile, p_addr, p_city, p_state, p_pin, p_phone, p_mobile) values (1,'$candidate_fname', '$candidate_mname','$candidate_lname', '$f_candidate','$m_candidate', '$dob_candidate', '$nationality_candidate', '$gender', '$c_address', '$c_city', '$c_state', '$c_pin', '$c_landline', '$c_mobile', '$p_address', '$p_city' , '$p_state', '$p_pin', '$p_landline', '$p_mobile')
-						") or die(mysql_error());
-                        
-                        
-			$result = mysql_query("SELECT * FROM pdetails WHERE flag=1;") ;
-            
-			while($row = mysql_fetch_array($result)) { $apid = $row['app_ID'];}
-			$countd  = 0;
-			foreach($c_degree as $h) { $countd=$countd+1;}
-			$counte = 0;
-			foreach($c_salary as $i)
-			{
-			$counte=$counte+1;
-			}
-
-			$expe = array($c_from,$c_to,$c_desg,$c_org,$c_resp,$c_salary);
-			for($u = 0 ; $u < $counte ; $u++){
-			$from = $expe[0][$u];
-			$to = $expe[1][$u];
-			$desg = $expe[2][$u];
-			$org = $expe[3][$u];
-			$resp = $expe[4][$u];
-			$salary = $expe[5][$u];
-			mysql_query("insert into experience (app_ID, per_from, per_to, organization, designation,responsibility,salary) values ('$apid','$from','$to','$desg','$org','$resp','$salary');
-						") or die(mysql_error());
-			}
-			$qual = array($c_degree,$c_specialization,$c_university,$c_year,$c_marks);
-			for($v = 0 ; $v < $countd ; $v++){
-			$deg = $qual[0][$v];
-			$spec = $qual[1][$v];
-			$board = $qual[2][$v];
-			$yo = $qual[3][$v];
-			$mar = $qual[4][$v];
-			mysql_query("insert into edu_qual (app_ID, degree, specialization, boarduniv, yoc, marks) values ('$apid','$deg','$spec','$board','$yo','$mar');
-						") or die(mysql_error());
-			}
-			mysql_query("UPDATE pdetails SET flag=0 WHERE flag = 1;");
-			echo "<script language='javascript' type='text/javascript'>";
-			echo "alert('The data is successfully entered in the database');";
-			echo "</script>";
-		}
 	}
-
-
-
-	/*mysql_query("INSERT INTO pdetails (, )  )") or die(mysql_error());*/
-
 ?>

@@ -31,8 +31,23 @@ function app_submit() {
     var p_landline = $('#p_landline').val();
     var p_mobile   = $('#p_mobile').val();
     
-    //Education qualification variables
+    //Education qualification Variables
+    var c_deg      = $("input[name='c_degree[]']").map(function(){return $(this).val();}).get();
+    var c_spec     = $("input[name='c_specialization[]']").map(function(){return $(this).val();}).get();
+    var c_uni      = $("input[name='c_university[]']").map(function(){return $(this).val();}).get();
+    var c_yr       = $("input[name='c_year[]']").map(function(){return $(this).val();}).get();
+    var c_marks    = $("input[name='c_marks[]']").map(function(){return $(this).val();}).get();
     
+    //Past Employeement Variables
+    var c_from     = $("input[name='c_from[]']").map(function(){return $(this).val();}).get();
+    var c_to       = $("input[name='c_to[]']").map(function(){return $(this).val();}).get();
+    var c_desg     = $("input[name='c_desg[]']").map(function(){return $(this).val();}).get();
+    var c_org      = $("input[name='c_org[]']").map(function(){return $(this).val();}).get();
+    var c_resp     = $("input[name='c_resp[]']").map(function(){return $(this).val();}).get();
+    var c_salary   = $("input[name='c_salary[]']").map(function(){return $(this).val();}).get();
+    
+    
+  /*  
     var c_inputs = document.getElementById("EQ_table").getElementsByTagName('input');
     // For each of them
     for (i = 0, l = c_inputs.length; i < l; i++) {
@@ -48,8 +63,6 @@ function app_submit() {
         if (isArray) {
             // Get rid of the "[]"
             n = n.substring(0, n.length - 2);
-            console.log(n);
-            console.log(val);
             // If it's the first entry, create an empty array
             if (obj[n] === undefined) obj[n] = [];
             // Push the value in it (parsed as an integer if it's a number)
@@ -58,17 +71,13 @@ function app_submit() {
         } 
         else {
             obj[n] = isNum ? +val : val;
-            //console.log("qqqqq");
-            //console.log(JSON.stringify(obj);
         }
     }
 
-    //console.log("xxxxxxxxxxxxxxx");
-    //alert(JSON.stringify(obj));
-            
-            
-    var form_data = $("form3").serialize();
-    alert(form_data);
+    
+    */
+    
+    
     
     $.ajax({
         type: "POST",
@@ -94,7 +103,18 @@ function app_submit() {
             ajax_p_state    : p_state,
             ajax_p_pin      : p_pin,
             ajax_p_landline : p_landline,
-            ajax_p_mobile   : p_mobile
+            ajax_p_mobile   : p_mobile,
+            ajax_c_deg      : c_deg,
+            ajax_c_spec     : c_spec,
+            ajax_c_uni      : c_uni,
+            ajax_c_yr       : c_yr,
+            ajax_c_marks    : c_marks,
+            ajax_c_from     : c_from,
+            ajax_c_to       : c_to,
+            ajax_c_desg     : c_desg,
+            ajax_c_org      : c_org,
+            ajax_c_resp     : c_resp,
+            ajax_c_salary   : c_salary
         },
         success: function (msg) {
 //            var d = msg;

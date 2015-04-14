@@ -5,7 +5,7 @@
 	if(!$_SESSION['username']){
         echo (
 			"<SCRIPT LANGUAGE='JavaScript'>
-    			window.location.href='../index.php';
+    			window.location.href='../';
     		   	window.alert('Not logged in.Please login to EMS to continue.')
     			</SCRIPT>"
 		);
@@ -18,6 +18,7 @@ if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 
 		session_destroy();
 		echo "<script language='javascript' type='text/javascript'>";
 		echo "alert('Session Timed Out');";
+        echo "window.location.href='../';";
 		echo "</script>";
 }
 $_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp

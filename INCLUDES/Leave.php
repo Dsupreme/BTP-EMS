@@ -36,7 +36,6 @@
 		<script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
         <script type="text/javascript" src="../js/bootstrap.js"></script><!--Bootstrap Javascript -->
         <script type="text/javascript" src="../js/smoothscroll.js"></script><!--Smooth Scroll Animation -->
-		<script type="text/javascript" src="JS/check_ajax.js"></script>
 	</head>
     <?php
 

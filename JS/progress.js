@@ -12,7 +12,8 @@ $(document).ready(function(){
         $('#form1').fadeIn(500);
         $('#form2').hide();
         $('#form3').hide();
-        
+        $('#form4').hide();
+
         $('.percent').html("0% Complete");
         
     } else if ($(this).hasClass('second')){
@@ -24,6 +25,7 @@ $(document).ready(function(){
         $('#form2').fadeIn(500);
         $('#form1').hide();
         $('#form3').hide();
+        $('#form4').hide();
         
         $('.percent').html("33% Complete");
         
@@ -36,12 +38,19 @@ $(document).ready(function(){
         $('#form3').fadeIn(500);
         $('#form1').hide();
         $('#form2').hide();
+        $('#form4').hide();
         
         $('.percent').html("66% Complete");
     } else {
         $('#progress-bar').val('100');
         $(this).addClass('border-change');
         $(this).prevAll().addClass('border-change');
+        
+         $('#form4').fadeIn(500);
+        $('#form1').hide();
+        $('#form2').hide();
+        $('#form3').hide();
+        
         $('.percent').html("100% Complete");
        }
   });
