@@ -14,14 +14,14 @@
 ?>
 
 <?php
-if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 900)) {
+    if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 900)) {
 		session_destroy();
 		echo "<script language='javascript' type='text/javascript'>";
 		echo "alert('Session Timed Out');";
         echo "window.location.href='../';";
 		echo "</script>";
-}
-$_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
+    }
+    $_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
 ?>
     <head>
 
@@ -49,26 +49,12 @@ $_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
 <?php
 	include 'database.php';
 	include 'Variables.php';
-	include 'file-uploader.php';
-require '../Libraries/PHPMailer/PHPMailerAutoload.php';
+    include '../FUNCTIONS/mail_newadmin.php';
+    include '../FUNCTIONS/checkmail.php'
 
 ?>
 
 <?php
-
-function checkEmail ($mail) {
-	if(preg_match('/^([a-zA-Z0-9])+([a-zA-Z0-9._-])*@([a-zA-Z0-9_-])+([a-zA-Z0-9._-]+)+$/' , $mail)){
-		list($name,$domain)=split('@',$mail);
-		if(!checkdnsrr($domain,'MX')) {
-			return false;
-		}
-		return true;
-	}
-			else {
-					return false;
-			}
-}
-
 	if(isset($_REQUEST['admin_newuser_submit'])) {
 		$signup_error = "";
 		if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -106,29 +92,13 @@ function checkEmail ($mail) {
 			$right = 1;
 			mysql_query("INSERT INTO users(rights,username, email, password) VALUES ('$right','$_admin_username_add','$admin_email_add','$admin_password_add');") or die(mysql_error());
 
-			$mail = new PHPMailer;
-			$mail->isSMTP();                                      // Set mailer to use SMTP
-			$mail->Host = 'smtp.gmail.com';						  // Specify main and backup SMTP servers
-			$mail->SMTPAuth = true;                               // Enable SMTP authentication
-			$mail->Username = 'madhavadityanaresh@gmail.com';            // SMTP username
-			$mail->Password = 'naresh12121993';                           // SMTP password
-			$mail->SMTPSecure = 'tls';                            // Enable encryption, 'ssl' also accepted
-			$mail->From = 'madhavadityanaresh@gmail.com';
-			$mail->FromName = '<Do Not Reply>EMS Mailer';
-			$mail->addAddress($admin_email_add,$_admin_username_add);     // Add a recipient
-			$mail->WordWrap = 55;                                 // Set word wrap to 50 characters
-			$mail->isHTML(true);                                  // Set email format to HTML
-			$mail->Subject = 'Successful Admin creation';
-			$mail->Body    = 'Welcome to the Employee Management System of <b>IIIT-Delhi</b> as an Admin. Your  user name is '.$_admin_username_add.' and password is '.$passs.' Please dont share your password with anyone.';
-			$mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
-			$mail->send();
-			echo "<script language='javascript' type='text/javascript'>";
+            mail_newadmin($admin_email,$_admin_username_add,$passs);
+            echo "<script language='javascript' type='text/javascript'>";
 			echo "alert('Admin added to database.');";
 			echo "</script>";
 		}
 	}
-
-if(isset($_POST['submitholiday'])) {
+    if(isset($_POST['submitholiday'])) {
 				$leave_error = "";
 
 				if($_SERVER['REQUEST_METHOD']== "POST") {
@@ -170,9 +140,7 @@ if(isset($_POST['submitholiday'])) {
 						}
 				}
 		}
-
-
-if(isset($_REQUEST['holiday_submit'])) {
+    if(isset($_REQUEST['holiday_submit'])) {
 		$signup_error = "";
 		if ($_SERVER["REQUEST_METHOD"] == "POST") {
 			if (empty($app_post_title)) {
@@ -192,8 +160,7 @@ if(isset($_REQUEST['holiday_submit'])) {
 			mysql_query("INSERT INTO posts(post, description,status) VALUES ('$app_post_title','$app_descp','$status');") or die(mysql_error());
 	}
 }
-
-	if(isset($_REQUEST['admin_newemp_submit'])) {
+    if(isset($_REQUEST['admin_newemp_submit'])) {
 		$signup_error = "";
 		if ($_SERVER["REQUEST_METHOD"] == "POST") {
 			if (empty($_admin_username_add)) {
@@ -252,6 +219,7 @@ if(isset($_REQUEST['holiday_submit'])) {
 		}
 	}
 ?>
+    
 <script>
 $(function() {
 $( "#holiday_start" ).datepicker({
@@ -307,7 +275,6 @@ altFormat: "yy-mm-dd"
         		</div>
 			</div>
 		</nav>
-
         <div class="container" style="margin-top:8em;">
             <section>
                 <div class="tabs">

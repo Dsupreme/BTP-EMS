@@ -1,0 +1,8 @@
+@charset "utf-8";
+/* CSS Document */
+
+.divider {
+    height: 5px;
+    overflow: hidden;
+    background-color: #e5e5e5;
+}

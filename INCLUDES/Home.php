@@ -12,14 +12,14 @@
 	else {
 ?>
 <?php
-if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 900)) {
-    session_destroy();
-		echo "<script language='javascript' type='text/javascript'>";
-		echo "alert('Session Timed Out');";
+    if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 900)) {
+        session_destroy();
+        echo "<script language='javascript' type='text/javascript'>";
+        echo "alert('Session Timed Out');";
         echo "window.location.href='../'";
-		echo "</script>";
-}
-$_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
+        echo "</script>";
+    }
+    $_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
 ?>
 	<head>
 
@@ -233,7 +233,7 @@ minDate: 0, maxDate: "+3M +10D"
                 <div class="panel-body">
                     <a id="leaveb"><button class="fc-button fc-state-default quicklinks">Apply For Leave</button></a>
                     <a><button type="button" class="fc-button fc-state-default quicklinks" data-toggle="modal" data-target="#addcalenderevent" >Add Calender Event</button></a>
-
+                    <a href="attendance.php"><button type="button" class="fc-button fc-state-default quicklinks">Attendance Record</button></a>
                     <a id="checkadmin"><button class="fc-button fc-state-default quicklinks">Admin Panel</button></a>
                 <script>
                         var name=1;
@@ -249,23 +249,20 @@ minDate: 0, maxDate: "+3M +10D"
                                 }
                             })
                     </script>
-										<script>
-														var name=0;
-														if (name == <?php echo $_SESSION['userright'];?>) {
-											document.getElementById('leaveb').style.display='none';
-													}
-												</script>
-
-
-
-												<script>
-																$('#leaveb > button').click(function() {
-																		var name1=0;
-																		if (name1 != <?php echo $_SESSION['userright'];?>) {
-																				window.location.href='Leave.php';
-																		}
-																})
-												</script>
+                    <script>
+					    var name=0;
+						if (name == <?php echo $_SESSION['userright'];?>) {
+							document.getElementById('leaveb').style.display='none';
+						}
+				    </script>
+                    <script>
+						$('#leaveb > button').click(function() {
+                            var name1=0;
+							if (name1 != <?php echo $_SESSION['userright'];?>) {
+								window.location.href='Leave.php';
+							}
+				        })
+				    </script>
 
                 </div>
             </div>

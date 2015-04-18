@@ -1,16 +1,24 @@
 <?php
-    	require '../Libraries/PHPMailer/PHPMailerAutoload.php';
+    require '../Libraries/PHPMailer/PHPMailerAutoload.php';
 
-function mail_newuser($e,$u,$p) {
+    function mail_newuser($e,$u,$p) {
         $mail = new PHPMailer;
-        $mail->isSMTP();                                      // Set mailer to use SMTP
-        $mail->Host = 'smtp.gmail.com';						  // Specify main and backup SMTP servers
-        $mail->SMTPAuth = true;                               // Enable SMTP authentication
-        $mail->Username = 'madhavadityanaresh@gmail.com';     // SMTP username
-        $mail->Password = 'naresh12121993';                   // SMTP password
-        $mail->SMTPSecure = 'tls';                            // Enable encryption, 'ssl' also accepted
+        // Set mailer to use SMTP
+        $mail->isSMTP();                                      
+        // Specify main and backup SMTP servers
+        $mail->Host = 'smtp.gmail.com';						  
+        // Enable SMTP authentication
+        $mail->SMTPAuth = true;                               
+        // SMTP username
+        $mail->Username = 'madhavadityanaresh@gmail.com';     
+        // SMTP password
+        $mail->Password = 'naresh12121993';                   
+        // Enable encryption, 'ssl' also accepted
+        $mail->SMTPSecure = 'tls';               
+        
         $mail->From = 'madhavadityanaresh@gmail.com';
         $mail->FromName = '<Do Not Reply>EMS Mailer';
+        
         $mail->addAddress($e,$u);                             // Add a recipient
         $mail->WordWrap = 55;                                 // Set word wrap to 50 characters
         $mail->isHTML(true);                                  // Set email format to HTML

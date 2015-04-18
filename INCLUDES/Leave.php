@@ -1,27 +1,28 @@
 <!DOCTYPE html>
+<html>
 <?php
 	session_start();
-	if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 900)) {
-			session_destroy();
-			echo "<script language='javascript' type='text/javascript'>";
-			echo "alert('Session Timed Out');";
-			echo "</script>";
-	}
-	$_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
-	if($_SESSION['username']){
-	}
-	//else {
-//		echo "href=\"../#tologin\"";
-//	}
-	else {
-		echo (
+	if(!$_SESSION['username']){
+        echo (
 			"<SCRIPT LANGUAGE='JavaScript'>
-    			window.location.href='/BTP-EMS/#login';
+    			window.location.href='../';
     		   	window.alert('Not logged in.Please login to EMS to continue.')
     			</SCRIPT>"
 		);
 	}
+	else {
 ?>
+<?php
+    if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 900)) {
+		session_destroy();
+		echo "<script language='javascript' type='text/javascript'>";
+		echo "alert('Session Timed Out');";
+        echo "window.location.href='../';";
+		echo "</script>";
+    }
+    $_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
+?>
+
 	<head>
 
 	    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -271,3 +272,6 @@ minDate: 0, maxDate: "+1M +10D"
         </div>
 	</body>
 </html>
+<?php
+    }
+?>

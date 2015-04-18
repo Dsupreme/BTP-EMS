@@ -14,7 +14,9 @@
         $_SESSION['username'] = $rows['username'];
         $_SESSION['userid'] = $rows['U_id'];
         $_SESSION['userright'] = $rows['rights'];
+        $_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
         $flagprof = $rows['flag'];
+        
         $flag=1;
     }
 
