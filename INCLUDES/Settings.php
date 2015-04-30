@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <?php
+    //Check for usersession. Enables mutli tab support
 	session_start();
 	if(!$_SESSION['username']){
         echo (
@@ -12,7 +13,6 @@
 	}
 	else {
 ?>
-
 <?php
     //Code For preventing outdated input of information by checking session timeout
     if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 900)) {
@@ -50,6 +50,58 @@
 		<link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
         
     </head>
+
+<?php
+    include 'Variables.php';
+    include 'database.php';
+?>
+    
+    <?php
+        if(isset($_POST['submitbtn'])) {
+                $pswdreset = "";
+        
+                if($_SERVER['REQUEST_METHOD']== "POST") {
+                    
+                    //Current Password Input check
+                    if(empty($pswd_c)) {
+                        $pswdreset .= "Current Password Field is required. \\n";
+                    }
+                    else {
+                        $pswd_c = md5($pswd_c);
+                        $compare_pswd = mysql_query("select count(*) from `users` where username='".$_SESSION['username']."' and password='".$pswd_c."'");
+                        if (!mysql_num_rows($compare_pswd)) {
+                            $pswdreset .= "Invalid Current Password. Please try again. \\n";
+                        }
+                    }
+
+                    //New Password Input check
+                    if(empty($pswd_n)) {
+                        $pswdreset .= "New password field is required. \\n";
+                    }
+                    if(empty($pswd_r)) {
+                        $pswdreset .= "Retype password field is required. \\n";
+                    }
+                    if(!empty($pswd_n) AND !empty($pswd_r)) {
+                        if(strcmp($pswd_n,$pswd_r)) {
+                            $pswdreset .= "New password and Retype password field do not match. \\n";
+                        }
+                    }
+                    
+                    //Insertion into database if no input errors found.
+                    if (strcmp($$pswdreset,"")!="0") {
+                        echo "<script language='javascript' type='text/javascript'>"."alert('$pswdreset');"."</script";
+                    }
+                    else {
+                        //Query to update password
+                        $pswd_n = md5($pswd_n);
+                        mysql_query("UPDATE `users` SET `password`='".$pswd_n."' WHERE username='".$_SESSION['username']."'");
+                        echo "<script language='javascript' type='text/javascript'>";
+                        echo "alert('Password changed successfully');";
+                        echo "</script>";
+                    }
+                }
+            }
+    ?>
     <body  style="background-color:#808080">
     <!--============================== Navigation Bar ==============================-->
         <nav class="navbar navbar-fixed-top" role="navigation">
@@ -94,7 +146,7 @@
                 <div class="tabs">
                     <ul class="tab-links" id="pages">
                         <li class="active"><a href="#tab1">Account Settings</a></li>
-                        <li><a href="#tab2">Notification Settings</a></li>
+                        <!--<li><a href="#tab2">Notification Settings</a></li>
                         <!--<li><a href="#tab3">Application Posts</a></li>
                         <li><a href="#tab4">User Addition</a></li>-->
                     </ul>
@@ -118,6 +170,8 @@
                                     </tr>
                                 </table>
                             </form>
+                        </div>
+                        <div id="tab2" class="tab">
                         </div>
                     
                     </div>

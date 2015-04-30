@@ -98,6 +98,8 @@
         $userid = mysql_query("select U_id from `users` where username='".$_SESSION['username']."'");
         $fetch_userid=mysql_fetch_array($userid);
         ?>
+    
+        <!--Date Picker to have date after the current date only-->
         <script>
             $(function() {
                 $( "#sdate" ).datepicker({
@@ -167,6 +169,7 @@
                             <div class="panel panel-default" id="leave_form">
                                     <div class="panel-heading">Leave Application</div>
                                     <div class="panel-body">
+                                        <!--Leave fields-->
                                         <table>
                                             <tr>
                                                 <td class="Label" >First Name </td>
@@ -196,12 +199,13 @@
                                                 <td id="colon"> : </td>
                                                 <td>
                                                 <select name="leave_type" form="form1">
-                                                    <option value="Casual leave">Casual leave</option>  <!-- Add appropriate color codes here-->
+                                                    <!--Types of leaves-->
+                                                    <!-- Color Code : Orange for Pending/Rejected, Green for Approved-->
+                                                    <option value="Casual leave">Casual leave</option>  
                                                     <option value="Payed Leave">Paid Leave</option>
                                                     <option value="Maternity Leave">Maternity Leave</option>
                                                     <option value="Paternity Leave">Paternity Leave</option>
                                                 </select>
-                                                <td></td>
                                                 </td>
                                                 <td colspan="2" align="center"><input class="btn btn-primary" style="margin:1em 0" name="submitleave" type="submit" value="Submit" /></td>
                                             </tr>

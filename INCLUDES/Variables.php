@@ -22,28 +22,28 @@
 	if(isset($_POST['c_mobile']))      { $c_mobile=$_POST['c_mobile'];}
 
 	//Permanent Address
-	if(isset($_POST['p_address'])) {$p_address=$_POST['p_address'];}
-	if(isset($_POST['p_city']))	{$p_city=$_POST['p_city'];}
-	if(isset($_POST['p_state'])) {$p_state=$_POST['p_state'];}
-	if(isset($_POST['p_pin']))	{$p_pin=$_POST['p_pin'];}
+	if(isset($_POST['p_address']))  {$p_address=$_POST['p_address'];}
+	if(isset($_POST['p_city']))	    {$p_city=$_POST['p_city'];}
+	if(isset($_POST['p_state']))    {$p_state=$_POST['p_state'];}
+	if(isset($_POST['p_pin']))	    {$p_pin=$_POST['p_pin'];}
 	if(isset($_POST['p_landline']))	{$p_landline=$_POST['p_landline'];}
 	if(isset($_POST['p_mobile']))	{$p_mobile=$_POST['p_mobile'];}
 
 	//qualification
 
-	if(isset($_POST['c_degree'])) { $c_degree=$_POST['c_degree'];}
+	if(isset($_POST['c_degree']))         { $c_degree=$_POST['c_degree'];}
 	if(isset($_POST['c_specialization'])) { $c_specialization=$_POST['c_specialization'];}
-	if(isset($_POST['c_university'])) { $c_university=$_POST['c_university'];}
-	if(isset($_POST['c_year'])) { $c_year=$_POST['c_year'];}
-	if(isset($_POST['c_marks'])) { $c_marks=$_POST['c_marks'];}
+	if(isset($_POST['c_university']))     { $c_university=$_POST['c_university'];}
+	if(isset($_POST['c_year']))           { $c_year=$_POST['c_year'];}
+	if(isset($_POST['c_marks']))          { $c_marks=$_POST['c_marks'];}
 
 	//experience
 
-	if(isset($_POST['c_from'])) { $c_from=$_POST['c_from'];}
-	if(isset($_POST['c_to'])) { $c_to=$_POST['c_to'];}
-	if(isset($_POST['c_desg'])) { $c_desg=$_POST['c_desg'];}
-	if(isset($_POST['c_org'])) { $c_org=$_POST['c_org'];}
-	if(isset($_POST['c_resp'])) { $c_resp=$_POST['c_resp'];}
+	if(isset($_POST['c_from']))   { $c_from=$_POST['c_from'];}
+	if(isset($_POST['c_to']))     { $c_to=$_POST['c_to'];}
+	if(isset($_POST['c_desg']))   { $c_desg=$_POST['c_desg'];}
+	if(isset($_POST['c_org']))    { $c_org=$_POST['c_org'];}
+	if(isset($_POST['c_resp']))   { $c_resp=$_POST['c_resp'];}
 	if(isset($_POST['c_salary'])) { $c_salary=$_POST['c_salary'];}
 
 /*	//signup
@@ -98,12 +98,17 @@
     if(isset($_POST['admin_email_add'])){$admin_email_add=$_POST['admin_email_add'];}
     if(isset($_POST['admin_password_add'])){$admin_password_add=$_POST['admin_password_add'];}
     if(isset($_POST['admin_password_confirm'])){$admin_password_confirm=$_POST['admin_password_confirm'];}
+
+    //Settings Password Reset
+    if(isset($_POST['pswd_c'])) {$pswd_c=$_POST['pswd_c'];}
+    if(isset($_POST['pswd_n'])) {$pswd_n=$_POST['pswd_n'];}
+    if(isset($_POST['pswd_r'])) {$pswd_r=$_POST['pswd_r'];}
 	/*
-	if(isset($_POST[''])){}
-	if(isset($_POST[''])){}
-	if(isset($_POST[''])){}
-	if(isset($_POST[''])){}
-	if(isset($_POST[''])){}
+	if(isset($_POST[''])){;}
+	if(isset($_POST[''])){;}
+	if(isset($_POST[''])){;}
+	if(isset($_POST[''])){;}
+	if(isset($_POST[''])){;}
 */
 /*
 
