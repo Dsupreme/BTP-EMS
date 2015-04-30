@@ -107,7 +107,7 @@
                             </tr>
                             <?php 
         //Insert while loop here to list the attendance taken so far
-                                $que=mysql_query("select tb1.firstname, tb1.lastname, tb2.date, tb2.checkin, tb2.checkout from users tb1, attendance tb2 where tb1.U_id=tb2.uid") or die(mysql_error());
+                                $que=mysql_query("select tb1.firstname, tb1.lastname, tb2.dt, tb2.checkin, tb2.checkout from users tb1, attendance tb2 where tb1.U_id=tb2.uid and tb1.U_id='".$_SESSION['userid']."'") or die(mysql_error());
                                 while ($fetch=mysql_fetch_array($que)) {
                             ?>
                             <tr>

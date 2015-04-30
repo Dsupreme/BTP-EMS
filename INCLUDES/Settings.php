@@ -57,6 +57,7 @@
 ?>
     
     <?php
+        //On Submit Button Click
         if(isset($_POST['submitbtn'])) {
                 $pswdreset = "";
         
@@ -68,8 +69,9 @@
                     }
                     else {
                         $pswd_c = md5($pswd_c);
-                        $compare_pswd = mysql_query("select count(*) from `users` where username='".$_SESSION['username']."' and password='".$pswd_c."'");
-                        if (!mysql_num_rows($compare_pswd)) {
+                        $compare_pswd = mysql_query("select password from `users` where username='".$_SESSION['username']."' and password='".$pswd_c."'");
+                        $fetch=mysql_fetch_array($compare_pswd);
+                        if (strcmp($pswd_c,$fetch[0])) {
                             $pswdreset .= "Invalid Current Password. Please try again. \\n";
                         }
                     }
@@ -88,8 +90,8 @@
                     }
                     
                     //Insertion into database if no input errors found.
-                    if (strcmp($$pswdreset,"")!="0") {
-                        echo "<script language='javascript' type='text/javascript'>"."alert('$pswdreset');"."</script";
+                    if (strcmp($pswdreset,"")!="0") {
+                        echo "<script language='javascript' type='text/javascript'>"."alert('$pswdreset');"."</script>";
                     }
                     else {
                         //Query to update password
@@ -104,7 +106,7 @@
     ?>
     <body  style="background-color:#808080">
     <!--============================== Navigation Bar ==============================-->
-        <nav class="navbar navbar-fixed-top" role="navigation">
+        <section><nav class="navbar navbar-fixed-top" role="navigation">
             <div class="navbar-inner">
             <!--<li class="logo"><a><img src="Images/LogoVictor.png" /></a></li>-->
                 <div class="container">
@@ -140,9 +142,10 @@
                         </ul>
                 </div>     
             </div>
-        </nav>
-        <div class="container" style="margin-top:8em;">
-            <section>
+        </nav></section>
+    <!--============================== Page Elements ==============================-->
+        <section>
+            <div class="container" style="margin-top:8em;">
                 <div class="tabs">
                     <ul class="tab-links" id="pages">
                         <li class="active"><a href="#tab1">Account Settings</a></li>
@@ -173,8 +176,9 @@
                         </div>
                         <div id="tab2" class="tab">
                         </div>
-                    
                     </div>
+            </div>
+        </section>
     </body>
 <?php
     }

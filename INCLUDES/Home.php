@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <?php
+    //Check for usersession. Enables mutli tab support
 	session_start();
 	if(!$_SESSION['username']){
         echo (
@@ -11,16 +12,17 @@
 	}
 	else {
 ?>
-<?php
-    if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 900)) {
-        session_destroy();
-        echo "<script language='javascript' type='text/javascript'>";
-        echo "alert('Session Timed Out');";
-        echo "window.location.href='../'";
-        echo "</script>";
-    }
-    $_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
-?>
+        <?php
+            //Code For preventing outdated input of information by checking session timeout
+            if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 900)) {
+                session_destroy();
+                echo "<script language='javascript' type='text/javascript'>";
+                echo "alert('Session Timed Out');";
+                echo "window.location.href='../'";
+                echo "</script>";
+            }
+            $_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
+        ?>
 	<head>
 
 	    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -53,28 +55,27 @@
 		<link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
 
     </head>
-<?php
-	include 'Variables.php';
-   	include 'database.php';
-?>
 
-<script>
-$(function() {
-var tooltips = $( "[title]" ).tooltip({
-position: {
-my: "left top",
-at: "right+5 top-5"
-}
-});
-$( "<button>" )
-.text( "" )
-.button()
-.click(function() {
-tooltips.tooltip( "open" );
-})
-.insertAfter( "form" );
-});
-</script>
+    <?php
+        //Database connection strings and variable declarations
+        include 'Variables.php';
+        include 'database.php';
+    ?>
+
+    <!--Date Picker Tooltip-->
+    <script>
+        $(function() {
+            var tooltips = $( "[title]" ).tooltip({
+                position: {
+                    my: "left top",
+                    at: "right+5 top-5"
+                }
+            });
+            $( "<button>" ).text( "" ).button().click(function() {
+                tooltips.tooltip( "open" );
+            }).insertAfter( "form" );
+        });
+    </script>
 
 
 <?php
@@ -219,7 +220,7 @@ minDate: 0, maxDate: "+3M +10D"
             </div>
         </div>
     </nav>
-    <!--=href="Leave.php"========= CALENDAR========-->
+    <!--============================== Calendar ==============================-->
     <table width="100%">
     	<tr>
             <td>
@@ -229,6 +230,7 @@ minDate: 0, maxDate: "+3M +10D"
                 </div>
             </div>
             <div class="panel panel-default" id="side_panel">
+                <!--============================== Quick Links Panel ==============================-->
                 <div class="panel-heading" style="text-align:center">Quick Links</div>
                 <div class="panel-body">
                     <a id="leaveb"><button class="fc-button fc-state-default quicklinks">Apply For Leave</button></a>
@@ -270,7 +272,8 @@ minDate: 0, maxDate: "+3M +10D"
         </tr>
 		<tr>
 		    <td>
-        	<div class="footer">
+                <!--============================== Footer ==============================-->
+                <div class="footer">
             	<div id="legal">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit.<br>
                     In at purus at nisl pretium interdum. Aenean condimentum elementum nulla, non hendrerit diam scelerisque ac.<br><br>
