@@ -1,12 +1,13 @@
-// JavaScript Document
-$(document).ready(function() {
-	$('.btn .btn-tabs button').click(function()  {
-        var currentAttrValue = $(this).attr('id');
+jQuery(document).ready(function() {
+    jQuery('.tabs .tab-links a').on('click', function(e)  {
+        var currentAttrValue = jQuery(this).attr('href');
+ 
         // Show/Hide Tabs
-        $('.tabs ' + currentAttrValue).siblings().slideUp(400);
-		$('.tabs ' + currentAttrValue).delay(400).slideDown(400);
+        jQuery('.tabs ' + currentAttrValue).fadeIn(400).siblings().hide();
  
         // Change/remove current tab to active
-        $(this).parent('li').addClass('active').siblings().removeClass('active');
+        jQuery(this).parent('li').addClass('active').siblings().removeClass('active');
+ 
+        e.preventDefault();
     });
 });

@@ -41,6 +41,12 @@ textarea[name=descrip] {
 select {
     width: 100%;
     padding:0.2em;
-    margin: 1em 0;
+    margin: 2em 0;
     font-size: 15px;
+}
+
+.divider {
+    height: 5px;
+    overflow: hidden;
+    background-color: #e5e5e5;
 }

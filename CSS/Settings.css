@@ -11,3 +11,74 @@
 	top:6em;
 }
 
+
+/*----- Tabs -----*/
+.tabs {
+    width:100%;
+    display:block;
+}
+ 
+    /*----- Tab Links -----*/
+    /* Clearfix */
+    .tab-links:after {
+        display:block;
+        clear:both;
+        content:'';
+    }
+ 
+    .tab-links li {
+        margin:0px 0px;
+        float:left;
+        list-style:none;
+    }
+ 
+    .tab-links a {
+        padding:5px 20px;
+        display:inline-block;
+        background:#333333;
+        font-size:20px;
+        font-weight:600;
+        transition:all linear 0.15s;
+    }
+ 
+    .tab-links a:hover {
+        background:#3fada8;
+        color:#fff;
+        text-decoration:none;
+    }
+
+
+    #pages li.active a {
+        background:#fff;
+        color:#4c4c4c;
+        text-decoration:none;
+    }
+ 
+    /*----- Content of Tabs -----*/
+    .tab-content {
+        padding:15px;
+        border-radius:3px;
+        box-shadow:-1px 1px 1px rgba(0,0,0,0.15);
+        background:#fff;
+    }
+ 
+        .tab {
+            display:none;
+        }
+ 
+        .tab p {
+            padding: 5px;
+        }
+        .tab.active {
+            display:block;
+        }
+
+#colon {
+	padding-right:10px;
+}
+
+.Label {
+	position:relative;
+	width:200px;
+	padding:5px 30px 5px 20px;
+}

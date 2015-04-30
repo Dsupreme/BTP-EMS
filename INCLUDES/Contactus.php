@@ -10,7 +10,7 @@
 	<link rel="stylesheet" type="text/css" href="../CSS/bootstrap.css" media="screen" />
 
     <!--Javascript Links-->
-    <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.1.min.js"></script><!--JQuery Online link -->
+    <script type="text/javascript" src="../JS/jquery-1.11.0.min.js"></script><!--JQuery Online link -->
     <script type="text/javascript" src="../js/bootstrap.js"></script><!--Bootstrap Javascript -->
     <script type="text/javascript" src="../js/smoothscroll.js"></script><!--Smooth Scroll Animation -->
 </head>

@@ -1,19 +1,28 @@
 <!DOCTYPE html>
+<html>
 <?php
 	session_start();
-	if($_SESSION['username']){
-	}
-	//else {
-//		echo "href=\"../#tologin\"";
-//	}
-	else {
-		echo (
+	if(!$_SESSION['username']){
+        echo (
 			"<SCRIPT LANGUAGE='JavaScript'>
-    			window.location.href='/Github/BTP-EMS/#login';
+    			window.location.href='../';
     		   	window.alert('Not logged in.Please login to EMS to continue.')
     			</SCRIPT>"
 		);
-	}	
+	}
+	else {
+?>
+
+<?php
+    //Code For preventing outdated input of information by checking session timeout
+    if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 900)) {
+		session_destroy();
+		echo "<script language='javascript' type='text/javascript'>";
+		echo "alert('Session Timed Out');";
+        echo "window.location.href='../';";
+		echo "</script>";
+    }
+    $_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
 ?>
 	<head>
 	    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -42,7 +51,7 @@
         
     </head>
     <body  style="background-color:#808080">
-        <!--Navigation Bar-->
+    <!--============================== Navigation Bar ==============================-->
         <nav class="navbar navbar-fixed-top" role="navigation">
             <div class="navbar-inner">
             <!--<li class="logo"><a><img src="Images/LogoVictor.png" /></a></li>-->
@@ -61,7 +70,6 @@
                         </ul>
                     </div>
                     <ul class="nav navbar-nav navbar-right">							
-                            <li><a href="Application.php"><font size="+1">APPLY NOW</font></a></li>
                             <li><a href="../INCLUDES">Home</a></li>        		
                             <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Shortcuts<b class="caret"></b></a>  
                                 <ul class="dropdown-menu">
@@ -81,25 +89,40 @@
                 </div>     
             </div>
         </nav>
-        
-        <div class="container" id="tabs">
-        	<div class="btn-group btn-group-justified" id="setting_tabs">
-				<div class="btn-group">
-                    <button type="button" class="btn btn-tabs" id="#tab1">Profile</button>
-                </div>
-                <div class="btn-group">
-                    <button type="button" class="btn btn-tabs" id="#tab2">Email Notifications</button>
-                </div>
-            </div>
-            <div id="setting_tabs_contents">
-            	<div id="tab1" class="tab active">
-                hello	
-                </div>
-                <div id="tab2" class="tab">
-                1...2...3
-                </div>
-            	
-            </div>
-        </div>
-</body>
+        <div class="container" style="margin-top:8em;">
+            <section>
+                <div class="tabs">
+                    <ul class="tab-links" id="pages">
+                        <li class="active"><a href="#tab1">Account Settings</a></li>
+                        <li><a href="#tab2">Notification Settings</a></li>
+                        <!--<li><a href="#tab3">Application Posts</a></li>
+                        <li><a href="#tab4">User Addition</a></li>-->
+                    </ul>
+                    <div class="tab-content">
+                        <div id="tab1" class="tab active">
+                            <form id="form1" method="POST" >
+                                <table width="100%">
+                                    <tr>
+                                        <td class="Label">Current Password</td>
+                                        <td id="colon">:</td>
+                                        <td><input id="password" name="pswd_c" required type="password" /></td>
+                                        <td class="Label">New Password</td>
+                                        <td id="colon">:</td>
+                                        <td><input id="password" name="pswd_n" required type="password" /></td>
+                                        <td class="Label">Retype Password</td>
+                                        <td id="colon">:</td>
+                                        <td><input id="password" name="pswd_r" required type="password" /></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="9" align="center" style="padding-top:1em"><input class="btn btn-primary" name="submitbtn" type="submit" value="Submit" /></td>
+                                    </tr>
+                                </table>
+                            </form>
+                        </div>
+                    
+                    </div>
+    </body>
+<?php
+    }
+?>
 </html>

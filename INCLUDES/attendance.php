@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
     <?php
+        //Check for usersession. Enables mutli tab support
         session_start();
         if(!$_SESSION['username']){
             echo (
@@ -14,6 +15,7 @@
     ?>
     
     <?php
+        //Code For preventing outdated input of information by checking session timeout
         if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 900)) {
             session_destroy();
             echo "<script language='javascript' type='text/javascript'>";

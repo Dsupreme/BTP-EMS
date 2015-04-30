@@ -14,6 +14,7 @@
 ?>
 
 <?php
+    //Code For preventing outdated input of information by checking session timeout
     if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 900)) {
 		session_destroy();
 		echo "<script language='javascript' type='text/javascript'>";
@@ -24,7 +25,6 @@
     $_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
 ?>
     <head>
-
 	    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
         <!-- CSS Links -->
@@ -38,12 +38,9 @@
         <script type="text/javascript" src="../JS/smoothscroll.js"></script><!--Smooth Scroll Animation -->
         <script type="text/javascript" src="../JS/check_ajax.js"></script>
         <script type="text/javascript" src="../JS/admin.js"></script>
-			 <link rel="stylesheet" href="//code.jquery.com/ui/1.11.3/themes/smoothness/jquery-ui.css">
-<script src="//code.jquery.com/jquery-1.10.2.js"></script>
-<script src="//code.jquery.com/ui/1.11.3/jquery-ui.js"></script>
-
-
-
+		<link rel="stylesheet" href="//code.jquery.com/ui/1.11.3/themes/smoothness/jquery-ui.css">
+        <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+        <script src="//code.jquery.com/ui/1.11.3/jquery-ui.js"></script>
 	</head>
 
 <?php
@@ -51,7 +48,6 @@
 	include 'Variables.php';
     include '../FUNCTIONS/mail_newadmin.php';
     include '../FUNCTIONS/checkmail.php'
-
 ?>
 
 <?php
@@ -265,7 +261,7 @@ altFormat: "yy-mm-dd"
                     		</li>
                             <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo "Welcome, ".$_SESSION['username'] . "<b class='caret'></b>"?></a>
                             	<ul class="dropdown-menu">
-                                	<li><a href="">Settings</a></li>
+                                	<li><a href="Settings.php">Settings</a></li>
                                     <li class="divider"></li>
                                 	<li><a href="logout.php">Logout</a></li>
                                 </ul>
@@ -288,10 +284,9 @@ altFormat: "yy-mm-dd"
                         <div id="tab1" class="tab active">
                             <p>Pending Leave applications waiting for approval or rejection :</p>
                             <p>
-                                <form id="form1" method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+                                <form id="form1" method="POST">
                                     <table  class="tb5" width="100%"  style="margin:1em 0;">
                                         <tr>
-											<td align="center">Leave ID</td>
                                             <td align="center">First Name</td>
                                             <td align="center">Last Name</td>
                                             <td align="center">Start Date & Time</td>
@@ -301,10 +296,10 @@ altFormat: "yy-mm-dd"
 											<td align="center">Action</td>
                                         </tr>
                                         <tr>
-                                            <td class="divider" colspan="8"></td>
+                                            <td class="divider" colspan="7"></td>
                                         </tr>
                                     <?php
-                                        $select=mysql_query("select * from `leave` where 1") or die(mysql_error());
+                                        $select=mysql_query("select * from `leave`where 1") or die(mysql_error());
                                         while($fetch=mysql_fetch_array($select))
                                         {
                                     ?>
@@ -313,7 +308,6 @@ altFormat: "yy-mm-dd"
 												$select2 = mysql_query("select firstname, lastname from users where U_id = ".$fetch[1]) or die(mysql_error());
 												$fetch2 = mysql_fetch_array($select2);
 											?>
-												<td align="center"><?php echo $fetch[0] ?></td>
 												<td align="center"><?php echo $fetch2[0] ?></td>
 												<td align="center"><?php echo $fetch2[1] ?></td>
                                                 <td align="center"><?php echo $fetch[3] ?></td>
@@ -323,9 +317,40 @@ altFormat: "yy-mm-dd"
                                                 <td align="center">
                                                     <a href="deleteleave.php?Del=<?php echo $fetch[0]; ?>"><img src="../IMAGES/cross.png" alt="Disapprove "></a>                              
                                                     <a href="approveleave.php?Edit=<?php echo $fetch[0]; ?>"><img src="../IMAGES/tick.png" alt="Approve"></a>
-                                        </td>
-                                    </tr>
+                                                </td>
+                                            </tr>
                                     <?php } ?>
+                                        
+                                    <!--<?php
+                                        //$select3 = mysql_query("select tb1.l_id,tb2.firstname, tb1.title from `leave` tb1, users tb2 where tb1.l_id=tb2.U_id") or die(mysql_error());
+                                        //while($fetch3=mysql_fetch_array($select3)) {
+                                    ?>
+                                            <tr>
+											<?php
+												//$select2 = mysql_query("select firstname, lastname from users where U_id = ".$fetch[1]) or die(mysql_error());
+												//$fetch2 = mysql_fetch_array($select2);
+											?>
+												<td align="center"><?php //echo $fetch3[1] ?></td>
+                                                <td align="center"><?php //echo $fetch3[2] ?></td>
+
+                                                
+                                            </tr>
+                                        <?php
+                                    //    }
+        /*
+        <!--<td align="center"><?php echo $fetch1[1] ?></td>-->
+                                                <!--
+                                                <td align="center"><?php echo $fetch[3] ?></td>
+                                                <td align="center"><?php echo $fetch[4] ?></td>
+												<td align="center"><?php if($fetch[6] == "orange"){echo "not-approved";}else{echo "approved";} ?></td>
+                                                <td align="center"><?php echo $fetch[2] ?></td>
+                                                <td align="center">
+                                                    <a href="deleteleave.php?Del=<?php echo $fetch[0]; ?>"><img src="../IMAGES/cross.png" alt="Disapprove "></a>                              
+                                                    <a href="approveleave.php?Edit=<?php echo $fetch[0]; ?>"><img src="../IMAGES/tick.png" alt="Approve"></a>-->
+                                        <!--</td>-->
+        //"select tb1.l_id from leave tb1, users tb2 where tb1.l_id=tb2.U_id"
+        // tb2.firstname, tb2.lastname, tb1.start, tb1.end, tb1.title., tb1.status*/
+                                        ?>     -->                                   
                                     </table>
                                 </form>
                             </p>
@@ -396,7 +421,7 @@ altFormat: "yy-mm-dd"
                         <div id="tab3" class="tab">
                             <p>Job Application Posts currently available</p>
                             <p>
-                                <form id="form3" method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" autocomplete="on" onSubmit="JavaScript:load_posts()">
+                                <form id="form3" method="POST" autocomplete="on" onSubmit="JavaScript:load_posts()">
                                     <table width="100%">
                                         <tr>
                                             <td class="Label">Post</td>
