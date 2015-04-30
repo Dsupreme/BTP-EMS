@@ -169,7 +169,7 @@
 			<div class="panel-heading"> Photo </div>
         	<div class="panel-body" id="pic">
             	<a href="" class="thumbnail">
-                	<img src="../IMAGES/2.png" />
+                	<img src="../IMAGES/waves.gif" />
 			    </a>
             </div>
         </div>

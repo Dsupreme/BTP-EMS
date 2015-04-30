@@ -24,12 +24,12 @@ function signup() {
                             window.location = "INCLUDES/profile.php";
                         }
                         else {
-                            alert(d);    
+                            alert(d);
                         }
                         return msg;
                     }
                 });
-    
+
 }
 
 function login() {
@@ -51,10 +51,11 @@ function login() {
             }
             else {
                 window.location = d;
+                console.log(txt);
             }                        txt = d;
 
-            console.log(txt);
+
             return response;
         }
-    })    
+    })
 }
