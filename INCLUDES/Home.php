@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<html>
 <?php
     //Check for usersession. Enables mutli tab support
 	session_start();

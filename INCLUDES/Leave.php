@@ -118,7 +118,7 @@
         </script>
     
         <body  style="background-color:#808080">
-            <!--============================== navigation Bar ==============================-->
+            <!--============================== Navigation Bar ==============================-->
             <section>
                 <nav class="navbar navbar-fixed-top" role="navigation">
                 <div class="navbar-inner">

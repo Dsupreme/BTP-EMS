@@ -231,54 +231,58 @@ altFormat: "yy-mm-dd"
 </script>
 
  <body  style="background-color:#808080">
-		<!--Navigation Bar-->
-		<nav class="navbar navbar-fixed-top" role="navigation">
-			<div class="navbar-inner">
-			<!--<li class="logo"><a><img src="Images/LogoVictor.png" /></a></li>-->
-            	<div class="container">
-            		<div class="navbar-header">
-	            		<!-- Brand and toggle get grouped for better mobile display -->
-                		<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-      						<span class="sr-only">Toggle navigation</span>
-					   	 	<span class="icon-bar"></span>
-					    	<span class="icon-bar"></span>
-			      			<span class="icon-bar"></span>
-		    			</button>
-                		<ul class="nav navbar-nav">
-                		<!-- Header & Brand/Company Name-->
-                			<li class="active"><a class="navbar-brand" href="Home.php"><font size="+3"> Employee Management System</font></a></li>
-                		</ul>
-            		</div>
-            		<div class="navbar-collapse collapse">
-          				<ul class="nav navbar-nav navbar-right">
-                    		<li><a href="Home.php">Home</a></li>
-                   			<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Shortcuts<b class="caret"></b></a>
-    							<ul class="dropdown-menu">
-                                	<li><a href="aboutus.php">About Us</a></li>
-                                	<li class="divider"></li>
-                                	<li><a href="Contactus.php">Contact Us</a></li>
-                            	</ul>
-                    		</li>
-                            <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo "Welcome, ".$_SESSION['username'] . "<b class='caret'></b>"?></a>
-                            	<ul class="dropdown-menu">
-                                	<li><a href="Settings.php">Settings</a></li>
-                                    <li class="divider"></li>
-                                	<li><a href="logout.php">Logout</a></li>
-                                </ul>
-                            </li>
-               			</ul>
-           			</div>
-        		</div>
-			</div>
-		</nav>
-        <div class="container" style="margin-top:8em;">
-            <section>
+        <!--============================== Navigation Bar ==============================-->
+		<section>
+            <nav class="navbar navbar-fixed-top" role="navigation">
+                <div class="navbar-inner">
+                <!--<li class="logo"><a><img src="Images/LogoVictor.png" /></a></li>-->
+                    <div class="container">
+                        <div class="navbar-header">
+                            <!-- Brand and toggle get grouped for better mobile display -->
+                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <ul class="nav navbar-nav">
+                            <!-- Header & Brand/Company Name-->
+                                <li class="active"><a class="navbar-brand" href="Home.php"><font size="+3"> Employee Management System</font></a></li>
+                            </ul>
+                        </div>
+                        <div class="navbar-collapse collapse">
+                            <ul class="nav navbar-nav navbar-right">
+                                <li><a href="Home.php">Home</a></li>
+                                <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Shortcuts<b class="caret"></b></a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="aboutus.php">About Us</a></li>
+                                        <li class="divider"></li>
+                                        <li><a href="Contactus.php">Contact Us</a></li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo "Welcome, ".$_SESSION['username'] . "<b class='caret'></b>"?></a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="Settings.php">Settings</a></li>
+                                        <li class="divider"></li>
+                                        <li><a href="logout.php">Logout</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </section>
+        <!--============================== Page Elements ==============================-->
+        <section>
+            <div class="container" style="margin-top:8em;">
                 <div class="tabs">
                     <ul class="tab-links" id="pages">
                         <li class="active"><a href="#tab1">Leave Applications</a></li>
                         <li><a href="#tab2">Holidays</a></li>
                         <li><a href="#tab3">Application Posts</a></li>
                         <li><a href="#tab4">User Addition</a></li>
+                        <li><a href="#tab5">Job Applications</a></li>
                     </ul>
                     <div class="tab-content">
                         <div id="tab1" class="tab active">
@@ -525,17 +529,29 @@ altFormat: "yy-mm-dd"
                                 </form>
                             </p>
                         </div>
+                        <div id="tab5" class="tab">
+                            <p>Job Application for available Posts </p>
+                            <p>
+                                <?php
+                                    $applications = mysql_query("select ");  
+                                
+                                ?>
+                                
+                            </p>
+                        </div>
                     </div>
                 </div>
-            </section>
-        </div>
-        <div class="footer">
+            </div>
+        </section>
+        <!--============================== Footer ==============================-->
+        <section>
+            <div class="footer">
             <div id="legal">
                 EMS, an online portal to facilitate all the administrative tasks<br>
                 © Copyright 2014 IIIT - Delhi
             </div>
         </div>
-
+        </section>
 </html>
 <?php
 	}
