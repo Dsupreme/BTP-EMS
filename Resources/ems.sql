@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 30, 2015 at 06:54 PM
+-- Generation Time: May 01, 2015 at 01:02 AM
 -- Server version: 5.5.32
 -- PHP Version: 5.4.19
 
@@ -218,6 +218,7 @@ INSERT INTO `leave` (`l_id`, `id`, `title`, `start`, `end`, `description`, `back
 
 CREATE TABLE IF NOT EXISTS `pdetails` (
   `app_ID` int(50) NOT NULL AUTO_INCREMENT COMMENT 'application number',
+  `uid` bigint(20) DEFAULT NULL,
   `flag` tinyint(1) NOT NULL,
   `firstname` text NOT NULL COMMENT 'First name applicant',
   `middlename` text COMMENT 'second name of the applicant',
@@ -246,21 +247,21 @@ CREATE TABLE IF NOT EXISTS `pdetails` (
 -- Dumping data for table `pdetails`
 --
 
-INSERT INTO `pdetails` (`app_ID`, `flag`, `firstname`, `middlename`, `lastname`, `fathername`, `mothername`, `DOB`, `nationality`, `sex`, `c_addr`, `c_city`, `c_state`, `c_pin`, `c_phone`, `c_mobile`, `p_addr`, `p_city`, `p_state`, `p_pin`, `p_phone`, `p_mobile`) VALUES
-(1, 0, 'Naresh', 'ADITYA', 'Madhav', 'harish', 'rajni', '0000-00-00', 'Indian', 'Male', '20, Todar Mal Road', 'New Delhi', 'Delhi', 110001, 23352350, 8130980397, '20, Todar Mal Road', 'New Delhi', 'Delhi', 110001, 23352350, 8130980397),
-(2, 0, 'Naresh', 'ADITYA', 'Madhav', 'harish', 'rajni', '0000-00-00', 'Indian', 'Male', '20, Todar Mal Road', 'New Delhi', 'Delhi', 110001, 23352350, 8130980397, '20, Todar Mal Road', 'New Delhi', 'Delhi', 110001, 23352350, 8130980397),
-(3, 0, '', '', '', '', '', '0000-00-00', '', '', '', '', '', 0, 0, 0, '', '', '', 0, 0, 0),
-(4, 0, '', '', '', '', '', '0000-00-00', '', '', '', '', '', 0, 0, 0, '', '', '', 0, 0, 0),
-(5, 0, '', '', '', '', '', '0000-00-00', '', '', '', '', '', 0, 0, 0, '', '', '', 0, 0, 0),
-(6, 0, '', '', '', '', '', '0000-00-00', '', '', '', '', '', 0, 0, 0, '', '', '', 0, 0, 0),
-(7, 0, '', '', '', '', '', '0000-00-00', '', '', '', '', '', 0, 0, 0, '', '', '', 0, 0, 0),
-(8, 0, '', '', '', '', '', '0000-00-00', '', '', '', '', '', 0, 0, 0, '', '', '', 0, 0, 0),
-(9, 0, 'Naresh ', 'Aditya', 'Madhav ', 'Nirmal Prasad', 'Gulbi Devi', '1993-12-12', 'Indian', 'Male', '20, Todar Mal Road', 'New Delhi', 'Delhi', 110001, 2147483647, 8130980397, '20, Todar Mal Road', 'New Delhi', 'Delhi', 110001, 1123352350, 8130980397),
-(10, 0, 'Naresh', 'Aditya', 'Madhav', 'Nirmal Prasad', 'Gulbi Devi', '1993-12-12', 'Indian', 'Male', '20, Todar Mal Road', 'New Delhi`', 'Delhi', 110001, 1123352350, 8130980397, '20, Todar Mal Road', 'De', '', 0, 0, 0),
-(11, 0, 'Naresh', 'Aditya', 'Madhav', 'Nirmal Prasad', 'Gulbi Devi', '1993-12-12', 'Indian', 'Male', '20, Todar Mal Road', 'New Delhi', 'Delhi', 110001, 1123352350, 8130980397, '20, Todar Mal Road', 'New Delhi', 'Delhi', 110001, 1123352350, 8130980397),
-(12, 0, '', '', '', '', '', '0000-00-00', '', '', '', '', '', 0, 0, 0, '', '', '', 0, 0, 0),
-(13, 0, '', '', '', '', '', '0000-00-00', '', '', '', '', '', 0, 0, 0, '', '', '', 0, 0, 0),
-(14, 0, 'Naresh Aditya', 'Madhav', 'Madhav', 'Nirmal', 'Gulbi Devi', '1993-12-12', 'Indian', 'Male', '20, Todar Mal Road', 'New Delhi', 'Delhi', 110001, 23352350, 8130980397, '9a 50, karol bagh', 'New Delhi', 'Delhi', 110001, 23352350, 8130980397);
+INSERT INTO `pdetails` (`app_ID`, `uid`, `flag`, `firstname`, `middlename`, `lastname`, `fathername`, `mothername`, `DOB`, `nationality`, `sex`, `c_addr`, `c_city`, `c_state`, `c_pin`, `c_phone`, `c_mobile`, `p_addr`, `p_city`, `p_state`, `p_pin`, `p_phone`, `p_mobile`) VALUES
+(1, NULL, 0, 'Naresh', 'ADITYA', 'Madhav', 'harish', 'rajni', '0000-00-00', 'Indian', 'Male', '20, Todar Mal Road', 'New Delhi', 'Delhi', 110001, 23352350, 8130980397, '20, Todar Mal Road', 'New Delhi', 'Delhi', 110001, 23352350, 8130980397),
+(2, NULL, 0, 'Naresh', 'ADITYA', 'Madhav', 'harish', 'rajni', '0000-00-00', 'Indian', 'Male', '20, Todar Mal Road', 'New Delhi', 'Delhi', 110001, 23352350, 8130980397, '20, Todar Mal Road', 'New Delhi', 'Delhi', 110001, 23352350, 8130980397),
+(3, NULL, 0, '', '', '', '', '', '0000-00-00', '', '', '', '', '', 0, 0, 0, '', '', '', 0, 0, 0),
+(4, NULL, 0, '', '', '', '', '', '0000-00-00', '', '', '', '', '', 0, 0, 0, '', '', '', 0, 0, 0),
+(5, NULL, 0, '', '', '', '', '', '0000-00-00', '', '', '', '', '', 0, 0, 0, '', '', '', 0, 0, 0),
+(6, NULL, 0, '', '', '', '', '', '0000-00-00', '', '', '', '', '', 0, 0, 0, '', '', '', 0, 0, 0),
+(7, NULL, 0, '', '', '', '', '', '0000-00-00', '', '', '', '', '', 0, 0, 0, '', '', '', 0, 0, 0),
+(8, NULL, 0, '', '', '', '', '', '0000-00-00', '', '', '', '', '', 0, 0, 0, '', '', '', 0, 0, 0),
+(9, NULL, 0, 'Naresh ', 'Aditya', 'Madhav ', 'Nirmal Prasad', 'Gulbi Devi', '1993-12-12', 'Indian', 'Male', '20, Todar Mal Road', 'New Delhi', 'Delhi', 110001, 2147483647, 8130980397, '20, Todar Mal Road', 'New Delhi', 'Delhi', 110001, 1123352350, 8130980397),
+(10, NULL, 0, 'Naresh', 'Aditya', 'Madhav', 'Nirmal Prasad', 'Gulbi Devi', '1993-12-12', 'Indian', 'Male', '20, Todar Mal Road', 'New Delhi`', 'Delhi', 110001, 1123352350, 8130980397, '20, Todar Mal Road', 'De', '', 0, 0, 0),
+(11, NULL, 0, 'Naresh', 'Aditya', 'Madhav', 'Nirmal Prasad', 'Gulbi Devi', '1993-12-12', 'Indian', 'Male', '20, Todar Mal Road', 'New Delhi', 'Delhi', 110001, 1123352350, 8130980397, '20, Todar Mal Road', 'New Delhi', 'Delhi', 110001, 1123352350, 8130980397),
+(12, NULL, 0, '', '', '', '', '', '0000-00-00', '', '', '', '', '', 0, 0, 0, '', '', '', 0, 0, 0),
+(13, NULL, 0, '', '', '', '', '', '0000-00-00', '', '', '', '', '', 0, 0, 0, '', '', '', 0, 0, 0),
+(14, NULL, 0, 'Naresh Aditya', 'Madhav', 'Madhav', 'Nirmal', 'Gulbi Devi', '1993-12-12', 'Indian', 'Male', '20, Todar Mal Road', 'New Delhi', 'Delhi', 110001, 23352350, 8130980397, '9a 50, karol bagh', 'New Delhi', 'Delhi', 110001, 23352350, 8130980397);
 
 -- --------------------------------------------------------
 

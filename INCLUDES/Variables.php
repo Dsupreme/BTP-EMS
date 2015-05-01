@@ -1,20 +1,17 @@
 <?php
 
-	//Peronal Details
-    $candidate_fname = $candidate_mname = $candidate_lname = $f_candidate = $m_candidate = $dob_candidate = $nationality_candidate = $gender = "";
-	
-    if(isset($_POST['candidate_fname']))       { $candidate_fname=test_input($_POST['candidate_fname']);}
-	if(isset($_POST['candidate_mname']))       { $candidate_mname=test_input($_POST['candidate_mname']);}
+	//Personal Details	
+    //if(isset($_POST['candidate_fname'])) {$candidate_fname=$_POST['candidate_fname'];}
+	/*if(isset($_POST['candidate_mname']))       { $candidate_mname=test_input($_POST['candidate_mname']);}
 	if(isset($_POST['candidate_lname']))       { $candidate_lname=test_input($_POST['candidate_lname']);}
 	if(isset($_POST['f_candidate']))	       { $f_candidate=test_input($_POST['f_candidate']);}
 	if(isset($_POST['m_candidate']))	       { $m_candidate=test_input($_POST['m_candidate']);}
 	if(isset($_POST['dob_candidate']))         { $dob_candidate=test_input($_POST['dob_candidate']);}
-	if(isset($_POST['nationality_candidate'])) { $nationality_candidate=test_input($_POST['nationality_candidate']);}
-	if(isset($_POST['sex']))                   { $gender =test_input($_POST['sex']);}
-
+	if(isset($_POST['nationality_candidate'])) { $nat_candidate=test_input($_POST['nationality_candidate']);}
+	if(isset($_POST['sex']))                   { $g_candidate =test_input($_POST['sex']);}
 
 	//Correspondence Address
-	if(isset($_POST['c_address']))     { $c_address=test_input($_POST['c_address']);}
+	if(isset($_POST['c_address']))     { $c_addr=test_input($_POST['c_address']);}
 	if(isset($_POST['c_city']))	       { $c_city=test_input($_POST['c_city']);}
 	if(isset($_POST['c_state']))       { $c_state=test_input($_POST['c_state']);}
 	if(isset($_POST['c_pin'])) 	       { $c_pin=test_input($_POST['c_pin']);}
@@ -22,7 +19,7 @@
 	if(isset($_POST['c_mobile']))      { $c_mobile=test_input($_POST['c_mobile']);}
 
 	//Permanent Address
-	if(isset($_POST['p_address']))  {$p_address=test_input($_POST['p_address']);}
+	if(isset($_POST['p_address']))  {$p_addr=test_input($_POST['p_address']);}
 	if(isset($_POST['p_city']))	    {$p_city=test_input($_POST['p_city']);}
 	if(isset($_POST['p_state']))    {$p_state=$_POST['p_state'];}
 	if(isset($_POST['p_pin']))	    {$p_pin=$_POST['p_pin'];}
@@ -31,10 +28,10 @@
 
 	//qualification
 
-	if(isset($_POST['c_degree']))         { $c_degree=$_POST['c_degree'];}
-	if(isset($_POST['c_specialization'])) { $c_specialization=$_POST['c_specialization'];}
-	if(isset($_POST['c_university']))     { $c_university=$_POST['c_university'];}
-	if(isset($_POST['c_year']))           { $c_year=$_POST['c_year'];}
+	if(isset($_POST['c_degree']))         { $c_deg=$_POST['c_degree'];}
+	if(isset($_POST['c_specialization'])) { $c_spec=$_POST['c_specialization'];}
+	if(isset($_POST['c_university']))     { $c_uni=$_POST['c_university'];}
+	if(isset($_POST['c_year']))           { $c_yr=$_POST['c_year'];}
 	if(isset($_POST['c_marks']))          { $c_marks=$_POST['c_marks'];}
 
 	//experience
@@ -44,7 +41,7 @@
 	if(isset($_POST['c_desg']))   { $c_desg=$_POST['c_desg'];}
 	if(isset($_POST['c_org']))    { $c_org=$_POST['c_org'];}
 	if(isset($_POST['c_resp']))   { $c_resp=$_POST['c_resp'];}
-	if(isset($_POST['c_salary'])) { $c_salary=$_POST['c_salary'];}
+	if(isset($_POST['c_salary'])) { $c_salary=$_POST['c_salary'];}*/
 
 /*	//signup
     $unames = $pswds = $emails = $pswds_c = $unamel = $pswdl = "";

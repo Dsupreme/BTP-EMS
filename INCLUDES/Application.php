@@ -1,28 +1,29 @@
 <!DOCTYPE html>
 <html>
-    <?php
-        session_start();
-        if(!$_SESSION['username']){
-            echo (
-                "<SCRIPT LANGUAGE='JavaScript'>
-                    window.location.href='../';
-                    window.alert('Not logged in.Please login to EMS to continue.')
-                    </SCRIPT>"
-            );
-        }
-        else {
-    ?>
+<?php
+	session_start();
+	if(!$_SESSION['username']){
+        echo (
+			"<SCRIPT LANGUAGE='JavaScript'>
+    			window.location.href='../';
+    		   	window.alert('Not logged in.Please login to EMS to continue.')
+    			</SCRIPT>"
+		);
+	}
+	else {
+?>
 
-    <?php
-        if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 900)) {
-            session_destroy();
-            echo "<script language='javascript' type='text/javascript'>";
-            echo "alert('Session Timed Out');";
-            echo "window.location.href='../'";
-            echo "</script>";
-        }
-        $_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
-    ?>
+<?php
+    //Code For preventing outdated input of information by checking session timeout
+    if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 900)) {
+		session_destroy();
+		echo "<script language='javascript' type='text/javascript'>";
+		echo "alert('Session Timed Out');";
+        echo "window.location.href='../';";
+		echo "</script>";
+    }
+    $_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
+?>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
@@ -32,7 +33,6 @@
         <link rel="stylesheet" type="text/css" href="../CSS/bootstrap.css" media="screen" />
         <link rel="stylesheet" type="text/css" href="../CSS/application.css" media="screen" />
 
-
         <!--Javascript Links-->
         <script type="text/javascript" src="../JS/jquery-1.11.0.min.js"></script><!--JQuery Online link -->
         <script type="text/javascript" src="../JS/bootstrap.js"></script><!--Bootstrap Javascript -->
@@ -40,19 +40,20 @@
         <script type="text/javascript" src="../JS/smoothscroll.js"></script><!--Smooth Scroll Animation -->
         <script type="text/javascript" src="../JS/add-del-row.js"></script><!--Add Deleting New Rows -->
         <script type="text/javascript" src="../JS/progress.js"></script><!-- Progress of Completion -->
-        <script type="text/javascript" src="../JS/app_submit.js"></script><!-- Ajax script for submitting application -->
+        <script type="text/javascript" src="../JS/app_submit.js"></script><!-- AJAX application submission -->
+        <script src='https://www.google.com/recaptcha/api.js'></script><!--Recaptcha-->
+        
     </head>
-
+    
     <?php
+        include 'database.php';
         include 'Variables.php';
         include 'file-uploader.php';
-        include 'database.php';
         require_once('../LIBRARIES/recaptchalib.php');
     ?>
 
-
     <body  style="background-color:#808080">
-    <!--Navigation Bar-->
+        <!--============================== Navigation Bar ==============================-->
         <section>
             <nav class="navbar navbar-fixed-top" role="navigation">
                 <div class="navbar-inner">
@@ -95,7 +96,9 @@
                 </div>
             </nav>
         </section>
+        <!--============================== Page Elements ==============================-->
         <section>
+            <!--============================== Progress Bar ==============================-->
             <div class="common">
                 <progress id="progress-bar" min="1" max="100" value="0"></progress>
                 <span class="all_span first border-change "><div class="prog-text">1/4</div></span>
@@ -103,7 +106,8 @@
                 <span class="all_span third"><div class="prog-text">3/4</div></span>
                 <span class="all_span fourth"><div class="prog-text">4/4</div></span>
             </div>
-                <form id="form1" method="POST">
+            <!--============================== Form 1 ==============================-->
+            <form id="form1" method="POST">
                     <div class="container" style="top:80px;">
                         <div class="panel panel-default">
                             <div class="panel-heading">Apply for</div>
@@ -134,13 +138,15 @@
                         </div>
                     </div>
                 </form>
-                <form id="form2" method="POST">
+            <!--============================== Form 2 ==============================-->
+            <form id="form2" method="POST">
                     <div class="container" style="top:80px;">
                         <div class="panel panel-default">
                             <div class="panel-heading">Personal Details(as per matriculation certificate)</div>
                             <div class="panel-body">
                                 <table>
                                     <input type="hidden" name="hide" value="<?php if(isset($fetchedit)){echo $fetchedit[0];}?>">
+                                    
                                     <tr>
                                         <td class="Label" >First Name </td>
                                         <td id="colon">:</td>
@@ -246,7 +252,8 @@
                         </div>
                     </div>
                 </form>
-                <form id="form3" method="POST">
+            <!--============================== Form 3 ==============================-->
+            <form id="form3" method="POST">
                     <div class="container" style="top:80px;">
                         <div class="panel panel-default">
                             <div class="panel-heading">Education Qualification</div>
@@ -348,7 +355,7 @@
                                 </table>
                            </div>
                        </div>
-                        <div class="panel panel-default" onclick="app_submit();">
+                        <div class="panel panel-default">
                         <div class="panel-body">
                         <label class="btn btn-primary" name="" onclick="goto_form3();">Previous</label>    
                         <label class="btn btn-primary" style="float:right" name="" onclick="goto_form4();">Next</label>
@@ -357,9 +364,10 @@
                     </div>
 
                 </form>
-                <form id="form4" method="POST">
+            <!--============================== Form 4 ==============================-->
+            <form id="form4" method="POST">
                     <div class="container" style="top:80px;">
-                        <form method="post" action="file-uploader.php" enctype="multipart/form-data">
+                        <!--<form enctype="multipart/form-data">
                            <div class="panel panel-default">
                                 <div class="panel-heading">Upload Photos & Signatures</div>
                                 <div class="panel-body">
@@ -392,7 +400,7 @@
                                         </table>
                                 </div>
                             </div>
-                        </form>
+                        </form>-->
                         <div class="panel panel-default">
                             <div class="panel-body">
                                 <div class="panel-heading">Declaration : <font size="+1" >I hereby declare that :- </font> </div>
@@ -418,18 +426,10 @@
                                     <tr>
                                         <td></td>
                                         <td>
-                                            <div>
-                                                <form method="POST" action="recaptcha-verify.php">
-                                                    <?php
-
-                                                        $publickey = "6LdLKvASAAAAAH8kNO-2m5zbkvJNviMjhPP_1Whn"; // From the signup page for recaptacha Library
-                                                        echo recaptcha_get_html($publickey);
-                                                    ?>
-                                                </form>
-                                            </div>
+                                            <div class="g-recaptcha" data-sitekey="6LdFMAYTAAAAAO51k6kcHPbnz7-ZYNNH7mfra4xG"></div>
                                         </td>
                                         <td colspan="2">
-                                        <input class="btn btn-primary" name="submitbtn" type="submit" value="Submit" />
+                                            <input class="btn btn-primary" type="submit" name="submitbtn" value="Submit" onclick="app_submit();"/>
                                         </td>
                                     </tr>
                                 </table>
@@ -439,7 +439,8 @@
                 </form>
         </section>
     </body>
-</html>
+
 <?php
     }
 ?>
+</html>

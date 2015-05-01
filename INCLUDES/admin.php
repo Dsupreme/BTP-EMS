@@ -282,7 +282,9 @@ altFormat: "yy-mm-dd"
                         <li><a href="#tab2">Holidays</a></li>
                         <li><a href="#tab3">Application Posts</a></li>
                         <li><a href="#tab4">User Addition</a></li>
+<!--
                         <li><a href="#tab5">Job Applications</a></li>
+-->
                     </ul>
                     <div class="tab-content">
                         <div id="tab1" class="tab active">
@@ -529,7 +531,7 @@ altFormat: "yy-mm-dd"
                                 </form>
                             </p>
                         </div>
-                        <div id="tab5" class="tab">
+                        <!--<div id="tab5" class="tab">
                             <p>Job Application for available Posts </p>
                             <p>
                                 <?php
@@ -538,7 +540,7 @@ altFormat: "yy-mm-dd"
                                 ?>
                                 
                             </p>
-                        </div>
+                        </div>-->
                     </div>
                 </div>
             </div>
